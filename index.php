@@ -1,12 +1,13 @@
 <?php
-include_once 'additional/dbh.inc.php'
+include_once 'additional/dbh.inc.php';
+include_once 'additional/config.php';
 ?>
 <html>
 <head>
     <title>Pet Heroes</title>
 </head>
 
-<body>
+<body style="background-color: whitesmoke">
 <?php include_once 'header.php'?>
 <h1>Pet Heroes</h1>
 <?php
@@ -19,6 +20,9 @@ include_once 'additional/dbh.inc.php'
         }
     }
 ?>
+<div class="container-fluid">
+    <a class="btn btn-primary" href="<?php echo 'sign_up.php'?>"> Sign Up </a>
+</div>
 
 </body>
 
