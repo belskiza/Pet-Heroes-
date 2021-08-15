@@ -9,20 +9,31 @@ include_once 'additional/config.php';
 
 <body style="background-color: whitesmoke">
 <?php include_once 'header.php'?>
-<?php
-    $sql = "SELECT * FROM users;";
-    $result = mysqli_query($conn, $sql);
-    $resultCheck = mysqli_num_rows($result);
-    if ($resultCheck > 0 ){
-        while ($row = mysqli_fetch_assoc($result)) {
-            echo 'this is an SQL test: '.$row['first_name'];
-        }
-    }
-?>
 <br/>
+<?php
+if (isset($_GET["message"])) {
+    echo "<div class='mb-3'>";
+    if ($_GET["message"] == "logout") {
+        echo "<div class=\"alert alert-success\" role=\"alert\">You are now logged out
+                    </div>";
+    }
+    if ($_GET["message"] == "login") {
+        echo "<div class=\"alert alert-success\" role=\"alert\">You are now logged in
+                    </div>";
+    }
+    echo "</div>";
+}
+?>
 <div class="container-fluid">
-    <a class="btn btn-primary" href="<?php echo 'sign_up.php'?>"> Sign Up </a>
-    <a class="btn btn-primary" href="<?php echo 'login.php'?>">Log In</a>
+    <?php if (isset($_SESSION['username'])){
+        echo "<a class=\"btn btn-primary\" href='profile.php'?>".$_SESSION['first_name']."</a>";
+        echo "<a class=\"btn btn-warning\" href='additional/logout.inc.php'?>Log Out</a>";
+    } else {
+        echo "<a class=\"btn btn-primary\" href='sign_up.php'?> Sign Up </a>
+              <a class=\"btn btn-primary\" href='login.php'?>Log In</a>";
+    }
+    ?>
+
 </div>
 
 </body>

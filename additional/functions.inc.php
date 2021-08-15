@@ -1,5 +1,14 @@
 <?php
-
+/**
+ * A function which checks if any of the input fields are blank
+ * @param $first_name - first name of new user
+ * @param $last_name -  last name of new user
+ * @param $email - email of new user
+ * @param $username - username of new user
+ * @param $password - password of new user
+ * @param $password_confirm - confirmed password of new user
+ * @return bool - true if any of the details are empty, false otherwise
+ */
 function emptyInputSignup($first_name, $last_name, $email, $username, $password, $password_confirm) {
     if (empty($first_name) || empty($last_name) || empty($email) || empty($username) || empty($password) ||
         empty($password_confirm)){
@@ -11,6 +20,11 @@ function emptyInputSignup($first_name, $last_name, $email, $username, $password,
     return $result;
 }
 
+/**
+ * A function which checks if the username contains invalid characters
+ * @param $username - submitted username in sign up form
+ * @return bool - false if username is acceptable. True otherwise
+ */
 function invalidUsername($username) {
     $result = false;
     if (!preg_match("/^[a-zA-Z0-9]*$/", $username)){
@@ -19,6 +33,11 @@ function invalidUsername($username) {
     return $result;
 }
 
+/**
+ * A function which checks if an email is in the correct format
+ * @param $email - submitted email in sign up form
+ * @return bool - false if email is in the correct format. True otherwise
+ */
 function invalidEmail($email) {
     $result = false;
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)){
@@ -27,6 +46,12 @@ function invalidEmail($email) {
     return $result;
 }
 
+/**
+ * A function which checks that the passwords match
+ * @param $password - password of new user
+ * @param $password_confirm - confirmed password of new user
+ * @return bool - false if passwords do match. True otherwise
+ */
 function passwordMatch($password, $password_confirm) {
     $result = false;
     if ($password !== $password_confirm){
@@ -41,6 +66,13 @@ function passwordCheck($password, $password_confirm) {
     return $result;
 }
 
+/** A function which checks if the given username or email already exist in the users table of our database
+ * @param $conn - connection to SQL
+ * @param $username - given username
+ * @param $email - given email
+ * @return bool|string[]|null - returns the row where the username or email may exist. False if it cannot find any
+ * matches
+ */
 function usernameEmailExists($conn, $username, $email) {
     $sql = "SELECT * FROM users WHERE username = ? OR email = ?;";
     // Using a prepared statement to stop the user from being able to write code into the input boxes which could
@@ -66,6 +98,15 @@ function usernameEmailExists($conn, $username, $email) {
     mysqli_stmt_close($stmt);
 }
 
+/**
+ * Creates the user as a new row in the users table of the database
+ * @param $conn - connection to SQL
+ * @param $first_name - first name
+ * @param $last_name - last name
+ * @param $email - email
+ * @param $username - username
+ * @param $password - password
+ */
 function createUser($conn, $first_name, $last_name, $email, $username, $password){
     $sql = "INSERT INTO users (username, password, first_name, last_name, email) VALUES (?, ?, ?, ?, ?);";
     // Using a prepared statement to stop the user from being able to write code into the input boxes which could
@@ -86,6 +127,12 @@ function createUser($conn, $first_name, $last_name, $email, $username, $password
     exit();
 }
 
+/**
+ * Checks if the inputted fields of the login page are empty
+ * @param $username - username
+ * @param $password - password
+ * @return bool - true if either field is empty. False otherwise
+ */
 function emptyInputLogin($username, $password) {
     if (empty($username) || empty($password)) {
         $result = true;
@@ -96,6 +143,12 @@ function emptyInputLogin($username, $password) {
     return $result;
 }
 
+/**
+ * Logs the user in to the website and creates global session variables using the users details
+ * @param $conn - connection to SQL
+ * @param $username - username
+ * @param $password - password
+ */
 function loginUser($conn, $username, $password) {
     $userExists = usernameEmailExists($conn, $username, $username);
 
@@ -113,10 +166,12 @@ function loginUser($conn, $username, $password) {
     }
     else if ($checkPassword === true) {
         session_start();
-        $_SESSION["userid"] = $userExists["user_id"];
+        $_SESSION["user_id"] = $userExists["user_id"];
         $_SESSION["username"] = $userExists["username"];
         $_SESSION["email"] = $userExists["email"];
-        header("location: ../index.php");
+        $_SESSION["first_name"] = $userExists["first_name"];
+       // echo $_SESSION["username"];
+        header("location: ../index.php?message=login");
         exit();
     }
 }
