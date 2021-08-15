@@ -22,6 +22,7 @@ include_once 'additional/config.php';
 <br/>
 <div class="container-fluid">
     <a class="btn btn-primary" href="<?php echo 'sign_up.php'?>"> Sign Up </a>
+    <a class="btn btn-primary" href="<?php echo 'login.php'?>">Log In</a>
 </div>
 
 </body>

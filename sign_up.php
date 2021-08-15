@@ -1,52 +1,90 @@
-<?php
-include_once 'additional/dbh.inc.php'
-?>
 <html>
 <head>
     <title>Pet Heroes</title>
 </head>
 
-<body style="background-color: whitesmoke">
+<body >
 <?php include_once 'header.php'?>
+<!-- Container for sign up form -->
+<div class="col-md-4" style="margin:auto; margin-top: 6%; padding: 3%; background-color: whitesmoke; min-width: 400pt">
+    <form action="additional/signup.inc.php" method="post">
+        <div class="card-title">
+            <h1> Sign Up </h1> <br/>
+        </div>
+        <?php
+        if (isset($_GET["error"])) {
+            echo "<div class='mb-3'>";
+            if ($_GET["error"] == "empty_input") {
+                echo "<div class=\"alert alert-danger\" role=\"alert\">Please ensure you fill in all fields.</div>";
+            }
+            else if ($_GET["error"] == "invalid_username") {
+                echo "<div class=\"alert alert-danger\" role=\"alert\">Please enter a valid username.</div>";
+            }
+            else if ($_GET["error"] == "invalid_email") {
+                echo "<div class=\"alert alert-danger\" role=\"alert\">Please enter a valid email.</div>";
+            }
+            else if ($_GET["error"] == "password_unacceptable") {
+                echo "<div class=\"alert alert-danger\" role=\"alert\">Please ensure the password follows all given 
+                        guidelines.</div>";
+            }
+            else if ($_GET["error"] == "invalid_password_match") {
+                echo "<div class=\"alert alert-danger\" role=\"alert\">The two passwords did not match. Please try
+                    again.</div>";
+            }
+            else if ($_GET["error"] == "username_email_exists") {
+                echo "<div class=\"alert alert-danger\" role=\"alert\">The username or email are already taken. Please 
+                    try another one or <a href='login.php'>Log In</a>.</div>";
+            }
+            else if ($_GET["error"] == "stmt_failed") {
+                echo "<div class=\"alert alert-danger\" role=\"alert\">Oops! Something on the back end went wrong.
+                    </div>";
+            }
+            echo "</div>";
+        }
+        ?>
+        <div class="mb-3">
+            <div class="row g-3">
+                <div class="col">
+                    <label for="exampleFormControlInput1" class="form-label" ">First Name</label>
+                    <input type="text" name="first_name" class="form-control" placeholder="First name..."
+                           aria-label="First name">
+                </div>
+                <div class="col">
+                    <label for="exampleFormControlInput1" class="form-label" ">Last Name</label>
+                    <input type="text" name ="last_name" class="form-control" placeholder="Last name..."
+                           aria-label="Last name">
+                </div>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label" ">Email address</label>
+            <input type="email" name="email" class="form-control" id="form-control" placeholder="name@example.com...">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label" ">Username</label>
+            <input type="username" name="username" class="form-control" id="form-control" placeholder="Username...">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label" ">Password</label>
+            <input type="password" name="password" class="form-control" id="form-control" placeholder="Password...">
+        </div>
+        <div class="mb-3">
+            <input type="password" name="password_confirm" class="form-control" id="form-control"
+                   placeholder="Confirm Password">
+        </div>
+         <br/>
+        <div class="mb-3">
+            <div class="row g-3">
+                <div class="col d-grid gap-2">
+                    <a class="btn btn-outline-danger" href="<?php echo 'index.php'?>">Go Back </a>
+                </div>
+                <div class="col d-grid gap-2">
+                    <button type="submit" name= "submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </div>
+    </form>
 
-<div class="col-md-4" style="margin:auto; margin-top: 10%;">
-    <div class="card-title">
-        <h1> Sign Up </h1> <br/>
-    </div>
-    <div class="mb-3">
-        <div class="row g-3">
-            <div class="col">
-                <label for="exampleFormControlInput1" class="form-label" ">First Name</label>
-                <input type="text" class="form-control" placeholder="First name" aria-label="First name">
-            </div>
-            <div class="col">
-                <label for="exampleFormControlInput1" class="form-label" ">Last Name</label>
-                <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
-            </div>
-        </div>
-    </div>
-    <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label" ">Username</label>
-        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Username">
-    </div>
-    <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label" ">Password</label>
-        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Password">
-    </div>
-    <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label" ">Email address</label>
-        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-    </div> <br/>
-    <div class="mb-3">
-        <div class="row g-3">
-            <div class="col d-grid gap-2">
-                <button type="button" class="btn btn-outline-danger" value="submit">Go Back</button>
-            </div>
-            <div class="col d-grid gap-2">
-                <button type="button" class="btn btn-primary" value="submit">Submit</button>
-            </div>
-        </div>
-    </div>
 </div>
 
 
