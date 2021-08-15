@@ -11,7 +11,20 @@
         <div class="card-title">
             <h1> Log In </h1> <br/>
         </div>
-
+        <?php
+        if (isset($_GET["message"]) || isset($_GET["error"])) {
+            echo "<div class='mb-3'>";
+            if ($_GET["message"] == "sign_up_success") {
+                echo "<div class=\"alert alert-success\" role=\"alert\">Account created successfully! Please log in.
+                    </div>";
+            } else if ($_GET["error"] == "empty_input") {
+                echo "<div class=\"alert alert-danger\" role=\"alert\">Please ensure you fill in all fields.</div>";
+            } else if ($_GET["error"] == "wrong_login") {
+                echo "<div class=\"alert alert-danger\" role=\"alert\">Username / Password is incorrect.</div>";
+            }
+            echo "</div>";
+        }
+        ?>
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label" ">Username / Email</label>
             <input type="text" name="username" class="form-control" id="form-control" placeholder="Username / Email...">
