@@ -6,7 +6,7 @@
 <body >
 <?php include_once 'header.php'?>
 <!-- Container for sign up form -->
-<div class="alert alert-secondary col-md-4" style="margin:auto; margin-top: 3%; padding: 3%; background-color: whitesmoke; min-width: 400pt">
+<div class="alert alert-secondary col-md-4" style="margin:auto; margin-top: 1%; padding: 3%; background-color: whitesmoke; min-width: 400pt">
     <form action="additional/signup.inc.php" method="post">
         <h1 class="display-6"> Sign Up </h1>
         <hr class="my-4">

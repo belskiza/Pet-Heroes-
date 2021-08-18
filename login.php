@@ -6,7 +6,7 @@
 <body >
 <?php include_once 'header.php'?>
 <!-- Container for sign up form -->
-<div class="alert alert-secondary col-md-4" style="margin:auto; margin-top: 8%; padding: 3%; background-color: whitesmoke; min-width: 400pt">
+<div class="alert alert-secondary col-md-4" style="margin:auto; margin-top: 2%; padding: 3%; background-color: whitesmoke; min-width: 400pt">
     <form action="additional/login.inc.php" method="post">
         <h1 class="display-6"> Log In </h1>
         <hr class="my-4">
@@ -14,12 +14,12 @@
         if (isset($_GET["message"]) || isset($_GET["error"])) {
             echo "<div class='mb-3'>";
             if ($_GET["message"] == "sign_up_success") {
-                echo "<div class=\"alert alert-success\" role=\"alert\">Account created successfully! Please log in.
+                echo "<div class=\"alert alert-success col-md-5\" role=\"alert\">Account created successfully! Please log in.
                     </div>";
             } else if ($_GET["error"] == "empty_input") {
-                echo "<div class=\"alert alert-danger\" role=\"alert\">Please ensure you fill in all fields.</div>";
+                echo "<div class=\"alert alert-danger col-md-5\" role=\"alert\">Please ensure you fill in all fields.</div>";
             } else if ($_GET["error"] == "wrong_login") {
-                echo "<div class=\"alert alert-danger\" role=\"alert\">Username / Password is incorrect.</div>";
+                echo "<div class=\"alert alert-danger col-md-5\" role=\"alert\">Username / Password is incorrect.</div>";
             }
             echo "</div>";
         }
