@@ -6,11 +6,10 @@
 <body >
 <?php include_once 'header.php'?>
 <!-- Container for sign up form -->
-<div class="col-md-4" style="margin:auto; margin-top: 8%; padding: 3%; background-color: whitesmoke; min-width: 400pt">
+<div class="alert alert-secondary col-md-4" style="margin:auto; margin-top: 8%; padding: 3%; background-color: whitesmoke; min-width: 400pt">
     <form action="additional/login.inc.php" method="post">
-        <div class="card-title">
-            <h1> Log In </h1> <br/>
-        </div>
+        <h1 class="display-6"> Log In </h1>
+        <hr class="my-4">
         <?php
         if (isset($_GET["message"]) || isset($_GET["error"])) {
             echo "<div class='mb-3'>";
@@ -29,10 +28,7 @@
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label" ">Username / Email</label>
             <input type="text" name="username" class="form-control" id="form-control" placeholder="Username / Email..."
-                   value="<?php if (isset($_COOKIE["username"])){
-                       var_dump($_SESSION);
-                   }
-                   ?>">
+                   value="">
         </div>
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label" ">Password</label>
