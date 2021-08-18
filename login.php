@@ -24,24 +24,36 @@
             }
             echo "</div>";
         }
+        print_r($_COOKIE['username']);
         ?>
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label" ">Username / Email</label>
-            <input type="text" name="username" class="form-control" id="form-control" placeholder="Username / Email...">
+            <input type="text" name="username" class="form-control" id="form-control" placeholder="Username / Email..."
+                   value="<?php if (isset($_COOKIE["username"])){
+                       var_dump($_SESSION);
+                   }
+                   ?>">
         </div>
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label" ">Password</label>
             <input type="password" name="password" class="form-control" id="form-control" placeholder="Password...">
         </div>
-        <br/>
+        <div class ="mb-3">
+            <input type="checkbox" name="remember" checked/>
+            <label for="remember_me">Remember me</label>
+        </div>
         <div class="mb-3">
             <div class="row g-3">
                 <div class="col d-grid gap-2">
-                    <a class="btn btn-outline-danger" href="<?php echo 'index.php'?>">Go Back </a>
+                    <a class="btn btn-outline-success" href="<?php echo 'sign_up.php'?>">Sign Up </a>
                 </div>
                 <div class="col d-grid gap-2">
-                    <button type="submit" name= "submit" class="btn btn-primary">Submit</button>
+                    <a class="btn btn-outline-danger" href="<?php echo 'index.php'?>">Go Back </a>
                 </div>
+            </div>
+            <br/>
+            <div class="col d-grid gap-2">
+                <button type="submit" name= "submit" class="btn btn-primary">Log In</button>
             </div>
         </div>
     </form>
