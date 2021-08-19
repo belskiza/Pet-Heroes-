@@ -24,6 +24,9 @@
             background-color: limegreen;
             color: white;
             padding: 10px;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
         }
 
         /* On small screens, set height to 'auto' for sidenav and grid */
@@ -39,12 +42,9 @@
             margin-bottom: 2%;
             background-color: limegreen;
         }
-        .display-6{
-            color: limegreen;
-        }
 
     </style>
-    <a href="index.php"><h1 class="display-6">Pet Heroes</h1></a>
+    <?php include_once 'header.php'?>
 </head>
 <body>
 

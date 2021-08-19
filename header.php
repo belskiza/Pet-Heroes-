@@ -7,8 +7,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
-<a href="index.php"><h1 class="display-6">Pet Heroes</h1></a> <!-- logo placeholder -->
+<body> <!-- logo placeholder -->
 
 <!-- NAVBAR -->
 
