@@ -170,9 +170,10 @@ function loginUser($conn, $username, $password) {
         $_SESSION["username"] = $userExists["username"];
         $_SESSION["email"] = $userExists["email"];
         $_SESSION["first_name"] = $userExists["first_name"];
+        $_SESSION["last_name"] = $userExists["last_name"];
+        
        // echo $_SESSION["username"];
         header("location: ../index.php?message=login");
         exit();
     }
 }
-
