@@ -12,6 +12,7 @@
 <div class="container-fluid">
     <?php if (isset($_SESSION['username'])){
         echo "<a class=\"btn btn-primary\" href='profile.php'?>".$_SESSION['first_name']."</a>";
+        echo "<a class=\"btn btn-primary\" href='home.php'?>Home</a>";
         echo "<a class=\"btn btn-warning\" href='additional/logout.inc.php'?>Log Out</a>";
     } else {
         echo "<a class=\"btn btn-primary\" href='sign_up.php'?> Sign Up </a>

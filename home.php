@@ -1,4 +1,3 @@
-<?php include_once 'header.php'?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,6 +40,7 @@
             .row.content {height:auto;}
         }
     </style>
+    <a href="index.php"><h1 class="display-6">Pet Heroes</h1></a>
 </head>
 <body>
 
