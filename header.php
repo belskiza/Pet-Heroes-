@@ -4,21 +4,32 @@
     include_once 'additional/dbh.inc.php';
     session_start();
     ?>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 <a href="index.php"><h1 class="display-6">Pet Heroes</h1></a> <!-- logo placeholder -->
 
-<div class="container-fluid">
+<!-- NAVBAR -->
+
+<div class="topnav">
     <?php if (isset($_SESSION['username'])){
-        echo "<a class=\"btn btn-primary\" href='profile.php'?>".$_SESSION['first_name']."</a>";
-        echo "<a class=\"btn btn-primary\" href='home.php'?>Home</a>";
-        echo "<a class=\"btn btn-warning\" href='additional/logout.inc.php'?>Log Out</a>";
+        echo "<a href='profile.php'?>".$_SESSION['first_name']."</a>";
+        echo "<a href='home.php'?>Home</a>";
+        echo "<a href='additional/logout.inc.php'?>Log Out</a>";
+        echo "<a href='#about' ?>PLACEHOLDER</a>";
+
     } else {
-        echo "<a class=\"btn btn-primary\" href='sign_up.php'?> Sign Up </a>
-              <a class=\"btn btn-primary\" href='login.php'?>Log In</a>";
+        echo "<a href='sign_up.php'?> Sign Up </a>
+              <a href='login.php'?>Log In</a>";
+        echo "<a href='#about' ?>PLACEHOLDER</a>";
+
     }
     ?>
+</div>
+
+
+
 
 </div>
 </body>

@@ -27,7 +27,7 @@ if (isset($_GET["message"])) {
 <br/>
 <?php if (isset($_SESSION['acc_type']) && $_SESSION['acc_type'] == 0){
     echo "<h1>Account Type: Adopter</h1>";
-} else if (isset($_SESSION['acc_type']) && $_SESSION['acc_type'] == 0){
+} else if (isset($_SESSION['acc_type']) && $_SESSION['acc_type'] == 1){
      echo "<h1>Account Type: Owner</h1>";
 } ?>
 </body>

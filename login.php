@@ -2,7 +2,6 @@
 <head>
     <title>Pet Heroes</title>
 </head>
-
 <body >
 <?php include_once 'header.php'?>
 <!-- Container for sign up form -->
@@ -23,7 +22,6 @@
             }
             echo "</div>";
         }
-        print_r($_COOKIE['username']);
         ?>
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label" ">Username / Email</label>
