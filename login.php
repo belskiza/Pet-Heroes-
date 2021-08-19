@@ -5,6 +5,7 @@
 
 <body >
 <?php include_once 'header.php'?>
+<img src=”background.jpeg” alt=”Image”>.
 <!-- Container for sign up form -->
 <div class="alert alert-secondary col-md-4" style="margin:auto; margin-top: 2%; padding: 3%; background-color: whitesmoke; min-width: 400pt">
     <form action="additional/login.inc.php" method="post">
