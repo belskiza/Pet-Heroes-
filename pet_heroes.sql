@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Aug 15, 2021 at 10:06 AM
+-- Generation Time: Aug 19, 2021 at 04:17 AM
 -- Server version: 5.7.32
 -- PHP Version: 7.4.16
 
@@ -33,15 +33,16 @@ CREATE TABLE `users` (
   `password` varchar(128) NOT NULL,
   `first_name` varchar(128) NOT NULL,
   `last_name` varchar(128) NOT NULL,
-  `email` varchar(128) NOT NULL
+  `email` varchar(128) NOT NULL,
+  `acc_type` int(1) NOT NULL COMMENT '0 = adopter, 1 = owner'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`user_id`, `username`, `password`, `first_name`, `last_name`, `email`) VALUES
-(2, 'dberg99', '$2y$10$1wvZmqEGkfCbrsAX4yde/u15c9edD/nhcvcPFCZw7JacQ21En7kPy', 'Dustin', 'Bergman', 'dustinbergman82@gmail.com');
+INSERT INTO `users` (`user_id`, `username`, `password`, `first_name`, `last_name`, `email`, `acc_type`) VALUES
+(3, 'dberg99', '$2y$10$Ir7VIUOD.ZO.9cHIqFkg6.68av86pbmOn3nvY/iZRSLUkIPzppnai', 'Dustin', 'Bergman', 'dustinbergman82@gmail.com', 0);
 
 --
 -- Indexes for dumped tables
