@@ -2,8 +2,8 @@
 <head>
     <title>Pet Heroes</title>
 </head>
-
 <body >
+<img src="files/background.jpeg" style="position: fixed; filter: blur(20px) ; width: 105%; margin: -5%">
 <?php include_once 'header.php'?>
 <!-- Container for sign up form -->
 <div class="alert alert-secondary col-md-4" style="margin:auto; margin-top: 2%; padding: 3%; background-color: whitesmoke; min-width: 400pt">
