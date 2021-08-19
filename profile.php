@@ -2,7 +2,6 @@
 <head>
     <title>Profile</title>
 </head>
-
 <body >
 <?php include_once 'header.php'?>
 <div class="col-md-6" style="background-color: whitesmoke; margin: auto; height: 100%; padding: 20pt;" >
