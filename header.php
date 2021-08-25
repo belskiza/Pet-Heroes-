@@ -5,6 +5,11 @@
     session_start();
     ?>
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        .topnav{
+            background-color: limegreen;
+        }
+    </style>
 </head>
 
 <body> <!-- logo placeholder -->

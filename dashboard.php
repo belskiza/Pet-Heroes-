@@ -25,9 +25,6 @@
 
         }
 
-        .display-6{
-            color: limegreen;
-        }
         .col-sm-6{
             margin-bottom: 2%;
         }
@@ -36,13 +33,14 @@
             padding-right: 30%;
         }
         .move-left{
-            margin-left: 10%;
+            padding-left: 30%;
+            padding-top: 2%;
         }
 
 
 
     </style>
-    <a href="index.php"><h1 class="display-6">Pet Heroes</h1></a>
+    <?php include_once 'header.php'?>
 </head>
 <body>
 <div class="container-fluid">

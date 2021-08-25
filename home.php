@@ -38,9 +38,12 @@
             margin-left: 30%;
             margin-bottom: 2%;
         }
-        .btn-success {
-            margin-bottom: 2%;
-            background-color: limegreen;
+
+        .move-down{
+            padding-top: 3%;
+        }
+        .move {
+            margin-top: 2%;
         }
 
     </style>
@@ -54,12 +57,12 @@
 
         </div>
 
-        <div class="col-sm-12">
+        <div class="col-sm-12 move-down">
             <h1>Welcome <?php echo $_SESSION['first_name']?></h1>
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-sm-12">
-                        <h2>New Pets!</h2>
+                        <h2 class="move">New Pets!</h2>
                         <div id="myCarousel" class="carousel slide" data-ride="carousel">
                             <!-- Indicators -->
                             <ol class="carousel-indicators">
