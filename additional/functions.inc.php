@@ -170,8 +170,16 @@ function loginUser($conn, $username, $password) {
         $_SESSION["username"] = $userExists["username"];
         $_SESSION["email"] = $userExists["email"];
         $_SESSION["first_name"] = $userExists["first_name"];
-        
-       // echo $_SESSION["username"];
+        $_SESSION["acc_type"] = $userExists["acc_type"];
+
+        //Cant get this to work currently
+        /*
+        if($remember_me != 0){
+            setcookie('username', $remember_me, time() + 3600 * 24 * 7);
+            $_COOKIE['username'] = $remember_me;
+        } else {
+            setcookie('1', "1", time() + 3600 * 24 * 7);
+        } */
         header("location: ../index.php?message=login");
         exit();
     }

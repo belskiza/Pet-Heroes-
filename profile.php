@@ -3,21 +3,7 @@
     <title>Profile</title>
 </head>
 <body >
-
 <?php include_once 'header.php'?>
-
-<div class="container-fluid">   
-    <?php
-        echo "<h4> Username: <span class=\"badge bg-secondary\">".$_SESSION['username']."</span></h4>";
-        echo "<h4> Firstname: <span class=\"badge bg-secondary\">".$_SESSION['first_name']."</span></h4>";
-        echo "<h4> Lastname: <span class=\"badge bg-secondary\">".$_SESSION['last_name']."</span></h4>";
-        echo "<h4> Email: <span class=\"badge bg-secondary\">".$_SESSION['email']."</span></h4>";
-        echo "<a class=\"btn btn-primary\" href='index.php'?>Settings</a>";
-        echo "<a class=\"btn btn-primary\" href='index.php'?>Preferences</a>";
-        echo "<a class=\"btn btn-danger\" href='index.php'?>back</a>";
-    ?>
-</div>
-
 <div class="col-md-6" style="background-color: whitesmoke; margin: auto; height: 100%; padding: 20pt;" >
     <h4 class = "display-6">Welcome back <?php echo $_SESSION['first_name']?>!</h4>
     <p class="lead">
@@ -47,8 +33,8 @@
             </div>
         </div>
     </div>
-</div>
 
+</div>
 
 </body>
 </html>
