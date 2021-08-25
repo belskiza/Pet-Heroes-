@@ -12,6 +12,14 @@ if (isset($_POST["submit"])) {
         exit();
     }
 
+    //Remembers username for 30 days (can't get this to work currently)
+    /*
+    if(!empty($_POST['remember'])){
+        $remember_me = $_POST['remember'];
+    } else {
+        $remember_me = 0;
+    } */
+
     loginUser($conn, $username, $password);
 
 } else {

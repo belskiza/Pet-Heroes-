@@ -14,28 +14,22 @@ include_once 'additional/config.php';
 if (isset($_GET["message"])) {
     echo "<div class='mb-3'>";
     if ($_GET["message"] == "logout") {
-        echo "<div class=\"alert alert-success\" role=\"alert\">You are now logged out
+        echo "<div class=\"alert alert-success col-md-5\" role=\"alert\">You are now logged out
                     </div>";
     }
     if ($_GET["message"] == "login") {
-        echo "<div class=\"alert alert-success\" role=\"alert\">You are now logged in
+        echo "<div class=\"alert alert-success col-md-5\" role=\"alert\">You are now logged in
                     </div>";
     }
     echo "</div>";
 }
 ?>
-<div class="container-fluid">
-    <?php if (isset($_SESSION['username'])){
-        echo "<a class=\"btn btn-primary\" href='profile.php'?>".$_SESSION['first_name']."</a>";
-        echo "<a class=\"btn btn-warning\" href='additional/logout.inc.php'?>Log Out</a>";
-    } else {
-        echo "<a class=\"btn btn-primary\" href='sign_up.php'?> Sign Up </a>
-              <a class=\"btn btn-primary\" href='login.php'?>Log In</a>";
-    }
-    ?>
-
-</div>
-
+<br/>
+<?php if (isset($_SESSION['acc_type']) && $_SESSION['acc_type'] == 0){
+    echo "<h1>Account Type: Adopter</h1>";
+} else if (isset($_SESSION['acc_type']) && $_SESSION['acc_type'] == 1){
+     echo "<h1>Account Type: Owner</h1>";
+} ?>
 </body>
 
 </html>

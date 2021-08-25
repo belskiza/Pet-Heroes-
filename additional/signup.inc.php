@@ -8,6 +8,20 @@ if (isset($_POST["submit"])) {
     $password = $_POST["password"];
     $password_confirm = $_POST["password_confirm"];
 
+    if(!isset($_POST["acc_type"])){
+        header("location: ../sign_up.php?error=no_account_type");
+        exit();
+    } else {
+        if ($_POST["acc_type"] == "adopter"){
+            $acc_type = 0;
+        } else if ($_POST["acc_type"] == "owner") {
+            $acc_type = 1;
+        } else {
+            header("location: ../sign_up.php?error=no_account_type");
+            exit();
+        }
+    }
+
     require_once'dbh.inc.php';
     require_once'functions.inc.php';
 
@@ -42,7 +56,7 @@ if (isset($_POST["submit"])) {
         exit();
     }
 
-    createUser($conn, $first_name, $last_name, $email, $username, $password);
+    createUser($conn, $first_name, $last_name, $email, $username, $password , $acc_type);
 
 
 } else {

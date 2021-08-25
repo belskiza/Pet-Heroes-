@@ -107,8 +107,8 @@ function usernameEmailExists($conn, $username, $email) {
  * @param $username - username
  * @param $password - password
  */
-function createUser($conn, $first_name, $last_name, $email, $username, $password){
-    $sql = "INSERT INTO users (username, password, first_name, last_name, email) VALUES (?, ?, ?, ?, ?);";
+function createUser($conn, $first_name, $last_name, $email, $username, $password , $acc_type){
+    $sql = "INSERT INTO users (username, password, first_name, last_name, email, acc_type) VALUES (?, ?, ?, ?, ?, ?);";
     // Using a prepared statement to stop the user from being able to write code into the input boxes which could
     // damage the database
     $stmt = mysqli_stmt_init($conn);
@@ -119,7 +119,7 @@ function createUser($conn, $first_name, $last_name, $email, $username, $password
     //encrypts the password so you cant see it in the database
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-    mysqli_stmt_bind_param($stmt, "sssss", $username, $hashed_password, $first_name, $last_name, $email);
+    mysqli_stmt_bind_param($stmt, "ssssss", $username, $hashed_password, $first_name, $last_name, $email, $acc_type);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
 
@@ -170,7 +170,6 @@ function loginUser($conn, $username, $password) {
         $_SESSION["username"] = $userExists["username"];
         $_SESSION["email"] = $userExists["email"];
         $_SESSION["first_name"] = $userExists["first_name"];
-        $_SESSION["last_name"] = $userExists["last_name"];
         
        // echo $_SESSION["username"];
         header("location: ../index.php?message=login");
