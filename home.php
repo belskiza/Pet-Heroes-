@@ -96,7 +96,7 @@
                                 <span class="sr-only">Next</span>
                             </a>
                         </div>
-                        <a href="#" class="btn btn-success btn-lg">
+                        <a href='pet_swipe.php' class="btn btn-success btn-lg">
                             Start Matching
                         </a>
                     </div>
