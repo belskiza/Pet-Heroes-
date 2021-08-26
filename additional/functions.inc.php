@@ -184,4 +184,3 @@ function loginUser($conn, $username, $password) {
         exit();
     }
 }
-
