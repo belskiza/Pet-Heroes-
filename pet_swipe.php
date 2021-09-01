@@ -46,15 +46,9 @@
             margin-left: 17.5%;
         }
 
-
-        html,body{
-            height:100%;
-        }
-        .carousel,.item,.active{
-            height:100%;
-        }
-        .carousel-inner{
-            height:100%;
+        .carousel-inner  .item  img {
+            height:640px;
+            margin:auto;
         }
 
         .carousel-caption {
@@ -79,7 +73,7 @@
         <!-- Wrapper for slides -->
         <div class="carousel-inner">
             <div class="item active">
-                <img src="Files/cute%20cat%203.jpg" class="image-fluid" alt="Los Angeles" style="width:100%;">
+                <img src="Files/pet%20recommendation%201.jpg" class="image-fluid" >
                 <div class="carousel-caption">
                     <h3>Oreo</h3>
                     <p>LA is always so much fun!</p>
@@ -87,7 +81,7 @@
             </div>
 
             <div class="item">
-                <img src="" alt="New york" style="width:70%;">
+                <img src="Files/cute%20cat%203.jpg" alt="New york" class="image-fluid">
             </div>
         </div>
 
