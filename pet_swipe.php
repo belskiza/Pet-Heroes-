@@ -16,7 +16,7 @@
         $(document).keydown(function(e) {
             if (e.keyCode === 37) {
                 // Next
-                $(".carousel-control.right").click();
+                $(".carousel-control.left").click();
                 return false;
             }
 
@@ -27,6 +27,9 @@
             }
         })
         ;
+        $('.overlay .carousel-button:last-child').on('click', function(){
+            $('.item.active img').remove()
+        });
     </script>
     <style>
 
@@ -59,6 +62,9 @@
         .carousel-caption h3 {
             font-size: 4rem;
         }
+        .carousel-caption p {
+            font-size: 2rem;
+        }
 
     </style>
     <?php include_once 'header.php'?>
@@ -73,15 +79,32 @@
         <!-- Wrapper for slides -->
         <div class="carousel-inner">
             <div class="item active">
-                <img src="Files/pet%20recommendation%201.jpg" class="image-fluid" >
+                <img src="Files/cute%20cat%203.jpg" alt="New york" class="image-fluid">
                 <div class="carousel-caption">
                     <h3>Oreo</h3>
-                    <p>LA is always so much fun!</p>
+                    <p>I love cuddles and playing with toys</p>
                 </div>
             </div>
-
-            <div class="item">
-                <img src="Files/cute%20cat%203.jpg" alt="New york" class="image-fluid">
+            <div class="item ">
+                <img src="Files/cute-dog-video-lead-1590597482.jpg" alt="New york" class="image-fluid">
+                <div class="carousel-caption">
+                    <h3>Penny</h3>
+                    <p>I love going for runs and eating lots of treats</p>
+                </div>
+            </div>
+            <div class="item ">
+                <img src="Files/image.jpg" alt="New york" class="image-fluid">
+                <div class="carousel-caption">
+                    <h3>George</h3>
+                    <p>Napping is my favourite thing!</p>
+                </div>
+            </div>
+            <div class="item ">
+                <img src="Files/funny-dog-captions-1563456605.jpg" alt="New york" class="image-fluid">
+                <div class="carousel-caption">
+                    <h3>Tim</h3>
+                    <p>I can't wait to find my new home</p>
+                </div>
             </div>
         </div>
 

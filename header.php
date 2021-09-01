@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/style.css">
     <style>
         .topnav{
-            background-color: limegreen;
+            background-color: darkgrey;
         }
     </style>
 </head>
@@ -17,8 +17,9 @@
 <!-- NAVBAR -->
 
 <div class="topnav">
+    <img src="files/logo.png" style="width: 40px; position:fixed;"/>
     <?php if (isset($_SESSION['username'])){
-        echo "<a href='profile.php'?>".$_SESSION['first_name']."</a>";
+        echo "<a href='profile.php' style='margin-left: 50px;' ?>".$_SESSION['first_name']."</a>";
         echo "<a href='home.php'?>Home</a>";
         echo "<a href='additional/logout.inc.php'?>Log Out</a>";
         echo "<a href='#about' ?>PLACEHOLDER</a>";
@@ -30,10 +31,5 @@
 
     }
     ?>
-</div>
-
-
-
-
 </div>
 </body>
