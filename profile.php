@@ -1,6 +1,5 @@
 <html>
 
-
 <?php include_once 'header.php'?>
 
 <style>
@@ -12,13 +11,20 @@
 <p class='down-three'>
 </p>
 
-
 <head>
     <title>Profile</title>
 </head>
 <body>
 
 
+<h2> Profile Picture </h2>
+<?php 
+if (empty($_FILES['file']['files/profilePicture.png'])) {
+    echo "<img src=\"files/profilePicture.png\" class=\"image-fluid\" style=\"width:300;\">";
+} else {
+    echo "<img src=\"files/default.png\" class=\"image-fluid\" style=\"width:300;\">";
+}
+?>
 <div class="col-md-6" style="background-color: whitesmoke; margin: auto; height: 100%; padding: 20pt;" >
     <h4 class = "display-6">Welcome <?php echo $_SESSION['first_name']?>!</h4>
     <p class="lead">
@@ -54,7 +60,6 @@
             </div>
         </div>
     </div>
-
 </div>
 
 </body>

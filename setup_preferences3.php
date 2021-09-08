@@ -97,7 +97,7 @@ ul.cloud a:hover::before {
 
 <body>
 <div>
-    <h1> Click the words !?! </h1> 
+    <h1> Click on the words that resonate with you the most</h1> 
     <div>
         <ul class="cloud" role="navigation" aria-label="Webdev word cloud">
         <li><a href="#" data-weight="4">HTTP</a></li>
