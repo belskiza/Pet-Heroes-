@@ -8,23 +8,52 @@
     ?>
     <link rel="stylesheet" href="css/style.css">
     <style>
-        .topnav{
-            background-color: white;
+        .navbar .navbar-nav .nav-link:hover {
+            color: yellowgreen;
+        }
+        .navbar img {
+            width: 70%;
+            height: 70%;
+        }
+        @media only screen and (min-width: 960px) {
+            .navbar .navbar-nav .nav-link {
+                padding: 1em 0.7em;
+            }
+            .navbar {
+                padding: 0;
+            }
+        }
+        .navbar .navbar-nav .nav-link {
+            position: relative;
+            color: black;
+        }
+        .navbar .navbar-nav .nav-link::after {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            background-color: #BCE76D;
+            color: transparent;
+            width: 0%;
+            content: '';
+            height: 3px;
+            transition: all 0.5s;
+        }
+        .navbar .navbar-nav .nav-link:hover::after {
             width: 100%;
         }
-        .topnav a h3{
-            color: black;
+
+        .navbar li{
             font-family: "Chelsea Market";
-            font-size: 1.5rem;
+            color: black;
             position: center;
-            margin-top: 30px;
-            margin-right: 100px;
+            margin-top: 5%;
+            margin-right: 25%;
+            margin-left: 25%;
         }
-        .topnav img {
-            width: 80px;
-            height: 80px;
-        }
-        .topnav {
+        .navbar{
+            width: 100%;
             border-bottom: 3px solid #BCE76D;
         }
 
@@ -33,26 +62,52 @@
 
 <body> <!-- logo placeholder -->
 
-<!-- NAVBAR -->
-<div class=" topnav navbar navbar-expand-lg navbar-light">
-    <div class="navbar-nav justify-content-between w-100">
-    <?php if (isset($_SESSION['username'])){
-        echo "<a href='landing_page.php' ><img src='Files/logo.png'></a>";
-        echo "<a href='landing_page.php'><h3 style='font-size: 1.5vw'>Home</h3></a>";
-        echo "<a href='home.php'><h3 style='font-size: 1.5vw'>Matches</h3></a>";
-        echo "<a href='home.php'><h3 style='font-size: 1.5vw'>Upload</h3></a>";
-        echo "<a href='account.php'><h3 style='font-size: 1.5vw'>Account</h3></a>";
+<?php if (isset($_SESSION['username'])){
+    echo "<nav class='navbar navbar-expand-lg navbar-light bg-light'>
+                <a href='landing_page.php' ><img src='Files/logo.png'></a>
+                <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation'>
+    <span class='navbar-toggler-icon'></span>
+  </button>
+  <div class='collapse navbar-collapse' id='navbarToggler9'>
+    <ul class='navbar-nav'>
+      <li class='nav-item active'>
+        <a class='nav-link' href='landing_page.php' style='font-size: 1.5vw'>Home</a>
+      </li>
+      <li class='nav-item'>
+        <a class='nav-link' href='home.php'style='font-size: 1.5vw' >Matches</a>
+      </li>
+      <li class='nav-item'>
+        <a class='nav-link' href='home.php' style='font-size: 1.5vw'>Upload</a>
+      </li>
+      <li class='nav-item'>
+        <a class='nav-link' href='account.php' style='font-size: 1.5vw'>Account</a>
+      </li>
+    </ul>
+  </div>
+</nav>";
 
 
-    } else {
-        echo "<a href='sign_up.php'> Sign Up </a>
-              <a href='login.php'?>Log In</a>";
-        echo "<a href='#about' ?>PLACEHOLDER</a>";
+} else {
+    echo "<nav class='navbar navbar-expand-lg navbar-light bg-light'>
+                <a href='landing_page.php' ><img src='Files/logo.png'></a>
+                <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation'>
+    <span class='navbar-toggler-icon'></span>
+  </button>
+  <div class='collapse navbar-collapse' id='navbarNav'>
+    <ul class='navbar-nav'>
+      <li class='nav-item active'>
+        <a class='nav-link' href='sign_up.php' style='font-size: 1.5vw'>Sign Up</a>
+      </li>
+      <li class='nav-item'>
+        <a class='nav-link' href='login.php' style='font-size: 1.5vw'>Log In</a>
+      </li>
 
-    }
-    ?>
-    </div>
+    </ul>
+  </div>
+</nav>";
 
-</div>
+}
+?>
+
 
 </body>
