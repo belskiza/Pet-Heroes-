@@ -2,7 +2,7 @@
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
-
+    
 CREATE TABLE `users` (
   `user_id` int(11) NOT NULL,
   `username` varchar(128) NOT NULL,
