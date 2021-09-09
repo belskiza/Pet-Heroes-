@@ -94,9 +94,8 @@
 
     <div class="row">
         <div class="col-sm-6">
-            <h1>Personality Profile: </h1>
-
-            <button type="button" class="btn rounded-pill">Take Quiz</button>
+            <h1>Personality Profile:</h1>
+            <a type="button" class="btn rounded-pill" href='setup_preferences1.php'>Take Quiz</a>
         </div>
     </div>
 

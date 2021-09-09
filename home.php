@@ -54,9 +54,7 @@
 <div class="container-fluid text-center">
     <div class="row content">
         <div class="col-sm-2">
-
         </div>
-
         <div class="col-sm-12 move-down">
             <h1>Welcome <?php echo $_SESSION['first_name']?></h1>
             <div class="container-fluid">
