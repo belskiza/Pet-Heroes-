@@ -55,7 +55,14 @@
             margin-top: 9%;
         }
 
+        .boxhead a {
+            color: black;
+            text-decoration: none;
+        }
+
         .btn{
+            background: #BCE76D;
+
             border-color:#BCE76D;
             width: 25%;
             font-size: 1.3vw;
@@ -67,19 +74,28 @@
 </head>
 
 <body style="background-color: whitesmoke">
+
 <div class="images">
     <img src="Files/image%202.png" style="width: 80%">
     <button type="button" class="btn rounded-pill" style="width: 50%; margin-top: 2%; margin-left: 15%;">Edit Profile</button>
+
+    <button type="button" class="boxhead a btn rounded-pill" style="width: 50%; margin-top: 2%; margin-left: 15%;"><a href="/additional/logout.inc.php">Logout</a></button>
+
+
 </div>
 <div class="container">
     <div class="row">
         <div class="col-sm header">
-            <h1>Hi <?php echo $_SESSION['first_name']?> <?php echo $_SESSION['first_name']?></h1>
+            <h1>Hi <?php echo $_SESSION['first_name']?>,</h1>
         </div>
     </div>
+
+
+
     <div class="row">
         <div class="col-sm-6">
-            <h1>Personality Profile:</h1>
+            <h1>Personality Profile: </h1>
+
             <button type="button" class="btn rounded-pill">Take Quiz</button>
         </div>
     </div>
