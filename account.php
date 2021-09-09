@@ -77,10 +77,8 @@
 
 <div class="images">
     <img src="Files/image%202.png" style="width: 80%">
-    <button type="button" class="btn rounded-pill" style="width: 50%; margin-top: 2%; margin-left: 15%;">Edit Profile</button>
-
+    <button type="button" class="btn rounded-pill" style="width: 50%; margin-top: 2%; margin-left: 15%;"><a href="profile.php">Edit Profile</a></button>
     <button type="button" class="boxhead a btn rounded-pill" style="width: 50%; margin-top: 2%; margin-left: 15%;"><a href="/additional/logout.inc.php">Logout</a></button>
-
 
 </div>
 <div class="container">
@@ -89,8 +87,6 @@
             <h1>Hi <?php echo $_SESSION['first_name']?>,</h1>
         </div>
     </div>
-
-
 
     <div class="row">
         <div class="col-sm-6">
