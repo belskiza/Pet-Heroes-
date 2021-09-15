@@ -229,8 +229,8 @@ function loginUser($conn, $username, $password) {
  * @param $age
  * @param $user_id
  */
-function listPet($conn, $name, $location, $breed, $age ,$user_id){
-    $conn->query("INSERT INTO pets (pet_name, location, user_id, breed, age) VALUES ('$name', '$location', '$user_id', '$breed', '$age')") or die ($conn->error);
+function listPet($conn, $name, $location, $breed, $age ,$user_id, $picture_destination){
+    $conn->query("INSERT INTO pets (pet_name, location, user_id, breed, age, picture_destination) VALUES ('$name', '$location', '$user_id', '$breed', '$age', '$picture_destination')") or die ($conn->error);
     /*
     $sql =
 
@@ -243,7 +243,7 @@ function listPet($conn, $name, $location, $breed, $age ,$user_id){
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
     */
-    header("location: ../all_pets.php?message=list_success");
+    header("location: ../account.php?message=list_success");
     exit();
 }
 
@@ -266,6 +266,25 @@ function fetchPets($conn){
         return $resultData;
 }
 
+function fetchMyPets($conn, $user_id){
+    $sql = "SELECT * FROM pets WHERE user_id = $user_id;";
+    // Using a prepared statement to stop the user from being able to write code into the input boxes which could
+    // damage the database
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../sign_up.php?error=stmt_failed");
+        exit();
+    }
+
+    mysqli_stmt_execute($stmt);
+
+    $resultData = mysqli_stmt_get_result($stmt);
+
+    mysqli_stmt_close($stmt);
+
+    return $resultData;
+}
+
 function deletePet($conn, $id){
     $sql = "DELETE FROM pets WHERE pet_id = $id;";
     // Using a prepared statement to stop the user from being able to write code into the input boxes which could
@@ -279,7 +298,7 @@ function deletePet($conn, $id){
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
 
-    header("location: ../all_pets.php?message=delete_success");
+    header("location: ../account.php?message=delete_success");
     exit();
 
 }
@@ -316,13 +335,13 @@ function updatePet($conn, $pet_id, $name, $location, $breed, $age){
     // damage the database
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-        header("location: ../all_pets.php?error=stmt_failed");
+        header("location: ../account.php?error=stmt_failed");
         exit();
     }
 
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
 
-    header("location: ../all_pets.php?message=update_success");
+    header("location: ../account.php?message=update_success");
     exit();
 }

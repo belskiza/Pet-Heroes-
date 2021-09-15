@@ -43,18 +43,14 @@
         .navbar .navbar-nav .nav-link:hover::after {
             width: 100%;
         }
+        .nav-item{
+            background-color: red;
+            padding-left: 20%;
+        }
 
-        .navbar li{
-            font-family: "Chelsea Market";
-            color: black;
-            position: center;
-            margin-right: 25%;
-            margin-left: 25%;
-        }
-        .navbar{
-            width: 100%;
-            border-bottom: 3px solid #BCE76D;
-        }
+
+
+
 
     </style>
 </head>
@@ -62,7 +58,7 @@
 <body> <!-- logo placeholder -->
 
 <?php if (isset($_SESSION['username'])){
-    echo "<nav class='navbar navbar-expand-lg navbar-light bg-light'>
+    echo "<nav class='navbar sticky-top navbar-expand-lg navbar-light bg-light'>
                 <a href='landing_page.php' ><img src='Files/logo.png'></a>
                 <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation'>
     <span class='navbar-toggler-icon'></span>
@@ -79,7 +75,7 @@
         <a class='nav-link' href='list.php' style='font-size: 1.5vw'>Upload</a>
       </li>
       <li class='nav-item'>
-        <a class='nav-link' href='account.php' style='font-size: 1.5vw'>Account</a>
+        <a class='nav-link float-md-right' href='account.php' style='font-size: 1.5vw'>Account</a>
       </li>
     </ul>
   </div>
@@ -87,7 +83,7 @@
 
 
 } else {
-    echo "<nav class='navbar navbar-expand-lg navbar-light bg-light'>
+    echo "<nav class='navbar sticky-top navbar-expand-lg navbar-light bg-light'>
                 <a href='landing_page.php' ><img src='Files/logo.png'></a>
                 <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation'>
     <span class='navbar-toggler-icon'></span>

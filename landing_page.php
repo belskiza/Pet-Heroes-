@@ -24,6 +24,12 @@
             height: 500pt;
         }
 
+
+        .text {
+            padding-top: 20pt;
+            padding-bottom: 20pt
+        }
+
         .header {
             z-index: 2;
             position: relative;
@@ -32,10 +38,6 @@
             font-family: "Chelsea Market";
             margin-left: 870pt;
             padding-top: 100pt;
-        }
-        .text {
-            padding-top: 20pt;
-            padding-bottom: 20pt
         }
 
     </style>
