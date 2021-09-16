@@ -6,7 +6,7 @@
     include_once 'additional/dbh.inc.php';
     session_start();
     ?>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <style>
         .navbar .navbar-nav .nav-link:hover {
             color: yellowgreen;
