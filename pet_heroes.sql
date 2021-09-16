@@ -2,7 +2,7 @@
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
-
+    
 CREATE TABLE `users` (
   `user_id` int(11) NOT NULL,
   `username` varchar(128) NOT NULL,
@@ -21,4 +21,19 @@ ALTER TABLE `users`
 
 ALTER TABLE `users`
   MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+
+CREATE TABLE 'account_setup' (
+    'user_id' int(11) NOT NULL,
+    'preferences_completed' BOOL NOT NULL DEFAULT False,
+    'profile_picture_uploaded' BOOL NOT NULL DEFAULT False
+)
+
+INSERT INTO `account_setup` (`user_id`, `preferences_completed`, `profile_picture_uploaded`) VALUES
+(3, False, False);
+
+ALTER TABLE `accountSetup`
+  ADD PRIMARY KEY (`user_id`);
+
+
 COMMIT;

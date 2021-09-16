@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php include_once 'header.php'?>
 <head>
     <?php
     include_once 'additional/dbh.inc.php';
@@ -12,15 +13,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src='//cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.4/jquery.touchSwipe.min.js'></script>
-    <?php include_once 'header.php'?>
 
     <style>
 
         .header h1 {
-            font-size: 3vw;
+            font-size: 4vw;
             color: black;
             font-family: "Chelsea Market";
-            margin-top: 10%;
+            margin-top: 5%;
         }
         .header img{
             margin-left: 55%;
@@ -30,92 +30,60 @@
             margin-left: 2%;
         }
         .col-sm-6 {
-            margin-top: 1%;
+            margin-top: 3%;
+            margin-left: 3%;
         }
         .col-sm-6 h1 {
-            font-size: 2.5vw;
+            font-size: 3vw;
             color: black;
             font-family: "Chelsea Market";
-            margin-top: 1%;
         }
-        .col-sm-8 h1 {
-            font-size: 2.5vw;
-            color: black;
-            font-family: "Chelsea Market";
-            margin-top: 7%;
+        .col-sm-8 {
+            margin-left: 3%;
         }
         .col-sm-8 p {
             font-size: 2vw;
             color: black;
             font-family: "Chelsea Market";
+            margin-right: 20%;
         }
         .images{
             position: fixed;
-            margin-left: 75%;
-            margin-top: 9%;
+            margin-left: 70%;
         }
 
-        .boxhead a {
-            color: black;
-            text-decoration: none;
-        }
-
-        .btn{
-            background: #BCE76D;
-
-            border-color:#BCE76D;
-            width: 25%;
-            font-size: 1.3vw;
-            margin-left: 7%;
-            border-width: 5px;
-            font-family: "Chelsea Market";
-        }
     </style>
 </head>
 
-<body style="background-color: whitesmoke">
-
+<body>
 <div class="images">
-    <img src="Files/image%202.png" style="width: 80%">
-    <button type="button" class="btn rounded-pill" style="width: 50%; margin-top: 2%; margin-left: 15%;">Edit Profile</button>
-
-    <button type="button" class="boxhead a btn rounded-pill" style="width: 50%; margin-top: 2%; margin-left: 15%;"><a href="/additional/logout.inc.php">Logout</a></button>
-
-
+    <img src="Files/image%202.png" style="width: 100%">
+    <img src="Files/image%203.png" style="width: 100%">
 </div>
 <div class="container">
     <div class="row">
         <div class="col-sm header">
-            <h1>Hi <?php echo $_SESSION['first_name']?>,</h1>
+            <h1>Welcome !</h1>
         </div>
     </div>
-
-
-
     <div class="row">
         <div class="col-sm-6">
-            <h1>Personality Profile:</h1>
-            <a type="button" class="btn rounded-pill" href='setup_preferences1.php'>Take Quiz</a>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-sm-8">
-            <h1>Preferences:</h1>
+            <h1>For Adopters</h1>
         </div>
         <div class="col-sm-8">
+            <hr style="height:5px; width:80%; color:#BCE76D; background-color:#BCE76D; opacity: 100%">
             <p>Pet Heroes wants to match you with your perfect pet and create families. Find your new best furry-friend today!</p>
 
         </div>
 
     </div>
     <div class="row">
-        <div class="col-sm-8">
-            <h1>About me:</h1>
+        <div class="col-sm-6">
+            <h1>For Re-homers</h1>
         </div>
-
         <div class="col-sm-8">
-            <p></p>
+            <hr style="height:5px; width:80%; color:#BCE76D; background-color:#BCE76D; opacity: 100%">
+            <p>Found a stray or needing to rehome your pet for any reason? Look no further! We will match your pet to the most suitable adopter and find them the forever home they deserve.</p>
         </div>
     </div>
 </div>

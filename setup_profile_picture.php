@@ -29,6 +29,8 @@
 </form>
 
 
+<a class="btn btn-primary btn-lg" href="profile.php"> Done </a>
+
 </body>
 
 <html>

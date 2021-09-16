@@ -98,6 +98,34 @@ function usernameEmailExists($conn, $username, $email) {
     mysqli_stmt_close($stmt);
 }
 
+
+/**
+ * Creates the user id account setup row in database
+ * @param $conn - connection to SQL
+ * @param $user_id - user id primary key
+ */
+function createAccountSetup($conn, $user_id){
+
+    #ini_set('display_errors', 1);
+    #ini_set('display_startup_errors', 1);
+    #error_reporting(E_ALL);
+
+    $sql = "INSERT INTO account_setup (user_id) VALUES (?)";
+
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../sign_up.php?error=stmt_failed");
+        exit();
+    }
+    
+    mysqli_stmt_bind_param($stmt, "i", $user_id);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+    exit();
+}
+
+
+
 /**
  * Creates the user as a new row in the users table of the database
  * @param $conn - connection to SQL
@@ -125,6 +153,12 @@ function createUser($conn, $first_name, $last_name, $email, $username, $password
 
     header("location: ../login.php?message=sign_up_success");
     exit();
+
+    #Can't get this working atm
+    #Need to create new row in database with column
+    #$id = mysqli_insert_id($stmt);
+    #print($id);
+    #createAccountSetup($conn, $id);
 }
 
 /**
