@@ -11,10 +11,6 @@
         .navbar .navbar-nav .nav-link:hover {
             color: yellowgreen;
         }
-        .navbar img {
-            width: 70%;
-            height: 70%;
-        }
         @media only screen and (min-width: 960px) {
             .navbar .navbar-nav .nav-link {
                 padding: 1em 0.7em;
@@ -26,6 +22,7 @@
         .navbar .navbar-nav .nav-link {
             position: relative;
             color: black;
+            z-index: 2;
         }
         .navbar .navbar-nav .nav-link::after {
             position: absolute;
@@ -44,52 +41,44 @@
             width: 100%;
         }
 
-        .navbar li{
-            font-family: "Chelsea Market";
-            color: black;
-            position: center;
-            margin-top: 5%;
-            margin-right: 25%;
-            margin-left: 25%;
-        }
-        .navbar{
-            width: 100%;
-            border-bottom: 3px solid #BCE76D;
+        .nav-item{
+        margin-left: 55%;
         }
 
     </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src='//cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.4/jquery.touchSwipe.min.js'></script>
 </head>
 
-<body> <!-- logo placeholder -->
-
-<?php if (isset($_SESSION['username'])){
-    echo "<nav class='navbar navbar-expand-lg navbar-light bg-light'>
-                <a href='landing_page.php' ><img src='Files/logo.png'></a>
+<body>
+<?php if (isset($_SESSION['username'])){ ?>
+    <nav class='navbar sticky-top navbar-expand-lg navbar-light bg-light'>
+        <a href='landing_page.php' ><img src='Files/logo.png' style='width: 70px; margin-left: 5%'></a>
                 <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation'>
     <span class='navbar-toggler-icon'></span>
   </button>
   <div class='collapse navbar-collapse' id='navbarToggler9'>
     <ul class='navbar-nav'>
       <li class='nav-item active'>
-        <a class='nav-link' href='landing_page.php' style='font-size: 1.5vw'>Home</a>
+        <a class='nav-link' href='all_pets.php' style='font-size: 1.5vw'>Pets</a>
       </li>
       <li class='nav-item'>
         <a class='nav-link' href='home.php'style='font-size: 1.5vw' >Matches</a>
       </li>
       <li class='nav-item'>
-        <a class='nav-link' href='home.php' style='font-size: 1.5vw'>Upload</a>
+        <a class='nav-link' href='list.php' style='font-size: 1.5vw'>Upload</a>
       </li>
       <li class='nav-item'>
-        <a class='nav-link' href='account.php' style='font-size: 1.5vw'>Account</a>
+        <a class='nav-link float-md-right' href='account.php' style='font-size: 1.5vw'><?php echo $_SESSION['username']; ?></a>
       </li>
     </ul>
   </div>
-</nav>";
-
-
+</nav>
+<?php
 } else {
-    echo "<nav class='navbar navbar-expand-lg navbar-light bg-light'>
-                <a href='landing_page.php' ><img src='Files/logo.png'></a>
+    echo "<nav class='navbar sticky-top navbar-expand-lg navbar-light bg-light'>
+                <a href='landing_page.php' ><img src='Files/logo.png' style='width: 70px; margin-left: 5%'></a>
                 <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation'>
     <span class='navbar-toggler-icon'></span>
   </button>
@@ -108,6 +97,5 @@
 
 }
 ?>
-
 
 </body>
