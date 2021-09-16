@@ -74,7 +74,7 @@ if (isset($_GET["message"])) {
 
 
 <div class="images">
-    <img src="Files/image%202.png" style="width: 80%">
+    <img src="Files/profilePicture.png" style="width: 80%">
     <a class="btn btn-primary" href="edit_profile.php?edit=<?php echo $_SESSION['user_id']?>" style="width: 60%; margin-top: 2%; margin-left: 10%;">Edit Profile</a>
     <a class="btn btn-primary" href="verify_email.php" style="width: 60%; margin-top: 2%; margin-left: 10%;">Verify Email</a>
     <a class="btn btn-primary" href="setup_profile_picture.php" style="width: 60%; margin-top: 2%; margin-left: 10%;">Upload Profile Picture</a>
