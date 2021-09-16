@@ -53,6 +53,18 @@ require_once 'additional/pet.inc.php';
                                 echo "No";
                             }?></h5>
                     </div>
+                    <div class="alert alert-secondary">
+                        <h5><b>Gender: </b><?php if($pet['gender'] == 1){
+                                echo "Female"; } else {
+                                echo "Male";
+                            }?></h5>
+                    </div>
+                    <div class="alert alert-secondary">
+                        <h5><b>colour: </b><?php if($pet['colour'] == 0){
+                                echo "White"; } else if ($pet['colour'] == 1) {
+                                echo "Black"; } else {echo "Brown";}
+                            ?></h5>
+                    </div>
                 </div>
             </div>
             <div class="row">

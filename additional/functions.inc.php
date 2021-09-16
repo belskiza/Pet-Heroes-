@@ -240,11 +240,12 @@ function loginUser($conn, $username, $password) {
  * @param $picture_destination4
  */
 function listPet($conn, $name, $location, $breed, $age ,$user_id, $picture_destination, $description,
-                 $pet_type, $size, $vaccinated, $desexed, $microchip, $picture_destination2, $picture_destination3, $picture_destination4){
+                 $pet_type, $size, $vaccinated, $desexed, $microchip, $picture_destination2, $picture_destination3, $picture_destination4
+, $gender, $colour){
     $conn->query("INSERT INTO pets (pet_name, location, user_id, breed, age, picture_destination, description,
-pet_type, pet_size, vaccinated, desexed, microchip, picture_destination2, picture_destination3, picture_destination4) VALUES 
+pet_type, pet_size, vaccinated, desexed, microchip, picture_destination2, picture_destination3, picture_destination4, gender, colour) VALUES 
 ('$name', '$location', '$user_id', '$breed', '$age', '$picture_destination', '$description', '$pet_type', '$size', 
-'$vaccinated','$desexed','$microchip', '$picture_destination2', '$picture_destination3', '$picture_destination4')") or die ($conn->error);
+'$vaccinated','$desexed','$microchip', '$picture_destination2', '$picture_destination3', '$picture_destination4', '$gender', '$colour')") or die ($conn->error);
     /*
     $sql =
 

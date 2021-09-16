@@ -43,6 +43,31 @@
                         </select>
                     </div>
                 </div> <br/>
+
+                <div class="row mb-3">
+                    <div class="input-group col">
+                        <span class="input-group-text">Gender</span>
+                        <select class="form-control" name="gender" aria-label="Default select example">
+                            <?php if ($gender == ''){
+                                ?><option selected>Please select the Gender of your pet</option><?php
+                            }?>
+                            <option <?php if ($gender == 1){echo 'selected="selected"';} ?> value="1">Male</option>
+                            <option <?php if ($gender == 2){echo 'selected="selected"';} ?> value="2">Female</option>
+                        </select>
+                    </div>
+                    <div class="input-group col">
+                        <span class="input-group-text">Colour</span>
+                        <select class="form-control" name="colour" aria-label="Default select example">
+                            <?php if ($colour == ''){
+                                ?><option selected>Select Colour</option><?php
+                            }?>
+                            <option <?php if ($colour == 1){echo 'selected="selected"';} ?> value="1">White</option>
+                            <option <?php if ($colour == 2){echo 'selected="selected"';} ?> value="2">Black</option>
+                            <option <?php if ($colour == 3){echo 'selected="selected"';} ?> value="3">Brown</option>
+                        </select>
+                    </div>
+                </div> <br/>
+
                 <div class="row mb-3">
                     <div class="input-group col">
                         <span class="input-group-text">Location</span>
