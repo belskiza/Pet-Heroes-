@@ -36,4 +36,17 @@ ALTER TABLE `accountSetup`
   ADD PRIMARY KEY (`user_id`);
 
 
+CREATE TABLE `personality_traits` (
+    `user_id` int(11) NOT NULL,
+    `preference_1` varchar(128) NOT NULL,
+    `preference_2` varchar(128) NOT NULL,
+    `preference_3` varchar(128) NOT NULL,
+    `preference_4` varchar(128) NOT NULL,
+    `preference_5` varchar(128) NOT NULL
+)
+
+ALTER TABLE `accountSetup`
+    ADD PRIMARY KEY (`user_id`);
+
+
 COMMIT;

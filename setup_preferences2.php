@@ -87,5 +87,5 @@ Next set of questions
 
 <div class="col-sm-6">
     <a type="button" class="btn rounded-pill" href='setup_preferences1.php'>Previous Page</a>
-    <a type="button" class="btn rounded-pill" href='setup_preferences3.php'>Next Page</a>
+    <a type="button" class="btn rounded-pill" href='setup_preferences_wordcloud.php'>Next Page</a>
 </div>
