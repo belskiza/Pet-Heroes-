@@ -8,15 +8,8 @@
     ?>
     <link rel="stylesheet" href="css/style.css">
     <style>
-        .topnav{
-            background-color: darkgrey;
-
         .navbar .navbar-nav .nav-link:hover {
             color: yellowgreen;
-        }
-        .navbar img {
-            width: 40%;
-            height: 40%;
         }
         @media only screen and (min-width: 960px) {
             .navbar .navbar-nav .nav-link {
@@ -47,14 +40,10 @@
         .navbar .navbar-nav .nav-link:hover::after {
             width: 100%;
         }
+
         .nav-item{
-            width: 100%;
-            padding-left: 50%;
+        margin-left: 55%;
         }
-
-
-
-
 
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -62,11 +51,10 @@
     <script src='//cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.4/jquery.touchSwipe.min.js'></script>
 </head>
 
-<body> <!-- logo placeholder -->
-
-<?php if (isset($_SESSION['username'])){
-    echo "<nav class='navbar sticky-top navbar-expand-lg navbar-light bg-light'>
-                <a href='landing_page.php' ><img src='Files/logo.png'></a>
+<body>
+<?php if (isset($_SESSION['username'])){ ?>
+    <nav class='navbar sticky-top navbar-expand-lg navbar-light bg-light'>
+        <a href='landing_page.php' ><img src='Files/logo.png' style='width: 70px; margin-left: 5%'></a>
                 <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation'>
     <span class='navbar-toggler-icon'></span>
   </button>
@@ -82,33 +70,15 @@
         <a class='nav-link' href='list.php' style='font-size: 1.5vw'>Upload</a>
       </li>
       <li class='nav-item'>
-        <a class='nav-link float-md-right' href='account.php' style='font-size: 1.5vw'>";echo $_SESSION['username']; echo"</a>
+        <a class='nav-link float-md-right' href='account.php' style='font-size: 1.5vw'><?php echo $_SESSION['username']; ?></a>
       </li>
     </ul>
   </div>
-</nav>"; ?>
-
-
-<div class="topnav">
-    <img src="files/logo.png" style="width: 40px; position:fixed;"/>
-    <?php if (isset($_SESSION['username'])){
-        echo "<a href='profile.php' style='margin-left: 50px;' ?>".$_SESSION['first_name']."</a>";
-        echo "<a href='home.php'?>Home</a>";
-        echo "<a href='additional/logout.inc.php'?>Log Out</a>";
-        echo "<a href='#about' ?>PLACEHOLDER</a>";
-
-    } else {
-        echo "<a href='sign_up.php'?> Sign Up </a>
-              <a href='login.php'?>Log In</a>";
-        echo "<a href='#about' ?>PLACEHOLDER</a>";
-
-    }
-    ?>
-</div>
+</nav>
 <?php
 } else {
     echo "<nav class='navbar sticky-top navbar-expand-lg navbar-light bg-light'>
-                <a href='landing_page.php' ><img src='Files/logo.png'></a>
+                <a href='landing_page.php' ><img src='Files/logo.png' style='width: 70px; margin-left: 5%'></a>
                 <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation'>
     <span class='navbar-toggler-icon'></span>
   </button>
