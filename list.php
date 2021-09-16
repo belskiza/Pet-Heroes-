@@ -1,7 +1,7 @@
 <?php include_once 'header.php'?>
 <body>
     <?php require_once 'additional/list.inc.php'; ?>
-
+    <img src="files/landing_image_2.jpeg" style="position: fixed; filter: blur(3px) ; width: 110%; margin-top: -10%; margin-left: -5%; z-index: -1">
         <div class="alert alert-secondary col-md-4" style="margin:auto; margin-top: 1%; padding: 3%; background-color: whitesmoke; min-width: 400pt">
             <form action="additional/list.inc.php" method="POST" enctype="multipart/form-data">
                 <input type="hidden" name="pet_id" value="<?php if (isset($_GET['edit'])){
@@ -42,6 +42,10 @@
                 <div class="mb-3">
                     <label class="form-label" ">Age</label>
                     <input type="text" name="age" class="form-control" id="form-control" value="<?php echo $age; ?>" placeholder="Age...">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Brief Description: 250 words</label>
+                    <textarea name="description" class="form-control" id="form-control" value="" placeholder="Description..."><?php echo $description; ?></textarea>
                 </div>
                 <?php if (!isset($_GET['edit'])){
                     ?> <div class="mb-3">

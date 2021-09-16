@@ -8,10 +8,7 @@
     <title>Home Page</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <script src='//cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.4/jquery.touchSwipe.min.js'></script>
+
     <?php include_once 'header.php'?>
     <?php require_once 'additional/mypets.inc.php'?>
 
@@ -77,7 +74,7 @@ if (isset($_GET["message"])) {
 
 <div class="images">
     <img src="Files/image%202.png" style="width: 80%">
-    <button type="button" class="btn rounded-pill" style="width: 50%; margin-top: 2%; margin-left: 15%;">Edit Profile</button>
+    <a class="btn btn-primary" href="edit_profile.php?edit=<?php echo $_SESSION['user_id']?>" style="width: 50%; margin-top: 2%; margin-left: 15%;">Edit Profile</a>
 
     <button type="button" class="boxhead a btn rounded-pill" style="width: 50%; margin-top: 2%; margin-left: 15%;"><a href="/additional/logout.inc.php">Logout</a></button>
 
@@ -140,6 +137,7 @@ if (isset($_GET["message"])) {
     <table class="table table-striped table-hover">
         <thead style="background-color: #343a40; color: white">
         <tr>
+            <th>Image</th>
             <th>Name </th>
             <th>Breed</th>
             <th>Age</th>
@@ -150,6 +148,7 @@ if (isset($_GET["message"])) {
 
         <?php while ($row = $result->fetch_assoc()){?>
             <tr>
+                <td><img src="uploads/<?php echo $row['picture_destination']?>" style="max-width: 150px"/></td>
                 <td><b><?php echo $row['pet_name']?></b></td>
                 <td><?php echo $row['breed']?></td>
                 <td><?php echo $row['age']?></td>

@@ -14,5 +14,6 @@ require_once 'additional/pet.inc.php';
     <br/><br/><h3>Age: <?php echo $pet['age']?></h3>
     <h3>Breed: <?php echo $pet['breed']?></h3>
     <h3>Location: <?php echo $pet['location']?></h3>
+    <h3>Description: <?php echo $pet['description']?></h3>
 </div>
 </body>

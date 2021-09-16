@@ -27,6 +27,7 @@ if (isset($_GET["message"])) {
     <table class="table table-striped table-hover">
         <thead style="background-color: #343a40; color: white">
         <tr>
+            <th>Image</th>
             <th>Name </th>
             <th>Breed</th>
             <th>Age</th>
@@ -37,6 +38,7 @@ if (isset($_GET["message"])) {
 
         <?php while ($row = $result->fetch_assoc()){?>
         <tr>
+            <td><img src="uploads/<?php echo $row['picture_destination']?>" style="max-width: 150px"/></td>
             <td><b><?php echo $row['pet_name']?></b></td>
             <td><?php echo $row['breed']?></td>
             <td><?php echo $row['age']?></td>

@@ -9,6 +9,7 @@ $name = '';
 $location = '';
 $age = '';
 $breed = '';
+$description = '';
 
 
 if (isset($_POST['submit'])){
@@ -17,6 +18,7 @@ if (isset($_POST['submit'])){
     $breed = $_POST['breed'];
     $age = $_POST['age'];
     $user_id = $_SESSION['user_id'];
+    $description = $_POST['description'];
 
     $picture = $_FILES['picture'];
     $fileName = $_FILES['picture']['name'];
@@ -49,7 +51,7 @@ if (isset($_POST['submit'])){
         exit();
     }
 
-    listPet($conn, $name, $location, $breed, $age, $user_id, $fileNameNew);
+    listPet($conn, $name, $location, $breed, $age, $user_id, $fileNameNew, $description);
 }
 
 if (isset($_GET['delete'])){
@@ -67,6 +69,7 @@ if(isset($_GET['edit'])){
         $location = $row['location'];
         $breed = $row['breed'];
         $age = $row['age'];
+        $description = $row['description'];
     }
 }
 
@@ -76,8 +79,9 @@ if (isset($_POST['update'])){
     $location = $_POST['location'];
     $breed = $_POST['breed'];
     $age = $_POST['age'];
+    $description = $_POST['description'];
 
-    updatePet($conn, $pet_id, $name, $location, $breed, $age);
+    updatePet($conn, $pet_id, $name, $location, $breed, $age, $description);
 }
 
 

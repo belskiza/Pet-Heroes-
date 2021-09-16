@@ -215,7 +215,7 @@ function loginUser($conn, $username, $password) {
         } else {
             setcookie('1', "1", time() + 3600 * 24 * 7);
         } */
-        header("location: ../index.php?message=login");
+        header("location: ../account.php");
         exit();
     }
 }
@@ -229,8 +229,9 @@ function loginUser($conn, $username, $password) {
  * @param $age
  * @param $user_id
  */
-function listPet($conn, $name, $location, $breed, $age ,$user_id, $picture_destination){
-    $conn->query("INSERT INTO pets (pet_name, location, user_id, breed, age, picture_destination) VALUES ('$name', '$location', '$user_id', '$breed', '$age', '$picture_destination')") or die ($conn->error);
+function listPet($conn, $name, $location, $breed, $age ,$user_id, $picture_destination, $description){
+    $conn->query("INSERT INTO pets (pet_name, location, user_id, breed, age, picture_destination, description) VALUES 
+('$name', '$location', '$user_id', '$breed', '$age', '$picture_destination', '$description')") or die ($conn->error);
     /*
     $sql =
 
@@ -329,8 +330,8 @@ function fetchPetFromId($conn, $id){
  * @param $name
  * @param $location
  */
-function updatePet($conn, $pet_id, $name, $location, $breed, $age){
-    $sql = "UPDATE pets SET pet_name='$name', location='$location', breed='$breed', age='$age' WHERE pet_id='$pet_id';";
+function updatePet($conn, $pet_id, $name, $location, $breed, $age, $description){
+    $sql = "UPDATE pets SET pet_name='$name', location='$location', breed='$breed', age='$age', description='$description' WHERE pet_id='$pet_id';";
     // Using a prepared statement to stop the user from being able to write code into the input boxes which could
     // damage the database
     $stmt = mysqli_stmt_init($conn);
@@ -344,4 +345,23 @@ function updatePet($conn, $pet_id, $name, $location, $breed, $age){
 
     header("location: ../account.php?message=update_success");
     exit();
+}
+
+function fetchUserFromId($conn, $id){
+    $sql = "SELECT * FROM users WHERE user_id = $id;";
+    // Using a prepared statement to stop the user from being able to write code into the input boxes which could
+    // damage the database
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+       header("location: ../sign_up.php?error=stmt_failed");
+        exit();
+    }
+
+    mysqli_stmt_execute($stmt);
+
+    $resultData = mysqli_stmt_get_result($stmt);
+
+    mysqli_stmt_close($stmt);
+
+    return $resultData;
 }
