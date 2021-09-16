@@ -3,9 +3,6 @@
 <?php include_once 'header.php'?>
 
 <style>
-    .down-five {
-        margin-bottom: 3cm;
-    }
     .down-one {
         margin-bottom: 1cm;
     }
@@ -21,7 +18,8 @@
         margin-top: 3%;
     }
     .container {
-        margin-left: 2%;
+        margin-top: 5%;
+        margin-left: 5%;
     }
     .col-sm-6 {
         margin-top: 1%;
@@ -50,6 +48,7 @@
     }
 
     .btn{
+        background: #BCE76D;
         border-color:#BCE76D;
         width: 25%;
         font-size: 1.3vw;
@@ -57,13 +56,11 @@
         border-width: 5px;
         font-family: "Chelsea Market";
     }
+        
 </style>
 
 <body>
-<p class='down-five'></p>
-<p class='down-five'></p>
-<div>
-    
+<div class="container">
     <h3> Setup Preferences </h3> 
     <div>
         <label for="exampleDataList" class="form-label">Question 1: What level of experience do you have owning pets?</label>
@@ -118,8 +115,8 @@
         </datalist>
     </div>
 
-<div class="col-sm-6">
-    <a type="button" class="btn rounded-pill" href='setup_preferences2.php'>Next Page</a>
+<div>
+    <a class="btn btn-primary" href="setup_preferences2.php" style="width: 20%; margin-top: 2%; margin-left: 5%;">Next Page</a>
 </div>
 </div>
 </body>

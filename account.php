@@ -39,7 +39,7 @@
         .images{
             position: fixed;
             margin-left: 75%;
-            margin-top: 9%;
+            margin-top: 1%;
         }
 
         .boxhead a {
@@ -72,13 +72,15 @@ if (isset($_GET["message"])) {
 }
 ?>
 
+
 <div class="images">
     <img src="Files/image%202.png" style="width: 80%">
-    <a class="btn btn-primary" href="edit_profile.php?edit=<?php echo $_SESSION['user_id']?>" style="width: 50%; margin-top: 2%; margin-left: 15%;">Edit Profile</a>
-
-    <button type="button" class="boxhead a btn rounded-pill" style="width: 50%; margin-top: 2%; margin-left: 15%;"><a href="/additional/logout.inc.php">Logout</a></button>
-
+    <a class="btn btn-primary" href="edit_profile.php?edit=<?php echo $_SESSION['user_id']?>" style="width: 60%; margin-top: 2%; margin-left: 10%;">Edit Profile</a>
+    <a class="btn btn-primary" href="verify_email.php" style="width: 60%; margin-top: 2%; margin-left: 10%;">Verify Email</a>
+    <a class="btn btn-primary" href="setup_profile_picture.php" style="width: 60%; margin-top: 2%; margin-left: 10%;">Upload Profile Picture</a>
+    <a class="btn btn-primary" href="/additional/logout.inc.php" style="width: 60%; margin-top: 2%; margin-left: 10%;">Logout</a>
 </div>
+
 <div class="container">
     <div class="row">
         <div class="col-sm header">
@@ -89,7 +91,7 @@ if (isset($_GET["message"])) {
     <div class="row">
         <div class="col-sm-6">
             <h1>Personality Profile:</h1>
-            <a type="button" class="btn rounded-pill" href='setup_preferences1.php'>Take Quiz</a>
+            <a class="btn btn-primary" href="setup_preferences1.php" style="width: 35%; margin-top: 2%; margin-left: 5%;">Take Quiz</a>
         </div>
     </div>
 

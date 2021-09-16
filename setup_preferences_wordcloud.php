@@ -1,5 +1,5 @@
 <html>
-
+<head>
 <?php include_once 'header.php'?>
 
 <style>
@@ -7,7 +7,17 @@
         margin-bottom: 1cm;
     }
 
-    
+    .header h1 {
+        font-size: 3vw;
+        color: black;
+        font-family: "Chelsea Market";
+        margin-top: 10%;
+    }
+    .header img{
+        margin-left: 55%;
+        margin-top: 3%;
+    }
+    /*
     html, body {
     height: 80vh;
     width: 80vw;
@@ -17,35 +27,39 @@
     align-items: center;
     justify-content: center;
     }
-
+    */
     ul.cloud {
-    list-style: none;
-    padding-left: 0;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    line-height: 2.75rem;
-    width: 450px;
+        list-style: none;
+        padding-left: 10;
+        display: flex;
+        flex-wrap: wrap;
+        /*align-items: center;*/
+        justify-content: center;
+        line-height: 2.75rem;
+        text-align: center;
+        /*height: 300px;
+        width: 300px;*/
+        width: 400px;
     }
-
+    
     ul.cloud a {
-    /*   
-    Not supported by any browser at the moment :(
-    --size: attr(data-weight number); 
-    */
-    --size: 4;
-    --color: #a33;
-    color: var(--color);
-    font-size: calc(var(--size) * 0.25rem + 0.5rem);
-    display: block;
-    padding: 0.125rem 0.25rem;
-    position: relative;
-    text-decoration: none;
-    /* 
-    For different tones of a single color
-    opacity: calc((15 - (9 - var(--size))) / 15); 
-    */
+        /*   
+        Not supported by any browser at the moment :(
+        --size: attr(data-weight number); 
+        */
+        --size: 4;
+        --color: #a33;
+        color: var(--color);
+        font-size: calc(var(--size) * 0.25rem + 0.5rem);
+        display: block;
+        padding: 0.125rem 0.25rem;
+        position: relative;
+        text-decoration: none;
+        text-align: center;
+        /* 
+        For different tones of a single color
+        opacity: calc((15 - (9 - var(--size))) / 15); 
+        */
     }
 
     ul.cloud a[data-weight="1"] { --size: 1; }
@@ -72,16 +86,17 @@
     }
 
     ul.cloud a::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: 0;
-    height: 100%;
-    background: var(--color);
-    transform: translate(-50%, 0);
-    opacity: 0.15;
-    transition: width 0.25s;
+        content: "";
+        position: absolute;
+        text-align: center;
+        top: 0;
+        left: 50%;
+        width: 0;
+        height: 100%;
+        background: var(--color);
+        transform: translate(-50%, 0);
+        opacity: 0.15;
+        transition: width 0.25s;
     }
 
     ul.cloud a:focus::before,
@@ -113,7 +128,7 @@
         margin-top: 3%;
     }
     .container {
-        margin-left: 2%;
+        margin-left: 15%;
     }
     .col-sm-6 {
         margin-top: 1%;
@@ -136,29 +151,36 @@
         font-family: "Chelsea Market";
     }
     .images{
-        position: fixed;
-        margin-left: 75%;
-        margin-top: 9%;
+    
+        margin-left: 30%
+    }
+
+    .all-cloud {
+        margin-top: 5%;
+        text-align: center;
+    }
+
+    .inner-cloud {
+        margin-left: 35%;
+        text-align: center;
     }
 
     .btn{
+        background: #BCE76D;
         border-color:#BCE76D;
         width: 25%;
         font-size: 1.3vw;
         margin-left: 7%;
         border-width: 5px;
         font-family: "Chelsea Market";
-        white-space: nowrap;
     }
+    
 </style>
 
 <body>
-<p class='down-one'></p>
-<p class='down-one'></p>
-<p class='down-one'></p>
-<div>
+<div class="all-cloud">
     <h1> Pick the 5 that best describe who you are</h1> 
-    <div>
+    <div class="inner-cloud">
         <ul class="cloud" role="navigation" aria-label="Webdev word cloud">
         <li><a href="#" data-weight="4">Energetic</a></li>
         <li><a href="#" data-weight="1">Psycho</a></li>
@@ -177,11 +199,11 @@
         <li><a href="#" data-weight="3">Adjective4</a></li>
         </ul>
     </div>
-
-    <div class="col-sm-6">
-        <a type="button" class="btn rounded-pill" href='setup_preferences2.php'>Previous Page</a>
-        <a type="button" class="btn rounded-pill" href='setup_preferences_done.php'>Finish Quiz</a>
-    </div>
+</div>
+<div class="images">
+    <a class="btn btn-primary" href="setup_preferences2.php" style="width: 20%; margin-top: 2%; margin-left: 5%;">Previous Page</a>
+    <a class="btn btn-primary" href="setup_preferences_done.php" style="width: 20%; margin-top: 2%; margin-left: 5%;">Finish Quiz</a>
 </div>
 </body>
-</html>
+</head>
+<html>
