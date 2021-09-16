@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Sep 16, 2021 at 01:04 AM
+-- Generation Time: Sep 16, 2021 at 06:13 AM
 -- Server version: 5.7.32
 -- PHP Version: 7.4.16
 
@@ -35,19 +35,28 @@ CREATE TABLE `pets` (
   `breed` varchar(100) NOT NULL,
   `age` varchar(100) NOT NULL,
   `picture_destination` varchar(150) NOT NULL,
-  `description` varchar(1000) NOT NULL
+  `description` varchar(1000) NOT NULL,
+  `pet_type` int(2) NOT NULL,
+  `pet_size` int(1) NOT NULL,
+  `vaccinated` int(1) NOT NULL,
+  `desexed` int(1) NOT NULL,
+  `microchip` int(1) NOT NULL,
+  `picture_destination2` varchar(150) NOT NULL,
+  `picture_destination3` varchar(150) NOT NULL,
+  `picture_destination4` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `pets`
 --
 
-INSERT INTO `pets` (`pet_id`, `pet_name`, `location`, `user_id`, `breed`, `age`, `picture_destination`, `description`) VALUES
-(4, 'Name', 'Indro', '0', 'Shitzhu', '23', '', ''),
-(5, 'Fluf', 'Indro', '0', 'Bulldog', '1', '', ''),
-(6, 'Charlie', 'Brisbane', '5', 'Labrador', '11', '', ''),
-(14, 'Lucy', 'Brisbane', '3', 'Lab', '11', '6142909c8cc7d6.99534682.jpeg', ''),
-(15, 'Tom', 'Tom', '3', 'Tom', '22', '614292ad2f3825.14747559.jpeg', 'Test description');
+INSERT INTO `pets` (`pet_id`, `pet_name`, `location`, `user_id`, `breed`, `age`, `picture_destination`, `description`, `pet_type`, `pet_size`, `vaccinated`, `desexed`, `microchip`, `picture_destination2`, `picture_destination3`, `picture_destination4`) VALUES
+(4, 'Name', 'Indro', '0', 'Shitzhu', '23', '', '', 0, 0, 0, 0, 0, '', '', ''),
+(5, 'Fluf', 'Indro', '0', 'Bulldog', '1', '', '', 0, 0, 0, 0, 0, '', '', ''),
+(6, 'Charlie', 'Brisbane', '5', 'Labrador', '11', '', '', 0, 0, 0, 0, 0, '', '', ''),
+(15, 'Tom', 'Tom', '3', 'Tom', '22', '614292ad2f3825.14747559.jpeg', 'Test descriptions', 0, 0, 0, 0, 0, '', '', ''),
+(16, 'Snoop', 'Brisbane', '3', 'Labrador', '7', '6142d42eb85ff2.81193403.jpeg', 'This is a test ', 2, 3, 1, 1, 1, '', '', ''),
+(18, 'Snoop', 'Brisbane', '3', 'Labrador', '1', '6142e034ad17b9.84222340.png', 'He is a chocolate Lab', 2, 1, 1, 1, 1, '6142e034ad4793.51293728.jpeg', '6142e034ad5141.25405990.jpeg', '6142e034ad59e7.53884552.jpeg');
 
 -- --------------------------------------------------------
 
@@ -96,7 +105,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `pets`
 --
 ALTER TABLE `pets`
-  MODIFY `pet_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `pet_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 CREATE TABLE `personality_traits` (
     `user_id` int(11) NOT NULL,

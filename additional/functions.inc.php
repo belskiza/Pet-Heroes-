@@ -228,10 +228,23 @@ function loginUser($conn, $username, $password) {
  * @param $breed
  * @param $age
  * @param $user_id
+ * @param $picture_destination
+ * @param $description
+ * @param $pet_type
+ * @param $size
+ * @param $vaccinated
+ * @param $desexed
+ * @param $microchip
+ * @param $picture_destination2
+ * @param $picture_destination3
+ * @param $picture_destination4
  */
-function listPet($conn, $name, $location, $breed, $age ,$user_id, $picture_destination, $description){
-    $conn->query("INSERT INTO pets (pet_name, location, user_id, breed, age, picture_destination, description) VALUES 
-('$name', '$location', '$user_id', '$breed', '$age', '$picture_destination', '$description')") or die ($conn->error);
+function listPet($conn, $name, $location, $breed, $age ,$user_id, $picture_destination, $description,
+                 $pet_type, $size, $vaccinated, $desexed, $microchip, $picture_destination2, $picture_destination3, $picture_destination4){
+    $conn->query("INSERT INTO pets (pet_name, location, user_id, breed, age, picture_destination, description,
+pet_type, pet_size, vaccinated, desexed, microchip, picture_destination2, picture_destination3, picture_destination4) VALUES 
+('$name', '$location', '$user_id', '$breed', '$age', '$picture_destination', '$description', '$pet_type', '$size', 
+'$vaccinated','$desexed','$microchip', '$picture_destination2', '$picture_destination3', '$picture_destination4')") or die ($conn->error);
     /*
     $sql =
 
@@ -329,9 +342,18 @@ function fetchPetFromId($conn, $id){
  * @param $pet_id
  * @param $name
  * @param $location
+ * @param $breed
+ * @param $age
+ * @param $description
+ * @param $pet_type
+ * @param $pet_size
+ * @param $vaccinated
+ * @param $desexed
+ * @param $microchip
  */
-function updatePet($conn, $pet_id, $name, $location, $breed, $age, $description){
-    $sql = "UPDATE pets SET pet_name='$name', location='$location', breed='$breed', age='$age', description='$description' WHERE pet_id='$pet_id';";
+function updatePet($conn, $pet_id, $name, $location, $breed, $age, $description, $pet_type, $pet_size, $vaccinated, $desexed, $microchip){
+    $sql = "UPDATE pets SET pet_name='$name', location='$location', breed='$breed', age='$age', description='$description',
+ pet_type='$pet_type', pet_size='$pet_size', vaccinated='$vaccinated', desexed='$desexed', microchip='$microchip' WHERE pet_id='$pet_id';";
     // Using a prepared statement to stop the user from being able to write code into the input boxes which could
     // damage the database
     $stmt = mysqli_stmt_init($conn);
