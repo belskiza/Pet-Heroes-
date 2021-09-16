@@ -68,7 +68,7 @@
                 <div id="form">
                         <input type="text" maxLength="1" size="1" min="0" max="9" pattern="[0-9]{1}" />
                         <input type="text" maxLength="1" size="1" min="0" max="9" pattern="[0-9]{1}" /><input type="text" maxLength="1" size="1" min="0" max="9" pattern="[0-9]{1}" /><input type="text" maxLength="1" size="1" min="0" max="9" pattern="[0-9]{1}" />
-                    <button class="btn btn-primary btn-embossed">Verify</button>
+                    <button class="btn btn-primary btn-embossed"><a href="verify_done.php" style="color: white">Verify</a></button>
                 </div>
                 <div>
                     Didn't receive the code?<br />

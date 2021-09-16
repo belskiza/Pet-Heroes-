@@ -3,18 +3,10 @@
 <?php include_once 'header.php'?>
 
 <style>
-    .down-three {
-        margin-bottom: 3cm;
-    }
     .down-one {
         margin-bottom: 1cm;
     }
-    .down-five {
-        margin-bottom: 3cm;
-    }
-    .down-one {
-        margin-bottom: 1cm;
-    }
+
     .header h1 {
         font-size: 3vw;
         color: black;
@@ -26,7 +18,8 @@
         margin-top: 3%;
     }
     .container {
-        margin-left: 2%;
+        margin-top: 5%;
+        margin-left: 5%;
     }
     .col-sm-6 {
         margin-top: 1%;
@@ -55,6 +48,7 @@
     }
 
     .btn{
+        background: #BCE76D;
         border-color:#BCE76D;
         width: 25%;
         font-size: 1.3vw;
@@ -62,6 +56,7 @@
         border-width: 5px;
         font-family: "Chelsea Market";
     }
+        
 </style>
 
 <p class='down-one'>
@@ -69,23 +64,20 @@
 
 <body>
 
+<div class="container">
+    <h3> Setup Preferences </h3> 
 
-<div>
-<p class='down-three'></p>
-<h1> Setup Preferences </h1> 
+    Next set of questions
 
-<p class='down-three'>
-</p>
+    <p class='down-three'>
+    </p>
 
-Next set of questions
+    <p class='down-three'>
+    </p>
 
-<p class='down-three'>
-</p>
-
-<p class='down-three'>
-</p>
-
-<div class="col-sm-6">
-    <a type="button" class="btn rounded-pill" href='setup_preferences1.php'>Previous Page</a>
-    <a type="button" class="btn rounded-pill" href='setup_preferences3.php'>Next Page</a>
+    <div>
+        <a class="btn btn-primary" href="setup_preferences1.php" style="width: 20%; margin-top: 2%; margin-left: 5%;">Previous Page</a>
+        <a class="btn btn-primary" href="setup_preferences_wordcloud.php" style="width: 20%; margin-top: 2%; margin-left: 5%;">Next Page</a>
+    </div>
 </div>
+<html>
