@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Sep 16, 2021 at 06:13 AM
+-- Generation Time: Sep 16, 2021 at 06:18 AM
 -- Server version: 5.7.32
 -- PHP Version: 7.4.16
 
@@ -106,19 +106,6 @@ ALTER TABLE `users`
 --
 ALTER TABLE `pets`
   MODIFY `pet_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
-
-CREATE TABLE `personality_traits` (
-    `user_id` int(11) NOT NULL,
-    `preference_1` varchar(128) NOT NULL,
-    `preference_2` varchar(128) NOT NULL,
-    `preference_3` varchar(128) NOT NULL,
-    `preference_4` varchar(128) NOT NULL,
-    `preference_5` varchar(128) NOT NULL
-)
-
-ALTER TABLE `accountSetup`
-    ADD PRIMARY KEY (`user_id`);
-
 
 --
 -- AUTO_INCREMENT for table `users`
