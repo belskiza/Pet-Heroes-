@@ -28,8 +28,7 @@
       id="dropzone-file-upload">
 </form>
 
-
-<a class="btn btn-primary btn-lg" href="profile.php"> Done </a>
+<a class="btn btn-primary btn-lg" href="upload_profile_picture_done.php"> Done </a>
 
 </body>
 
