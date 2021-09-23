@@ -81,10 +81,7 @@
     <h1> All Done! </h1> 
 
     <p>
-    Thanks for answering the questions!
-    </p>
-    <p>
-    You are now all good to find your newest pet!
+    Your Email has been verified
     </p>
 
     <p> Redirecting in <span id="countdowntimer">3 </span> Seconds</p>
