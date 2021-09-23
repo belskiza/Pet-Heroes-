@@ -64,7 +64,7 @@
         <a class='nav-link' href='all_pets.php' style='font-size: 1.5vw'>Pets</a>
       </li>
       <li class='nav-item'>
-        <a class='nav-link' href='home.php'style='font-size: 1.5vw' >Matches</a>
+        <a class='nav-link' href='matching.php'style='font-size: 1.5vw' >Matches</a>
       </li>
       <li class='nav-item'>
         <a class='nav-link' href='list.php' style='font-size: 1.5vw'>Upload</a>
