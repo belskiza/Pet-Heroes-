@@ -388,28 +388,3 @@ function fetchUserFromId($conn, $id){
 
     return $resultData;
 }
-
-
-function location($conn, $lat, $lon){
-    $sql = "INSERT INTO location (lat, lon) VALUES (?, ?);";
-    // Using a prepared statement to stop the user from being able to write code into the input boxes which could
-    // damage the database
-    $stmt = mysqli_stmt_init($conn);
-    if (!mysqli_stmt_prepare($stmt, $sql)) {
-        header("location: ../sign_up.php?error=stmt_failed");
-        exit();
-    }
-
-
-    mysqli_stmt_bind_param($stmt, "ssssss", $lat, $lon);
-    mysqli_stmt_execute($stmt);
-    mysqli_stmt_close($stmt);
-
-    exit();
-
-    #Can't get this working atm
-    #Need to create new row in database with column
-    #$id = mysqli_insert_id($stmt);
-    #print($id);
-    #createAccountSetup($conn, $id);
-}
