@@ -18,6 +18,7 @@ $microchip = '';
 $gender = '';
 $colour = '';
 
+
 if (isset($_POST['submit'])){
     $name = $_POST['pet_name'];
     $location = $_POST['location'];
@@ -32,6 +33,8 @@ if (isset($_POST['submit'])){
     $microchip = $_POST['microchip'];
     $gender = $_POST['gender'];
     $colour = $_POST['colour'];
+    $lat = $_POST["lat"];
+    $lon = $_POST["lon"];
 
     // Picture 1 variables
     $picture = $_FILES['picture'];
@@ -157,7 +160,7 @@ if (isset($_POST['submit'])){
     }
 
     listPet($conn, $name, $location, $breed, $age, $user_id, $fileNameNew, $description,
-    $pet_type, $size, $vaccinated, $desexed, $microchip, $fileNameNew2, $fileNameNew3, $fileNameNew4, $gender, $colour);
+    $pet_type, $size, $vaccinated, $desexed, $microchip, $fileNameNew2, $fileNameNew3, $fileNameNew4, $gender, $colour, $lat, $lon);
 }
 
 if (isset($_GET['delete'])){
