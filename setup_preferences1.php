@@ -17,6 +17,11 @@
         margin-left: 55%;
         margin-top: 3%;
     }
+
+    .left_container {
+        margin-top: 3.5%;
+    }
+
     .container {
         margin-top: 3.5%;
         margin-left: 5%;
@@ -89,12 +94,11 @@
 
 <body>
 
-
 <div class="container">
     <form action="additional/quiz.php" method="post">
         <?php
             if (isset($_GET["message"]) || isset($_GET["error"])) {
-                echo "<div class='container'>";
+                echo "<div class='left_container'>";
                 if ($_GET["error"] == "invalid_answers") {
                     echo "<div class=\"alert alert-danger col-md-5\" role=\"alert\">Invalid Answers, please fill in all questions.</div>";
                 } 
