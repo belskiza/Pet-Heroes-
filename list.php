@@ -4,8 +4,7 @@
     <img src="files/landing_image_2.jpeg" style="position: fixed; filter: blur(3px) ; width: 110%; margin-top: -10%; margin-left: -5%; z-index: -1">
         <div class="alert alert-secondary" style="margin:auto; margin-top: 1%; padding: 3%; background-color: whitesmoke; width: 50%">
             <form action="additional/list.inc.php" method="POST" enctype="multipart/form-data">
-                <input id="lat" type="hidden" value="" name="lat">
-                <input id="long" type="hidden" value="" name="lon">
+
                 <input type="hidden" name="pet_id" value="<?php if (isset($_GET['edit'])){
                     echo $_GET['edit'];}?>">
                 <h1 class="display-6"> <?php if (isset($_GET['edit'])){
@@ -72,8 +71,8 @@
 
                 <div class="row mb-3">
                     <div class="input-group col">
-                        <span class="input-group-text">Location</span>
-                        <input type="text" name ="location" class="form-control" value="<?php echo $location; ?>" placeholder="Your Location..."
+                        <span class="input-group-text">City</span>
+                        <input type="text" name ="location" class="form-control" value="<?php echo $location; ?>" placeholder="Your City..."
                                aria-label="Location">
                     </div>
                     <div class="input-group col">
@@ -158,12 +157,20 @@
                         </div>
                     </div><br/>
 
+                    <p id = "status"></p>
+                    <a id = "map-link" target="_blank"></a>
+                    <input class = "btn btn-dark" id = "test" type="button" value="Find Location"/>
+                    <input id="lat" type="hidden" value="" name="lat">
+                    <input id="long" type="hidden" value="" name="lon">
+
+                    <br><br>
+
                     <?php
                 } else {?> <?php } ?>
                 <div class="mb-3">
                     <div class="row g-3">
                         <div class="col">
-                            <button type="submit" style="width: 100%" name= "<?php if (isset($_GET['edit'])){
+                            <button id="test2" type="submit" style="width: 100%" name= "<?php if (isset($_GET['edit'])){
                                 ?>update<?php
                             } else {?>submit<?php } ?>" class="btn btn-primary"><?php if (isset($_GET['edit'])){
                                     ?> Update <?php
@@ -176,8 +183,53 @@
                         </div>
                     </div> <br/>
                 </div>
+
             </form>
         </div>
+
+
+
+
+
+    <script>
+        function geoFindMe() {
+
+            const status = document.querySelector('#status');
+            const mapLink = document.querySelector('#map-link');
+
+            mapLink.href = '';
+            mapLink.textContent = '';
+
+            function success(position) {
+                var latitude  = position.coords.latitude;
+                var longitude = position.coords.longitude;
+                document.getElementById('lat').value = latitude;
+                document.getElementById('long').value = longitude;
+
+                status.textContent = '';
+                mapLink.href = `https://google.com/maps?q=${latitude},${longitude}`;
+                mapLink.textContent = '';
+
+            }
+
+            function error() {
+                status.textContent = 'Unable to retrieve your location';
+            }
+
+            if(!navigator.geolocation) {
+                status.textContent = 'Geolocation is not supported by your browser';
+            } else {
+                status.textContent = 'Locating…';
+                navigator.geolocation.getCurrentPosition(success, error);
+            }
+
+        }
+
+        document.querySelector('#test').addEventListener('click', geoFindMe);
+    </script>
+
+
+
 
 </body>
 
