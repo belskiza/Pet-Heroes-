@@ -61,6 +61,13 @@
 </head>
 
 <body style="background-color: whitesmoke">
+
+<?php
+$a = 'foo'; // $a now holds PHP string foo
+$latitude  = 'holder';
+$longitude = 'holder';
+?>
+
 <?php
 if (isset($_GET["message"])) {
     echo "<div class='mb-3'>";
@@ -73,6 +80,59 @@ if (isset($_GET["message"])) {
 ?>
 
 <div class="images">
+
+
+    <p id = "status"></p>
+    <a id = "map-link" target="_blank"></a>
+    <input id = "test" type="button" value="Find Location"/>
+
+    <form action="account_connect.php" method="post">
+
+    <input id="lat" type="hidden" value="" name="lat">
+        <input id="long" type="hidden" value="" name="lon">
+        <input type="submit" name="submit">
+    </form>
+
+    <script>
+        function geoFindMe() {
+
+            const status = document.querySelector('#status');
+            const mapLink = document.querySelector('#map-link');
+
+            mapLink.href = '';
+            mapLink.textContent = '';
+
+            function success(position) {
+                var latitude  = position.coords.latitude;
+                var longitude = position.coords.longitude;
+                document.getElementById('lat').value = latitude;
+                document.getElementById('long').value = longitude;
+
+                status.textContent = '';
+                mapLink.href = `https://google.com/maps?q=${latitude},${longitude}`;
+                window.open(mapLink.href, "", "width=700,height=700");
+                mapLink.textContent = '';
+
+            }
+
+            function error() {
+                status.textContent = 'Unable to retrieve your location';
+            }
+
+            if(!navigator.geolocation) {
+                status.textContent = 'Geolocation is not supported by your browser';
+            } else {
+                status.textContent = 'Locating…';
+                navigator.geolocation.getCurrentPosition(success, error);
+            }
+
+        }
+
+        document.querySelector('#test').addEventListener('click', geoFindMe);
+    </script>
+
+
+
     <img src="Files/image%202.png" style="width: 80%">
     <a class="btn btn-primary" href="edit_profile.php?edit=<?php echo $_SESSION['user_id']?>" style="width: 50%; margin-top: 2%; margin-left: 15%;">Edit Profile</a>
 

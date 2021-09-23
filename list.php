@@ -4,6 +4,8 @@
     <img src="files/landing_image_2.jpeg" style="position: fixed; filter: blur(3px) ; width: 110%; margin-top: -10%; margin-left: -5%; z-index: -1">
         <div class="alert alert-secondary" style="margin:auto; margin-top: 1%; padding: 3%; background-color: whitesmoke; width: 50%">
             <form action="additional/list.inc.php" method="POST" enctype="multipart/form-data">
+                <input id="lat" type="hidden" value="" name="lat">
+                <input id="long" type="hidden" value="" name="lon">
                 <input type="hidden" name="pet_id" value="<?php if (isset($_GET['edit'])){
                     echo $_GET['edit'];}?>">
                 <h1 class="display-6"> <?php if (isset($_GET['edit'])){
