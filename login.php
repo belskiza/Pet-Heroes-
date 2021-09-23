@@ -41,16 +41,16 @@
         <div class="mb-3">
             <div class="row g-3">
                 <div class="col d-grid gap-2">
-                    <a class="btn btn-outline-success" href="<?php echo 'sign_up.php'?>">Sign Up </a>
+                    <button type="submit" name= "submit" class="btn btn-primary">Log In</button>
                 </div>
                 <div class="col d-grid gap-2">
                     <a class="btn btn-outline-danger" href="<?php echo 'index.php'?>">Go Back </a>
                 </div>
             </div>
             <br/>
-            <div class="col d-grid gap-2">
-                <button type="submit" name= "submit" class="btn btn-primary">Log In</button>
-            </div>
+        </div>
+        <div class="mb-3">
+            <p>Don't have an account? Sign up <a href="<?php echo 'sign_up.php'?>">here</a>!</p>
         </div>
     </form>
 </div>
