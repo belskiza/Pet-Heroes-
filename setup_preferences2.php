@@ -18,8 +18,37 @@
         margin-top: 3%;
     }
     .container {
-        margin-top: 5%;
+        margin-top: 3.5%;
         margin-left: 5%;
+    }
+    
+    .questions {
+        margin-top: 5%;
+    }
+    .questions h1 {
+        font-size: 2.5vw;
+        color: black;
+        font-family: "Chelsea Market";
+        margin-top: 1%;
+    }
+    .questions h4 {
+        font-size: 1.75vw;
+        color: black;
+        font-family: "Chelsea Market";
+        margin-top: 1%;
+    }
+    .container h6 {
+        font-size: 1.25vw;
+        color: black;
+        font-family: "Chelsea Market";
+        margin-top: 1%;
+    }
+    .container h1 {
+        font-size: 4vw;
+        color: black;
+        font-family: "Chelsea Market";
+        margin-top: 1%;
+        font-weight: 500;
     }
     .col-sm-6 {
         margin-top: 1%;
@@ -56,9 +85,7 @@
         border-width: 5px;
         font-family: "Chelsea Market";
     }
-        
 </style>
-
 <p class='down-one'>
 </p>
 

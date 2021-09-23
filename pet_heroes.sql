@@ -89,6 +89,17 @@ INSERT INTO `users` (`user_id`, `username`, `password`, `first_name`, `last_name
 -- Indexes for dumped tables
 --
 
+CREATE TABLE `personality_quiz` (
+  `user_id` int(11) NOT NULL,
+  `question1` int(11) NOT NULL,
+  `question2` int(11) NOT NULL,
+  `question3` int(11) NOT NULL,
+  `question4` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+ALTER TABLE `personality_quiz`
+  ADD PRIMARY KEY (`user_id`);
 --
 -- Indexes for table `pets`
 --

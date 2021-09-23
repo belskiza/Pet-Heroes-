@@ -388,3 +388,27 @@ function fetchUserFromId($conn, $id){
 
     return $resultData;
 }
+
+
+/**
+ * Input the answers to the quiz into table
+*/
+function inputQuizAnswers($conn, $user_id, $question1, $question2, $question3, $question4) {
+
+    $sql = "INSERT INTO personality_quiz(user_id, question1, question2, question3, question4) 
+    VALUES (?, ?, ?, ?, ?)";
+    
+
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        exit();
+    }
+   
+    mysqli_stmt_bind_param($stmt, "sdddd", $user_id, $question1, $question2, $question3, $question4);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+
+    header("location: ../setup_preferences2.php");
+    exit();
+
+}
