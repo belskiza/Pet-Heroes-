@@ -1,53 +1,67 @@
-<?php
-include_once 'additional/dbh.inc.php';
-include_once 'additional/config.php';
+<?php //hello
+//testing I can push
 ?>
-<html>
+
 <head>
     <title>Pet Heroes</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <script src='//cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.4/jquery.touchSwipe.min.js'></script>
+
+
+    <style>
+        body {margin:0;}
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+            position: fixed;
+            top: 0;
+            width: 100%;
+        }
+
+        li {
+            float: left;
+        }
+
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li a:hover:not(.active) {
+            background-color: #111;
+        }
+
+        .active {
+            background-color: #04AA6D;
+        }
+    </style>
+
+
 </head>
+<body>
+<<<<<<<<< Temporary merge branch 1
+<p> hhihihihih</p>
+<p> hdishjdis</p>
+<p>hello world</p>
+=========
 
-<body style="background-color: whitesmoke">
-<?php include_once 'header.php'?>
-<br/>
-<?php
-if (isset($_GET["message"])) {
-    echo "<div class='mb-3'>";
-    if ($_GET["message"] == "logout") {
-        echo "<div class=\"alert alert-success col-md-5\" role=\"alert\">You are now logged out
-                    </div>";
-    }
-    if ($_GET["message"] == "login") {
-        echo "<div class=\"alert alert-success col-md-5\" role=\"alert\">You are now logged in
-                    </div>";
-    }
-    echo "</div>";
-}
-?>
-<br/>
-<?php if (isset($_SESSION['acc_type']) && $_SESSION['acc_type'] == 0){
-    echo "<h1>Account Type: Adopter</h1>";
-} else if (isset($_SESSION['acc_type']) && $_SESSION['acc_type'] == 1){
-     echo "<h1>Account Type: Owner</h1>";
-} ?>
+<ul>
+    <li><a class="active" href="#home">Home</a></li>
+    <li><a href="#news">Log in</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#about">About</a></li>
+</ul>
 
-<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-            <img class="d-block w-100" src="..." alt="First slide">
-        </div>
-        <div class="carousel-item">
-            <img class="d-block w-100" src="..." alt="Second slide">
-        </div>
-        <div class="carousel-item">
-            <img class="d-block w-100" src="..." alt="Third slide">
-        </div>
-    </div>
-</div>
+<br>
+<br>
+<h1>Pet Heroes</h1>
+
+<h1>this is TOms test here</h1>
+
+>>>>>>>>> Temporary merge branch 2
 </body>
-
-</html>
