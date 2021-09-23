@@ -4,7 +4,6 @@
     <include_path>
       <path value="/Applications/MAMP/bin/php/php8.0.0/bin/php" />
       <path value="/Applications/MAMP" />
-      <path value="" />
     </include_path>
   </component>
 </project>
