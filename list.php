@@ -21,7 +21,7 @@
                         echo "<div class=\"alert alert-danger\" role=\"alert\">Unexpected error uploading file. Please try again</div>";
                     }
                     else if ($_GET["error"] == "file_too_big") {
-                        echo "<div class=\"alert alert-danger\" role=\"alert\">That file is too big. Please upload a smaller file</div>";
+                        echo "<div class=\"alert alert-danger\" role=\"alert\">That file is too large. Please upload a smaller file</div>";
                     }
                     echo "</div>";
                 }
@@ -33,10 +33,10 @@
                                aria-label="First name">
                     </div>
                     <div class="input-group col">
-                        <span class="input-group-text">Type of Pet</span>
+                        <span class="input-group-text">Type of pet</span>
                         <select class="form-control" name="pet_type" aria-label="Default select example">
                             <?php if ($pet_type == ''){
-                                ?><option selected>Please select the type of your pet</option><?php
+                                ?><option selected>Type of pet</option><?php
                             }?>
                             <option <?php if ($pet_type == 1){echo 'selected="selected"';} ?> value="1">Cat</option>
                             <option <?php if ($pet_type == 2){echo 'selected="selected"';} ?> value="2">Dog</option>
@@ -50,7 +50,7 @@
                         <span class="input-group-text">Gender</span>
                         <select class="form-control" name="gender" aria-label="Default select example">
                             <?php if ($gender == ''){
-                                ?><option selected>Please select the Gender of your pet</option><?php
+                                ?><option selected>Gender</option><?php
                             }?>
                             <option <?php if ($gender == 1){echo 'selected="selected"';} ?> value="1">Male</option>
                             <option <?php if ($gender == 2){echo 'selected="selected"';} ?> value="2">Female</option>
@@ -85,7 +85,7 @@
                         <span class="input-group-text">Size</span>
                         <select class="form-control" name="size" aria-label="Default select example">
                             <?php if ($pet_size == ''){
-                                ?><option selected>Please select the Size of your pet</option><?php
+                                ?><option selected>Size of pet</option><?php
                             }?>
                             <option <?php if ($pet_size == 1){echo 'selected="selected"';} ?>value="1">Small</option>
                             <option <?php if ($pet_size == 2){echo 'selected="selected"';} ?>value="2">Medium</option>
