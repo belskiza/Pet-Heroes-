@@ -1,9 +1,6 @@
-<?php
+<?php require_once 'header.php';
+require_once 'additional/swipe.inc.php';?>
 
-require_once 'header.php';
-require_once 'additional/pet.inc.php';
-
-?>
 <head>
     <link rel="stylesheet" href="css/flickity.css" media="screen">
     <script src="css/flickity.pkgd.min.js"></script>
@@ -21,12 +18,14 @@ require_once 'additional/pet.inc.php';
             display: block;
             height: 400pt;
         }
-        </style>
+    </style>
+    <title>Swipe</title>
 
-        </head>
+</head>
 
 <body>
-<?php $pet = $result->fetch_assoc();?>
+<?php $pet = $result[0];
+if (count($pet) > 0){?>
 <div class="container" >
     <div class="row">
         <div class="col-sm-6">
@@ -42,9 +41,9 @@ require_once 'additional/pet.inc.php';
                         <a class="btn btn-secondary" href="list.php?edit=<?php echo $pet['pet_id'];?>" style="width: 100%; background-color: #306844">Edit Listing</a>
                     </div> <?php
                 } else {?>
-                <div class="col">
-                    <a class="btn btn-secondary" href="contact_owner.php?pet_id=<?php echo $pet['pet_id']?>" style="width: 100%; background-color: #306844">Contact Owner</a>
-                </div> <?php }?>
+                    <div class="col">
+                        <a class="btn btn-secondary" href="contact_owner.php?pet_id=<?php echo $pet['pet_id']?>" style="width: 100%; background-color: #306844">Contact Owner</a>
+                    </div> <?php }?>
             </div>
         </div>
     </div>
@@ -66,6 +65,18 @@ require_once 'additional/pet.inc.php';
             <img src="uploads/<?php echo $pet['picture_destination4']?>"/> <?php
         } ?>
     </div> <br/> <hr/>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm text-center" style="background-color: transparent">
+                <a class="btn btn-lg btn-danger" href="additional/swipe.inc.php?swipe=left&id=<?php echo $pet['pet_id']?>"> Swipe Left</a>
+            </div>
+            <div class="col-sm text-center" style="background-color: transparent">
+                <a class="btn btn-lg btn-success" href="additional/swipe.inc.php?swipe=right&id=<?php echo $pet['pet_id']?>">Swipe Right</a>
+            </div>
+        </div>
+
+    </div> <br/><br/>
 
     <div class="container row">
         <div class="col-sm-8">
@@ -122,3 +133,18 @@ require_once 'additional/pet.inc.php';
     </div>
 </div>
 </body>
+
+<?php } else { ?>
+
+    <div class="alert alert-secondary col-md-4" style="margin:auto; margin-top: 2%; padding: 3%; background-color: whitesmoke; min-width: 400pt">
+            <h1 class="display-6"> No New Pets </h1>
+            <hr class="my-4">
+            <h4> Wow! It looks like you have swiped your way through all of the pets. Check back later to see if there are any new listings. In the meantime you can check out
+            all pets below</h4>
+            <a href="all_pets.php" class="btn btn-success">All Pets</a>
+
+    </div>
+
+
+
+<?php } ?>

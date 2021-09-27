@@ -26,6 +26,9 @@
         }
 
     </style>
+    <script>
+        sessionStorage.clear();
+    </script>
 </head>
 
 <body style="background-color: ghostwhite">

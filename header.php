@@ -71,10 +71,10 @@
               <a class='navbar-item' href='all_pets.php' style='font-size: 20pt'>pets</a>
           </div>
           <div class="col-sm" id="navbar-text">
-              <a class='navbar-item' href='home.php'style='font-size: 20pt' >matches</a>
+              <a class='navbar-item' href='swipe.php'style='font-size: 20pt' >swipe</a>
           </div>
           <div class="col-sm" id="navbar-text">
-              <a class='navbar-item' href='list.php' style='font-size: 20pt'>upload</a>
+              <a class='navbar-item' href='list.php' style='font-size: 20pt'>list</a>
           </div>
           <div class="col-sm" id="navbar-text">
               <a class='navbar-item' href='account.php' style='font-size: 20pt'><?php echo $_SESSION['username']; ?></a>
@@ -93,10 +93,10 @@
             <a class="navbar-item" href='index.php' ><img src='Files/logo.png' style='width: 70px;'></a>
         </div>
         <div class="col-sm" id="navbar-text">
-            <a class='navbar-item' href='sign_up.php' style='font-size: 20pt'>sign Up</a>
+            <a class='navbar-item' href='sign_up.php' style='font-size: 20pt'>sign up</a>
         </div>
         <div class="col-sm" id="navbar-text">
-            <a class='navbar-item' href='login.php' style='font-size: 20pt'>log In</a>
+            <a class='navbar-item' href='login.php' style='font-size: 20pt'>log in</a>
         </div>
         <div class="col-sm" id="navbar-text">
         </div>

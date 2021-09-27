@@ -428,3 +428,47 @@ function fetchUserFromId($conn, $id){
 
     return $resultData;
 }
+
+function fetchPetsThatArentMine($conn, $user_id) {
+    $sql = "SELECT * FROM pets WHERE user_id != $user_id;";
+    // Using a prepared statement to stop the user from being able to write code into the input boxes which could
+    // damage the database
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../sign_up.php?error=stmt_failed");
+        exit();
+    }
+
+    mysqli_stmt_execute($stmt);
+
+    $resultData = mysqli_stmt_get_result($stmt);
+    mysqli_stmt_close($stmt);
+
+    return $resultData;
+}
+
+function fetchMyMatches($conn, $user_id){
+    $sql = "SELECT * FROM matches WHERE user_id = $user_id;";
+    // Using a prepared statement to stop the user from being able to write code into the input boxes which could
+    // damage the database
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../sign_up.php?error=stmt_failed");
+        exit();
+    }
+
+    mysqli_stmt_execute($stmt);
+
+    $resultData = mysqli_stmt_get_result($stmt);
+    mysqli_stmt_close($stmt);
+
+    return $resultData;
+
+}
+
+function swipe($conn, $pet_id, $user_id, $direction){
+
+        $conn->query("INSERT INTO matches (user_id, pet_id, ticked) VALUES ('$user_id', '$pet_id', '$direction')") or die ($conn->error);
+        header("location: ../swipe.php");
+        exit();
+}
