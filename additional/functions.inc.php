@@ -20,6 +20,28 @@ function emptyInputSignup($first_name, $last_name, $email, $username, $password,
     return $result;
 }
 
+function emptyInputEdit($first_name, $last_name, $email, $username) {
+    if (empty($first_name) || empty($last_name) || empty($email) || empty($username)){
+        $result = true;
+    }
+    else {
+        $result = false;
+    }
+    return $result;
+}
+
+function emptyInputList($name, $location, $breed, $age, $user_id, $description, $pet_type,
+                        $size, $vaccinated, $desexed, $microchip, $gender, $colour){
+    if(empty($name) || empty($location) || empty($breed) || empty($age) || empty($user_id) || empty($description) || empty($pet_type) ||
+    empty($size) || empty($vaccinated) || empty($desexed) || empty($microchip) || empty($gender) || empty($colour)){
+        $result = true;
+    } else {
+        $result = false;
+    }
+    return $result;
+
+}
+
 /**
  * A function which checks if the username contains invalid characters
  * @param $username - submitted username in sign up form
@@ -160,6 +182,24 @@ function createUser($conn, $first_name, $last_name, $email, $username, $password
     #print($id);
     #createAccountSetup($conn, $id);
 }
+
+function updateUser($conn, $first_name, $last_name, $email, $username){
+    $sql = "UPDATE users SET username='$username', first_name='$first_name', last_name='$last_name', email='$email';";
+    // Using a prepared statement to stop the user from being able to write code into the input boxes which could
+    // damage the database
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../account.php?error=stmt_failed");
+        exit();
+    }
+
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+
+    header("location: ../account.php?message=edit_profile_success");
+    exit();
+}
+
 
 /**
  * Checks if the inputted fields of the login page are empty

@@ -23,7 +23,11 @@ if (isset($_GET["message"])) {
     echo "</div>";
 }
 ?>
-<div class="container-fluid" style="width:90%; margin-top: 1%">
+<div class="container-fluid" style="width:70%; margin-top: 1%">
+    <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" style="width: 90%">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
     <table class="table table-striped table-hover">
         <thead style="background-color: #343a40; color: white">
         <tr>

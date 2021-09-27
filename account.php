@@ -13,29 +13,7 @@
     <?php require_once 'additional/mypets.inc.php'?>
 
     <style>
-        .container {
-            margin-left: 2%;
-        }
-        .col-sm-6 {
-            margin-top: 1%;
-        }
-        .col-sm-6 h1 {
-            font-size: 2.5vw;
-            color: black;
-            font-family: "Chelsea Market";
-            margin-top: 1%;
-        }
-        .col-sm-8 h1 {
-            font-size: 2.5vw;
-            color: black;
-            font-family: "Chelsea Market";
-            margin-top: 7%;
-        }
-        .col-sm-8 p {
-            font-size: 2vw;
-            color: black;
-            font-family: "Chelsea Market";
-        }
+
         .images{
             position: fixed;
             margin-left: 75%;
@@ -47,74 +25,87 @@
             text-decoration: none;
         }
 
-        .btn{
-            background: #BCE76D;
-
-            border-color:#BCE76D;
-            width: 25%;
-            font-size: 1.3vw;
-            margin-left: 7%;
-            border-width: 5px;
-            font-family: "Chelsea Market";
-        }
     </style>
 </head>
 
-<body style="background-color: whitesmoke">
-<?php
-if (isset($_GET["message"])) {
-    echo "<div class='mb-3'>";
-    if ($_GET["message"] == "list_success") {
-        echo "<div class=\"alert alert-success\" role=\"alert\">Pet Sucessfully Listed!
+<body style="background-color: ghostwhite">
+<div class="container" >
+    <?php
+    if (isset($_GET["message"])) {
+        if ($_GET["message"] == "list_success") {
+            echo "<div class=\"alert alert-success\" role=\"alert\">Pet Sucessfully Listed!
                     </div>";
+        } else if ($_GET["message"] == "edit_profile_success") {
+            echo "<div class=\"alert alert-success\" role=\"alert\">Profile Sucessfully Updated
+                    </div>";
+        }
     }
-    echo "</div>";
-}
-?>
-
-
-<div class="images">
-    <img src="Files/profilePicture.png" style="width: 80%">
-    <a class="btn btn-primary" href="edit_profile.php?edit=<?php echo $_SESSION['user_id']?>" style="width: 60%; margin-top: 2%; margin-left: 10%;">Edit Profile</a>
-    <a class="btn btn-primary" href="verify_email.php" style="width: 60%; margin-top: 2%; margin-left: 10%;">Verify Email</a>
-    <a class="btn btn-primary" href="setup_profile_picture.php" style="width: 60%; margin-top: 2%; margin-left: 10%;">Upload Profile Picture</a>
-    <a class="btn btn-primary" href="/additional/logout.inc.php" style="width: 60%; margin-top: 2%; margin-left: 10%;">Logout</a>
+    ?>
+    <div class="row">
+        <div class="col-sm-6">
+            <h1>Welcome back <?php echo $_SESSION['first_name']?></h1>
+        </div>
+        <div class="col-sm-6">
+            <div class="row" style="margin-top: 1%">
+                <div class="col">
+                    <a class="btn btn-secondary" href="edit_profile.php?edit=<?php echo $_SESSION['user_id']?>" style="width: 100%; background-color: #306844">Edit Profile</a>
+                </div>
+                <div class="col">
+                    <a class="btn btn-secondary" href="/additional/logout.inc.php" style="width: 100%; background-color: #182c25">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr/>
 </div>
 
 <div class="container">
     <div class="row">
-        <div class="col-sm header">
-            <h1>Hi <?php echo $_SESSION['first_name']?>,</h1>
-        </div>
-    </div>
-
-    <div class="row">
         <div class="col-sm-6">
-            <h1>Personality Profile:</h1>
-            <a class="btn btn-primary" href="setup_preferences1.php" style="width: 35%; margin-top: 2%; margin-left: 5%;">Take Quiz</a>
+            <div class="row">
+                    <div class="card" style="width: 100%">
+                        <div class="card-header">
+                            Personality Profile
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Complete your personality quiz to find pets compatible with you!</h5>
+                            <a class="btn btn-success" href="setup_preferences1.php" style="background-color: #2c4c3b">Take Quiz</a>
+                        </div>
+                    </div>
+            </div> <br/>
+            <div class="row">
+                <div class="card" style="width: 100%">
+                    <div class="card-header">
+                      About me
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Complete your personality quiz to find pets compatible with you!</h5>
+                        <a class="btn btn-success" href="about_me.php"  style="background-color: #2c4c3b">About Me</a>
+                    </div>
+                </div>
+            </div> <br/>
+            <div class="row">
+                <div class="card" style="width: 100%">
+                    <div class="card-header">
+                        Verify email
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Verify your email to start matching!</h5>
+                        <a class="btn btn-success" href="verify_email.php"  style="background-color: #2c4c3b">Verify Email</a>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
+        <div class="col-sm-6">
+            <div class="card" style="width: 100%;">
+                <img class="card-img-top" src="files/profilePicture.png" alt="Card image cap">
+                <div class="card-body text-center">
+                    <a class="btn btn-secondary" href="setup_profile_picture.php" style="background-color: #306844">Upload Profile Picture</a>
+                </div>
+            </div>
+        </div>
+    </div> <hr/>
 
-    <div class="row">
-        <div class="col-sm-8">
-            <h1>Preferences:</h1>
-        </div>
-        <div class="col-sm-8">
-            <p>Pet Heroes wants to match you with your perfect pet and create families. Find your new best furry-friend today!</p>
-
-        </div>
-
-    </div>
-    <div class="row">
-        <div class="col-sm-8">
-            <h1>About me:</h1>
-        </div>
-
-        <div class="col-sm-8">
-            <p></p>
-        </div>
-    </div>
-</div>
 <?php
 if (isset($_GET["message"])) {
     echo "<div class='container-fluid' style=\"width:90%; margin-top: 1%\">";
@@ -132,9 +123,9 @@ if (isset($_GET["message"])) {
 }
 ?>
 <div class="container-fluid">
-    <h1>My Pets</h1>
+    <h1>My Pets</h1> <br/>
     <table class="table table-striped table-hover">
-        <thead style="background-color: #343a40; color: white">
+        <thead style="background-color: #182c25; color: white">
         <tr>
             <th>Image</th>
             <th>Name </th>
@@ -153,10 +144,10 @@ if (isset($_GET["message"])) {
                 <td><?php echo $row['age']?></td>
                 <td><?php echo $row['location']?></td>
                 <td>
-                    <a href="pet.php?pet=<?php echo $row['pet_id'];?>" class="btn btn-secondary">View</a>
+                    <a href="pet.php?pet=<?php echo $row['pet_id'];?>" class="btn btn-secondary" style="background-color: #455b55">View</a>
                     <?php if ($row['user_id'] == $_SESSION['user_id']){
                         ?>
-                        <a href="list.php?edit=<?php echo $row['pet_id'];?>" class="btn btn-warning">Edit</a>
+                        <a href="list.php?edit=<?php echo $row['pet_id'];?>" class="btn btn-secondary" style="background-color: #306844">Edit</a>
                         <a href="additional/list.inc.php?delete=<?php echo $row['pet_id']; ?>" class="btn btn-danger">Delist</a>
                         <?php
                     } else {

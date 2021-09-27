@@ -1,6 +1,25 @@
 <html>
 <head>
     <title>Pet Heroes</title>
+    <script>
+        window.onload = function() {
+
+            // If sessionStorage is storing default values (ex. name), exit the function and do not restore data
+            if (sessionStorage.getItem('name') == "name") {
+                return;
+            }
+
+            // If values are not blank, restore them to the fields
+            var username = sessionStorage.getItem('username');
+            if (username !== null) $('#username').val(username);
+
+        }
+
+        // Before refreshing the page, save the form data to sessionStorage
+        window.onbeforeunload = function() {
+            sessionStorage.setItem("username", $('#username').val());
+        }
+    </script>
 </head>
 <body >
 <img src="files/landing_image_1.jpeg" style="position: fixed; filter: blur(3px) ; width: 105%; margin: -5%">
@@ -23,16 +42,15 @@
             }
             echo "</div>";
         }
-        print_r($_COOKIE['username']);
         ?>
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label" ">Username / Email</label>
-            <input type="text" name="username" class="form-control" id="form-control" placeholder="Username / Email..."
+            <input type="text" name="username" class="form-control" id="username" placeholder="Username / Email..."
                    value="">
         </div>
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label" ">Password</label>
-            <input type="password" name="password" class="form-control" id="form-control" placeholder="Password...">
+            <input type="password" name="password" class="form-control" id="password" placeholder="Password...">
         </div>
         <div class ="mb-3">
             <input type="checkbox" name="remember" checked/>
