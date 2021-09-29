@@ -278,7 +278,7 @@ function loginUser($conn, $username, $password) {
         exit();
     }
 }
-
+//
 /**
  * Creates a Pet in the pets table
  * @param $conn
