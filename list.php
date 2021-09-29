@@ -240,7 +240,15 @@
                             <span class="input-group-text">Fourth Photo</span>
                             <input type="file" name="picture4" class="form-control" id="picture4" placeholder="Upload Picture...">
                         </div>
-                    </div><br/>
+                    </div>
+
+                    <p id = "status"></p>
+                    <a id = "map-link" target="_blank"></a>
+                    <input class = "btn btn-dark" id = "test" type="button" value="Find Location"/>
+                    <input id="lat" type="hidden" value="" name="lat">
+                    <input id="long" type="hidden" value="" name="lon">
+
+                    <br/><br/>
 
                     <?php
                 } else {?> <?php } ?>
