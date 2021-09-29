@@ -59,6 +59,11 @@
             </div>
         </div>
     </div>
+    <div class="row">
+        <div class="col">
+            Account Type: <?php if ($_SESSION['acc_type'] == 0) echo "Adopter"; else echo "Owner";?>
+        </div>
+    </div>
     <hr/>
 </div>
 
@@ -103,7 +108,14 @@
             <div class="card" style="width: 100%;">
                 <img class="card-img-top" src="files/profilePicture.png" alt="Card image cap">
                 <div class="card-body text-center">
-                    <a class="btn btn-secondary" href="setup_profile_picture.php" style="background-color: #306844">Upload Profile Picture</a>
+                    <div class="row">
+                        <div class="col">
+                            <a class="btn btn-secondary text-right" href="setup_profile_picture.php" style="background-color: #306844">Upload Profile Picture</a>
+                        </div>
+                        <div class="col">
+                            <a class="btn btn-secondary text-left" href="chg_acc_type.php" style="background-color: #306844">Change Account Type</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -125,41 +137,44 @@ if (isset($_GET["message"])) {
     echo "</div>";
 }
 ?>
-<div class="container-fluid">
-    <h1>My Pets</h1> <br/>
-    <table class="table table-striped table-hover">
-        <thead style="background-color: #182c25; color: white">
-        <tr>
-            <th>Image</th>
-            <th>Name </th>
-            <th>Breed</th>
-            <th>Age</th>
-            <th>Location</th>
-            <th>Action</th>
-        </tr>
-        </thead>
+    <?php if ($_SESSION['acc_type'] == 1){?>
+        <div class="container-fluid">
+            <h1>My Pets</h1> <br/>
+            <table class="table table-striped table-hover">
+                <thead style="background-color: #182c25; color: white">
+                <tr>
+                    <th>Image</th>
+                    <th>Name </th>
+                    <th>Breed</th>
+                    <th>Age</th>
+                    <th>Location</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
 
-        <?php while ($row = $result->fetch_assoc()){?>
-            <tr>
-                <td><img src="uploads/<?php echo $row['picture_destination']?>" style="max-width: 150px"/></td>
-                <td><b><?php echo $row['pet_name']?></b></td>
-                <td><?php echo $row['breed']?></td>
-                <td><?php echo $row['age']?></td>
-                <td><?php echo $row['location']?></td>
-                <td>
-                    <a href="pet.php?pet=<?php echo $row['pet_id'];?>" class="btn btn-secondary" style="background-color: #455b55">View</a>
-                    <?php if ($row['user_id'] == $_SESSION['user_id']){
-                        ?>
-                        <a href="list.php?edit=<?php echo $row['pet_id'];?>" class="btn btn-secondary" style="background-color: #306844">Edit</a>
-                        <a href="additional/list.inc.php?delete=<?php echo $row['pet_id']; ?>" class="btn btn-danger">Delist</a>
-                        <?php
-                    } else {
-                        echo null;
-                    } ?>
-                </td>
-            </tr> <?php
-        } ?>
-    </table>
-</div>
+                <?php while ($row = $result->fetch_assoc()){?>
+                    <tr>
+                        <td><img src="uploads/<?php echo $row['picture_destination']?>" style="max-width: 150px"/></td>
+                        <td><b><?php echo $row['pet_name']?></b></td>
+                        <td><?php echo $row['breed']?></td>
+                        <td><?php echo $row['age']?></td>
+                        <td><?php echo $row['location']?></td>
+                        <td>
+                            <a href="pet.php?pet=<?php echo $row['pet_id'];?>" class="btn btn-secondary" style="background-color: #455b55">View</a>
+                            <?php if ($row['user_id'] == $_SESSION['user_id']){
+                                ?>
+                                <a href="list.php?edit=<?php echo $row['pet_id'];?>" class="btn btn-secondary" style="background-color: #306844">Edit</a>
+                                <a href="additional/list.inc.php?delete=<?php echo $row['pet_id']; ?>" class="btn btn-danger">Delist</a>
+                                <?php
+                            } else {
+                                echo null;
+                            } ?>
+                        </td>
+                    </tr> <?php
+                } ?>
+            </table>
+        </div>
+    <?php } else { ?>
 
+<?php } ?>
 </body>

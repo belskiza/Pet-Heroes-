@@ -59,30 +59,51 @@
 </head>
 
 <body>
-<?php if (isset($_SESSION['username'])){ ?>
-  <div class='container-fluid' id='navbar'>
-      <div class="row text-center">
-          <div class="col-sm">
-          </div>
-          <div class="col-sm">
-              <a class="navbar-item" href='index.php' ><img src='Files/logo.png' style='width: 70px;'></a>
-          </div>
-          <div class="col-sm" id="navbar-text">
-              <a class='navbar-item' href='all_pets.php' style='font-size: 20pt'>pets</a>
-          </div>
-          <div class="col-sm" id="navbar-text">
-              <a class='navbar-item' href='swipe.php'style='font-size: 20pt' >swipe</a>
-          </div>
-          <div class="col-sm" id="navbar-text">
-              <a class='navbar-item' href='list.php' style='font-size: 20pt'>list</a>
-          </div>
-          <div class="col-sm" id="navbar-text">
-              <a class='navbar-item' href='account.php' style='font-size: 20pt'><?php echo $_SESSION['username']; ?></a>
-          </div>
-          <div class="col-sm">
-          </div>
-      </div>
-  </div>
+<?php if (isset($_SESSION['username'])){
+    if ($_SESSION['acc_type'] == 0) { ?>
+        <div class='container-fluid' id='navbar'>
+            <div class="row text-center">
+                <div class="col-sm">
+                </div>
+                <div class="col-sm">
+                    <a class="navbar-item" href='index.php' ><img src='files/logo.png' style='width: 70px;'></a>
+                </div>
+                <div class="col-sm" id="navbar-text">
+                    <a class='navbar-item' href='all_pets.php' style='font-size: 20pt'>pets</a>
+                </div>
+                <div class="col-sm" id="navbar-text">
+                    <a class='navbar-item' href='swipe.php'style='font-size: 20pt' >swipe</a>
+                </div>
+                <div class="col-sm" id="navbar-text">
+                    <a class='navbar-item' href='account.php' style='font-size: 20pt'><?php echo $_SESSION['username']; ?></a>
+                </div>
+                <div class="col-sm">
+                </div>
+            </div>
+        </div>
+   <?php } else { ?>
+        <div class='container-fluid' id='navbar'>
+            <div class="row text-center">
+                <div class="col-sm">
+                </div>
+                <div class="col-sm">
+                    <a class="navbar-item" href='index.php' ><img src='files/logo.png' style='width: 70px;'></a>
+                </div>
+                <div class="col-sm" id="navbar-text">
+                    <a class='navbar-item' href='all_pets.php' style='font-size: 20pt'>pets</a>
+                </div>
+                <div class="col-sm" id="navbar-text">
+                    <a class='navbar-item' href='list.php' style='font-size: 20pt'>list</a>
+                </div>
+                <div class="col-sm" id="navbar-text">
+                    <a class='navbar-item' href='account.php' style='font-size: 20pt'><?php echo $_SESSION['username']; ?></a>
+                </div>
+                <div class="col-sm">
+                </div>
+            </div>
+        </div>
+   <?php }?>
+
 <?php
 } else { ?>
 <div class='container-fluid' id='navbar'>

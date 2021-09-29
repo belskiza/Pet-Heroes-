@@ -80,5 +80,19 @@
 
     <div class="parallax-window" data-parallax="scroll" data-image-src="files/landing_image_3.jpeg" data-z-index="1" data-position="0 -200"></div>
 
+    <div class="container text">
+        <h1 class="modal-title">
+            <b>See Our Latest Listings</b> <hr/>
+        </h1>
+        <h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ac tristique diam. Ut id auctor magna,
+            nec blandit nunc. Phasellus faucibus interdum purus, eget auctor nulla bibendum lacinia. Sed lobortis sagittis urna a tempor.
+            Morbi et nunc sit amet odio malesuada sollicitudin. Integer fermentum a massa eget finibus. Proin non facilisis ante.
+            Sed dictum augue elementum, malesuada purus sit amet, consectetur tortor. Morbi consequat diam ex, in faucibus tellus
+            iaculis sit amet. Curabitur cursus eu ligula a tempus. Phasellus sit amet finibus sapien. Suspendisse laoreet, urna a
+            interdum molestie, odio nibh lobortis ante, ac ullamcorper elit eros sed ipsum. Aenean varius magna diam, in aliquet
+            purus dapibus et. Suspendisse id iaculis sapien. Curabitur pretium scelerisque magna a luctus. Donec id imperdiet ipsum,
+            non condimentum est. </h1>
+    </div>
+
 </div>
 </body>

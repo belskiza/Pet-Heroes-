@@ -56,18 +56,17 @@
             <input type="checkbox" name="remember" checked/>
             <label for="remember_me">Remember me</label>
         </div>
-        <div class="mb-3">
-            <div class="row g-3">
-                <div class="col d-grid gap-2">
-                    <a class="btn btn-outline-success" href="<?php echo 'sign_up.php'?>">Sign Up </a>
-                </div>
-                <div class="col d-grid gap-2">
-                    <a class="btn btn-outline-danger" href="<?php echo 'index.php'?>">Go Back </a>
-                </div>
+        <div class="row">
+            <div class="col">
+                <a class="btn btn-outline-danger" href="<?php echo 'index.php'?>" style="width: 100%">Go Back </a>
             </div>
-            <br/>
-            <div class="col d-grid gap-2">
-                <button type="submit" name= "submit" class="btn btn-primary">Log In</button>
+            <div class="col">
+                <button type="submit" name= "submit" class="btn btn-primary" style="width: 100%">Log In</button>
+            </div>
+        </div> <br/>
+        <div class="row">
+            <div class="col">
+                <a class="btn btn-success" href="<?php echo 'sign_up.php'?>" style="width: 100%">Don't have an account? Sign Up </a>
             </div>
         </div>
     </form>

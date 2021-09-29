@@ -68,10 +68,10 @@ if (count($pet) > 0){?>
 
     <div class="container">
         <div class="row">
-            <div class="col-sm text-center" style="background-color: transparent">
+            <div class="col-sm text-right" style="background-color: transparent">
                 <a class="btn btn-lg btn-danger" href="additional/swipe.inc.php?swipe=left&id=<?php echo $pet['pet_id']?>"> Swipe Left</a>
             </div>
-            <div class="col-sm text-center" style="background-color: transparent">
+            <div class="col-sm text-left" style="background-color: transparent">
                 <a class="btn btn-lg btn-success" href="additional/swipe.inc.php?swipe=right&id=<?php echo $pet['pet_id']?>">Swipe Right</a>
             </div>
         </div>

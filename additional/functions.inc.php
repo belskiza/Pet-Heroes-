@@ -183,8 +183,8 @@ function createUser($conn, $first_name, $last_name, $email, $username, $password
     #createAccountSetup($conn, $id);
 }
 
-function updateUser($conn, $first_name, $last_name, $email, $username){
-    $sql = "UPDATE users SET username='$username', first_name='$first_name', last_name='$last_name', email='$email';";
+function updateUser($conn, $first_name, $last_name, $email, $username, $user_id){
+    $sql = "UPDATE users SET username='$username', first_name='$first_name', last_name='$last_name', email='$email' WHERE user_id ='$user_id';";
     // Using a prepared statement to stop the user from being able to write code into the input boxes which could
     // damage the database
     $stmt = mysqli_stmt_init($conn);
@@ -196,6 +196,25 @@ function updateUser($conn, $first_name, $last_name, $email, $username){
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
 
+    header("location: ../account.php?message=edit_profile_success");
+    exit();
+}
+
+function updateAccType($conn, $acc_type, $user_id){
+    session_start();
+    $sql = "UPDATE users SET acc_type='$acc_type' WHERE user_id = '$user_id';";
+    // Using a prepared statement to stop the user from being able to write code into the input boxes which could
+    // damage the database
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../account.php?error=stmt_failed");
+        exit();
+    }
+
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+
+    $_SESSION['acc_type'] = $acc_type;
     header("location: ../account.php?message=edit_profile_success");
     exit();
 }
@@ -471,4 +490,21 @@ function swipe($conn, $pet_id, $user_id, $direction){
         $conn->query("INSERT INTO matches (user_id, pet_id, ticked) VALUES ('$user_id', '$pet_id', '$direction')") or die ($conn->error);
         header("location: ../swipe.php");
         exit();
+}
+
+function search($conn, $query){
+    $sql = "SELECT * FROM pets WHERE pet_name LIKE '$query' OR location LIKE '$query' OR age LIKE '$query' OR breed LIKE '$query' OR description LIKE '$query';";
+
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../all_pets.php?error=stmt_failed");
+        exit();
+    }
+
+    mysqli_stmt_execute($stmt);
+
+    $resultData = mysqli_stmt_get_result($stmt);
+    mysqli_stmt_close($stmt);
+
+    return $resultData;
 }

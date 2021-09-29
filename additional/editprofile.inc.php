@@ -60,10 +60,28 @@ if (isset($_POST["submit"])) {
         exit();
     }
 
-    updateUser($conn, $first_name, $last_name, $email, $username);
-
+    updateUser($conn, $first_name, $last_name, $email, $username, $_SESSION['user_id']);
 
 }
 
+if (isset($_POST['chg_acc_type'])){
+    if(!isset($_POST["acc_type"])){
+        header("location: ../sign_up.php?error=no_account_type");
+        exit();
+    } else {
+        if ($_POST["acc_type"] == "adopter"){
+            $acc_type = 0;
+        } else if ($_POST["acc_type"] == "owner") {
+            $acc_type = 1;
+        } else {
+            header("location: ../sign_up.php?error=no_account_type");
+            exit();
+        }
+    }
+    updateAccType($conn, $acc_type, $_SESSION['user_id']);
+
+}
+
+$user = fetchUserFromId($conn, $_SESSION['user_id'])->fetch_assoc();
 
 
