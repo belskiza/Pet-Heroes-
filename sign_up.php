@@ -65,8 +65,16 @@
             <input type="email" name="email" class="form-control" id="form-control" placeholder="name@example.com...">
         </div>
         <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label" ">Username</label>
-            <input type="username" name="username" class="form-control" id="form-control" placeholder="Username...">
+            <div class="row g-3">
+                <div class="col">
+                    <label for="exampleFormControlInput1" class="form-label" ">Username</label>
+                    <input type="username" name="username" class="form-control" id="form-control" placeholder="Username...">
+                </div>
+                <div class="col">
+                    <label for="exampleFormControlInput1" class="form-label" ">Phone Number</label>
+                    <input type="username" name="phone" class="form-control" id="form-control" placeholder="Phone...">
+                </div>
+            </div>
         </div>
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label" ">Password</label>

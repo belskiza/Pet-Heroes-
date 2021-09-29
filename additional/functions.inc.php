@@ -321,6 +321,30 @@ pet_type, pet_size, vaccinated, desexed, microchip, picture_destination2, pictur
     exit();
 }
 
+function uploadProfilePic($conn, $destination, $user_id){
+    $conn->query("INSERT INTO profile_pic (user_id, destination) VALUES ('$user_id', '$destination')") or die ($conn->error);
+    header("location: ../account.php?message=pfp_success");
+    exit();
+}
+
+function fetchProfilePicById($conn, $user_id){
+    $sql = "SELECT * FROM profile_pic WHERE user_id = '$user_id';";
+
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../sign_up.php?error=stmt_failed");
+        exit();
+    }
+
+    mysqli_stmt_execute($stmt);
+
+    $resultData = mysqli_stmt_get_result($stmt);
+
+    mysqli_stmt_close($stmt);
+
+    return $resultData;
+}
+
 function fetchPets($conn){
         $sql = "SELECT * FROM pets;";
         // Using a prepared statement to stop the user from being able to write code into the input boxes which could

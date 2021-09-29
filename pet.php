@@ -45,7 +45,7 @@ require_once 'additional/pet.inc.php';
             <h1><?php echo $pet['pet_name']?></h1>
         </div>
         <div class="col-sm-6">
-            <div class="row" style="margin-top: 1%">
+            <div class="row" style="margin-top: 1%;" >
                 <div class="col">
 
                 </div>
@@ -65,6 +65,8 @@ require_once 'additional/pet.inc.php';
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="exampleModalLabel">Contact Owner</h5>
+                                    <img src="uploads/<?php if (isset($pfp['destination'])) echo $pfp['destination']; else echo 'profile_picture.png'?>"
+                                         style="width: 50px; height: 50px; object-fit: cover; border-radius: 50%"/>
 
                                 </div>
                                 <div class="modal-body">
@@ -83,6 +85,29 @@ require_once 'additional/pet.inc.php';
         </div>
     </div>
     <hr/>
+    <div class="row">
+        <div class="col">
+
+        </div>
+        <div class="col">
+            <div class="row">
+                <div class="col">
+                </div>
+                <div class="col">
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <img src="uploads/<?php if (isset($pfp['destination'])) echo $pfp['destination']; else echo 'profile_picture.png'?>"
+                                 style="width: 45px; height: 45px; object-fit: cover; border-radius: 50%"/>
+
+                        </div>
+                        <div class="col text-center">
+                            <h5 style="margin-top: 10px">  <?php echo $owner['first_name']." ".$owner['last_name'];?> </h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <div class="container" style="margin:auto; padding-top: 1%; width: 80%">
@@ -146,14 +171,12 @@ require_once 'additional/pet.inc.php';
                             echo "No";
                         }?></h5>
                 </div>
+                <br/><h5 class="col-lg-9"><b>Description:</b> <br/> <?php echo $pet['description']?></h5>
             </div>
         </div>
-        <div class="col-sm" style="background-color: blue"> <h3> This is where we will put the google maps API</h3></div>
+        <div class="col-sm" style="width: 150pt; height: 250pt"> <h3> This is where we will put the google maps API</h3></div>
 
     </div> <br/>
-    <div class="container row">
-        <h5 class="col-lg-9"><b>Description:</b> <br/> <?php echo $pet['description']?></h5>
-    </div>
     <?php if ($_SESSION['acc_type'] == 1 && $pet['user_id'] == $_SESSION['user_id']){ ?>
         <hr/><div class="container-fluid">
             <h1>Swipes</h1> <br/>

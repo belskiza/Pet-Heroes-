@@ -10,4 +10,6 @@ if(isset($_GET['pet'])){
     $result = fetchPetFromId($conn, $pet_id)->fetch_assoc();
 
     $owner = fetchUserFromId($conn, $result['user_id'])->fetch_assoc();
+
+    $pfp = fetchProfilePicById($conn, $result['user_id'])->fetch_assoc();
 }
