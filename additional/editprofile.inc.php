@@ -14,6 +14,7 @@ if(isset($_GET['edit'])){
         $email = $row['email'];
         $first_name = $row['first_name'];
         $last_name = $row['last_name'];
+        $phone = $row['phone'];
     }
 }
 
@@ -23,6 +24,7 @@ if (isset($_POST["submit"])) {
     $email = $_POST["email"];
     $username = $_POST["username"];
     $password = $_POST["password"];
+    $phone = $_POST['phone'];
     /*
     $password_confirm = $_POST["password_confirm"]; */
 
@@ -60,7 +62,7 @@ if (isset($_POST["submit"])) {
         exit();
     }
 
-    updateUser($conn, $first_name, $last_name, $email, $username, $_SESSION['user_id']);
+    updateUser($conn, $first_name, $last_name, $email, $username, $_SESSION['user_id'], $phone);
 
 }
 

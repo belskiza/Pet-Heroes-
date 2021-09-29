@@ -72,6 +72,7 @@ require_once 'additional/pet.inc.php';
                                 <div class="modal-body">
                                     <p>Owner Name: <?php echo $owner['first_name']." ".$owner['last_name'];?></p>
                                     <p>Owner Email: <?php echo $owner['email'];?></p>
+                                    <p>Owner Number: <?php echo $owner['phone'];?></p>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

@@ -157,8 +157,8 @@ function createAccountSetup($conn, $user_id){
  * @param $username - username
  * @param $password - password
  */
-function createUser($conn, $first_name, $last_name, $email, $username, $password , $acc_type){
-    $sql = "INSERT INTO users (username, password, first_name, last_name, email, acc_type) VALUES (?, ?, ?, ?, ?, ?);";
+function createUser($conn, $first_name, $last_name, $email, $username, $password , $acc_type, $phone){
+    $sql = "INSERT INTO users (username, password, first_name, last_name, email, acc_type, phone) VALUES (?, ?, ?, ?, ?, ?, ?);";
     // Using a prepared statement to stop the user from being able to write code into the input boxes which could
     // damage the database
     $stmt = mysqli_stmt_init($conn);
@@ -169,7 +169,7 @@ function createUser($conn, $first_name, $last_name, $email, $username, $password
     //encrypts the password so you cant see it in the database
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-    mysqli_stmt_bind_param($stmt, "ssssss", $username, $hashed_password, $first_name, $last_name, $email, $acc_type);
+    mysqli_stmt_bind_param($stmt, "sssssss", $username, $hashed_password, $first_name, $last_name, $email, $acc_type, $phone);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
 
@@ -183,8 +183,8 @@ function createUser($conn, $first_name, $last_name, $email, $username, $password
     #createAccountSetup($conn, $id);
 }
 
-function updateUser($conn, $first_name, $last_name, $email, $username, $user_id){
-    $sql = "UPDATE users SET username='$username', first_name='$first_name', last_name='$last_name', email='$email' WHERE user_id ='$user_id';";
+function updateUser($conn, $first_name, $last_name, $email, $username, $user_id, $phone){
+    $sql = "UPDATE users SET username='$username', first_name='$first_name', last_name='$last_name', email='$email', phone='$phone' WHERE user_id ='$user_id';";
     // Using a prepared statement to stop the user from being able to write code into the input boxes which could
     // damage the database
     $stmt = mysqli_stmt_init($conn);
@@ -362,6 +362,25 @@ function fetchPets($conn){
         mysqli_stmt_close($stmt);
 
         return $resultData;
+}
+
+function fetchSomePets($conn, $int){
+    $sql = "SELECT * FROM pets ORDER BY pet_id DESC LIMIT 4;";
+    // Using a prepared statement to stop the user from being able to write code into the input boxes which could
+    // damage the database
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../sign_up.php?error=stmt_failed");
+        exit();
+    }
+
+    mysqli_stmt_execute($stmt);
+
+    $resultData = mysqli_stmt_get_result($stmt);
+
+    mysqli_stmt_close($stmt);
+
+    return $resultData;
 }
 
 function fetchMyPets($conn, $user_id){

@@ -62,7 +62,7 @@ if (isset($_POST["submit"])) {
         sessionStorage.clear();
     </script>
     <?php
-    createUser($conn, $first_name, $last_name, $email, $username, $password , $acc_type, $lat, $lon, $phone);
+    createUser($conn, $first_name, $last_name, $email, $username, $password , $acc_type, $phone);
 } else {
     header("location: ../sign_up.php");
     exit();

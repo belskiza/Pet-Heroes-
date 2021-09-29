@@ -30,6 +30,9 @@
             var acc_type = sessionStorage.getItem('acc_type');
             if (acc_type !== null) $('#acc_type').val(acc_type);
 
+            var phone = sessionStorage.getItem('phone');
+            if (phone !== null) $('#phone').val(phone);
+
         }
 
         // Before refreshing the page, save the form data to sessionStorage
@@ -39,6 +42,7 @@
             sessionStorage.setItem("username", $('#username').val());
             sessionStorage.setItem("email", $('#email').val());
             sessionStorage.setItem("acc_type", $('#acc_type').val());
+            sessionStorage.setItem("phone", $('#phone').val());
         }
     </script>
 </head>
@@ -82,8 +86,16 @@
             </div>
         </div>
         <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label" ">Username</label>
-            <input type="username" name="username" class="form-control" id="username" placeholder="Username..." value="<?php echo $username;?>">
+            <div class="row g-3">
+                <div class="col">
+                    <label for="exampleFormControlInput1" class="form-label">Username</label>
+                    <input type="username" name="username" class="form-control" id="username" placeholder="Username..." value="<?php echo $username;?>">
+                </div>
+                <div class="col">
+                    <label for="exampleFormControlInput1" class="form-label">Phone</label>
+                    <input type="text" name="phone" class="form-control" id="phone" placeholder="Phonee..." value="<?php echo $phone;?>">
+                </div>
+            </div>
         </div>
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label" ">Email address</label>
