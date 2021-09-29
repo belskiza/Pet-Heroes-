@@ -263,6 +263,43 @@
             </form>
         </div>
 
+    <script>
+        function geoFindMe() {
+
+            const status = document.querySelector('#status');
+            const mapLink = document.querySelector('#map-link');
+
+            mapLink.href = '';
+            mapLink.textContent = '';
+
+            function success(position) {
+                var latitude  = position.coords.latitude;
+                var longitude = position.coords.longitude;
+                document.getElementById('lat').value = latitude;
+                document.getElementById('long').value = longitude;
+
+                status.textContent = '';
+                mapLink.href = `https://google.com/maps?q=${latitude},${longitude}`;
+                mapLink.textContent = '';
+
+            }
+
+            function error() {
+                status.textContent = 'Unable to retrieve your location';
+            }
+
+            if(!navigator.geolocation) {
+                status.textContent = 'Geolocation is not supported by your browser';
+            } else {
+                status.textContent = 'Locating…';
+                navigator.geolocation.getCurrentPosition(success, error);
+            }
+
+        }
+
+        document.querySelector('#test').addEventListener('click', geoFindMe);
+    </script>
+
 </body>
 
 
