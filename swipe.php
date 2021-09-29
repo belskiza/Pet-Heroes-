@@ -1,16 +1,9 @@
-<?php
+<?php require_once 'header.php';
+require_once 'additional/swipe.inc.php';?>
 
-require_once 'header.php';
-require_once 'additional/pet.inc.php';
-
-
-?>
 <head>
     <link rel="stylesheet" href="css/flickity.css" media="screen">
     <script src="css/flickity.pkgd.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 
     <style>
         * { box-sizing: border-box; }
@@ -25,20 +18,14 @@ require_once 'additional/pet.inc.php';
             display: block;
             height: 400pt;
         }
-        </style>
+    </style>
+    <title>Swipe</title>
 
-        </head>
+</head>
 
 <body>
-<script>
-    var myModal = document.getElementById('myModal')
-    var myInput = document.getElementById('myInput')
-
-    myModal.addEventListener('shown.bs.modal', function () {
-        myInput.focus()
-    })
-</script>
-<?php $pet = $result;?>
+<?php $pet = $result[0];
+if (count($pet) > 0){?>
 <div class="container" >
     <div class="row">
         <div class="col-sm-6">
@@ -55,30 +42,8 @@ require_once 'additional/pet.inc.php';
                     </div> <?php
                 } else {?>
                     <div class="col">
-                        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal" style="width: 100%; background-color: #306844">
-                            Contact Owner
-                        </button>
-                    </div>
-
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Contact Owner</h5>
-
-                                </div>
-                                <div class="modal-body">
-                                    <p>Owner Name: <?php echo $owner['first_name']." ".$owner['last_name'];?></p>
-                                    <p>Owner Email: <?php echo $owner['email'];?></p>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                <?php }?>
+                        <a class="btn btn-secondary" href="contact_owner.php?pet_id=<?php echo $pet['pet_id']?>" style="width: 100%; background-color: #306844">Contact Owner</a>
+                    </div> <?php }?>
             </div>
         </div>
     </div>
@@ -100,6 +65,18 @@ require_once 'additional/pet.inc.php';
             <img src="uploads/<?php echo $pet['picture_destination4']?>"/> <?php
         } ?>
     </div> <br/> <hr/>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm text-right" style="background-color: transparent">
+                <a class="btn btn-lg btn-danger" href="additional/swipe.inc.php?swipe=left&id=<?php echo $pet['pet_id']?>"> Swipe Left</a>
+            </div>
+            <div class="col-sm text-left" style="background-color: transparent">
+                <a class="btn btn-lg btn-success" href="additional/swipe.inc.php?swipe=right&id=<?php echo $pet['pet_id']?>">Swipe Right</a>
+            </div>
+        </div>
+
+    </div> <br/><br/>
 
     <div class="container row">
         <div class="col-sm-8">
@@ -154,12 +131,20 @@ require_once 'additional/pet.inc.php';
     <div class="container row">
         <h5 class="col-lg-9"><b>Description:</b> <br/> <?php echo $pet['description']?></h5>
     </div>
-    <?php if ($_SESSION['acc_type'] == 1 && $pet['user_id'] == $_SESSION['user_id']){ ?>
-        <hr/><div class="container-fluid">
-            <h1>Swipes</h1> <br/>
-        </div>
-
-    <?php }?>
 </div>
-
 </body>
+
+<?php } else { ?>
+
+    <div class="alert alert-secondary col-md-4" style="margin:auto; margin-top: 2%; padding: 3%; background-color: whitesmoke; min-width: 400pt">
+            <h1 class="display-6"> No New Pets </h1>
+            <hr class="my-4">
+            <h4> Wow! It looks like you have swiped your way through all of the pets. Check back later to see if there are any new listings. In the meantime you can check out
+            all pets below</h4>
+            <a href="all_pets.php" class="btn btn-success">All Pets</a>
+
+    </div>
+
+
+
+<?php } ?>

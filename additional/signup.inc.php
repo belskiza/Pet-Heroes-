@@ -56,9 +56,12 @@ if (isset($_POST["submit"])) {
         exit();
     }
 
+    ?>
+    <script>
+        sessionStorage.clear();
+    </script>
+    <?php
     createUser($conn, $first_name, $last_name, $email, $username, $password , $acc_type);
-
-
 } else {
     header("location: ../sign_up.php");
     exit();

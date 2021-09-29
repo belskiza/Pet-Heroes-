@@ -96,17 +96,17 @@
             </div>
         </fieldset>
         <br/>
-        <div class="mb-3">
-            <div class="row g-3">
-                <div class="col d-grid gap-2">
-                    <a class="btn btn-outline-success" href="<?php echo 'login.php'?>">Log In </a>
-                </div>
-                <div class="col d-grid gap-2">
-                    <a class="btn btn-outline-danger" href="<?php echo 'index.php'?>">Go Back </a>
-                </div>
-            </div> <br/>
-            <div class="col d-grid gap-2">
-                <button type="submit" name= "submit" class="btn btn-primary">Submit</button>
+        <div class="row">
+            <div class="col">
+                <a class="btn btn-outline-danger" href="<?php echo 'index.php'?>" style="width: 100%">Go Back </a>
+            </div>
+            <div class="col">
+                <button type="submit" name= "submit" class="btn btn-primary text-center" style="width: 100%">Sign Up</button>
+            </div>
+        </div> <br/>
+        <div class="row">
+            <div class="col">
+                <a class="btn btn-success" href="<?php echo 'login.php'?>" style="width: 100%">Already have an account? Log In </a>
             </div>
         </div>
     </form>

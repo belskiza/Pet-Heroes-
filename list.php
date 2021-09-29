@@ -4,7 +4,6 @@
     <img src="files/landing_image_2.jpeg" style="position: fixed; filter: blur(3px) ; width: 110%; margin-top: -10%; margin-left: -5%; z-index: -1">
         <div class="alert alert-secondary" style="margin:auto; margin-top: 1%; padding: 3%; background-color: whitesmoke; width: 50%">
             <form action="additional/list.inc.php" method="POST" enctype="multipart/form-data">
-
                 <input type="hidden" name="pet_id" value="<?php if (isset($_GET['edit'])){
                     echo $_GET['edit'];}?>">
                 <h1 class="display-6"> <?php if (isset($_GET['edit'])){
@@ -21,7 +20,7 @@
                         echo "<div class=\"alert alert-danger\" role=\"alert\">Unexpected error uploading file. Please try again</div>";
                     }
                     else if ($_GET["error"] == "file_too_big") {
-                        echo "<div class=\"alert alert-danger\" role=\"alert\">That file is too large. Please upload a smaller file</div>";
+                        echo "<div class=\"alert alert-danger\" role=\"alert\">That file is too big. Please upload a smaller file</div>";
                     }
                     echo "</div>";
                 }
@@ -33,10 +32,10 @@
                                aria-label="First name">
                     </div>
                     <div class="input-group col">
-                        <span class="input-group-text">Type of pet</span>
+                        <span class="input-group-text">Type of Pet</span>
                         <select class="form-control" name="pet_type" aria-label="Default select example">
                             <?php if ($pet_type == ''){
-                                ?><option selected>Type of pet</option><?php
+                                ?><option selected>Please select the type of your pet</option><?php
                             }?>
                             <option <?php if ($pet_type == 1){echo 'selected="selected"';} ?> value="1">Cat</option>
                             <option <?php if ($pet_type == 2){echo 'selected="selected"';} ?> value="2">Dog</option>
@@ -50,7 +49,7 @@
                         <span class="input-group-text">Gender</span>
                         <select class="form-control" name="gender" aria-label="Default select example">
                             <?php if ($gender == ''){
-                                ?><option selected>Gender</option><?php
+                                ?><option selected>Please select the Gender of your pet</option><?php
                             }?>
                             <option <?php if ($gender == 1){echo 'selected="selected"';} ?> value="1">Male</option>
                             <option <?php if ($gender == 2){echo 'selected="selected"';} ?> value="2">Female</option>
@@ -71,8 +70,8 @@
 
                 <div class="row mb-3">
                     <div class="input-group col">
-                        <span class="input-group-text">City</span>
-                        <input type="text" name ="location" class="form-control" value="<?php echo $location; ?>" placeholder="Your City..."
+                        <span class="input-group-text">Location</span>
+                        <input type="text" name ="location" class="form-control" value="<?php echo $location; ?>" placeholder="Your Location..."
                                aria-label="Location">
                     </div>
                     <div class="input-group col">
@@ -85,7 +84,7 @@
                         <span class="input-group-text">Size</span>
                         <select class="form-control" name="size" aria-label="Default select example">
                             <?php if ($pet_size == ''){
-                                ?><option selected>Size of pet</option><?php
+                                ?><option selected>Please select the Size of your pet</option><?php
                             }?>
                             <option <?php if ($pet_size == 1){echo 'selected="selected"';} ?>value="1">Small</option>
                             <option <?php if ($pet_size == 2){echo 'selected="selected"';} ?>value="2">Medium</option>
@@ -157,20 +156,12 @@
                         </div>
                     </div><br/>
 
-                    <p id = "status"></p>
-                    <a id = "map-link" target="_blank"></a>
-                    <input class = "btn btn-dark" id = "test" type="button" value="Find Location"/>
-                    <input id="lat" type="hidden" value="" name="lat">
-                    <input id="long" type="hidden" value="" name="lon">
-
-                    <br><br>
-
                     <?php
                 } else {?> <?php } ?>
                 <div class="mb-3">
                     <div class="row g-3">
                         <div class="col">
-                            <button id="test2" type="submit" style="width: 100%" name= "<?php if (isset($_GET['edit'])){
+                            <button type="submit" style="width: 100%" name= "<?php if (isset($_GET['edit'])){
                                 ?>update<?php
                             } else {?>submit<?php } ?>" class="btn btn-primary"><?php if (isset($_GET['edit'])){
                                     ?> Update <?php
@@ -183,53 +174,8 @@
                         </div>
                     </div> <br/>
                 </div>
-
             </form>
         </div>
-
-
-
-
-
-    <script>
-        function geoFindMe() {
-
-            const status = document.querySelector('#status');
-            const mapLink = document.querySelector('#map-link');
-
-            mapLink.href = '';
-            mapLink.textContent = '';
-
-            function success(position) {
-                var latitude  = position.coords.latitude;
-                var longitude = position.coords.longitude;
-                document.getElementById('lat').value = latitude;
-                document.getElementById('long').value = longitude;
-
-                status.textContent = '';
-                mapLink.href = `https://google.com/maps?q=${latitude},${longitude}`;
-                mapLink.textContent = '';
-
-            }
-
-            function error() {
-                status.textContent = 'Unable to retrieve your location';
-            }
-
-            if(!navigator.geolocation) {
-                status.textContent = 'Geolocation is not supported by your browser';
-            } else {
-                status.textContent = 'Locating…';
-                navigator.geolocation.getCurrentPosition(success, error);
-            }
-
-        }
-
-        document.querySelector('#test').addEventListener('click', geoFindMe);
-    </script>
-
-
-
 
 </body>
 

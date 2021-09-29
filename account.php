@@ -13,33 +13,11 @@
     <?php require_once 'additional/mypets.inc.php'?>
 
     <style>
-        .container {
-            margin-left: 2%;
-        }
-        .col-sm-6 {
-            margin-top: 1%;
-        }
-        .col-sm-6 h1 {
-            font-size: 2.5vw;
-            color: black;
-            font-family: "Chelsea Market";
-            margin-top: 1%;
-        }
-        .col-sm-8 h1 {
-            font-size: 2.5vw;
-            color: black;
-            font-family: "Chelsea Market";
-            margin-top: 7%;
-        }
-        .col-sm-8 p {
-            font-size: 2vw;
-            color: black;
-            font-family: "Chelsea Market";
-        }
+
         .images{
             position: fixed;
             margin-left: 75%;
-            margin-top: 9%;
+            margin-top: 1%;
         }
 
         .boxhead a {
@@ -47,135 +25,102 @@
             text-decoration: none;
         }
 
-        .btn{
-            background: #BCE76D;
-
-            border-color:#BCE76D;
-            width: 25%;
-            font-size: 1.3vw;
-            margin-left: 7%;
-            border-width: 5px;
-            font-family: "Chelsea Market";
-        }
     </style>
+    <script>
+        sessionStorage.clear();
+    </script>
 </head>
 
-<body style="background-color: whitesmoke">
-
-<?php
-$a = 'foo'; // $a now holds PHP string foo
-$latitude  = 'holder';
-$longitude = 'holder';
-?>
-
-<?php
-if (isset($_GET["message"])) {
-    echo "<div class='mb-3'>";
-    if ($_GET["message"] == "list_success") {
-        echo "<div class=\"alert alert-success\" role=\"alert\">Pet Sucessfully Listed!
+<body style="background-color: ghostwhite">
+<div class="container" >
+    <?php
+    if (isset($_GET["message"])) {
+        if ($_GET["message"] == "list_success") {
+            echo "<div class=\"alert alert-success\" role=\"alert\">Pet Sucessfully Listed!
                     </div>";
-    }
-    echo "</div>";
-}
-?>
-
-<div class="images">
-
-
-    <p id = "status"></p>
-    <a id = "map-link" target="_blank"></a>
-    <input id = "test" type="button" value="Find Location"/>
-
-    <form action="account_connect.php" method="post">
-
-    <input id="lat" type="hidden" value="" name="lat">
-        <input id="long" type="hidden" value="" name="lon">
-        <input type="submit" name="submit">
-    </form>
-
-    <script>
-        function geoFindMe() {
-
-            const status = document.querySelector('#status');
-            const mapLink = document.querySelector('#map-link');
-
-            mapLink.href = '';
-            mapLink.textContent = '';
-
-            function success(position) {
-                var latitude  = position.coords.latitude;
-                var longitude = position.coords.longitude;
-                document.getElementById('lat').value = latitude;
-                document.getElementById('long').value = longitude;
-
-                status.textContent = '';
-                mapLink.href = `https://google.com/maps?q=${latitude},${longitude}`;
-                window.open(mapLink.href, "", "width=700,height=700");
-                mapLink.textContent = '';
-
-            }
-
-            function error() {
-                status.textContent = 'Unable to retrieve your location';
-            }
-
-            if(!navigator.geolocation) {
-                status.textContent = 'Geolocation is not supported by your browser';
-            } else {
-                status.textContent = 'Locating…';
-                navigator.geolocation.getCurrentPosition(success, error);
-            }
-
+        } else if ($_GET["message"] == "edit_profile_success") {
+            echo "<div class=\"alert alert-success\" role=\"alert\">Profile Sucessfully Updated
+                    </div>";
         }
-
-        document.querySelector('#test').addEventListener('click', geoFindMe);
-    </script>
-
-
-
-    <img src="Files/image%202.png" style="width: 80%">
-    <a class="btn btn-primary" href="edit_profile.php?edit=<?php echo $_SESSION['user_id']?>" style="width: 50%; margin-top: 2%; margin-left: 15%;">Edit Profile</a>
-
-    <button type="button" class="boxhead a btn rounded-pill" style="width: 50%; margin-top: 2%; margin-left: 15%;"><a href="/additional/logout.inc.php">Logout</a></button>
-
-
-</div>
-<div class="container">
-    <div class="row">
-        <div class="col-sm header">
-            <h1>Hi <?php echo $_SESSION['first_name']?>,</h1>
-        </div>
-    </div>
-
-
-
+    }
+    ?>
     <div class="row">
         <div class="col-sm-6">
-            <h1>Personality Profile:</h1>
-            <a type="button" class="btn rounded-pill" href='setup_preferences1.php'>Take Quiz</a>
+            <h1>Welcome back <?php echo $_SESSION['first_name']?></h1>
         </div>
-    </div>
-
-    <div class="row">
-        <div class="col-sm-8">
-            <h1>Preferences:</h1>
+        <div class="col-sm-6">
+            <div class="row" style="margin-top: 1%">
+                <div class="col">
+                    <a class="btn btn-secondary" href="edit_profile.php?edit=<?php echo $_SESSION['user_id']?>" style="width: 100%; background-color: #306844">Edit Profile</a>
+                </div>
+                <div class="col">
+                    <a class="btn btn-secondary" href="/additional/logout.inc.php" style="width: 100%; background-color: #182c25">Logout</a>
+                </div>
+            </div>
         </div>
-        <div class="col-sm-8">
-            <p>Pet Heroes wants to match you with your perfect pet and create families. Find your new best furry-friend today!</p>
-
-        </div>
-
     </div>
     <div class="row">
-        <div class="col-sm-8">
-            <h1>About me:</h1>
-        </div>
-
-        <div class="col-sm-8">
-            <p></p>
+        <div class="col">
+            Account Type: <?php if ($_SESSION['acc_type'] == 0) echo "Adopter"; else echo "Owner";?>
         </div>
     </div>
+    <hr/>
 </div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="row">
+                    <div class="card" style="width: 100%">
+                        <div class="card-header">
+                            Personality Profile
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Complete your personality quiz to find pets compatible with you!</h5>
+                            <a class="btn btn-success" href="setup_preferences1.php" style="background-color: #2c4c3b">Take Quiz</a>
+                        </div>
+                    </div>
+            </div> <br/>
+            <div class="row">
+                <div class="card" style="width: 100%">
+                    <div class="card-header">
+                      About me
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Complete your personality quiz to find pets compatible with you!</h5>
+                        <a class="btn btn-success" href="about_me.php"  style="background-color: #2c4c3b">About Me</a>
+                    </div>
+                </div>
+            </div> <br/>
+            <div class="row">
+                <div class="card" style="width: 100%">
+                    <div class="card-header">
+                        Verify email
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Verify your email to start matching!</h5>
+                        <a class="btn btn-success" href="verify_email.php"  style="background-color: #2c4c3b">Verify Email</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card" style="width: 100%;">
+                <img class="card-img-top" src="files/profilePicture.png" alt="Card image cap">
+                <div class="card-body text-center">
+                    <div class="row">
+                        <div class="col">
+                            <a class="btn btn-secondary text-right" href="setup_profile_picture.php" style="background-color: #306844">Upload Profile Picture</a>
+                        </div>
+                        <div class="col">
+                            <a class="btn btn-secondary text-left" href="chg_acc_type.php" style="background-color: #306844">Change Account Type</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <hr/>
+
 <?php
 if (isset($_GET["message"])) {
     echo "<div class='container-fluid' style=\"width:90%; margin-top: 1%\">";
@@ -192,41 +137,44 @@ if (isset($_GET["message"])) {
     echo "</div>";
 }
 ?>
-<div class="container-fluid">
-    <h1>My Pets</h1>
-    <table class="table table-striped table-hover">
-        <thead style="background-color: #343a40; color: white">
-        <tr>
-            <th>Image</th>
-            <th>Name </th>
-            <th>Breed</th>
-            <th>Age</th>
-            <th>Location</th>
-            <th>Action</th>
-        </tr>
-        </thead>
+    <?php if ($_SESSION['acc_type'] == 1){?>
+        <div class="container-fluid">
+            <h1>My Pets</h1> <br/>
+            <table class="table table-striped table-hover">
+                <thead style="background-color: #182c25; color: white">
+                <tr>
+                    <th>Image</th>
+                    <th>Name </th>
+                    <th>Breed</th>
+                    <th>Age</th>
+                    <th>Location</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
 
-        <?php while ($row = $result->fetch_assoc()){?>
-            <tr>
-                <td><img src="uploads/<?php echo $row['picture_destination']?>" style="max-width: 150px"/></td>
-                <td><b><?php echo $row['pet_name']?></b></td>
-                <td><?php echo $row['breed']?></td>
-                <td><?php echo $row['age']?></td>
-                <td><?php echo $row['location']?></td>
-                <td>
-                    <a href="pet.php?pet=<?php echo $row['pet_id'];?>" class="btn btn-secondary">View</a>
-                    <?php if ($row['user_id'] == $_SESSION['user_id']){
-                        ?>
-                        <a href="list.php?edit=<?php echo $row['pet_id'];?>" class="btn btn-warning">Edit</a>
-                        <a href="additional/list.inc.php?delete=<?php echo $row['pet_id']; ?>" class="btn btn-danger">Delist</a>
-                        <?php
-                    } else {
-                        echo null;
-                    } ?>
-                </td>
-            </tr> <?php
-        } ?>
-    </table>
-</div>
+                <?php while ($row = $result->fetch_assoc()){?>
+                    <tr>
+                        <td><img src="uploads/<?php echo $row['picture_destination']?>" style="max-width: 150px"/></td>
+                        <td><b><?php echo $row['pet_name']?></b></td>
+                        <td><?php echo $row['breed']?></td>
+                        <td><?php echo $row['age']?></td>
+                        <td><?php echo $row['location']?></td>
+                        <td>
+                            <a href="pet.php?pet=<?php echo $row['pet_id'];?>" class="btn btn-secondary" style="background-color: #455b55">View</a>
+                            <?php if ($row['user_id'] == $_SESSION['user_id']){
+                                ?>
+                                <a href="list.php?edit=<?php echo $row['pet_id'];?>" class="btn btn-secondary" style="background-color: #306844">Edit</a>
+                                <a href="additional/list.inc.php?delete=<?php echo $row['pet_id']; ?>" class="btn btn-danger">Delist</a>
+                                <?php
+                            } else {
+                                echo null;
+                            } ?>
+                        </td>
+                    </tr> <?php
+                } ?>
+            </table>
+        </div>
+    <?php } else { ?>
 
+<?php } ?>
 </body>
