@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Sep 29, 2021 at 04:02 AM
+-- Generation Time: Sep 29, 2021 at 10:12 PM
 -- Server version: 5.7.32
 -- PHP Version: 7.4.16
 
@@ -92,14 +92,30 @@ CREATE TABLE `pets` (
 --
 
 INSERT INTO `pets` (`pet_id`, `pet_name`, `location`, `user_id`, `breed`, `age`, `picture_destination`, `description`, `pet_type`, `pet_size`, `vaccinated`, `desexed`, `microchip`, `picture_destination2`, `picture_destination3`, `picture_destination4`, `gender`, `colour`, `lat`, `lon`) VALUES
-(4, 'Name', 'Indro', '0', 'Shitzhu', '23', '', '', 0, 0, 0, 0, 0, '', '', '', 0, 0, '', ''),
 (15, 'Tom', 'Tom', '3', 'Tom', '22', '614292ad2f3825.14747559.jpeg', 'Test descriptions', 0, 0, 0, 0, 0, '', '', '', 0, 0, '', ''),
 (16, 'Snoop', 'Brisbane', '3', 'Labrador', '7', '6142d42eb85ff2.81193403.jpeg', 'This is a test ', 2, 3, 1, 1, 1, '', '', '', 0, 0, '', ''),
 (18, 'Snoop', 'Brisbane', '5', 'Labrador', '1', '6142e034ad17b9.84222340.png', 'He is a chocolate Lab', 2, 1, 1, 1, 1, '6142e034ad4793.51293728.jpeg', '6142e034ad5141.25405990.jpeg', '6142e034ad59e7.53884552.jpeg', 0, 0, '', ''),
-(19, 'Dusty', 'home', '4', 'bbb', '1', '6142e4ab0db831.89488027.png', 'oskdoskdosdkso', 1, 3, 1, 1, 1, '6142e4ab0e67a9.74752780.png', '6142e4ab0f2356.00031422.png', '6142e4ab0ffa25.23861445.png', 1, 1, '', ''),
-(20, 'Chungus', 'Brisvegas', '3', 'Dog', '1', '614bc64a5dd561.51628260.png', 'sDASDASDA', 1, 2, 1, 1, 1, '614bc64a5e81b6.04124741.png', '614bc64a5e8cb6.33905306.png', '614bc64a5e9586.33434700.png', 1, 1, '', ''),
-(21, 'asd', 'asdasd', '3', 'asdad', '11', '61512ce3d67f30.36237869.png', 'asdasd', 1, 1, 1, 2, 1, '61512ce3d68ca7.05152371.jpeg', '61512ce3d695b9.62467866.jpeg', '61512ce3d69e48.97847770.jpeg', 2, 1, '', ''),
-(23, 'Pebble', 'Ascot', '4', 'Black Cat', '6', '61524460c04508.35034403.jpeg', 'Pebble is a very friendly cat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vulputate nisl nec eleifend pulvinar. Maecenas tristique lorem velit. Cras vitae dui ac nisl tempus eleifend. Mauris porttitor turpis vel nulla ornare condimentum. In eu risus quam. Cras molestie fringilla urna a scelerisque. Pellentesque faucibus augue non justo luctus, sit amet tincidunt enim volutpat. Quisque rutrum vitae nulla iaculis sagittis. Vivamus id tempus urna. Nunc porta urna consectetur mauris auctor, vel porta mauris tristique. Aenean varius nunc et enim fermentum, ac commodo odio feugiat. Cras viverra elit arcu, at posuere leo congue sit amet. Pellentesque pellentesque magna a dignissim interdum.', 1, 2, 1, 1, 1, '61524460c0c364.48311008.jpeg', '61524460c0e599.25295639.jpeg', '61524460c0f1e6.42236113.jpeg', 1, 2, '', '');
+(23, 'Pebble', 'Ascot', '4', 'Black Cat', '6', '61524460c04508.35034403.jpeg', 'Pebble is a very friendly cat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vulputate nisl nec eleifend pulvinar. Maecenas tristique lorem velit. Cras vitae dui ac nisl tempus eleifend. Mauris porttitor turpis vel nulla ornare condimentum. In eu risus quam. Cras molestie fringilla urna a scelerisque. Pellentesque faucibus augue non justo luctus, sit amet tincidunt enim volutpat. Quisque rutrum vitae nulla iaculis sagittis. Vivamus id tempus urna. Nunc porta urna consectetur mauris auctor, vel porta mauris tristique. Aenean varius nunc et enim fermentum, ac commodo odio feugiat. Cras viverra elit arcu, at posuere leo congue sit amet. Pellentesque pellentesque magna a dignissim interdum.', 1, 2, 1, 1, 1, '61524460c0c364.48311008.jpeg', '61524460c0e599.25295639.jpeg', '61524460c0f1e6.42236113.jpeg', 1, 2, '', ''),
+(24, 'Daisy', 'Toowong', '4', 'Siamese', '4', '6154e38fa018c1.34755040.jpeg', 'Test description', 1, 2, 1, 1, 1, '6154e38fa036a6.85850019.jpeg', '6154e38fa04f48.16828861.jpeg', '6154e38fa05f11.29932040.jpeg', 2, 2, '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `profile_pic`
+--
+
+CREATE TABLE `profile_pic` (
+  `pic_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `destination` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `profile_pic`
+--
+
+INSERT INTO `profile_pic` (`pic_id`, `user_id`, `destination`) VALUES
+(1, 3, '6153ec6b667414.20526708.jpeg');
 
 -- --------------------------------------------------------
 
@@ -114,17 +130,18 @@ CREATE TABLE `users` (
   `first_name` varchar(128) NOT NULL,
   `last_name` varchar(128) NOT NULL,
   `email` varchar(128) NOT NULL,
-  `acc_type` int(1) NOT NULL COMMENT '0 = adopter, 1 = owner'
+  `acc_type` int(1) NOT NULL COMMENT '0 = adopter, 1 = owner',
+  `phone` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`user_id`, `username`, `password`, `first_name`, `last_name`, `email`, `acc_type`) VALUES
-(3, 'dberg99', '$2y$10$Ir7VIUOD.ZO.9cHIqFkg6.68av86pbmOn3nvY/iZRSLUkIPzppnai', 'Dustin', 'Bergman', 'dustinbergman82@gmail.com', 1),
-(4, 'TomTreby', 'user1234', 'Tom', 'Trebilcock', 'TommyT@gmail.com', 0),
-(5, 'deeznuts', '$2y$10$mYa3XxEEsiacqJnmu/Jx9OQAKmNi8HZJnSj4Lne2ndajRhvdbsFnK', 'Deez', 'Nuts', 'deeznuts@gmail.com', 0);
+INSERT INTO `users` (`user_id`, `username`, `password`, `first_name`, `last_name`, `email`, `acc_type`, `phone`) VALUES
+(3, 'dberg99', '$2y$10$Ir7VIUOD.ZO.9cHIqFkg6.68av86pbmOn3nvY/iZRSLUkIPzppnai', 'Dustin', 'Bergman', 'dustinbergman82@gmail.com', 0, '0435110423'),
+(4, 'TomTreby', 'user1234', 'Tom', 'Trebilcock', 'TommyT@gmail.com', 0, '0'),
+(5, 'deeznuts', '$2y$10$mYa3XxEEsiacqJnmu/Jx9OQAKmNi8HZJnSj4Lne2ndajRhvdbsFnK', 'Deez', 'Nuts', 'deeznuts@gmail.com', 0, '0');
 
 --
 -- Indexes for dumped tables
@@ -141,6 +158,12 @@ ALTER TABLE `matches`
 --
 ALTER TABLE `pets`
   ADD PRIMARY KEY (`pet_id`);
+
+--
+-- Indexes for table `profile_pic`
+--
+ALTER TABLE `profile_pic`
+  ADD PRIMARY KEY (`pic_id`);
 
 --
 -- Indexes for table `users`
@@ -162,7 +185,13 @@ ALTER TABLE `matches`
 -- AUTO_INCREMENT for table `pets`
 --
 ALTER TABLE `pets`
-  MODIFY `pet_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `pet_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
+--
+-- AUTO_INCREMENT for table `profile_pic`
+--
+ALTER TABLE `profile_pic`
+  MODIFY `pic_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `users`
