@@ -11,6 +11,7 @@
 
     <?php include_once 'header.php'?>
     <?php require_once 'additional/mypets.inc.php'?>
+    <?php require_once 'additional/profile_pic.inc.php'?>
 
     <style>
 
@@ -106,11 +107,17 @@
         </div>
         <div class="col-sm-6">
             <div class="card" style="width: 100%;">
-                <img class="card-img-top" src="files/profilePicture.png" alt="Card image cap">
+                <div style="width: 400pt; height: 400pt;">
+                    <img src="uploads/<?php echo $pfp['destination'];?>" alt="Card image cap" style="width: 400pt; height: 400pt; object-fit: cover; "/>
+                </div>
                 <div class="card-body text-center">
                     <div class="row">
                         <div class="col">
-                            <a class="btn btn-secondary text-right" href="setup_profile_picture.php" style="background-color: #306844">Upload Profile Picture</a>
+                            <?php if ($pfp['destination'] == null) { ?>
+                                <a class="btn btn-secondary text-right" href="setup_profile_picture.php" style="background-color: #306844">Upload Profile Picture</a>
+                           <?php  } else { ?>
+                                <a class="btn btn-secondary text-right" href="edit_profile_picture.php" style="background-color: #306844">Edit Profile Picture</a>
+                           <?php } ?>
                         </div>
                         <div class="col">
                             <a class="btn btn-secondary text-left" href="chg_acc_type.php" style="background-color: #306844">Change Account Type</a>

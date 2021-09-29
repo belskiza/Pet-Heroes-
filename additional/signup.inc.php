@@ -7,6 +7,7 @@ if (isset($_POST["submit"])) {
     $username = $_POST["username"];
     $password = $_POST["password"];
     $password_confirm = $_POST["password_confirm"];
+    $phone = $_POST['phone'];
 
     if(!isset($_POST["acc_type"])){
         header("location: ../sign_up.php?error=no_account_type");
@@ -61,7 +62,7 @@ if (isset($_POST["submit"])) {
         sessionStorage.clear();
     </script>
     <?php
-    createUser($conn, $first_name, $last_name, $email, $username, $password , $acc_type);
+    createUser($conn, $first_name, $last_name, $email, $username, $password , $acc_type, $phone);
 } else {
     header("location: ../sign_up.php");
     exit();
