@@ -300,11 +300,11 @@ function loginUser($conn, $username, $password) {
  */
 function listPet($conn, $name, $location, $breed, $age ,$user_id, $picture_destination, $description,
                  $pet_type, $size, $vaccinated, $desexed, $microchip, $picture_destination2, $picture_destination3, $picture_destination4
-, $gender, $colour){
+    , $gender, $colour, $lat, $lon){
     $conn->query("INSERT INTO pets (pet_name, location, user_id, breed, age, picture_destination, description,
-pet_type, pet_size, vaccinated, desexed, microchip, picture_destination2, picture_destination3, picture_destination4, gender, colour) VALUES 
+pet_type, pet_size, vaccinated, desexed, microchip, picture_destination2, picture_destination3, picture_destination4, gender, colour, lat, lon) VALUES 
 ('$name', '$location', '$user_id', '$breed', '$age', '$picture_destination', '$description', '$pet_type', '$size', 
-'$vaccinated','$desexed','$microchip', '$picture_destination2', '$picture_destination3', '$picture_destination4', '$gender', '$colour')") or die ($conn->error);
+'$vaccinated','$desexed','$microchip', '$picture_destination2', '$picture_destination3', '$picture_destination4', '$gender', '$colour', '$lat', '$lon')") or die ($conn->error);
     /*
     $sql =
 
