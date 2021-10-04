@@ -124,8 +124,19 @@ if (count($pet) > 0){?>
                         }?></h5>
                 </div>
             </div>
+            <div class="row">
+                <div class="col">
+                    <a class="btn btn-lg btn-info" target="_blank" href=" http://maps.google.com/?q=<?php echo $pet['lat']?>,<?php echo $pet['lon']?>">Find Location</a>
+
+                </div>
+
+            </div>
         </div>
-        <div class="col-sm" style="background-color: blue"> <h3> This is where we will put the google maps API</h3></div>
+
+
+
+        <br>
+
 
     </div> <br/>
     <div class="container row">
