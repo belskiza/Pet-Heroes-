@@ -59,10 +59,11 @@
 <body style="background-color: ghostwhite;">
 
 <div id="mySidenav" class="sidenav">
+
     <a href="account.php"><img src='Files/logo_black.png' style='width: 50px;'>Account Details</a>
-    <a href="liked_pets.php"><img src='Files/logo_black.png' style='width: 50px;'>Liked Pets</a>
+    <a href="#"><img src='Files/logo_black.png' style='width: 50px;'>Liked Pets</a>
     <a href="#"><img src='Files/logo_black.png' style='width: 50px;'>Matched Pets</a>
-    <a href="/additional/logout.inc.php" ><img src='Files/logo_black.png' style='width: 50px;'>Sign Out</a>
+    <a href="#"><img src='Files/logo_black.png' style='width: 50px;'>Sign Out</a>
 </div>
 <div class="container" style="margin-top: 2%; margin-left: 20%">
     <?php
@@ -89,82 +90,26 @@
             Account Type: <?php if ($_SESSION['acc_type'] == 0) echo "Adopter"; else echo "Owner";?>
         </div>
     </div>
-    <div class="row">
-        <div class="col-sm-6">
-            <div class="row">
-                <div class="card" style="width: 100%">
-                    <div class="card-header">
-                        Personality Profile
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Complete your personality quiz to find pets compatible with you!</h5>
-                        <a class="btn btn-success" href="setup_preferences1.php" style="background-color: #2c4c3b">Take Quiz</a>
-                    </div>
-                </div>
-            </div> <br/>
-            <div class="row">
-                <div class="card" style="width: 100%">
-                    <div class="card-header">
-                        About me
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Complete your personality quiz to find pets compatible with you!</h5>
-                        <a class="btn btn-success" href="about_me.php"  style="background-color: #2c4c3b">About Me</a>
-                    </div>
-                </div>
-            </div> <br/>
-            <div class="row">
-                <div class="card" style="width: 100%">
-                    <div class="card-header">
-                        Verify email
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Verify your email to start matching!</h5>
-                        <a class="btn btn-success" href="verify_email.php"  style="background-color: #2c4c3b">Verify Email</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6">
-            <div class="card" style="width: 100%;">
-                <div style="width: 400pt; height: 400pt;">
-                    <img src="uploads/<?php echo $pfp['destination'];?>" alt="Card image cap" style="width: 400pt; height: 400pt; object-fit: cover; "/>
-                </div>
-                <div class="card-body text-center">
-                    <div class="row">
-                        <div class="col">
-                            <?php if ($pfp['destination'] == null) { ?>
-                                <a class="btn btn-secondary text-right" href="setup_profile_picture.php" style="background-color: #306844">Upload Profile Picture</a>
-                            <?php  } else { ?>
-                                <a class="btn btn-secondary text-right" href="edit_profile_picture.php" style="background-color: #306844">Edit Profile Picture</a>
-                            <?php } ?>
-                        </div>
-                        <div class="col">
-                            <a class="btn btn-secondary text-left" href="chg_acc_type.php" style="background-color: #306844">Change Account Type</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <hr/>
-    </div>
 
-    <?php
-    if (isset($_GET["message"])) {
-        echo "<div class='container-fluid' style=\"width:90%; margin-top: 1%\">";
-        if ($_GET["message"] == "delete_success") {
-            echo "<div class=\"alert alert-danger\" role=\"alert\">Pet Sucessfully Delisted!
+    <hr/>
+</div>
+
+<?php
+if (isset($_GET["message"])) {
+    echo "<div class='container-fluid' style=\"width:90%; margin-top: 1%\">";
+    if ($_GET["message"] == "delete_success") {
+        echo "<div class=\"alert alert-danger\" role=\"alert\">Pet Sucessfully Delisted!
                     </div>";
-        } else if ($_GET["message"] == "list_success") {
-            echo "<div class=\"alert alert-success\" role=\"alert\">Pet Sucessfully Listed!
+    } else if ($_GET["message"] == "list_success") {
+        echo "<div class=\"alert alert-success\" role=\"alert\">Pet Sucessfully Listed!
                     </div>";
-        } else if ($_GET["message"] == "update_success") {
-            echo "<div class=\"alert alert-info\" role=\"alert\">Pet Sucessfully Updated!
+    } else if ($_GET["message"] == "update_success") {
+        echo "<div class=\"alert alert-info\" role=\"alert\">Pet Sucessfully Updated!
                     </div>";
-        }
-        echo "</div>";
     }
-    ?>
+    echo "</div>";
+}
+?>
     <?php if ($_SESSION['acc_type'] == 1){?>
         <div class="container-fluid">
             <h1>My Pets</h1> <br/>
@@ -204,5 +149,5 @@
         </div>
     <?php } else { ?>
 
-    <?php } ?>
+<?php } ?>
 </body>
