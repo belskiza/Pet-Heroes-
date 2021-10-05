@@ -48,7 +48,7 @@
         }
 
         .nav-item{
-        margin-left: 55%;
+            margin-left: 15%;
         }
 
     </style>
