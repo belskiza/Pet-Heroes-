@@ -4,7 +4,6 @@
     <img src="files/landing_image_2.jpeg" style="position: fixed; filter: blur(3px) ; width: 110%; margin-top: -10%; margin-left: -5%; z-index: -1">
         <div class="alert alert-secondary" style="margin:auto; margin-top: 1%; padding: 3%; background-color: whitesmoke; width: 50%">
             <form action="additional/list.inc.php" method="POST" enctype="multipart/form-data">
-
                 <input type="hidden" name="pet_id" value="<?php if (isset($_GET['edit'])){
                     echo $_GET['edit'];}?>">
                 <h1 class="display-6"> <?php if (isset($_GET['edit'])){
@@ -71,8 +70,8 @@
 
                 <div class="row mb-3">
                     <div class="input-group col">
-                        <span class="input-group-text">City</span>
-                        <input type="text" name ="location" class="form-control" value="<?php echo $location; ?>" placeholder="Your City..."
+                        <span class="input-group-text">Location</span>
+                        <input type="text" name ="location" class="form-control" value="<?php echo $location; ?>" placeholder="Your Location..."
                                aria-label="Location">
                     </div>
                     <div class="input-group col">
@@ -155,7 +154,7 @@
                             <span class="input-group-text">Fourth Photo</span>
                             <input type="file" name="picture4" class="form-control" id="form-control" placeholder="Upload Picture...">
                         </div>
-                    </div><br/>
+                    </div>
 
                     <p id = "status"></p>
                     <a id = "map-link" target="_blank"></a>
@@ -163,14 +162,14 @@
                     <input id="lat" type="hidden" value="" name="lat">
                     <input id="long" type="hidden" value="" name="lon">
 
-                    <br><br>
+                    <br/><br/>
 
                     <?php
                 } else {?> <?php } ?>
                 <div class="mb-3">
                     <div class="row g-3">
                         <div class="col">
-                            <button id="test2" type="submit" style="width: 100%" name= "<?php if (isset($_GET['edit'])){
+                            <button type="submit" style="width: 100%" name= "<?php if (isset($_GET['edit'])){
                                 ?>update<?php
                             } else {?>submit<?php } ?>" class="btn btn-primary"><?php if (isset($_GET['edit'])){
                                     ?> Update <?php
@@ -183,13 +182,8 @@
                         </div>
                     </div> <br/>
                 </div>
-
             </form>
         </div>
-
-
-
-
 
     <script>
         function geoFindMe() {
@@ -227,9 +221,6 @@
 
         document.querySelector('#test').addEventListener('click', geoFindMe);
     </script>
-
-
-
 
 </body>
 

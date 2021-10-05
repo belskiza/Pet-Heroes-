@@ -5,3 +5,5 @@ require_once 'dbh.inc.php';
 require_once 'functions.inc.php';
 
 $result = fetchPets($conn);
+
+$someResult = fetchSomePets($conn, 4);
