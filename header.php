@@ -16,7 +16,7 @@
             color: yellowgreen;
         }
         @media only screen and (min-width: 960px) {
-            .navbar .navbar-nav .nav-link {
+            .navbar .navbar-nav {
                 padding: 1em 0.7em;
             }
         }
@@ -44,9 +44,10 @@
             height: 3px;
             transition: all 0.5s;
         }
+
         .navbar-item:hover::after {
             width: 50%;
-
+        }
         #navbar{
             position: sticky;
         }
@@ -69,13 +70,13 @@
                     <a class="navbar-item" href='index.php' ><img src='files/logo.png' style='width: 70px;'></a>
                 </div>
                 <div class="col-sm" id="navbar-text">
-                    <a class='navbar-item' href='all_pets.php' style='font-size: 20pt'>pets</a>
+                    <a class='navbar-item' href='all_pets.php' style='font-size: 20pt; text-decoration: none'>pets</a>
                 </div>
                 <div class="col-sm" id="navbar-text">
-                    <a class='navbar-item' href='swipe.php'style='font-size: 20pt' >swipe</a>
+                    <a class='navbar-item' href='swipe.php'style='font-size: 20pt; text-decoration: none' >swipe</a>
                 </div>
                 <div class="col-sm" id="navbar-text">
-                    <a class='navbar-item' href='account.php' style='font-size: 20pt'><?php echo $_SESSION['username']; ?></a>
+                    <a class='navbar-item' href='account.php' style='font-size: 20pt;text-decoration: none'><?php echo $_SESSION['username']; ?></a>
                 </div>
                 <div class="col-sm">
                 </div>
