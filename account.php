@@ -32,7 +32,7 @@
     </script>
 </head>
 
-<body style="background-color: ghostwhite">
+<body style="background-color: ghostwhite;">
 <div class="container" >
     <?php
     if (isset($_GET["message"])) {
@@ -65,27 +65,23 @@
             Account Type: <?php if ($_SESSION['acc_type'] == 0) echo "Adopter"; else echo "Owner";?>
         </div>
     </div>
-    <hr/>
-</div>
-
-<div class="container">
     <div class="row">
         <div class="col-sm-6">
             <div class="row">
-                    <div class="card" style="width: 100%">
-                        <div class="card-header">
-                            Personality Profile
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Complete your personality quiz to find pets compatible with you!</h5>
-                            <a class="btn btn-success" href="setup_preferences1.php" style="background-color: #2c4c3b">Take Quiz</a>
-                        </div>
+                <div class="card" style="width: 100%">
+                    <div class="card-header">
+                        Personality Profile
                     </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Complete your personality quiz to find pets compatible with you!</h5>
+                        <a class="btn btn-success" href="setup_preferences1.php" style="background-color: #2c4c3b">Take Quiz</a>
+                    </div>
+                </div>
             </div> <br/>
             <div class="row">
                 <div class="card" style="width: 100%">
                     <div class="card-header">
-                      About me
+                        About me
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">Complete your personality quiz to find pets compatible with you!</h5>
@@ -115,9 +111,9 @@
                         <div class="col">
                             <?php if ($pfp['destination'] == null) { ?>
                                 <a class="btn btn-secondary text-right" href="setup_profile_picture.php" style="background-color: #306844">Upload Profile Picture</a>
-                           <?php  } else { ?>
+                            <?php  } else { ?>
                                 <a class="btn btn-secondary text-right" href="edit_profile_picture.php" style="background-color: #306844">Edit Profile Picture</a>
-                           <?php } ?>
+                            <?php } ?>
                         </div>
                         <div class="col">
                             <a class="btn btn-secondary text-left" href="chg_acc_type.php" style="background-color: #306844">Change Account Type</a>
@@ -126,7 +122,8 @@
                 </div>
             </div>
         </div>
-    </div> <hr/>
+    <hr/>
+</div>
 
 <?php
 if (isset($_GET["message"])) {
