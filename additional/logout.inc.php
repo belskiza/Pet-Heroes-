@@ -3,5 +3,5 @@ session_start();
 session_unset();
 session_destroy();
 
-header("location: ../landing_page.php?");
+header("location: ../index.php?");
 exit();

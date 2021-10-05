@@ -3,6 +3,46 @@
     <title>Pet Heroes</title>
 </head>
 
+<script>
+    window.onload = function() {
+
+        // If sessionStorage is storing default values (ex. name), exit the function and do not restore data
+        if (sessionStorage.getItem('name') == "name") {
+            return;
+        }
+
+        // If values are not blank, restore them to the fields
+        var first_name = sessionStorage.getItem('first_name');
+        if (first_name !== null) $('#first_name').val(first_name);
+
+        var last_name = sessionStorage.getItem('last_name');
+        if (last_name !== null) $('#last_name').val(last_name);
+
+        var username = sessionStorage.getItem('username');
+        if (username !== null) $('#username').val(username);
+
+        var email = sessionStorage.getItem('email');
+        if (email !== null) $('#email').val(email);
+
+        var acc_type = sessionStorage.getItem('acc_type');
+        if (acc_type !== null) $('#acc_type').val(acc_type);
+
+        var phone = sessionStorage.getItem('phone');
+        if (phone !== null) $('#phone').val(phone);
+
+    }
+
+    // Before refreshing the page, save the form data to sessionStorage
+    window.onbeforeunload = function() {
+        sessionStorage.setItem("first_name", $('#first_name').val());
+        sessionStorage.setItem("last_name", $('#last_name').val());
+        sessionStorage.setItem("username", $('#username').val());
+        sessionStorage.setItem("email", $('#email').val());
+        sessionStorage.setItem("acc_type", $('#acc_type').val());
+        sessionStorage.setItem("phone", $('#phone').val());
+    }
+</script>
+
 <body >
 <?php include_once 'header.php'?>
 <img src="files/background.jpeg" style="position: fixed; filter: blur(20px) ; width: 105%; margin: -5%; z-index: -1">
@@ -50,23 +90,31 @@
             <div class="row g-3">
                 <div class="col">
                     <label for="exampleFormControlInput1" class="form-label" ">First Name</label>
-                    <input type="text" name="first_name" class="form-control" placeholder="First name..."
+                    <input type="text" name="first_name" class="form-control" id="first_name" placeholder="First name..."
                            aria-label="First name">
                 </div>
                 <div class="col">
                     <label for="exampleFormControlInput1" class="form-label" ">Last Name</label>
-                    <input type="text" name ="last_name" class="form-control" placeholder="Last name..."
+                    <input type="text" name ="last_name" class="form-control" id="last_name" placeholder="Last name..."
                            aria-label="Last name">
                 </div>
             </div>
         </div>
         <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label" ">Email address</label>
-            <input type="email" name="email" class="form-control" id="form-control" placeholder="name@example.com...">
+            <label for="exampleFormControlInput1" class="form-label">Email address</label>
+            <input type="email" name="email" class="form-control" id="email" placeholder="name@example.com...">
         </div>
         <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label" ">Username</label>
-            <input type="username" name="username" class="form-control" id="form-control" placeholder="Username...">
+            <div class="row g-3">
+                <div class="col">
+                    <label for="exampleFormControlInput1" class="form-label">Username</label>
+                    <input type="username" name="username" class="form-control" id="form-control" id="username" placeholder="Username...">
+                </div>
+                <div class="col">
+                    <label for="exampleFormControlInput1" class="form-label">Phone Number</label>
+                    <input type="username" name="phone" class="form-control" id="phone" placeholder="Phone...">
+                </div>
+            </div>
         </div>
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label" ">Password</label>
@@ -96,15 +144,18 @@
             </div>
         </fieldset>
         <br/>
-        <div class="mb-3">
-            <div class="row g-3">
-                <div class="col d-grid gap-2">
-                    <a class="btn btn-outline-success">Sign up </a>
-                </div>
-                <div class="col d-grid gap-2">
-                    <a class="btn btn-outline-danger" href="<?php echo 'index.php'?>">Go Back </a>
-                </div>
-            </div> <br/>
+        <div class="row">
+            <div class="col">
+                <a class="btn btn-outline-danger" href="<?php echo 'index.php'?>" style="width: 100%">Go Back </a>
+            </div>
+            <div class="col">
+                <button type="submit" name= "submit" class="btn btn-primary text-center" style="width: 100%">Sign Up</button>
+            </div>
+        </div> <br/>
+        <div class="row">
+            <div class="col">
+                <a class="btn btn-success" href="<?php echo 'login.php'?>" style="width: 100%">Already have an account? Log In </a>
+            </div>
         </div>
     </form>
 
