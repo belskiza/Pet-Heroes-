@@ -21,6 +21,7 @@
         left: 0;
         overflow-x: hidden;
         padding-top: 15%;
+        width: 21%;
 
     }
 
@@ -45,9 +46,46 @@
 
 <body>
 <div id="mySidenav" class="sidenav" style="font-family: 'Chelsea Market'">
-    <a href="account.php"><img src='Files/logo_black.png' style='width: 50px;'>Account Details</a>
-    <a href="liked_pets.php"><img src='Files/logo_black.png' style='width: 50px;'>Liked Pets</a>
-    <a href="#"><img src='Files/logo_black.png' style='width: 50px;'>Matched Pets</a>
-    <a href="/additional/logout.inc.php" ><img src='Files/logo_black.png' style='width: 50px;'>Sign Out</a>
+    <a href="account.php">
+        <div class="row" style="margin-right: 0;">
+        <div class="col-2">
+            <img src='Files/Account_cogs.png' style='width: 40px;'>
+        </div>
+        <div class="col-10">
+            Account Details
+        </div>
+        </div>
+    </a>
+    <a href="liked_pets.php">
+        <div class="row">
+            <div class="col-2">
+                <img src='Files/two_paws.png' style='width: 40px;'>
+            </div>
+            <div class="col-10">
+                Liked Pets
+            </div>
+        </div>
+    </a>
+    <a href="#">
+        <div class="row" style="margin-right: 0;">
+            <div class="col-2">
+                <img src='Files/two_paws.png' style='width: 40px;'>
+            </div>
+            <div class="col-10">
+                Matched Pets
+            </div>
+        </div>
+    </a>
+    <a href="/additional/logout.inc.php">
+        <div class="row" style="margin-right: 0;">
+            <div class="col-2">
+                <img src='Files/exit_sign.png' style="width: 40px;">
+            </div>
+            <div class="col-10">
+                Sign Out
+            </div>
+        </div>
+    </a>
+
 </div>
 </body>
