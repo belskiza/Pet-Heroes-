@@ -12,6 +12,7 @@
     <?php include_once 'header.php'?>
     <?php require_once 'additional/mypets.inc.php'?>
     <?php require_once 'additional/profile_pic.inc.php'?>
+    <?php include_once 'sidebar.php'?>
 
     <style>
 
@@ -50,6 +51,10 @@
         .sidenav a:hover {
             color: #BCE76D;
         }
+
+        h1 {
+            font-family: "Chelsea Market";
+        }
     </style>
     <script>
         sessionStorage.clear();
@@ -58,13 +63,6 @@
 
 <body style="background-color: ghostwhite;">
 
-<div id="mySidenav" class="sidenav">
-
-    <a href="account.php"><img src='Files/logo_black.png' style='width: 50px;'>Account Details</a>
-    <a href="#"><img src='Files/logo_black.png' style='width: 50px;'>Liked Pets</a>
-    <a href="#"><img src='Files/logo_black.png' style='width: 50px;'>Matched Pets</a>
-    <a href="#"><img src='Files/logo_black.png' style='width: 50px;'>Sign Out</a>
-</div>
 <div class="container" style="margin-top: 2%; margin-left: 20%">
     <?php
     if (isset($_GET["message"])) {
@@ -80,7 +78,7 @@
 
     <h1 style="position: fixed;
             left: 2%;">My Account</h1>
-    <h1 style="margin-left: 75%">Welcome, <?php echo $_SESSION['first_name']?></h1>
+    <h1 style="margin-left: 70%">Welcome, <?php echo $_SESSION['first_name']?></h1>
     <div class="row">
         <div class="col-sm-6" style="margin-left: 0">
         </div>

@@ -12,6 +12,7 @@
     <?php include_once 'header.php'?>
     <?php require_once 'additional/mypets.inc.php'?>
     <?php require_once 'additional/profile_pic.inc.php'?>
+    <?php include_once 'sidebar.php'?>
 
     <style>
 
@@ -26,30 +27,18 @@
             text-decoration: none;
         }
 
-        .sidenav {
-            height: 100%;
-            width: 30%;
-            position: fixed;
-            z-index: 1;
-            top: 0;
-            left: 0;
-            overflow-x: hidden;
-            padding-top: 15%;
 
+        h1 {
+            font-family: "Chelsea Market";
         }
 
-        .sidenav a {
-            padding: 6px 6px 6px 10px;
-            text-decoration: none;
-            font-size: 1.7vw;
-            color: black;
-            display: block;
-            margin-top: 5%;
+        .card-header {
+            background-color: #BCE76D;
+            font-family: 'Chelsea Market';
+            font-size: 1.2vw;
         }
 
-        .sidenav a:hover {
-            color: #BCE76D;
-        }
+
     </style>
     <script>
         sessionStorage.clear();
@@ -58,12 +47,6 @@
 
 <body style="background-color: ghostwhite;">
 
-<div id="mySidenav" class="sidenav">
-    <a href="account.php"><img src='Files/logo_black.png' style='width: 50px;'>Account Details</a>
-    <a href="liked_pets.php"><img src='Files/logo_black.png' style='width: 50px;'>Liked Pets</a>
-    <a href="#"><img src='Files/logo_black.png' style='width: 50px;'>Matched Pets</a>
-    <a href="/additional/logout.inc.php" ><img src='Files/logo_black.png' style='width: 50px;'>Sign Out</a>
-</div>
 <div class="container" style="margin-top: 2%; margin-left: 20%">
     <?php
     if (isset($_GET["message"])) {
@@ -79,7 +62,7 @@
 
     <h1 style="position: fixed;
             left: 2%;">My Account</h1>
-    <h1 style="margin-left: 75%">Welcome, <?php echo $_SESSION['first_name']?></h1>
+    <h1 style="margin-left: 70%">Welcome, <?php echo $_SESSION['first_name']?></h1>
     <div class="row">
         <div class="col-sm-6" style="margin-left: 0">
         </div>
@@ -91,39 +74,37 @@
     </div>
     <div class="row">
         <div class="col-sm-6">
-            <div class="row">
                 <div class="card" style="width: 100%">
                     <div class="card-header">
                         Personality Profile
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">Complete your personality quiz to find pets compatible with you!</h5>
-                        <a class="btn btn-success" href="setup_preferences1.php" style="background-color: #2c4c3b">Take Quiz</a>
+                        <a class="btn btn-success" href="setup_preferences1.php" style="background-color: #BCE76D; border-color: #BCE76D">Take Quiz</a>
                     </div>
-                </div>
-            </div> <br/>
-            <div class="row">
+                </div><br/>
+        </div>
+        <div class="col-sm-6">
                 <div class="card" style="width: 100%">
                     <div class="card-header">
                         About me
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">Complete your personality quiz to find pets compatible with you!</h5>
-                        <a class="btn btn-success" href="about_me.php"  style="background-color: #2c4c3b">About Me</a>
+                        <a class="btn btn-success" href="about_me.php"  style="background-color: #BCE76D; border-color: #BCE76D">About Me</a>
                     </div>
-                </div>
-            </div> <br/>
-            <div class="row">
+                </div><br/>
+        </div>
+        <div class="col-sm-6">
                 <div class="card" style="width: 100%">
                     <div class="card-header">
                         Verify email
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">Verify your email to start matching!</h5>
-                        <a class="btn btn-success" href="verify_email.php"  style="background-color: #2c4c3b">Verify Email</a>
+                        <a class="btn btn-success" href="verify_email.php"  style="background-color: #BCE76D; border-color: #BCE76D">Verify Email</a>
                     </div>
                 </div>
-            </div>
         </div>
         <div class="col-sm-6">
             <div class="card" style="width: 100%;">
