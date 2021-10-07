@@ -78,7 +78,7 @@
                         </div>
                         <div class="card-body">
                             <h5 class="card-title">Complete your personality quiz to find pets compatible with you!</h5>
-                            <a class="btn btn-success" href="setup_preferences1.php" style="background-color: #2c4c3b">Take Quiz</a>
+                            <a class="btn btn-success" href="setup_preferences1.php" style="background-color: #306844">Take Quiz</a>
                         </div>
                     </div>
             </div> <br/>
@@ -89,24 +89,24 @@
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">Complete your personality quiz to find pets compatible with you!</h5>
-                        <a class="btn btn-success" href="about_me.php"  style="background-color: #2c4c3b">About Me</a>
+                        <a class="btn btn-success" href="about_me.php"  style="background-color: #306844">About Me</a>
                     </div>
                 </div>
             </div> <br/>
             <div class="row">
                 <div class="card" style="width: 100%">
                     <div class="card-header">
-                        Verify email
+                        Updates
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">Verify your email to start matching!</h5>
-                        <a class="btn btn-success" href="verify_email.php"  style="background-color: #2c4c3b">Verify Email</a>
+                        <a class="btn btn-success" href="verify_email.php"  style="background-color: #306844">Verify Email</a>
                     </div>
                 </div>
             </div>
         </div>
         <div class="col-sm-6">
-            <div class="card" style="width: 100%;">
+            <div class="card" style="width: 100%">
                 <div style="width: 400pt; height: 400pt;">
                     <img src="uploads/<?php echo $pfp['destination'];?>" alt="Card image cap" style="width: 400pt; height: 400pt; object-fit: cover; "/>
                 </div>
