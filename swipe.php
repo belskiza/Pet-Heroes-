@@ -10,6 +10,7 @@ require_once 'additional/swipe.inc.php';?>
         .animation{
 
             animation: 1s ease-out 0s 1 slideInFromLeft;
+            background-color: ghostwhite;
 
 
         }
@@ -28,7 +29,7 @@ require_once 'additional/swipe.inc.php';?>
 
         * { box-sizing: border-box; }
 
-        body { font-family: sans-serif; }
+        body { font-family: sans-serif;}
 
         .carousel {
             background: #FAFAFA;
@@ -43,12 +44,12 @@ require_once 'additional/swipe.inc.php';?>
 
 </head>
 
-<body>
+<body style="background-color: ghostwhite">
 
-<div class="animation">
+<div class="animation" >
 <?php $pet = $result[0];
 if (count($pet) > 0){?>
-<div class="container" >
+<div class="container" style="background-color: ghostwhite">
     <div class="row">
         <div class="col-sm-6">
             <h1><?php echo $pet['pet_name']?></h1>
@@ -182,3 +183,4 @@ if (count($pet) > 0){?>
 
 
 <?php } ?>
+<?php include_once 'footer.php'?>

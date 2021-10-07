@@ -204,3 +204,4 @@ if (isset($_GET["message"])) {
 <?php } ?>
 </div>
 </body>
+<?php include_once 'footer.php'?>

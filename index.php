@@ -45,7 +45,7 @@
     </style>
 </head>
 
-<body>
+<body style="background-color: ghostwhite">
 <?php include_once 'header.php'?>
 <?php include_once 'additional/allpets.inc.php'?>
 <div class="container-fluid">
@@ -117,3 +117,4 @@
 
 </div>
 </body>
+<?php include_once 'footer.php'?>
