@@ -72,6 +72,9 @@
                     <a class='navbar-item' href='all_pets.php' style='font-size: 20pt'>pets</a>
                 </div>
                 <div class="col-sm" id="navbar-text">
+                    <a class='navbar-item' href='chat.php' style='font-size: 20pt'>chat</a>
+                </div>
+                <div class="col-sm" id="navbar-text">
                     <a class='navbar-item' href='swipe.php'style='font-size: 20pt' >swipe</a>
                 </div>
                 <div class="col-sm" id="navbar-text">
@@ -91,6 +94,9 @@
                 </div>
                 <div class="col-sm" id="navbar-text">
                     <a class='navbar-item' href='all_pets.php' style='font-size: 20pt'>pets</a>
+                </div>
+                <div class="col-sm" id="navbar-text">
+                    <a class='navbar-item' href='chat.php' style='font-size: 20pt'>chat</a>
                 </div>
                 <div class="col-sm" id="navbar-text">
                     <a class='navbar-item' href='list.php' style='font-size: 20pt'>list</a>

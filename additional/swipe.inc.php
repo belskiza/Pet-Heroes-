@@ -39,10 +39,12 @@ if (count($myMatches->fetch_all()) < 1) {
 }
 
 if(isset($_GET['swipe']) && isset($_GET['id'])){
+    $owner_id = fetchPetFromId($conn, $_GET['id'])->fetch_assoc()['user_id'];
+
     if ($_GET['swipe'] == 'left'){
-        swipe($conn, $_GET['id'], $_SESSION['user_id'], 0);
+        swipe($conn, $_GET['id'], $_SESSION['user_id'], 0, $owner_id);
     } else if ($_GET['swipe'] == 'right'){
-        swipe($conn, $_GET['id'], $_SESSION['user_id'], 1);
+        swipe($conn, $_GET['id'], $_SESSION['user_id'], 1, $owner_id);
     }
 }
 

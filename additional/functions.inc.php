@@ -183,6 +183,42 @@ function createUser($conn, $first_name, $last_name, $email, $username, $password
     #createAccountSetup($conn, $id);
 }
 
+function submitAboutMe($conn, $user_id, $age, $sex, $occupation, $living_status, $description){
+    $sql = "INSERT INTO about_me (user_id, age, sex, occupation, living_status, description) VALUES (?, ?, ?, ?, ?, ?);";
+
+    // Using a prepared statement to stop the user from being able to write code into the input boxes which could
+    // damage the database
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../sign_up.php?error=stmt_failed");
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, "ssssss", $user_id, $age, $sex, $occupation, $living_status, $description);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+
+    header("location: ../account.php?message=edit_profile_success");
+    exit();
+}
+
+function editAboutMe($conn, $user_id, $age, $sex, $occupation, $living_status, $description){
+    $sql = "UPDATE about_me SET age='$age', sex='$sex', occupation='$occupation', living_status='$living_status', description='$description' WHERE user_id ='$user_id';";
+    // Using a prepared statement to stop the user from being able to write code into the input boxes which could
+    // damage the database
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../account.php?error=stmt_failed");
+        exit();
+    }
+
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+
+    header("location: ../account.php?message=edit_profile_success");
+    exit();
+}
+
 function updateUser($conn, $first_name, $last_name, $email, $username, $user_id, $phone){
     $sql = "UPDATE users SET username='$username', first_name='$first_name', last_name='$last_name', email='$email', phone='$phone' WHERE user_id ='$user_id';";
     // Using a prepared statement to stop the user from being able to write code into the input boxes which could
@@ -263,6 +299,7 @@ function loginUser($conn, $username, $password) {
         $_SESSION["username"] = $userExists["username"];
         $_SESSION["email"] = $userExists["email"];
         $_SESSION["first_name"] = $userExists["first_name"];
+        $_SESSION["last_name"] = $userExists["last_name"];
         $_SESSION["acc_type"] = $userExists["acc_type"];
         console.log($_SESSION['user_id']);
 
@@ -324,6 +361,12 @@ pet_type, pet_size, vaccinated, desexed, microchip, picture_destination2, pictur
 function uploadProfilePic($conn, $destination, $user_id){
     $conn->query("INSERT INTO profile_pic (user_id, destination) VALUES ('$user_id', '$destination')") or die ($conn->error);
     header("location: ../account.php?message=pfp_success");
+    exit();
+}
+
+function sendMessage($conn, $sender_id, $receiver_id, $contents){
+    $conn->query("INSERT INTO messages (sender_id, receiver_id, contents) VALUES ('$sender_id', '$receiver_id', '$contents')") or die ($conn->error);
+    header("location: ../message.php?id=$receiver_id");
     exit();
 }
 
@@ -402,6 +445,44 @@ function fetchMyPets($conn, $user_id){
     return $resultData;
 }
 
+function fetchMessagesForUser($conn, $their_id, $your_id){
+    $sql = "SELECT * FROM messages WHERE sender_id = '$your_id' AND receiver_id = '$their_id' OR sender_id = '$their_id' AND receiver_id = '$your_id';";
+    // Using a prepared statement to stop the user from being able to write code into the input boxes which could
+    // damage the database
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../sign_up.php?error=stmt_failed");
+        exit();
+    }
+
+    mysqli_stmt_execute($stmt);
+
+    $resultData = mysqli_stmt_get_result($stmt);
+
+    mysqli_stmt_close($stmt);
+
+    return $resultData;
+}
+
+function matchesWithMyPets($conn, $owner_id){
+    $sql = "SELECT * FROM matches WHERE owner_id = '$owner_id' && ticked = 1;";
+    // Using a prepared statement to stop the user from being able to write code into the input boxes which could
+    // damage the database
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../sign_up.php?error=stmt_failed");
+        exit();
+    }
+
+    mysqli_stmt_execute($stmt);
+
+    $resultData = mysqli_stmt_get_result($stmt);
+
+    mysqli_stmt_close($stmt);
+
+    return $resultData;
+}
+
 function deletePet($conn, $id){
     $sql = "DELETE FROM pets WHERE pet_id = $id;";
     // Using a prepared statement to stop the user from being able to write code into the input boxes which could
@@ -422,6 +503,25 @@ function deletePet($conn, $id){
 
 function fetchPetFromId($conn, $id){
     $sql = "SELECT * FROM pets WHERE pet_id = $id;";
+    // Using a prepared statement to stop the user from being able to write code into the input boxes which could
+    // damage the database
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../sign_up.php?error=stmt_failed");
+        exit();
+    }
+
+    mysqli_stmt_execute($stmt);
+
+    $resultData = mysqli_stmt_get_result($stmt);
+
+    mysqli_stmt_close($stmt);
+
+    return $resultData;
+}
+
+function fetchAboutMeFromId($conn, $id){
+    $sql = "SELECT * FROM about_me WHERE user_id = $id;";
     // Using a prepared statement to stop the user from being able to write code into the input boxes which could
     // damage the database
     $stmt = mysqli_stmt_init($conn);
@@ -528,9 +628,8 @@ function fetchMyMatches($conn, $user_id){
 
 }
 
-function swipe($conn, $pet_id, $user_id, $direction){
-
-        $conn->query("INSERT INTO matches (user_id, pet_id, ticked) VALUES ('$user_id', '$pet_id', '$direction')") or die ($conn->error);
+function swipe($conn, $pet_id, $user_id, $direction, $owner_id){
+        $conn->query("INSERT INTO matches (user_id, pet_id, ticked, owner_id) VALUES ('$user_id', '$pet_id', '$direction', '$owner_id')") or die ($conn->error);
         header("location: ../swipe.php");
         exit();
 }
