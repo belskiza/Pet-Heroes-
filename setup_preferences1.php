@@ -85,6 +85,7 @@
         border-width: 5px;
         font-family: "Chelsea Market";
     }
+
 </style>
 
 <body>
@@ -143,8 +144,10 @@
 
             <p class='down-one'>
             </p>
-            
-            <button class="btn btn-primary" type="submit" style="width: 20%; margin-top: 2%; margin-left: 0%;">Next Page</button>
+            <div>
+                <a class="btn btn-primary" href="account.php" style="width: 20%; margin-top: 2%; margin-left: 5%;">Back</a>
+                <a class="btn btn-primary" href="setup_preferences_wordcloud.php" style="width: 20%; margin-top: 2%; margin-left: 5%;">Next Page</a>
+            </div>
         </div>
     </form>
 </div>
