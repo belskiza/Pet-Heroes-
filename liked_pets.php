@@ -16,41 +16,12 @@
 
     <style>
 
-        .images{
-            position: fixed;
-            margin-left: 75%;
-            margin-top: 1%;
-        }
 
         .boxhead a {
             color: black;
             text-decoration: none;
         }
 
-        .sidenav {
-            height: 100%;
-            width: 30%;
-            position: fixed;
-            z-index: 1;
-            top: 0;
-            left: 0;
-            overflow-x: hidden;
-            padding-top: 15%;
-
-        }
-
-        .sidenav a {
-            padding: 6px 6px 6px 10px;
-            text-decoration: none;
-            font-size: 1.7vw;
-            color: black;
-            display: block;
-            margin-top: 5%;
-        }
-
-        .sidenav a:hover {
-            color: #BCE76D;
-        }
 
         h1 {
             font-family: "Chelsea Market";

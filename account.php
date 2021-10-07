@@ -30,6 +30,7 @@
 
         h1 {
             font-family: "Chelsea Market";
+            font-size: 2.8vw;
         }
 
         .card-header {
@@ -38,6 +39,18 @@
             font-size: 1.2vw;
         }
 
+        h5 {
+            font-family: Maku;
+            font-size: 1.6vw;
+        }
+        .btn-success {
+            font-family: 'Chelsea Market';
+            background-color: #8ab555; border-color: #8ab555
+        }
+        .btn-success:hover {
+            background-color: #547a26;
+            border-color: #547a26;
+        }
 
     </style>
     <script>
@@ -80,7 +93,7 @@
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">Complete your personality quiz to find pets compatible with you!</h5>
-                        <a class="btn btn-success" href="setup_preferences1.php" style="background-color: #BCE76D; border-color: #BCE76D">Take Quiz</a>
+                        <a class="btn btn-success" href="setup_preferences1.php">Take Quiz</a>
                     </div>
                 </div><br/>
         </div>
@@ -91,7 +104,7 @@
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">Complete your personality quiz to find pets compatible with you!</h5>
-                        <a class="btn btn-success" href="about_me.php"  style="background-color: #BCE76D; border-color: #BCE76D">About Me</a>
+                        <a class="btn btn-success" href="about_me.php" >About Me</a>
                     </div>
                 </div><br/>
         </div>
@@ -102,7 +115,7 @@
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">Verify your email to start matching!</h5>
-                        <a class="btn btn-success" href="verify_email.php"  style="background-color: #BCE76D; border-color: #BCE76D">Verify Email</a>
+                        <a class="btn btn-success" href="verify_email.php" >Verify Email</a>
                     </div>
                 </div>
         </div>
@@ -115,13 +128,13 @@
                     <div class="row">
                         <div class="col">
                             <?php if ($pfp['destination'] == null) { ?>
-                                <a class="btn btn-secondary text-right" href="setup_profile_picture.php" style="background-color: #306844">Upload Profile Picture</a>
+                                <a class="btn btn-success text-right" href="setup_profile_picture.php">Upload Profile Picture</a>
                             <?php  } else { ?>
-                                <a class="btn btn-secondary text-right" href="edit_profile_picture.php" style="background-color: #306844">Edit Profile Picture</a>
+                                <a class="btn btn-success text-right" href="edit_profile_picture.php">Edit Profile Picture</a>
                             <?php } ?>
                         </div>
                         <div class="col">
-                            <a class="btn btn-secondary text-left" href="chg_acc_type.php" style="background-color: #306844">Change Account Type</a>
+                            <a class="btn btn-success text-left" href="chg_acc_type.php">Change Account Type</a>
                         </div>
                     </div>
                 </div>
