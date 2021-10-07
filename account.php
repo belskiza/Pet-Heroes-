@@ -12,9 +12,24 @@
     <?php include_once 'header.php'?>
     <?php require_once 'additional/mypets.inc.php'?>
     <?php require_once 'additional/profile_pic.inc.php'?>
-    <?php include_once 'sidebar.php'?>
 
     <style>
+
+        .animation{
+
+
+        }
+
+        @keyframes slideInFromLeft {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+
 
         .images{
             position: fixed;
@@ -27,40 +42,16 @@
             text-decoration: none;
         }
 
-
-        h1 {
-            font-family: "Chelsea Market";
-            font-size: 2.8vw;
-        }
-
-        .card-header {
-            background-color: #BCE76D;
-            font-family: 'Chelsea Market';
-            font-size: 1.2vw;
-        }
-
-        h5 {
-            font-family: Maku;
-            font-size: 1.6vw;
-        }
-        .btn-success {
-            font-family: 'Chelsea Market';
-            background-color: #8ab555; border-color: #8ab555
-        }
-        .btn-success:hover {
-            background-color: #547a26;
-            border-color: #547a26;
-        }
-
     </style>
     <script>
         sessionStorage.clear();
     </script>
 </head>
 
-<body style="background-color: ghostwhite;">
+<body style="background-color: ghostwhite">
+<div class="animation">
 
-<div class="container" style="margin-top: 2%; margin-left: 20%">
+<div class="container" >
     <?php
     if (isset($_GET["message"])) {
         if ($_GET["message"] == "list_success") {
@@ -72,52 +63,65 @@
         }
     }
     ?>
-
-    <h1 style="position: fixed;
-            left: 2%;">My Account</h1>
-    <h1 style="margin-left: 70%">Welcome, <?php echo $_SESSION['first_name']?></h1>
     <div class="row">
-        <div class="col-sm-6" style="margin-left: 0">
+        <div class="col-sm-6">
+            <h1>Welcome back <?php echo $_SESSION['first_name']?></h1>
+        </div>
+        <div class="col-sm-6">
+            <div class="row" style="margin-top: 1%">
+                <div class="col">
+                    <a class="btn btn-secondary" href="edit_profile.php?edit=<?php echo $_SESSION['user_id']?>" style="width: 100%; background-color: #306844">Edit Profile</a>
+                </div>
+                <div class="col">
+                    <a class="btn btn-secondary" href="/additional/logout.inc.php" style="width: 100%; background-color: #182c25">Logout</a>
+                </div>
+            </div>
         </div>
     </div>
     <div class="row">
-        <div class="col" style="margin-left: 81%">
+        <div class="col">
             Account Type: <?php if ($_SESSION['acc_type'] == 0) echo "Adopter"; else echo "Owner";?>
         </div>
     </div>
+    <hr/>
+</div>
+
+<div class="container">
     <div class="row">
         <div class="col-sm-6">
+            <div class="row">
+                    <div class="card" style="width: 100%">
+                        <div class="card-header">
+                            Personality Profile
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Complete your personality quiz to find pets compatible with you!</h5>
+                            <a class="btn btn-success" href="setup_preferences1.php" style="background-color: #2c4c3b">Take Quiz</a>
+                        </div>
+                    </div>
+            </div> <br/>
+            <div class="row">
                 <div class="card" style="width: 100%">
                     <div class="card-header">
-                        Personality Profile
+                      About me
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">Complete your personality quiz to find pets compatible with you!</h5>
-                        <a class="btn btn-success" href="setup_preferences1.php">Take Quiz</a>
+                        <a class="btn btn-success" href="about_me.php"  style="background-color: #2c4c3b">About Me</a>
                     </div>
-                </div><br/>
-        </div>
-        <div class="col-sm-6">
-                <div class="card" style="width: 100%">
-                    <div class="card-header">
-                        About me
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Complete your personality quiz to find pets compatible with you!</h5>
-                        <a class="btn btn-success" href="about_me.php" >About Me</a>
-                    </div>
-                </div><br/>
-        </div>
-        <div class="col-sm-6">
+                </div>
+            </div> <br/>
+            <div class="row">
                 <div class="card" style="width: 100%">
                     <div class="card-header">
                         Verify email
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">Verify your email to start matching!</h5>
-                        <a class="btn btn-success" href="verify_email.php" >Verify Email</a>
+                        <a class="btn btn-success" href="verify_email.php"  style="background-color: #2c4c3b">Verify Email</a>
                     </div>
                 </div>
+            </div>
         </div>
         <div class="col-sm-6">
             <div class="card" style="width: 100%;">
@@ -128,37 +132,36 @@
                     <div class="row">
                         <div class="col">
                             <?php if ($pfp['destination'] == null) { ?>
-                                <a class="btn btn-success text-right" href="setup_profile_picture.php">Upload Profile Picture</a>
-                            <?php  } else { ?>
-                                <a class="btn btn-success text-right" href="edit_profile_picture.php">Edit Profile Picture</a>
-                            <?php } ?>
+                                <a class="btn btn-secondary text-right" href="setup_profile_picture.php" style="background-color: #306844">Upload Profile Picture</a>
+                           <?php  } else { ?>
+                                <a class="btn btn-secondary text-right" href="edit_profile_picture.php" style="background-color: #306844">Edit Profile Picture</a>
+                           <?php } ?>
                         </div>
                         <div class="col">
-                            <a class="btn btn-success text-left" href="chg_acc_type.php">Change Account Type</a>
+                            <a class="btn btn-secondary text-left" href="chg_acc_type.php" style="background-color: #306844">Change Account Type</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <hr/>
-    </div>
+    </div> <hr/>
 
-    <?php
-    if (isset($_GET["message"])) {
-        echo "<div class='container-fluid' style=\"width:90%; margin-top: 1%\">";
-        if ($_GET["message"] == "delete_success") {
-            echo "<div class=\"alert alert-danger\" role=\"alert\">Pet Sucessfully Delisted!
+<?php
+if (isset($_GET["message"])) {
+    echo "<div class='container-fluid' style=\"width:90%; margin-top: 1%\">";
+    if ($_GET["message"] == "delete_success") {
+        echo "<div class=\"alert alert-danger\" role=\"alert\">Pet Sucessfully Delisted!
                     </div>";
-        } else if ($_GET["message"] == "list_success") {
-            echo "<div class=\"alert alert-success\" role=\"alert\">Pet Sucessfully Listed!
+    } else if ($_GET["message"] == "list_success") {
+        echo "<div class=\"alert alert-success\" role=\"alert\">Pet Sucessfully Listed!
                     </div>";
-        } else if ($_GET["message"] == "update_success") {
-            echo "<div class=\"alert alert-info\" role=\"alert\">Pet Sucessfully Updated!
+    } else if ($_GET["message"] == "update_success") {
+        echo "<div class=\"alert alert-info\" role=\"alert\">Pet Sucessfully Updated!
                     </div>";
-        }
-        echo "</div>";
     }
-    ?>
+    echo "</div>";
+}
+?>
     <?php if ($_SESSION['acc_type'] == 1){?>
         <div class="container-fluid">
             <h1>My Pets</h1> <br/>
@@ -198,5 +201,6 @@
         </div>
     <?php } else { ?>
 
-    <?php } ?>
+<?php } ?>
+</div>
 </body>
