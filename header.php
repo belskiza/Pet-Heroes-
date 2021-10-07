@@ -22,7 +22,7 @@
         }
         .col-sm {
             position: relative;
-            background-color: rgba(24,25,20,0.95);
+            background-color: #306844;
             color: antiquewhite;
         }
         #navbar-text{
