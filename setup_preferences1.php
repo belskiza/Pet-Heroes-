@@ -23,7 +23,7 @@
     }
 
     .container {
-        margin-top: 3.5%;
+        margin-top: 2%;
         margin-left: 5%;
     }
     
@@ -94,11 +94,12 @@
 
 <body>
 
-<div class="container">
-    <form action="additional/quiz.php" method="post">
+
+<div class="container" style="height: 0">
+    <form action="setup_preferences2.php" method="post">
         <?php
             if (isset($_GET["message"]) || isset($_GET["error"])) {
-                echo "<div class='left_container'>";
+                echo "<div class='row' style='height: 10%'>";
                 if ($_GET["error"] == "invalid_answers") {
                     echo "<div class=\"alert alert-danger col-md-5\" role=\"alert\">Invalid Answers, please fill in all questions.</div>";
                 } 
@@ -154,4 +155,4 @@
 </div>
 </body>
 </head>
-<html>
+</html>

@@ -2,10 +2,6 @@
 <html lang="en">
 <?php include_once 'header.php'?>
 <head>
-    <?php
-    include_once 'additional/dbh.inc.php';
-    session_start();
-    ?>
     <title>Home Page</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -56,6 +52,9 @@
 </head>
 
 <body>
+
+
+
 <div class="images">
     <img src="Files/image%202.png" style="width: 100%">
     <img src="Files/image%203.png" style="width: 100%">
@@ -72,7 +71,14 @@
         </div>
         <div class="col-sm-8">
             <hr style="height:5px; width:80%; color:#BCE76D; background-color:#BCE76D; opacity: 100%">
+
+
+
             <p>Pet Heroes wants to match you with your perfect pet and create families. Find your new best furry-friend today!</p>
+
+
+
+
 
         </div>
 
