@@ -172,10 +172,19 @@ require_once 'additional/pet.inc.php';
                             echo "No";
                         }?></h5>
                 </div>
-                <br/><h5 class="col-lg-9"><b>Description:</b> <br/> <?php echo $pet['description']?></h5>
+
             </div>
-        </div>
-        <div class="col-sm" style="width: 150pt; height: 250pt"> <h3> This is where we will put the google maps API</h3></div>
+
+                <a class="btn btn-lg btn-info" target="_blank" href=" http://maps.google.com/?q=<?php echo $pet['lat']?>,<?php echo $pet['lon']?>">Find Location</a>
+
+
+
+                <br>
+                <br>
+                <br/>
+            <div class="container row">
+                <h5 class="col-lg-9"><b>Description:</b> <br/> <?php echo $pet['description']?></h5>
+            </div>
 
     </div> <br/>
     <?php if ($_SESSION['acc_type'] == 1 && $pet['user_id'] == $_SESSION['user_id']){ ?>

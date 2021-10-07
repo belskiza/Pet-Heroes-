@@ -18,6 +18,7 @@ $microchip = '';
 $gender = '';
 $colour = '';
 
+
 if (isset($_POST['submit'])){
     $name = $_POST['pet_name'];
     $location = $_POST['location'];
