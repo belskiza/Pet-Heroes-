@@ -15,6 +15,22 @@
 
     <style>
 
+        .animation{
+
+
+        }
+
+        @keyframes slideInFromLeft {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+
+
         .images{
             position: fixed;
             margin-left: 75%;
@@ -33,6 +49,8 @@
 </head>
 
 <body style="background-color: ghostwhite">
+<div class="animation">
+
 <div class="container" >
     <?php
     if (isset($_GET["message"])) {
@@ -184,4 +202,5 @@ if (isset($_GET["message"])) {
     <?php } else { ?>
 
 <?php } ?>
+</div>
 </body>

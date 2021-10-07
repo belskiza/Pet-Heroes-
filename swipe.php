@@ -6,6 +6,26 @@ require_once 'additional/swipe.inc.php';?>
     <script src="css/flickity.pkgd.min.js"></script>
 
     <style>
+
+        .animation{
+
+            animation: 1s ease-out 0s 1 slideInFromLeft;
+
+
+        }
+
+        @keyframes slideInFromLeft {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+
+
+
         * { box-sizing: border-box; }
 
         body { font-family: sans-serif; }
@@ -24,6 +44,8 @@ require_once 'additional/swipe.inc.php';?>
 </head>
 
 <body>
+
+<div class="animation">
 <?php $pet = $result[0];
 if (count($pet) > 0){?>
 <div class="container" >
@@ -142,6 +164,7 @@ if (count($pet) > 0){?>
     <div class="container row">
         <h5 class="col-lg-9"><b>Description:</b> <br/> <?php echo $pet['description']?></h5>
     </div>
+</div>
 </div>
 </body>
 
