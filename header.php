@@ -54,7 +54,7 @@
 <body>
 <?php if (isset($_SESSION['username'])){ ?>
     <nav class='navbar sticky-top navbar-expand-lg navbar-light bg-light'>
-        <a href='landing_page.php' ><img src='files/logo.png' style='width: 70px; margin-left: 5%'></a>
+        <a href='landing_page.php' ><img src='Files/logo.png' style='width: 70px; margin-left: 5%'></a>
                 <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation'>
     <span class='navbar-toggler-icon'></span>
   </button>
@@ -64,7 +64,7 @@
         <a class='nav-link' href='all_pets.php' style='font-size: 1.5vw'>Pets</a>
       </li>
       <li class='nav-item'>
-        <a class='nav-link' href='home.php'style='font-size: 1.5vw' >Matches</a>
+        <a class='nav-link' href='swipe.php'style='font-size: 1.5vw' >Matches</a>
       </li>
       <li class='nav-item'>
         <a class='nav-link' href='list.php' style='font-size: 1.5vw'>Upload</a>
@@ -78,7 +78,7 @@
 <?php
 } else {
     echo "<nav class='navbar sticky-top navbar-expand-lg navbar-light bg-light'>
-                <a href='landing_page.php' ><img src='files/logo.png' style='width: 70px; margin-left: 5%'></a>
+                <a href='landing_page.php' ><img src='Files/logo.png' style='width: 70px; margin-left: 5%'></a>
                 <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation'>
     <span class='navbar-toggler-icon'></span>
   </button>

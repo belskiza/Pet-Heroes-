@@ -20,7 +20,6 @@ if (isset($_POST["submit"])) {
     } else {
         $remember_me = 0;
     } */
-
     loginUser($conn, $username, $password);
 
 } else {
