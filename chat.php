@@ -7,7 +7,8 @@
 <body>
 <div class="container">
     <h1 class="card-title">Chat</h1><hr/>
-    <?php foreach ($available_chats as $user){
+    <?php foreach ($available_chats as $user_pet){
+        $user = $user_pet[0];
         $pfp = fetchProfilePicById($conn,$user['user_id'])->fetch_assoc();?>
 
         <div class="alert alert-secondary">
@@ -17,16 +18,15 @@
                         echo $pfp['destination'];
                     } else { echo 'profile_picture.png';}?>"  style="width: 45px; height: 45px; object-fit: cover; border-radius: 50%"/>
                 </div>
-                <div class="col-md-10 ">
-                    <h2>
-                        <?php echo $user['first_name'].' '.$user['last_name'];?>
-                    </h2>
+                <div class="col">
+                    <h2> <?php echo $user['first_name'].' '.$user['last_name'];?></h2>
+                </div>
+                <div class="col">
+                    <h5> Enquiring about: <?php echo fetchPetFromId($conn, $user_pet[1])->fetch_assoc()['pet_name'];?></h5>
                 </div>
                 <div class="align-content-end">
-                    <a href="message.php?id=<?php echo $user['user_id']?>" class="btn btn-lg btn-primary" style="width: 4">Chat </a>
-
+                    <a href="message.php?id=<?php echo $user['user_id']?>&pet=<?php echo $user_pet[1]?>" class="btn btn-lg btn-primary">Chat </a>
                 </div>
-
             </div>
         </div>
    <?php } ?>

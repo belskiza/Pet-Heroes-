@@ -6,7 +6,8 @@ require_once 'additional/message.inc.php'?>
 
 <body>
 <div class="container">
-    <h1 class="card-title">Conversation with <?php echo $user['first_name'].' '.$user['last_name'];?></h1><hr/>
+    <h1 class="card-title">Conversation with <?php echo $user['first_name'].' '.$user['last_name'];?></h1>
+    <h5 class="card-text">They want to adopt: <?php echo fetchPetFromId($conn, $_GET['pet'])->fetch_assoc()['pet_name'];?></h5>
     <div class="alert alert-secondary" style="height: 80%">
         <?php while ($row = $messages->fetch_assoc()){
             if ($row['sender_id'] == $_SESSION['user_id']){
@@ -50,6 +51,7 @@ require_once 'additional/message.inc.php'?>
        <?php } ?>
         <form action="additional/message.inc.php"method="post">
             <input type="hidden" value="<?php echo $their_id ?>" name="receiver_id">
+            <input type="hidden" value="<?php echo $_GET['pet'] ?>" name="pet_id">
             <div class="mb-3">
                 <label class="form-label">Message:</label>
                 <textarea name="message" class="form-control" id="form-control" value="" placeholder="Message..."></textarea>

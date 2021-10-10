@@ -180,7 +180,7 @@ if (isset($_GET["message"])) {
                     <th>Age</th>
                     <th>Location</th>
                     <th>Action</th>
-                    <th>Matches</th>
+                    <th>Swipes</th>
                 </tr>
                 </thead>
 
@@ -203,13 +203,13 @@ if (isset($_GET["message"])) {
                             } ?>
                         </td>
                         <td>
-                            <?php $matches = matcheswithMyPets($conn, $user_id);
+                            <?php $matches = swipesWithMyPets($conn, $user_id);
                             while ($match = $matches->fetch_assoc()) {
                                 if($match['pet_id'] == $row['pet_id']){
                                     $user = fetchUserFromId($conn,$match['user_id'])->fetch_assoc();
                                     $pfp = fetchProfilePicById($conn,$user['user_id'])->fetch_assoc();
                                     ?> <div class="row">
-                                        <a href="user.php?id=<?php echo $user['user_id'];?>" class="btn btn-outline-dark">
+                                        <a href="user.php?id=<?php echo $user['user_id'];?>&pet=<?php echo $row['pet_id'];?>" class="btn btn-outline-dark">
                                             <div class="col">
                                                 <img src="uploads/<?php if(isset($pfp['destination'])){
                                                     echo $pfp['destination'];

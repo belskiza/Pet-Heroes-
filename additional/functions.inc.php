@@ -364,9 +364,9 @@ function uploadProfilePic($conn, $destination, $user_id){
     exit();
 }
 
-function sendMessage($conn, $sender_id, $receiver_id, $contents){
-    $conn->query("INSERT INTO messages (sender_id, receiver_id, contents) VALUES ('$sender_id', '$receiver_id', '$contents')") or die ($conn->error);
-    header("location: ../message.php?id=$receiver_id");
+function sendMessage($conn, $sender_id, $receiver_id, $contents, $pet_id){
+    $conn->query("INSERT INTO messages (sender_id, receiver_id, contents, pet_id) VALUES ('$sender_id', '$receiver_id', '$contents', '$pet_id')") or die ($conn->error);
+    header("location: ../message.php?id=$receiver_id&pet=$pet_id");
     exit();
 }
 
@@ -386,6 +386,30 @@ function fetchProfilePicById($conn, $user_id){
     mysqli_stmt_close($stmt);
 
     return $resultData;
+}
+
+function matchExists($conn, $their_id, $your_id, $pet_id){
+    $sql = "SELECT * FROM matches WHERE owner_id = '$your_id' AND adopter_id = '$their_id' AND pet_id = '$pet_id';";
+
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../sign_up.php?error=stmt_failed");
+        exit();
+    }
+
+    mysqli_stmt_execute($stmt);
+
+    $resultData = mysqli_stmt_get_result($stmt);
+
+    mysqli_stmt_close($stmt);
+
+    $results = $resultData->fetch_assoc();
+
+    if(isset($results)){
+        return true;
+    } else {
+        return false;
+    }
 }
 
 function fetchPets($conn){
@@ -445,8 +469,28 @@ function fetchMyPets($conn, $user_id){
     return $resultData;
 }
 
-function fetchMessagesForUser($conn, $their_id, $your_id){
-    $sql = "SELECT * FROM messages WHERE sender_id = '$your_id' AND receiver_id = '$their_id' OR sender_id = '$their_id' AND receiver_id = '$your_id';";
+function fetchMessagesForUserAndPet($conn, $their_id, $your_id, $pet_id){
+    $sql = "SELECT * FROM messages WHERE sender_id = '$your_id' AND receiver_id = '$their_id' AND pet_id = '$pet_id' 
+OR sender_id = '$their_id' AND receiver_id = '$your_id' AND pet_id = '$pet_id';";
+    // Using a prepared statement to stop the user from being able to write code into the input boxes which could
+    // damage the database
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../sign_up.php?error=stmt_failed");
+        exit();
+    }
+
+    mysqli_stmt_execute($stmt);
+
+    $resultData = mysqli_stmt_get_result($stmt);
+
+    mysqli_stmt_close($stmt);
+
+    return $resultData;
+}
+
+function swipesWithMyPets($conn, $owner_id){
+    $sql = "SELECT * FROM swipes WHERE owner_id = '$owner_id' && ticked = 1;";
     // Using a prepared statement to stop the user from being able to write code into the input boxes which could
     // damage the database
     $stmt = mysqli_stmt_init($conn);
@@ -465,7 +509,26 @@ function fetchMessagesForUser($conn, $their_id, $your_id){
 }
 
 function matchesWithMyPets($conn, $owner_id){
-    $sql = "SELECT * FROM matches WHERE owner_id = '$owner_id' && ticked = 1;";
+    $sql = "SELECT * FROM matches WHERE owner_id = '$owner_id';";
+    // Using a prepared statement to stop the user from being able to write code into the input boxes which could
+    // damage the database
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../sign_up.php?error=stmt_failed");
+        exit();
+    }
+
+    mysqli_stmt_execute($stmt);
+
+    $resultData = mysqli_stmt_get_result($stmt);
+
+    mysqli_stmt_close($stmt);
+
+    return $resultData;
+}
+
+function petsIveMatchedWith($conn, $user_id){
+    $sql = "SELECT * FROM matches WHERE adopter_id = '$user_id';";
     // Using a prepared statement to stop the user from being able to write code into the input boxes which could
     // damage the database
     $stmt = mysqli_stmt_init($conn);
@@ -609,8 +672,8 @@ function fetchPetsThatArentMine($conn, $user_id) {
     return $resultData;
 }
 
-function fetchMyMatches($conn, $user_id){
-    $sql = "SELECT * FROM matches WHERE user_id = $user_id;";
+function fetchMySwipes($conn, $user_id){
+    $sql = "SELECT * FROM swipes WHERE user_id = $user_id;";
     // Using a prepared statement to stop the user from being able to write code into the input boxes which could
     // damage the database
     $stmt = mysqli_stmt_init($conn);
@@ -629,9 +692,15 @@ function fetchMyMatches($conn, $user_id){
 }
 
 function swipe($conn, $pet_id, $user_id, $direction, $owner_id){
-        $conn->query("INSERT INTO matches (user_id, pet_id, ticked, owner_id) VALUES ('$user_id', '$pet_id', '$direction', '$owner_id')") or die ($conn->error);
+        $conn->query("INSERT INTO swipes (user_id, pet_id, ticked, owner_id) VALUES ('$user_id', '$pet_id', '$direction', '$owner_id')") or die ($conn->error);
         header("location: ../swipe.php");
         exit();
+}
+
+function ownerAdopterMatch($conn, $adopter, $owner, $pet){
+    $conn->query("INSERT INTO matches (pet_id, owner_id, adopter_id) VALUES ('$pet', '$owner', '$adopter')") or die ($conn->error);
+    header("location: ../chat.php");
+    exit();
 }
 
 function search($conn, $query){

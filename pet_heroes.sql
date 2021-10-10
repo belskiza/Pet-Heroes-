@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Sep 29, 2021 at 10:12 PM
+-- Generation Time: Oct 10, 2021 at 12:36 AM
 -- Server version: 5.7.32
 -- PHP Version: 7.4.16
 
@@ -24,25 +24,73 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `about_me`
+--
+
+CREATE TABLE `about_me` (
+  `about_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `age` int(3) NOT NULL,
+  `sex` varchar(10) NOT NULL,
+  `occupation` varchar(30) NOT NULL,
+  `living_status` varchar(30) NOT NULL,
+  `description` varchar(1000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `about_me`
+--
+
+INSERT INTO `about_me` (`about_id`, `user_id`, `age`, `sex`, `occupation`, `living_status`, `description`) VALUES
+(8, 3, 21, 'male', 'student', 'renting', 'ufuyguyifit7ftukgyf');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `matches`
 --
 
 CREATE TABLE `matches` (
   `match_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
   `pet_id` int(11) NOT NULL,
-  `ticked` int(1) NOT NULL
+  `owner_id` int(11) NOT NULL,
+  `adopter_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `matches`
 --
 
-INSERT INTO `matches` (`match_id`, `user_id`, `pet_id`, `ticked`) VALUES
-(29, 3, 4, 1),
-(37, 3, 18, 1),
-(38, 3, 19, 1),
-(39, 3, 23, 1);
+INSERT INTO `matches` (`match_id`, `pet_id`, `owner_id`, `adopter_id`) VALUES
+(4, 15, 3, 6),
+(5, 23, 3, 6);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `messages`
+--
+
+CREATE TABLE `messages` (
+  `message_id` int(11) NOT NULL,
+  `sender_id` int(11) NOT NULL,
+  `receiver_id` int(11) NOT NULL,
+  `contents` varchar(250) NOT NULL,
+  `pet_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `messages`
+--
+
+INSERT INTO `messages` (`message_id`, `sender_id`, `receiver_id`, `contents`, `pet_id`) VALUES
+(1, 3, 6, 'hi', 0),
+(2, 6, 3, 'Test message', 0),
+(3, 3, 6, 'How are you?', 0),
+(4, 3, 6, 'Good', 0),
+(5, 3, 6, 'No', 0),
+(6, 3, 6, 'Hi', 15),
+(7, 3, 6, 'hi\r\n', 15);
 
 -- --------------------------------------------------------
 
@@ -95,7 +143,7 @@ INSERT INTO `pets` (`pet_id`, `pet_name`, `location`, `user_id`, `breed`, `age`,
 (15, 'Tom', 'Tom', '3', 'Tom', '22', '614292ad2f3825.14747559.jpeg', 'Test descriptions', 0, 0, 0, 0, 0, '', '', '', 0, 0, '', ''),
 (16, 'Snoop', 'Brisbane', '3', 'Labrador', '7', '6142d42eb85ff2.81193403.jpeg', 'This is a test ', 2, 3, 1, 1, 1, '', '', '', 0, 0, '', ''),
 (18, 'Snoop', 'Brisbane', '5', 'Labrador', '1', '6142e034ad17b9.84222340.png', 'He is a chocolate Lab', 2, 1, 1, 1, 1, '6142e034ad4793.51293728.jpeg', '6142e034ad5141.25405990.jpeg', '6142e034ad59e7.53884552.jpeg', 0, 0, '', ''),
-(23, 'Pebble', 'Ascot', '4', 'Black Cat', '6', '61524460c04508.35034403.jpeg', 'Pebble is a very friendly cat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vulputate nisl nec eleifend pulvinar. Maecenas tristique lorem velit. Cras vitae dui ac nisl tempus eleifend. Mauris porttitor turpis vel nulla ornare condimentum. In eu risus quam. Cras molestie fringilla urna a scelerisque. Pellentesque faucibus augue non justo luctus, sit amet tincidunt enim volutpat. Quisque rutrum vitae nulla iaculis sagittis. Vivamus id tempus urna. Nunc porta urna consectetur mauris auctor, vel porta mauris tristique. Aenean varius nunc et enim fermentum, ac commodo odio feugiat. Cras viverra elit arcu, at posuere leo congue sit amet. Pellentesque pellentesque magna a dignissim interdum.', 1, 2, 1, 1, 1, '61524460c0c364.48311008.jpeg', '61524460c0e599.25295639.jpeg', '61524460c0f1e6.42236113.jpeg', 1, 2, '', ''),
+(23, 'Pebble', 'Ascot', '3', 'Black Cat', '6', '61524460c04508.35034403.jpeg', 'Pebble is a very friendly cat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vulputate nisl nec eleifend pulvinar. Maecenas tristique lorem velit. Cras vitae dui ac nisl tempus eleifend. Mauris porttitor turpis vel nulla ornare condimentum. In eu risus quam. Cras molestie fringilla urna a scelerisque. Pellentesque faucibus augue non justo luctus, sit amet tincidunt enim volutpat. Quisque rutrum vitae nulla iaculis sagittis. Vivamus id tempus urna. Nunc porta urna consectetur mauris auctor, vel porta mauris tristique. Aenean varius nunc et enim fermentum, ac commodo odio feugiat. Cras viverra elit arcu, at posuere leo congue sit amet. Pellentesque pellentesque magna a dignissim interdum.', 1, 2, 1, 1, 1, '61524460c0c364.48311008.jpeg', '61524460c0e599.25295639.jpeg', '61524460c0f1e6.42236113.jpeg', 1, 2, '', ''),
 (24, 'Daisy', 'Toowong', '4', 'Siamese', '4', '6154e38fa018c1.34755040.jpeg', 'Test description', 1, 2, 1, 1, 1, '6154e38fa036a6.85850019.jpeg', '6154e38fa04f48.16828861.jpeg', '6154e38fa05f11.29932040.jpeg', 2, 2, '', '');
 
 -- --------------------------------------------------------
@@ -120,6 +168,31 @@ INSERT INTO `profile_pic` (`pic_id`, `user_id`, `destination`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `swipes`
+--
+
+CREATE TABLE `swipes` (
+  `match_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `pet_id` int(11) NOT NULL,
+  `ticked` int(1) NOT NULL,
+  `owner_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `swipes`
+--
+
+INSERT INTO `swipes` (`match_id`, `user_id`, `pet_id`, `ticked`, `owner_id`) VALUES
+(50, 6, 15, 1, 3),
+(51, 6, 16, 1, 3),
+(52, 6, 18, 1, 5),
+(53, 6, 23, 1, 3),
+(54, 6, 24, 1, 4);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -139,19 +212,32 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `username`, `password`, `first_name`, `last_name`, `email`, `acc_type`, `phone`) VALUES
-(3, 'dberg99', '$2y$10$Ir7VIUOD.ZO.9cHIqFkg6.68av86pbmOn3nvY/iZRSLUkIPzppnai', 'Dustin', 'Bergman', 'dustinbergman82@gmail.com', 0, '0435110423'),
+(3, 'dberg99', '$2y$10$Ir7VIUOD.ZO.9cHIqFkg6.68av86pbmOn3nvY/iZRSLUkIPzppnai', 'Dustin', 'Bergman', 'dustinbergman82@gmail.com', 1, '0435110423'),
 (4, 'TomTreby', 'user1234', 'Tom', 'Trebilcock', 'TommyT@gmail.com', 0, '0'),
-(5, 'deeznuts', '$2y$10$mYa3XxEEsiacqJnmu/Jx9OQAKmNi8HZJnSj4Lne2ndajRhvdbsFnK', 'Deez', 'Nuts', 'deeznuts@gmail.com', 0, '0');
+(5, 'deeznuts', '$2y$10$mYa3XxEEsiacqJnmu/Jx9OQAKmNi8HZJnSj4Lne2ndajRhvdbsFnK', 'Deez', 'Nuts', 'deeznuts@gmail.com', 0, '0'),
+(6, 'admin', '$2y$10$LHLMlojpvADl/sgv7vTB1eDy2zxCSGQbl1nZIAE4qlJ9A6Xd2TaWO', 'admin', 'admin', 'admin@admin.com', 0, '0420420420');
 
 --
 -- Indexes for dumped tables
 --
 
 --
+-- Indexes for table `about_me`
+--
+ALTER TABLE `about_me`
+  ADD PRIMARY KEY (`about_id`);
+
+--
 -- Indexes for table `matches`
 --
 ALTER TABLE `matches`
   ADD PRIMARY KEY (`match_id`);
+
+--
+-- Indexes for table `messages`
+--
+ALTER TABLE `messages`
+  ADD PRIMARY KEY (`message_id`);
 
 --
 -- Indexes for table `pets`
@@ -166,6 +252,12 @@ ALTER TABLE `profile_pic`
   ADD PRIMARY KEY (`pic_id`);
 
 --
+-- Indexes for table `swipes`
+--
+ALTER TABLE `swipes`
+  ADD PRIMARY KEY (`match_id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -176,10 +268,22 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `about_me`
+--
+ALTER TABLE `about_me`
+  MODIFY `about_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
 -- AUTO_INCREMENT for table `matches`
 --
 ALTER TABLE `matches`
-  MODIFY `match_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `match_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `messages`
+--
+ALTER TABLE `messages`
+  MODIFY `message_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `pets`
@@ -194,10 +298,16 @@ ALTER TABLE `profile_pic`
   MODIFY `pic_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `swipes`
+--
+ALTER TABLE `swipes`
+  MODIFY `match_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

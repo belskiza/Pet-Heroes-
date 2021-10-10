@@ -64,7 +64,30 @@ if (count($pet) > 0){?>
                     </div> <?php
                 } else {?>
                     <div class="col">
-                        <a class="btn btn-secondary" href="contact_owner.php?pet_id=<?php echo $pet['pet_id']?>" style="width: 100%; background-color: #306844">Contact Owner</a>
+                        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal" style="width: 100%; background-color: #306844">
+                            Contact Owner
+                        </button>
+                    </div>
+
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Contact Owner</h5>
+                                    <img src="uploads/<?php if (isset($pfp['destination'])) echo $pfp['destination']; else echo 'profile_picture.png'?>"
+                                         style="width: 50px; height: 50px; object-fit: cover; border-radius: 50%"/>
+
+                                </div>
+                                <div class="modal-body">
+                                    <p>Owner Name: <?php echo $owner['first_name']." ".$owner['last_name'];?></p>
+                                    <p>Owner Email: <?php echo $owner['email'];?></p>
+                                    <p>Owner Number: <?php echo $owner['phone'];?></p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
                     </div> <?php }?>
             </div>
         </div>
