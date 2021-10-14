@@ -44,6 +44,35 @@ require_once 'additional/swipe.inc.php';?>
         .row h5 {
             font-size: 2vw;
         }
+
+        .content_img div{
+            position: absolute;
+            right: 0;
+            margin-right: 13%;
+            margin-top: 5%;
+            z-index: 99999;
+            background: #306844;
+            color: white;
+            margin-bottom: 5px;
+            font-family: sans-serif;
+            opacity: 0;
+            visibility: hidden;
+            -webkit-transition: visibility 0s, opacity 0.5s linear;
+            transition: visibility 0s, opacity 0.5s linear;
+            text-align: center;
+        }
+
+        /* Hover on Parent Container */
+        .content_img:hover{
+            cursor: pointer;
+        }
+
+        .content_img:hover div{
+            width: 150px;
+            padding: 8px 15px;
+            visibility: visible;
+            opacity: 0.8;
+        }
     </style>
     <title>Swipe</title>
     <script>
@@ -63,21 +92,27 @@ require_once 'additional/swipe.inc.php';?>
 if (count($pet) > 0){
 $owner = fetchUserFromId($conn, $pet['user_id'])->fetch_assoc();?>
     <div class="container" style=" width: 80%;">
-
+        <div class="content_img">
         <img src="files/Group%205.png" style="margin-left: 64%; margin-top: 1%; z-index: 99999; width: 3%; position: absolute;
         <?php if($pet['vaccinated'] == 1){
             echo 'width: 3%';
         } else { echo 'width: 0%';}?>"/>
-
+            <div> Vaccinated </div>
+        </div>
+        <div class="content_img">
         <img src="files/Group%206.png" style="margin-left: 68%; margin-top: 1%; z-index: 99999; width: 3%; position: absolute;
         <?php if($pet['microchip'] == 1){
             echo 'width: 3%';
         } else { echo 'width: 0%';}?>"/>
-
+            <div> Microchipped </div>
+        </div>
+        <div class="content_img">
         <img src="files/Group%207.png" style="margin-left: 72%; margin-top: 1%; z-index: 99999; width: 3%; position: absolute;
         <?php if($pet['desexed'] == 1){
             echo 'width: 3%';
         } else { echo 'width: 0%';}?>"/>
+            <div> Desexed </div>
+        </div>
 
         <div class="carousel"
              data-flickity='{ "freeScroll": true, "wrapAround": true, "autoPlay": true , "imagesLoaded": true }'>
@@ -159,10 +194,10 @@ $owner = fetchUserFromId($conn, $pet['user_id'])->fetch_assoc();?>
     <div class="container">
         <div class="row">
             <div class="col-sm text-right" style="background-color: transparent">
-                <a class="btn btn-lg btn-danger" href="additional/swipe.inc.php?swipe=left&id=<?php echo $pet['pet_id']?>"> Swipe Left</a>
+                <a href="additional/swipe.inc.php?swipe=left&id=<?php echo $pet['pet_id']?>"><img src="files/cross.png" style="width: 25%"> </a>
             </div>
             <div class="col-sm text-left" style="background-color: transparent">
-                <a class="btn btn-lg btn-success" href="additional/swipe.inc.php?swipe=right&id=<?php echo $pet['pet_id']?>">Swipe Right</a>
+                <a href="additional/swipe.inc.php?swipe=right&id=<?php echo $pet['pet_id']?>"><img src="files/Tick.png" style="width: 25%">
             </div>
         </div>
 
