@@ -156,7 +156,7 @@
     }
 
     .all-cloud {
-        margin-top: 5%;
+        margin-top: 1%;
         text-align: center;
     }
 
@@ -166,8 +166,8 @@
     }
 
     .btn{
-        background: #BCE76D;
-        border-color:#BCE76D;
+        border-color: #2c4c3b;
+        background-color: #2c4c3b;
         width: 25%;
         font-size: 1.3vw;
         margin-left: 7%;
@@ -201,8 +201,8 @@
     </div>
 </div>
 <div class="images">
-    <a class="btn btn-primary" href="setup_preferences2.php" style="width: 20%; margin-top: 2%; margin-left: 5%;">Previous Page</a>
-    <a class="btn btn-primary" href="setup_preferences_done.php" style="width: 20%; margin-top: 2%; margin-left: 5%;">Finish Quiz</a>
+    <a class="btn btn-success" href="setup_preferences1.php" style="background-color: #2c4c3b;  width: 20%; margin-top: 2%; margin-left: 5%;">Previous Page</a>
+    <a class="btn btn-success" href="setup_preferences_done.php" style="background-color: #2c4c3b;  width: 20%; margin-top: 2%; margin-left: 5%;">Finish Quiz</a>
 </div>
 </body>
 </head>

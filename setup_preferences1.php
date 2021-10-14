@@ -23,8 +23,8 @@
     }
 
     .container {
-        margin-top: 2%;
-        margin-left: 5%;
+        text-align: center;
+       
     }
     
     .questions {
@@ -82,8 +82,8 @@
     }
 
     .btn{
-        background: #BCE76D;
-        border-color:#BCE76D;
+        border-color: #2c4c3b;
+        background-color: #2c4c3b;
         width: 25%;
         font-size: 1.3vw;
         margin-left: 7%;
@@ -97,12 +97,12 @@
 
 
 <div class="container" style="height: 0">
-    <form action="setup_preferences2.php" method="post">
+    <form action="additional/quiz.php" method="post" id="form1">
         <?php
             if (isset($_GET["message"]) || isset($_GET["error"])) {
-                echo "<div class='row' style='height: 10%'>";
+                echo "<div class='row' style='margin-top: 0; height=5%'>";
                 if ($_GET["error"] == "invalid_answers") {
-                    echo "<div class=\"alert alert-danger col-md-5\" role=\"alert\">Invalid Answers, please fill in all questions.</div>";
+                    echo "<div class=\"alert alert-danger col-md-5\" style=\"margin: auto; width: 50%; text-align: center;\" role=\"alert\">Invalid Answers, please fill in all questions.</div>";
                 } 
                 echo "</div>";
             }
@@ -111,8 +111,8 @@
         <h6> Pick the most appropriate answer to the questions so we can give you the best matches</h6>
         <div class="questions">
             <label for="exampleDataList" class="form-label"><h4>Are you an active person?</h4></label>
-            <select name="question1" id="question1" class="form-select" aria-label="Default select example" style="position: relative; right: -100px" required>
-                <option value="0">Select</option>
+            <select name="question1" id="question1" class="form-select" aria-label="Default select example" style="text-align: center;" required>
+                <option value="0"">Select</option>
                 <option value="1">Yes</option>
                 <option value="2">No</option>
             </select>
@@ -121,17 +121,22 @@
             </p>
 
             <label for="exampleDataList" class="form-label"><h4>What is your favourite colour?</h4></label>
-            <select name="question2" id="question2" class="form-select" aria-label="Default select example" style="position: relative; right: -55px" required>
+            <select name="question2" id="question2" class="form-select" aria-label="Default select example" style="text-align: center;" required>
                 <option value="0">Select</option>
-                <option value="1">Yes</option>
-                <option value="2">No</option>
+                <option value="1">Red</option>
+                <option value="2">Blue</option>
+                <option value="3">Green</option>
+                <option value="4">Yellow</option>
+                <option value="5">Orange</option>
+                <option value="6">Purple</option>
+                <option value="7">Brown</option>
             </select>
 
             <p class='down-one'>
             </p>
 
             <label for="exampleDataList" class="form-label"><h4>Do you like to help others?</h4></label>
-            <select name="question3" id="question3" class="form-select" aria-label="Default select example" style="position: relative; right: -90px" required>
+            <select name="question3" id="question3" class="form-select" aria-label="Default select example" style="text-align: center;" required>
                 <option value="0">Select</option>
                 <option value="1">Yes</option>
                 <option value="2">No</option>
@@ -141,7 +146,7 @@
             </p>
 
             <label for="exampleDataList" class="form-label"><h4>Are you affectionate?</h4></label>
-            <select name="question4" id="question4" class="form-select" aria-label="Default select example" style="position: relative; right: -145px" required>
+            <select name="question4" id="question4" class="form-select" aria-label="Default select example" style="text-align: center;" required>
                 <option value="0">Select</option>
                 <option value="1">Yes</option>
                 <option value="2">No</option>
@@ -150,8 +155,8 @@
             <p class='down-one'>
             </p>
             <div>
-                <a class="btn btn-primary" href="account.php" style="width: 20%; margin-top: 2%; margin-left: 5%;">Back</a>
-                <a class="btn btn-primary" href="setup_preferences_wordcloud.php" style="width: 20%; margin-top: 2%; margin-left: 5%;">Next Page</a>
+                <a class="btn btn-success" href="account.php" style="background-color: #2c4c3b; width: 20%; margin-top: 2%; margin-left: 5%;">Back</a>
+                <button class="btn btn-success" type="submit" form="form1" href="setup_preferences_wordcloud.php" style="background-color: #2c4c3b; width: 20%; margin-top: 2%; margin-left: 5%;">Next Page</button>
             </div>
         </div>
     </form>
