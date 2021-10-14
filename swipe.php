@@ -38,6 +38,12 @@ require_once 'additional/swipe.inc.php';?>
             display: block;
             height: 400pt;
         }
+        .container {
+            font-family: Maku;
+        }
+        .row h5 {
+            font-size: 2vw;
+        }
     </style>
     <title>Swipe</title>
     <script>
@@ -52,15 +58,51 @@ require_once 'additional/swipe.inc.php';?>
 
 <body>
 
-<div class="animation">
+<div class="animation" style="margin-top: -5%">
 <?php $pet = $result[0];
 if (count($pet) > 0){
 $owner = fetchUserFromId($conn, $pet['user_id'])->fetch_assoc();?>
+    <div class="container" style=" width: 80%;">
 
+        <img src="files/Group%205.png" style="margin-left: 64%; margin-top: 1%; z-index: 99999; width: 3%; position: absolute;
+        <?php if($pet['vaccinated'] == 1){
+            echo 'width: 3%';
+        } else { echo 'width: 0%';}?>"/>
+
+        <img src="files/Group%206.png" style="margin-left: 68%; margin-top: 1%; z-index: 99999; width: 3%; position: absolute;
+        <?php if($pet['microchip'] == 1){
+            echo 'width: 3%';
+        } else { echo 'width: 0%';}?>"/>
+
+        <img src="files/Group%207.png" style="margin-left: 72%; margin-top: 1%; z-index: 99999; width: 3%; position: absolute;
+        <?php if($pet['desexed'] == 1){
+            echo 'width: 3%';
+        } else { echo 'width: 0%';}?>"/>
+
+        <div class="carousel"
+             data-flickity='{ "freeScroll": true, "wrapAround": true, "autoPlay": true , "imagesLoaded": true }'>
+            <img src="uploads/<?php echo $pet['picture_destination']?>"/>
+            <?php if (isset($pet['picture_destination2'])){ ?>
+                <img src="uploads/<?php echo $pet['picture_destination2']?>"/> <?php
+            } ?>
+            <?php if (isset($pet['picture_destination3'])){ ?>
+                <img src="uploads/<?php echo $pet['picture_destination3']?>"/> <?php
+            } ?>
+            <?php if (isset($pet['picture_destination4'])){ ?>
+                <img src="uploads/<?php echo $pet['picture_destination4']?>"/> <?php
+            } ?>
+        </div> <br/>
+    </div>
 <div class="container" >
     <div class="row">
         <div class="col-sm-6">
-            <h1><?php echo $pet['pet_name']?></h1>
+            <h1 style="font-size: 3.5vw"><?php echo $pet['pet_name']?>, <?php echo $pet['age']?></h1>
+                <h5>Sex: <?php if($pet['gender'] == 1){
+                        echo "Female"; } else {
+                        echo "Male";
+                    }?></h5>
+                <h5>Size: <?php echo $pet['pet_size']?></h5>
+            <h5>Breed: <?php echo $pet['breed']?></h5>
         </div>
         <div class="col-sm-6">
             <div class="row" style="margin-top: 1%">
@@ -73,7 +115,7 @@ $owner = fetchUserFromId($conn, $pet['user_id'])->fetch_assoc();?>
                     </div> <?php
                 } else {?>
                     <div class="col">
-                        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal" style="width: 100%; background-color: #306844">
+                        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal" style="width: 100%; background-color: #306844; font-size: 1.5vw">
                             Contact Owner
                         </button>
                     </div>
@@ -99,27 +141,21 @@ $owner = fetchUserFromId($conn, $pet['user_id'])->fetch_assoc();?>
                         </div>
                     </div> <?php }?>
             </div>
+            <div class="row" style="margin-top: 1%">
+                <div class="col">
+
+                </div>
+                <div class="col">
+                <a class="btn btn-lg btn-info" style="width: 100%" href=" http://maps.google.com/?q=<?php echo $pet['lat']?>,<?php echo $pet['lon']?>">Find Location</a>
+                </div>
+            </div>
         </div>
     </div>
     <hr/>
 </div>
-
-<div class="container" style="margin:auto; padding-top: 1%; width: 80%">
-
-    <div class="carousel"
-         data-flickity='{ "freeScroll": true, "wrapAround": true, "autoPlay": true , "imagesLoaded": true }'>
-        <img src="uploads/<?php echo $pet['picture_destination']?>"/>
-        <?php if (isset($pet['picture_destination2'])){ ?>
-            <img src="uploads/<?php echo $pet['picture_destination2']?>"/> <?php
-        } ?>
-        <?php if (isset($pet['picture_destination3'])){ ?>
-            <img src="uploads/<?php echo $pet['picture_destination3']?>"/> <?php
-        } ?>
-        <?php if (isset($pet['picture_destination4'])){ ?>
-            <img src="uploads/<?php echo $pet['picture_destination4']?>"/> <?php
-        } ?>
-    </div> <br/> <hr/>
-
+    <div class="container" style="border-top: solid; border-color:#e9e9e9;">
+        <h5 style="font-size: 2vw;"><b>Description:</b> <br/> <?php echo $pet['description']?></h5>
+    </div>
     <div class="container">
         <div class="row">
             <div class="col-sm text-right" style="background-color: transparent">
@@ -131,71 +167,6 @@ $owner = fetchUserFromId($conn, $pet['user_id'])->fetch_assoc();?>
         </div>
 
     </div> <br/><br/>
-
-    <div class="container row">
-        <div class="col-sm-8">
-            <div class="row">
-                <div class="col">
-                    <h5>Age: <?php echo $pet['age']?></h5>
-                </div>
-                <div class="col">
-                    <h5>Breed: <?php echo $pet['breed']?></h5>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <h5>Size: <?php echo $pet['pet_size']?></h5>
-                </div>
-                <div class="col">
-                    <h5>Sex: <?php if($pet['gender'] == 1){
-                            echo "Female"; } else {
-                            echo "Male";
-                        }?></h5>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <h5>Location: <?php echo $pet['location']?></h5>
-                </div>
-                <div class="col">
-                    <h5>Desexed: <?php if($pet['desexed'] == 1){
-                            echo "Yes"; } else {
-                            echo "No";
-                        }?></h5>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <h5>Vaccinated: <?php if($pet['vaccinated'] == 1){
-                            echo "Yes"; } else {
-                            echo "No";
-                        }?></h5>
-                </div>
-                <div class="col">
-                    <h5>Microchipped: <?php if($pet['microchip'] == 1){
-                            echo "Yes"; } else {
-                            echo "No";
-                        }?></h5>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <a class="btn btn-lg btn-info" target="_blank" href=" http://maps.google.com/?q=<?php echo $pet['lat']?>,<?php echo $pet['lon']?>">Find Location</a>
-
-                </div>
-
-            </div>
-        </div>
-
-
-
-        <br>
-
-
-    </div> <br/>
-    <div class="container row">
-        <h5 class="col-lg-9"><b>Description:</b> <br/> <?php echo $pet['description']?></h5>
-    </div>
 </div>
 </div>
 </body>
