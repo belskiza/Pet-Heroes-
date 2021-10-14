@@ -6,6 +6,26 @@ require_once 'additional/swipe.inc.php';?>
     <script src="css/flickity.pkgd.min.js"></script>
 
     <style>
+
+        .animation{
+
+            animation: 1s ease-out 0s 1 slideInFromLeft;
+
+
+        }
+
+        @keyframes slideInFromLeft {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+
+
+
         * { box-sizing: border-box; }
 
         body { font-family: sans-serif; }
@@ -20,12 +40,23 @@ require_once 'additional/swipe.inc.php';?>
         }
     </style>
     <title>Swipe</title>
+    <script>
+        var myModal = document.getElementById('myModal')
+        var myInput = document.getElementById('myInput')
 
+        myModal.addEventListener('shown.bs.modal', function () {
+            myInput.focus()
+        })
+    </script>
 </head>
 
 <body>
+
+<div class="animation">
 <?php $pet = $result[0];
-if (count($pet) > 0){?>
+if (count($pet) > 0){
+$owner = fetchUserFromId($conn, $pet['user_id'])->fetch_assoc();?>
+
 <div class="container" >
     <div class="row">
         <div class="col-sm-6">
@@ -42,7 +73,30 @@ if (count($pet) > 0){?>
                     </div> <?php
                 } else {?>
                     <div class="col">
-                        <a class="btn btn-secondary" href="contact_owner.php?pet_id=<?php echo $pet['pet_id']?>" style="width: 100%; background-color: #306844">Contact Owner</a>
+                        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal" style="width: 100%; background-color: #306844">
+                            Contact Owner
+                        </button>
+                    </div>
+
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Contact Owner</h5>
+                                    <img src="uploads/<?php if (isset($pfp['destination'])) echo $pfp['destination']; else echo 'profile_picture.png'?>"
+                                         style="width: 50px; height: 50px; object-fit: cover; border-radius: 50%"/>
+
+                                </div>
+                                <div class="modal-body">
+                                    <p>Owner Name: <?php echo $owner['first_name']." ".$owner['last_name'];?></p>
+                                    <p>Owner Email: <?php echo $owner['email'];?></p>
+                                    <p>Owner Number: <?php echo $owner['phone'];?></p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
                     </div> <?php }?>
             </div>
         </div>
@@ -142,6 +196,7 @@ if (count($pet) > 0){?>
     <div class="container row">
         <h5 class="col-lg-9"><b>Description:</b> <br/> <?php echo $pet['description']?></h5>
     </div>
+</div>
 </div>
 </body>
 

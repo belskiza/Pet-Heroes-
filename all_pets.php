@@ -73,10 +73,31 @@ if (isset($_GET["message"])) {
                     </td>
                 </tr> <?php
             }
+        } else {
+            while ($row = $result->fetch_assoc()){?>
+                <tr>
+                    <td><img src="uploads/<?php echo $row['picture_destination']?>" style="max-width: 150px"/></td>
+                    <td><b><?php echo $row['pet_name']?></b></td>
+                    <td><?php echo $row['breed']?></td>
+                    <td><?php echo $row['age']?></td>
+                    <td><?php echo $row['location']?></td>
+                    <td>
+                        <a href="pet.php?pet=<?php echo $row['pet_id'];?>" class="btn btn-secondary">View</a>
+                        <?php if ($row['user_id'] == $_SESSION['user_id']){
+                            ?>
+                            <a href="list.php?edit=<?php echo $row['pet_id'];?>" class="btn btn-warning">Edit</a>
+                            <a href="additional/list.inc.php?delete=<?php echo $row['pet_id']; ?>" class="btn btn-danger">Delist</a>
+                            <?php
+                        } else {
+                            echo null;
+                        } ?>
+                    </td>
+                </tr> <?php
+            }
         } ?>
     </table>
 </div>
 </body>
-
+<?php require_once 'footer.php' ?>
 
 

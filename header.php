@@ -8,6 +8,16 @@
     ?>
     <link rel="stylesheet" href="css/style.css">
     <style>
+        .navbar {
+            border-bottom-style: solid;
+            color: #BCE76D;
+        }
+        .navbar-nav{
+            width: 100%;
+        }
+        .nav-item1 {
+            margin-left: 2%;
+        }
         .navbar .navbar-nav .nav-link:hover {
             color: yellowgreen;
         }
@@ -42,7 +52,7 @@
         }
 
         .nav-item{
-        margin-left: 55%;
+            margin-left: 13%;
         }
 
     </style>
@@ -53,8 +63,8 @@
 
 <body>
 <?php if (isset($_SESSION['username'])){ ?>
-    <nav class='navbar sticky-top navbar-expand-lg navbar-light bg-light'>
-        <a href='landing_page.php' ><img src='Files/logo.png' style='width: 70px; margin-left: 5%'></a>
+    <nav class='navbar sticky-top navbar-expand-lg navbar-light bg-light' style="font-family: 'Chelsea Market'">
+        <a href='index.php' ><img src='Files/logo_black.png' style='width: 70px; margin-left: 5%'></a>
                 <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation'>
     <span class='navbar-toggler-icon'></span>
   </button>
@@ -64,7 +74,7 @@
         <a class='nav-link' href='all_pets.php' style='font-size: 1.5vw'>Pets</a>
       </li>
       <li class='nav-item'>
-        <a class='nav-link' href='swipe.php'style='font-size: 1.5vw' >Matches</a>
+        <a class='nav-link' href='home.php'style='font-size: 1.5vw' >Matches</a>
       </li>
       <li class='nav-item'>
         <a class='nav-link' href='list.php' style='font-size: 1.5vw'>Upload</a>
@@ -78,16 +88,16 @@
 <?php
 } else {
     echo "<nav class='navbar sticky-top navbar-expand-lg navbar-light bg-light'>
-                <a href='landing_page.php' ><img src='Files/logo.png' style='width: 70px; margin-left: 5%'></a>
+                <a href='index.php' ><img src='Files/logo_black.png' style='width: 70px; margin-left: 5%'></a>
                 <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation'>
     <span class='navbar-toggler-icon'></span>
   </button>
   <div class='collapse navbar-collapse' id='navbarNav'>
     <ul class='navbar-nav'>
-      <li class='nav-item active'>
+      <li class='nav-item1 active'>
         <a class='nav-link' href='sign_up.php' style='font-size: 1.5vw'>Sign Up</a>
       </li>
-      <li class='nav-item'>
+      <li class='nav-item1'>
         <a class='nav-link' href='login.php' style='font-size: 1.5vw'>Log In</a>
       </li>
 

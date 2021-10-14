@@ -45,7 +45,7 @@
     </style>
 </head>
 
-<body>
+<body style="background-color: ghostwhite">
 <?php include_once 'header.php'?>
 <?php include_once 'additional/allpets.inc.php'?>
 <div class="container-fluid">
@@ -57,7 +57,7 @@
     <div class="container text">
         <h1 class="modal-title">
             <b>What are we? </b> <hr/>
-        </h1>
+        </h1>git
         <h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ac tristique diam. Ut id auctor magna,
             nec blandit nunc. Phasellus faucibus interdum purus, eget auctor nulla bibendum lacinia. Sed lobortis sagittis urna a tempor.
             Morbi et nunc sit amet odio malesuada sollicitudin. Integer fermentum a massa eget finibus. Proin non facilisis ante.
@@ -117,3 +117,4 @@
 
 </div>
 </body>
+<?php include_once 'footer.php'?>

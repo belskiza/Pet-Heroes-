@@ -59,7 +59,7 @@
     <a href="liked_pets.php">
         <div class="row">
             <div class="col-2">
-                <img src='Files/two_paws.png' style='width: 40px;'>
+                <img src='Files/paw.png' style='width: 40px;'>
             </div>
             <div class="col-10">
                 Liked Pets
@@ -69,7 +69,7 @@
     <a href="#">
         <div class="row" style="margin-right: 0;">
             <div class="col-2">
-                <img src='Files/two_paws.png' style='width: 40px;'>
+                <img src='Files/heart.png' style='width: 40px;'>
             </div>
             <div class="col-10">
                 Matched Pets

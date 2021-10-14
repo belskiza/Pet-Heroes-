@@ -1,5 +1,8 @@
 <?php
 
+
+echo $_POST["question1"];
+
 session_start();
 if (isset($_POST["question1"]) && isset($_POST["question2"]) && isset($_POST["question3"]) && isset($_POST["question4"]) && isset($_SESSION["user_id"])) {
     

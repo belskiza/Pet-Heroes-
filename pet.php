@@ -187,12 +187,6 @@ require_once 'additional/pet.inc.php';
             </div>
 
     </div> <br/>
-    <?php if ($_SESSION['acc_type'] == 1 && $pet['user_id'] == $_SESSION['user_id']){ ?>
-        <hr/><div class="container-fluid">
-            <h1>Swipes</h1> <br/>
-        </div>
-
-    <?php }?>
 </div>
 
 </body>
