@@ -6,9 +6,30 @@ require_once 'additional/swipe.inc.php';?>
     <script src="css/flickity.pkgd.min.js"></script>
 
     <style>
+
+        .animation{
+
+            animation: 1s ease-out 0s 1 slideInFromLeft;
+            background-color: ghostwhite;
+
+
+        }
+
+        @keyframes slideInFromLeft {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+
+
+
         * { box-sizing: border-box; }
 
-        body { font-family: sans-serif; }
+        body { font-family: sans-serif;}
 
         .carousel {
             background: #FAFAFA;
@@ -23,10 +44,12 @@ require_once 'additional/swipe.inc.php';?>
 
 </head>
 
-<body>
+<body style="background-color: ghostwhite">
+
+<div class="animation" >
 <?php $pet = $result[0];
 if (count($pet) > 0){?>
-<div class="container" >
+<div class="container" style="background-color: ghostwhite">
     <div class="row">
         <div class="col-sm-6">
             <h1><?php echo $pet['pet_name']?></h1>
@@ -143,6 +166,7 @@ if (count($pet) > 0){?>
         <h5 class="col-lg-9"><b>Description:</b> <br/> <?php echo $pet['description']?></h5>
     </div>
 </div>
+</div>
 </body>
 
 <?php } else { ?>
@@ -159,3 +183,4 @@ if (count($pet) > 0){?>
 
 
 <?php } ?>
+<?php include_once 'footer.php'?>

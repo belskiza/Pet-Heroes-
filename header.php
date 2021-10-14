@@ -8,33 +8,35 @@
     ?>
     <link rel="stylesheet" href="css/style.css">
     <style>
-        .navbar {
-            border-bottom-style: solid;
-            color: #BCE76D;
+
+        #navbar{
+        position: fixed;
+            z-index: 5;
         }
-        .navbar-nav{
-            width: 100%;
-        }
-        .nav-item1 {
-            margin-left: 2%;
-        }
-        .navbar .navbar-nav .nav-link:hover {
+        .navbar-item:hover {
             color: yellowgreen;
         }
         @media only screen and (min-width: 960px) {
             .navbar .navbar-nav .nav-link {
                 padding: 1em 0.7em;
             }
-            .navbar {
-                padding: 0;
-            }
         }
-        .navbar .navbar-nav .nav-link {
+        .col-sm {
             position: relative;
-            color: black;
-            z-index: 2;
+            background-color: #306844;
+            color: antiquewhite;
         }
-        .navbar .navbar-nav .nav-link::after {
+        #navbar-text{
+            padding-top: 10pt;
+        }
+        .navbar-item{
+            color: whitesmoke;
+            text-decoration: none;
+        }
+        .navbar-item:hover {
+            text-decoration: none;
+        }
+        .navbar-item::after {
             position: absolute;
             bottom: 0;
             left: 0;
@@ -46,14 +48,17 @@
             content: '';
             height: 3px;
             transition: all 0.5s;
+
         }
-        .navbar .navbar-nav .nav-link:hover::after {
-            width: 100%;
+        .navbar-item:hover::after {
+            width: 50%;
+
         }
 
-        .nav-item{
-            margin-left: 13%;
+        #navbar{
+            position: sticky;
         }
+
 
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -62,50 +67,72 @@
 </head>
 
 <body>
-<?php if (isset($_SESSION['username'])){ ?>
-    <nav class='navbar sticky-top navbar-expand-lg navbar-light bg-light' style="font-family: 'Chelsea Market'">
-        <a href='index.php' ><img src='Files/logo_black.png' style='width: 70px; margin-left: 5%'></a>
-                <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation'>
-    <span class='navbar-toggler-icon'></span>
-  </button>
-  <div class='collapse navbar-collapse' id='navbarToggler9'>
-    <ul class='navbar-nav'>
-      <li class='nav-item active'>
-        <a class='nav-link' href='all_pets.php' style='font-size: 1.5vw'>Pets</a>
-      </li>
-      <li class='nav-item'>
-        <a class='nav-link' href='home.php'style='font-size: 1.5vw' >Matches</a>
-      </li>
-      <li class='nav-item'>
-        <a class='nav-link' href='list.php' style='font-size: 1.5vw'>Upload</a>
-      </li>
-      <li class='nav-item'>
-        <a class='nav-link float-md-right' href='account.php' style='font-size: 1.5vw'><?php echo $_SESSION['username']; ?></a>
-      </li>
-    </ul>
-  </div>
-</nav>
+<?php if (isset($_SESSION['username'])){
+    if ($_SESSION['acc_type'] == 0) { ?>
+        <div class='container-fluid' id='navbar'>
+            <div class="row text-center">
+                <div class="col-sm">
+                </div>
+                <div class="col-sm">
+                    <a class="navbar-item" href='index.php' ><img src='files/logo.png' style='width: 70px;'></a>
+                </div>
+                <div class="col-sm" id="navbar-text">
+                    <a class='navbar-item' href='all_pets.php' style='font-size: 20pt'>pets</a>
+                </div>
+                <div class="col-sm" id="navbar-text">
+                    <a class='navbar-item' href='swipe.php'style='font-size: 20pt' >swipe</a>
+                </div>
+                <div class="col-sm" id="navbar-text">
+                    <a class='navbar-item' href='account.php' style='font-size: 20pt'><?php echo $_SESSION['username']; ?></a>
+                </div>
+                <div class="col-sm">
+                </div>
+            </div>
+        </div>
+   <?php } else { ?>
+        <div class='container-fluid' id='navbar'>
+            <div class="row text-center">
+                <div class="col-sm">
+                </div>
+                <div class="col-sm">
+                    <a class="navbar-item" href='index.php' ><img src='files/logo.png' style='width: 70px;'></a>
+                </div>
+                <div class="col-sm" id="navbar-text">
+                    <a class='navbar-item' href='all_pets.php' style='font-size: 20pt'>pets</a>
+                </div>
+                <div class="col-sm" id="navbar-text">
+                    <a class='navbar-item' href='list.php' style='font-size: 20pt'>list</a>
+                </div>
+                <div class="col-sm" id="navbar-text">
+                    <a class='navbar-item' href='account.php' style='font-size: 20pt'><?php echo $_SESSION['username']; ?></a>
+                </div>
+                <div class="col-sm">
+                </div>
+            </div>
+        </div>
+   <?php }?>
+
 <?php
-} else {
-    echo "<nav class='navbar sticky-top navbar-expand-lg navbar-light bg-light'>
-                <a href='index.php' ><img src='Files/logo_black.png' style='width: 70px; margin-left: 5%'></a>
-                <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation'>
-    <span class='navbar-toggler-icon'></span>
-  </button>
-  <div class='collapse navbar-collapse' id='navbarNav'>
-    <ul class='navbar-nav'>
-      <li class='nav-item1 active'>
-        <a class='nav-link' href='sign_up.php' style='font-size: 1.5vw'>Sign Up</a>
-      </li>
-      <li class='nav-item1'>
-        <a class='nav-link' href='login.php' style='font-size: 1.5vw'>Log In</a>
-      </li>
-
-    </ul>
-  </div>
-</nav>";
-
+} else { ?>
+<div class='container-fluid' id='navbar'>
+    <div class="row text-center">
+        <div class="col-sm" id="navbar-text">
+        </div>
+        <div class="col-sm">
+            <a class="navbar-item" href='index.php' ><img src='Files/logo.png' style='width: 70px;'></a>
+        </div>
+        <div class="col-sm" id="navbar-text">
+            <a class='navbar-item' href='sign_up.php' style='font-size: 20pt'>sign up</a>
+        </div>
+        <div class="col-sm" id="navbar-text">
+            <a class='navbar-item' href='login.php' style='font-size: 20pt'>log in</a>
+        </div>
+        <div class="col-sm" id="navbar-text">
+        </div>
+    </div>
+</div>
+   <?php
 }
 ?>
-
+<br/><br/><br/><br/>
 </body>

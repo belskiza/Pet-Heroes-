@@ -7,7 +7,7 @@
 
 </head>
 
-<body>
+<body style="background-color: ghostwhite">
 <?php
 if (isset($_GET["message"])) {
     echo "<div class='container-fluid' style=\"width:90%; margin-top: 1%\">";
@@ -77,6 +77,7 @@ if (isset($_GET["message"])) {
     </table>
 </div>
 </body>
+<?php include_once 'footer.php'?>
 
 
 
