@@ -87,3 +87,4 @@
     <a class="btn btn-danger" href="account.php">Go back</a>
 </div>
 </body>
+<?php require_once 'footer.php'?>

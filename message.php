@@ -64,3 +64,4 @@ require_once 'additional/message.inc.php'?>
 </div>
 
 </body>
+<?php require_once 'footer.php'?>
