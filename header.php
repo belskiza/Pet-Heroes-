@@ -8,6 +8,7 @@
     ?>
     <link rel="stylesheet" href="css/style.css">
     <style>
+
         #navbar{
         position: fixed;
             z-index: 5;
@@ -30,6 +31,10 @@
         }
         .navbar-item{
             color: whitesmoke;
+            text-decoration: none;
+        }
+        .navbar-item:hover {
+            text-decoration: none;
         }
         .navbar-item::after {
             position: absolute;
@@ -43,9 +48,12 @@
             content: '';
             height: 3px;
             transition: all 0.5s;
+
         }
         .navbar-item:hover::after {
             width: 50%;
+
+        }
 
         #navbar{
             position: sticky;
