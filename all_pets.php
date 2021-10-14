@@ -27,7 +27,7 @@ if (isset($_GET["message"])) {
 <div class="container-fluid" style="width:70%; margin-top: 1%">
 
     <form class="form-inline" action="all_pets.php" method="get">
-        <?php if(isset($searchResult)){ ?>
+        <?php if(isset($searchResult)){?>
             <div>
                 <h1> Search: </h1>
             </div>

@@ -3,6 +3,7 @@
     <?php
     require_once 'header.php';
     require_once 'additional/editprofile.inc.php';
+    require_once 'additional/about_me.inc.php' ?>
 
     ?>
 
@@ -68,7 +69,6 @@
             }
             echo "</div>";
         }
-        print_r($_COOKIE['username']);
         ?>
 
         <div class="mb-3">
@@ -109,6 +109,20 @@
         <div class="mb-3">
             <div class="row g-3">
                 <div class="col">
+                    <a class="btn btn-secondary" href="chg_acc_type.php" style="width: 100%">Change Account Type</a>
+                </div>
+                <?php if(isset($about_me)){ ?>
+                    <div class="col">
+                        <a class="btn btn-success" href="about_me.php"  style="background-color: #306844; width: 100%">Edit About Me</a>
+                    </div>
+
+                <?php } ?>
+            </div>
+
+        </div>
+        <div class="mb-3">
+            <div class="row g-3">
+                <div class="col">
                     <a class="btn btn-outline-danger" href="<?php echo 'account.php'?>" style="width: 100%">Go Back </a>
                 </div>
                 <div class="col">
@@ -117,6 +131,10 @@
             </div>
 
         </div>
+
+
+
+
     </form>
 
 </div>

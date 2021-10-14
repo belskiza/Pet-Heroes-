@@ -12,6 +12,8 @@
     <?php include_once 'header.php'?>
     <?php require_once 'additional/mypets.inc.php'?>
     <?php require_once 'additional/profile_pic.inc.php'?>
+    <?php require_once 'additional/functions.inc.php'?>
+    <?php require_once 'additional/about_me.inc.php'?>
 
     <style>
 
@@ -100,17 +102,20 @@
                         </div>
                     </div>
             </div> <br/>
-            <div class="row">
-                <div class="card" style="width: 100%">
-                    <div class="card-header">
-                      About me
+            <?php if(!isset($about_me)){ ?>
+                <div class="row">
+                    <div class="card" style="width: 100%">
+                        <div class="card-header">
+                            About me
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Complete your About me page to stand out from other adopters to owners!</h5>
+                            <a class="btn btn-success" href="about_me.php"  style="background-color: #306844">About Me</a>
+                        </div>
                     </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Complete your personality quiz to find pets compatible with you!</h5>
-                        <a class="btn btn-success" href="about_me.php"  style="background-color: #306844">About Me</a>
-                    </div>
-                </div>
-            </div> <br/>
+                </div> <br/>
+           <?php } ?>
+
             <div class="row">
                 <div class="card" style="width: 100%">
                     <div class="card-header">
@@ -126,7 +131,11 @@
         <div class="col-sm-6">
             <div class="card" style="width: 100%">
                 <div style="width: 400pt; height: 400pt;">
-                    <img src="uploads/<?php echo $pfp['destination'];?>" alt="Card image cap" style="width: 400pt; height: 400pt; object-fit: cover; "/>
+                    <img src="uploads/<?php if(isset($pfp['destination'])){
+                        echo $pfp['destination'];
+                    } else {
+                        echo 'profile_picture.png';
+                    }?>" alt="Card image cap" style="width: 400pt; height: 400pt; object-fit: cover; "/>
                 </div>
                 <div class="card-body text-center">
                     <div class="row">
@@ -136,9 +145,6 @@
                            <?php  } else { ?>
                                 <a class="btn btn-secondary text-right" href="edit_profile_picture.php" style="background-color: #306844">Edit Profile Picture</a>
                            <?php } ?>
-                        </div>
-                        <div class="col">
-                            <a class="btn btn-secondary text-left" href="chg_acc_type.php" style="background-color: #306844">Change Account Type</a>
                         </div>
                     </div>
                 </div>
@@ -174,6 +180,7 @@ if (isset($_GET["message"])) {
                     <th>Age</th>
                     <th>Location</th>
                     <th>Action</th>
+                    <th>Swipes</th>
                 </tr>
                 </thead>
 
@@ -195,7 +202,30 @@ if (isset($_GET["message"])) {
                                 echo null;
                             } ?>
                         </td>
-                    </tr> <?php
+                        <td>
+                            <?php $matches = swipesWithMyPets($conn, $user_id);
+                            while ($match = $matches->fetch_assoc()) {
+                                if($match['pet_id'] == $row['pet_id']){
+                                    $user = fetchUserFromId($conn,$match['user_id'])->fetch_assoc();
+                                    $pfp = fetchProfilePicById($conn,$user['user_id'])->fetch_assoc();
+                                    ?> <div class="row">
+                                        <a href="user.php?id=<?php echo $user['user_id'];?>&pet=<?php echo $row['pet_id'];?>" class="btn btn-outline-dark">
+                                            <div class="col">
+                                                <img src="uploads/<?php if(isset($pfp['destination'])){
+                                                    echo $pfp['destination'];
+                                                } else { echo 'profile_picture.png';}?>"  style="width: 40px; height: 40px; object-fit: cover; border-radius: 50%"/>
+                                            </div>
+                                            <?php echo $user['username'];?>
+                                        </a>
+                                    </div>
+
+                                        <br/>
+                                    <?php
+                                }
+                            }?>
+                        </td>
+                    </tr>
+                    <?php
                 } ?>
             </table>
         </div>
