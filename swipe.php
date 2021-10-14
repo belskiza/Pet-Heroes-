@@ -73,6 +73,12 @@ require_once 'additional/swipe.inc.php';?>
             visibility: visible;
             opacity: 0.8;
         }
+        .buttons {
+            opacity: 0.9;
+        }
+        .buttons:hover{
+            opacity: 1;
+        }
     </style>
     <title>Swipe</title>
     <script>
@@ -194,10 +200,10 @@ $owner = fetchUserFromId($conn, $pet['user_id'])->fetch_assoc();?>
     <div class="container">
         <div class="row">
             <div class="col-sm text-right" style="background-color: transparent">
-                <a href="additional/swipe.inc.php?swipe=left&id=<?php echo $pet['pet_id']?>"><img src="files/cross.png" style="width: 25%"> </a>
+                <a href="additional/swipe.inc.php?swipe=left&id=<?php echo $pet['pet_id']?>"><img class="buttons" src="files/cross.png" style="width: 25%"> </a>
             </div>
             <div class="col-sm text-left" style="background-color: transparent">
-                <a href="additional/swipe.inc.php?swipe=right&id=<?php echo $pet['pet_id']?>"><img src="files/Tick.png" style="width: 25%">
+                <a href="additional/swipe.inc.php?swipe=right&id=<?php echo $pet['pet_id']?>"><img class="buttons"src="files/Tick.png" style="width: 25%">
             </div>
         </div>
 
