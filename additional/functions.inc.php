@@ -20,6 +20,8 @@ function emptyInputSignup($first_name, $last_name, $email, $username, $password,
     return $result;
 }
 
+
+
 function emptyInputEdit($first_name, $last_name, $email, $username) {
     if (empty($first_name) || empty($last_name) || empty($email) || empty($username)){
         $result = true;
@@ -360,6 +362,12 @@ pet_type, pet_size, vaccinated, desexed, microchip, picture_destination2, pictur
 
 function uploadProfilePic($conn, $destination, $user_id){
     $conn->query("INSERT INTO profile_pic (user_id, destination) VALUES ('$user_id', '$destination')") or die ($conn->error);
+    header("location: ../account.php?message=pfp_success");
+    exit();
+}
+
+function updateProfilePic($conn, $destination, $user_id){
+    $conn->query("UPDATE profile_pic SET destination='$destination' WHERE user_id='$user_id';") or die ($conn->error);
     header("location: ../account.php?message=pfp_success");
     exit();
 }
