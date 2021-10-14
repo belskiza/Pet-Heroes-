@@ -21,6 +21,13 @@ require_once 'additional/pet.inc.php';
             background: #FAFAFA;
         }
 
+        .animation{
+
+
+
+        }
+
+
         .carousel img {
             display: block;
             height: 400pt;
@@ -30,6 +37,8 @@ require_once 'additional/pet.inc.php';
         </head>
 
 <body>
+<div class="animation">
+
 <script>
     var myModal = document.getElementById('myModal')
     var myInput = document.getElementById('myInput')
@@ -188,5 +197,5 @@ require_once 'additional/pet.inc.php';
 
     </div> <br/>
 </div>
-
+</div>
 </body>

@@ -91,7 +91,8 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-6">
-            <div class="row">
+            <?php if (!quizAnswered($conn, $_SESSION['user_id'])) {?>
+                <div class="row">
                     <div class="card" style="width: 100%">
                         <div class="card-header">
                             Personality Profile
@@ -101,7 +102,8 @@
                             <a class="btn btn-success" href="setup_preferences1.php" style="background-color: #306844">Take Quiz</a>
                         </div>
                     </div>
-            </div> <br/>
+                </div> <br/>
+            <?php } ?>
             <?php if(!isset($about_me)){ ?>
                 <div class="row">
                     <div class="card" style="width: 100%">
@@ -114,9 +116,9 @@
                         </div>
                     </div>
                 </div> <br/>
-           <?php } ?>
-
-            <div class="row">
+           <?php } ?>            
+            <!-- 
+            <div class="row"> 
                 <div class="card" style="width: 100%">
                     <div class="card-header">
                         Updates
@@ -126,7 +128,8 @@
                         <a class="btn btn-success" href="verify_email.php"  style="background-color: #306844">Verify Email</a>
                     </div>
                 </div>
-            </div>
+            </div> 
+            -->
         </div>
         <div class="col-sm-6">
             <div class="card" style="width: 100%">

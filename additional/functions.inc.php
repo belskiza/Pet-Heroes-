@@ -748,8 +748,27 @@ function inputQuizAnswers($conn, $user_id, $question1, $question2, $question3, $
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
 
-    header("location: ../setup_preferences_wordcloud.php");
+    header("location: ../setup_preferences_done.php");
     exit();
 
 }
 
+/*
+True if quiz has been answered
+False otherwise
+*/
+function quizAnswered($conn, $user_id) {
+
+    $sql = "SELECT user_id FROM personality_quiz";
+
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        exit();
+    }
+
+    mysqli_stmt_execute($stmt);
+
+    $result = mysqli_stmt_get_result($stmt);
+    
+    return !(mysqli_num_rows($result) == 0);
+}    
