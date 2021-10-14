@@ -95,7 +95,6 @@
 
 <body>
 
-
 <div class="container" style="height: 0">
     <form action="additional/quiz.php" method="post" id="form1">
         <?php
@@ -156,7 +155,7 @@
             </p>
             <div>
                 <a class="btn btn-success" href="account.php" style="background-color: #2c4c3b; width: 20%; margin-top: 2%; margin-left: 5%;">Back</a>
-                <button class="btn btn-success" type="submit" form="form1" href="setup_preferences_wordcloud.php" style="background-color: #2c4c3b; width: 20%; margin-top: 2%; margin-left: 5%;">Next Page</button>
+                <button class="btn btn-success" type="submit" form="form1" href="setup_preferences_done.php" style="background-color: #2c4c3b; width: 20%; margin-top: 2%; margin-left: 5%;">Next Page</button>
             </div>
         </div>
     </form>
