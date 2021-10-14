@@ -40,14 +40,23 @@ require_once 'additional/swipe.inc.php';?>
         }
     </style>
     <title>Swipe</title>
+    <script>
+        var myModal = document.getElementById('myModal')
+        var myInput = document.getElementById('myInput')
 
+        myModal.addEventListener('shown.bs.modal', function () {
+            myInput.focus()
+        })
+    </script>
 </head>
 
 <body>
 
 <div class="animation">
 <?php $pet = $result[0];
-if (count($pet) > 0){?>
+if (count($pet) > 0){
+$owner = fetchUserFromId($conn, $pet['user_id'])->fetch_assoc();?>
+
 <div class="container" >
     <div class="row">
         <div class="col-sm-6">

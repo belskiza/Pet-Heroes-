@@ -35,6 +35,9 @@
     <form action="additional/editprofile.inc.php" method="post">
         <h1 class="display-6"> Change Account Type </h1>
         <hr class="my-4">
+        <div class="alert alert-danger">
+            Please be advised that changing from Adopter/Owner will delete all of your data including listings and swipes
+        </div>
         <fieldset class="form-group">
             <div class="row">
                 <legend class="col-form-label col-sm-3 pt-0">Account Type:</legend>

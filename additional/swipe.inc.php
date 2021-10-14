@@ -8,8 +8,6 @@ $petsThatArentMine = fetchPetsThatArentMine($conn, $_SESSION['user_id']);
 
 $pet_ids = array();
 
-$owner = fetchUserFromId($conn, $result['user_id'])->fetch_assoc();
-
 $myMatches = fetchMySwipes($conn, $_SESSION['user_id']);
 
 $petsToFeedToUser = array();

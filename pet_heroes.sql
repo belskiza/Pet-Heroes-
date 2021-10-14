@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Oct 10, 2021 at 12:36 AM
+-- Generation Time: Oct 14, 2021 at 04:06 AM
 -- Server version: 5.7.32
 -- PHP Version: 7.4.16
 
@@ -90,7 +90,9 @@ INSERT INTO `messages` (`message_id`, `sender_id`, `receiver_id`, `contents`, `p
 (4, 3, 6, 'Good', 0),
 (5, 3, 6, 'No', 0),
 (6, 3, 6, 'Hi', 15),
-(7, 3, 6, 'hi\r\n', 15);
+(7, 3, 6, 'hi\r\n', 15),
+(8, 6, 3, 'hi', 15),
+(9, 3, 6, 'Deez', 15);
 
 -- --------------------------------------------------------
 
@@ -188,7 +190,7 @@ INSERT INTO `swipes` (`match_id`, `user_id`, `pet_id`, `ticked`, `owner_id`) VAL
 (51, 6, 16, 1, 3),
 (52, 6, 18, 1, 5),
 (53, 6, 23, 1, 3),
-(54, 6, 24, 1, 4);
+(55, 6, 24, 1, 4);
 
 -- --------------------------------------------------------
 
@@ -283,7 +285,7 @@ ALTER TABLE `matches`
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `message_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `message_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `pets`
@@ -301,7 +303,7 @@ ALTER TABLE `profile_pic`
 -- AUTO_INCREMENT for table `swipes`
 --
 ALTER TABLE `swipes`
-  MODIFY `match_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `match_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT for table `users`

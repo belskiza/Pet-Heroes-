@@ -7,6 +7,11 @@
 <body>
 <div class="container">
     <h1 class="card-title">Chat</h1><hr/>
+    <?php if ($_SESSION['acc_type'] == 0){ ?>
+        <div class="alert alert-warning">
+            You will need to wait for owners to accept your swipe before you can message them
+        </div>
+   <?php } ?>
     <?php foreach ($available_chats as $user_pet){
         $user = $user_pet[0];
         $pfp = fetchProfilePicById($conn,$user['user_id'])->fetch_assoc();?>
