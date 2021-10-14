@@ -20,6 +20,8 @@ function emptyInputSignup($first_name, $last_name, $email, $username, $password,
     return $result;
 }
 
+
+
 function emptyInputEdit($first_name, $last_name, $email, $username) {
     if (empty($first_name) || empty($last_name) || empty($email) || empty($username)){
         $result = true;
@@ -360,6 +362,12 @@ pet_type, pet_size, vaccinated, desexed, microchip, picture_destination2, pictur
 
 function uploadProfilePic($conn, $destination, $user_id){
     $conn->query("INSERT INTO profile_pic (user_id, destination) VALUES ('$user_id', '$destination')") or die ($conn->error);
+    header("location: ../account.php?message=pfp_success");
+    exit();
+}
+
+function updateProfilePic($conn, $destination, $user_id){
+    $conn->query("UPDATE profile_pic SET destination='$destination' WHERE user_id='$user_id';") or die ($conn->error);
     header("location: ../account.php?message=pfp_success");
     exit();
 }
@@ -740,8 +748,27 @@ function inputQuizAnswers($conn, $user_id, $question1, $question2, $question3, $
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
 
-    header("location: ../setup_preferences_wordcloud.php");
+    header("location: ../setup_preferences_done.php");
     exit();
 
 }
 
+/*
+True if quiz has been answered
+False otherwise
+*/
+function quizAnswered($conn, $user_id) {
+
+    $sql = "SELECT user_id FROM personality_quiz";
+
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        exit();
+    }
+
+    mysqli_stmt_execute($stmt);
+
+    $result = mysqli_stmt_get_result($stmt);
+    
+    return !(mysqli_num_rows($result) == 0);
+}    

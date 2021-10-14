@@ -10,7 +10,7 @@
     <style>
 
         #navbar{
-        position: fixed;
+            position: fixed;
             z-index: 5;
         }
         .navbar-item:hover {
@@ -92,7 +92,7 @@
                 </div>
             </div>
         </div>
-   <?php } else { ?>
+    <?php } else { ?>
         <div class='container-fluid' id='navbar'>
             <div class="row text-center">
                 <div class="col-sm">
@@ -116,28 +116,28 @@
                 </div>
             </div>
         </div>
-   <?php }?>
+    <?php }?>
 
-<?php
+    <?php
 } else { ?>
-<div class='container-fluid' id='navbar'>
-    <div class="row text-center">
-        <div class="col-sm" id="navbar-text">
-        </div>
-        <div class="col-sm">
-            <a class="navbar-item" href='index.php' ><img src='Files/logo.png' style='width: 70px;'></a>
-        </div>
-        <div class="col-sm" id="navbar-text">
-            <a class='navbar-item' href='sign_up.php' style='font-size: 20pt'>sign up</a>
-        </div>
-        <div class="col-sm" id="navbar-text">
-            <a class='navbar-item' href='login.php' style='font-size: 20pt'>log in</a>
-        </div>
-        <div class="col-sm" id="navbar-text">
+    <div class='container-fluid' id='navbar'>
+        <div class="row text-center">
+            <div class="col-sm" id="navbar-text">
+            </div>
+            <div class="col-sm">
+                <a class="navbar-item" href='index.php' ><img src='Files/logo.png' style='width: 70px;'></a>
+            </div>
+            <div class="col-sm" id="navbar-text">
+                <a class='navbar-item' href='sign_up.php' style='font-size: 20pt'>sign up</a>
+            </div>
+            <div class="col-sm" id="navbar-text">
+                <a class='navbar-item' href='login.php' style='font-size: 20pt'>log in</a>
+            </div>
+            <div class="col-sm" id="navbar-text">
+            </div>
         </div>
     </div>
-</div>
-   <?php
+    <?php
 }
 ?>
 <br/><br/><br/><br/>

@@ -223,6 +223,11 @@ INSERT INTO `users` (`user_id`, `username`, `password`, `first_name`, `last_name
 -- Indexes for dumped tables
 --
 
+
+ALTER TABLE `personality_quiz`
+  ADD PRIMARY KEY (`user_id`);
+
+
 --
 -- Indexes for table `about_me`
 --
