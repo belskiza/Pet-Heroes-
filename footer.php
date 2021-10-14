@@ -23,7 +23,7 @@
         .links a:hover {
             opacity: 100%;
         }
-        </style>
+    </style>
 </head>
 
 <!-- Footer -->
@@ -31,7 +31,7 @@
     <!-- Section: Social media -->
     <section
             class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"
-    style="background-color: ghostwhite">
+            style="background-color: ghostwhite">
         <!-- Left -->
         <div class="me-5 d-none d-lg-block">
             <span>Get connected with us on social networks:</span>
@@ -40,13 +40,13 @@
 
         <!-- Right -->
         <div class="links">
-            <a href="" class="me-4 text-reset">
+            <a href="https://www.facebook.com/profile.php?id=100073803489883" class="me-4 text-reset">
                 <img style="width: 35px" src="files/facebook.png">
             </a>
-            <a href="" class="me-4 text-reset">
+            <a href="https://www.instagram.com/" class="me-4 text-reset">
                 <img style="width: 35px" src="files/instagram.jpg">
             </a>
-            <a href="" class="me-4 text-reset">
+            <a href="https://mobile.twitter.com/_Pet_Heroes?fbclid=IwAR2KOvZupi76Nn27RdgeJ8KToXpVDg6qyKQXigu_dnxLtXcdCuWYFaiNRLM" class="me-4 text-reset">
                 <img style="width: 35px" src="files/twitter.png">
             </a>
         </div>
@@ -100,9 +100,9 @@
                     <p><i class="fas fa-home me-3"></i> Brisbane, AU</p>
                     <p>
                         <i class="fas fa-envelope me-3"></i>
-                        petheroes@petheroes.com
+                        pet.heroes@outlook.com
                     </p>
-                    <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
+                    <p><i class="fas fa-phone me-3"></i> + 0417 699 292</p>
                 </div>
                 <!-- Grid column -->
             </div>
