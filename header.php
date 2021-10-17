@@ -53,7 +53,7 @@
 
         }
         .navbar-item:hover::after {
-            width: 50%;
+            width: 70%;
 
         }
 
