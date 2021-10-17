@@ -109,7 +109,7 @@
         </div>
     <?php } else { ?>
         <div class='container-fluid' id='navbar'>
-            <div class="row text-center">
+            <div class="row text-center" style="height: 10%">
                 <div class="col-sm">
                     <a class="navbar-item" href='index.php' ><img src='files/Logo.PNG' style='width: 70px;margin-right: 50%;'></a>
                 </div>
