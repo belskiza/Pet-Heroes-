@@ -54,8 +54,8 @@
         }
         .navbar-item:hover::after {
             width: 70%;
-
         }
+
 
         #navbar{
             position: sticky;
@@ -74,7 +74,7 @@
         <div class='container-fluid' id='navbar'>
             <div class="row text-center" style="height: 70px">
                 <div class="col-sm" style="background-color: #306844;">
-                    <a class="navbar-item" href='index.php' ><img src='files/Logo.PNG' style='width: 70px;margin-right: 50%;'></a>
+                    <a  href='index.php' ><img src='files/Logo.PNG' style='width: 70px;margin-right: 50%;'></a>
                 </div>
                 <div class="col-sm"></div>
                 <div class="col-sm" id="navbar-text">
@@ -111,7 +111,7 @@
         <div class='container-fluid' id='navbar'>
             <div class="row text-center" style="height: 70px">
                 <div class="col-sm">
-                    <a class="navbar-item" href='index.php' ><img src='files/Logo.PNG' style='width: 70px;margin-right: 50%;'></a>
+                    <a href='index.php' ><img src='files/Logo.PNG' style='width: 70px;margin-right: 50%;'></a>
                 </div>
                 <div class="col-sm"></div>
                 <div class="col-sm" id="navbar-text">

@@ -152,6 +152,17 @@ $owner = fetchUserFromId($conn, $pet['user_id'])->fetch_assoc();?>
             <h5>Breed: <?php echo $pet['breed']?></h5>
         </div>
         <div class="col-sm-6">
+            <div class="row">
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col-1">
+                    <img src="uploads/<?php if (isset($pfp['destination'])) echo $pfp['destination']; else echo 'profile_picture.png'?>"
+                         style="width: 45px; height: 45px; object-fit: cover; border-radius: 50%"/>
+                </div>
+                <div class="col-5 text-center">
+                    <h5 style="margin-top: 10px">  <?php echo $owner['first_name']." ".$owner['last_name'];?> </h5>
+                </div>
+            </div>
             <div class="row" style="margin-top: 1%">
                 <div class="col">
 
