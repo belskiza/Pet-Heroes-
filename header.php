@@ -28,7 +28,7 @@
             color: antiquewhite;
         }
         #navbar-text{
-            padding-top: 3pt;
+            padding-top: 7pt;
 
         }
         .navbar-item{
@@ -72,7 +72,7 @@
 <?php if (isset($_SESSION['username'])){
     if ($_SESSION['acc_type'] == 0) { ?>
         <div class='container-fluid' id='navbar'>
-            <div class="row text-center">
+            <div class="row text-center" style="height: 10%">
                 <div class="col-sm" style="background-color: #306844;">
                     <a class="navbar-item" href='index.php' ><img src='files/Logo.PNG' style='width: 70px;margin-right: 50%;'></a>
                 </div>
