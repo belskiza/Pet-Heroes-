@@ -113,16 +113,28 @@
                     <a class="navbar-item" href='index.php' ><img src='files/logo.png' style='width: 70px;'></a>
                 </div>
                 <div class="col-sm" id="navbar-text">
-                    <a class='navbar-item' href='all_pets.php' style='font-size: 20pt'>pets</a>
+                    <a class='navbar-item' href='all_pets.php' style='font-size: 20pt'>
+                        <img src="files/Paw nav.png" style="width: 43px;">
+                        pets</a>
                 </div>
                 <div class="col-sm" id="navbar-text">
-                    <a class='navbar-item' href='chat.php' style='font-size: 20pt'>chat</a>
+                    <a class='navbar-item' href='chat.php' style='font-size: 20pt'>
+                        <img src="files/chat.png" style="width: 50px">
+                        chat</a>
                 </div>
                 <div class="col-sm" id="navbar-text">
                     <a class='navbar-item' href='list.php' style='font-size: 20pt'>list</a>
                 </div>
                 <div class="col-sm" id="navbar-text">
-                    <a class='navbar-item' href='account.php' style='font-size: 20pt'><?php echo $_SESSION['username']; ?></a>
+                    <a class='navbar-item' href='account.php' style='font-size: 20pt'>
+                        <img  src="uploads/<?php if(isset($pfp['destination'])){
+                            echo $pfp['destination'];
+                        } else {
+                            echo 'profile.png';
+                        }?>" style="width: 47px; height:47px; border-radius: 50%;object-fit: cover;">
+
+                        <?php echo $_SESSION['username']; ?></a>
+                        <?php echo $_SESSION['username']; ?></a>
                 </div>
                 <div class="col-sm">
                 </div>
