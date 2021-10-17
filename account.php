@@ -44,13 +44,42 @@
             text-decoration: none;
         }
 
+        .card-header{
+            font-size: 2vw;
+        }
+        .card-body{
+            font-size: 1.7vw;
+        }
+        .card-body a {
+            font-size: 1.2vw;
+        }
+        .button {
+            background-color: #306844;
+            border-color: #306844;
+            color: white;
+        }
+        .button:hover {
+            background-color: green;
+            border-color: green;
+            color: white;
+        }
+        .button2 {
+            background-color: #182c25;
+            border-color: #182c25;
+            color: white;
+        }
+        .button2:hover {
+            background-color:#234d32;
+            border-color: #234d32;
+            color: white;
+        }
     </style>
     <script>
         sessionStorage.clear();
     </script>
 </head>
 
-<body style="background-color: ghostwhite">
+<body style="background-color: ghostwhite; font-family: Maku;">
 <div class="animation">
 
 <div class="container" >
@@ -67,21 +96,21 @@
     ?>
     <div class="row">
         <div class="col-sm-6">
-            <h1>Welcome back <?php echo $_SESSION['first_name']?></h1>
+            <h1 style="font-size: 3.8vw;">Welcome back <?php echo $_SESSION['first_name']?></h1>
         </div>
         <div class="col-sm-6">
             <div class="row" style="margin-top: 1%">
                 <div class="col">
-                    <a class="btn btn-secondary" href="edit_profile.php?edit=<?php echo $_SESSION['user_id']?>" style="width: 100%; background-color: #306844">Edit Profile</a>
+                    <a class="btn button" href="edit_profile.php?edit=<?php echo $_SESSION['user_id']?>" style="width: 100%; font-size: 1.5vw">Edit Profile</a>
                 </div>
                 <div class="col">
-                    <a class="btn btn-secondary" href="/additional/logout.inc.php" style="width: 100%; background-color: #182c25">Logout</a>
+                    <a class="btn button2" href="/additional/logout.inc.php" style="width: 100%; font-size: 1.5vw">Logout</a>
                 </div>
             </div>
         </div>
     </div>
     <div class="row">
-        <div class="col">
+        <div class="col" style="font-size: 1.7vw">
             Account Type: <?php if ($_SESSION['acc_type'] == 0) echo "Adopter"; else echo "Owner";?>
         </div>
     </div>
@@ -99,7 +128,7 @@
                         </div>
                         <div class="card-body">
                             <h5 class="card-title">Complete your personality quiz to find pets compatible with you!</h5>
-                            <a class="btn btn-success" href="setup_preferences1.php" style="background-color: #306844">Take Quiz</a>
+                            <a class="btn button" href="setup_preferences1.php" >Take Quiz</a>
                         </div>
                     </div>
                 </div> <br/>
@@ -112,24 +141,11 @@
                         </div>
                         <div class="card-body">
                             <h5 class="card-title">Complete your About me page to stand out from other adopters to owners!</h5>
-                            <a class="btn btn-success" href="about_me.php"  style="background-color: #306844">About Me</a>
+                            <a class="btn button" href="about_me.php" >About Me</a>
                         </div>
                     </div>
                 </div> <br/>
-           <?php } ?>            
-            <!-- 
-            <div class="row"> 
-                <div class="card" style="width: 100%">
-                    <div class="card-header">
-                        Updates
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Verify your email to start matching!</h5>
-                        <a class="btn btn-success" href="verify_email.php"  style="background-color: #306844">Verify Email</a>
-                    </div>
-                </div>
-            </div> 
-            -->
+           <?php } ?>
         </div>
         <div class="col-sm-6">
             <div class="card" style="width: 100%">
@@ -146,7 +162,7 @@
                             <?php if ($pfp['destination'] == null) { ?>
                                 <a class="btn btn-secondary text-right" href="setup_profile_picture.php" style="background-color: #306844">Upload Profile Picture</a>
                            <?php  } else { ?>
-                                <a class="btn btn-secondary text-right" href="edit_profile_picture.php" style="background-color: #306844">Edit Profile Picture</a>
+                                <a class="btn button text-right" href="edit_profile_picture.php">Edit Profile Picture</a>
                            <?php } ?>
                         </div>
                     </div>

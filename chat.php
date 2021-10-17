@@ -5,10 +5,10 @@
 </head>
 
 <body style="background-color: ghostwhite">
-<div class="container">
-    <h1 class="card-title">Chat</h1><hr/>
+<div class="container" style="font-family: Maku;">
+    <h1 class="card-title" style="font-size: 3.2vw">Chat</h1><hr/>
     <?php if ($_SESSION['acc_type'] == 0){ ?>
-        <div class="alert alert-warning">
+        <div class="alert alert-warning" style="font-size: 1.4vw">
             You will need to wait for owners to accept your swipe before you can message them
         </div>
    <?php } ?>

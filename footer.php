@@ -8,6 +8,8 @@
     ?>
     <link rel="stylesheet" href="css/style.css">
     <style>
+        .col-md-3 {
+        }
         .col-md-3 a{
             color: grey;
         }
@@ -23,11 +25,14 @@
         .links a:hover {
             opacity: 100%;
         }
+        h6 {
+            font-size: 1.5vw;
+        }
         </style>
 </head>
 
 <!-- Footer -->
-<footer class="text-center text-lg-start  text-muted" style="background-color: ghostwhite;">
+<footer class="text-center text-lg-start  text-muted" style="background-color: ghostwhite; font-size: 1.5vw">
     <!-- Section: Social media -->
     <section
             class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"
@@ -62,7 +67,7 @@
                 <!-- Grid column -->
                 <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                     <!-- Content -->
-                    <h6 class="text-uppercase fw-bold mb-4">
+                    <h6 class="text-uppercase fw-bold mb-4"">
                         <i class="fas fa-gem me-3"></i>Pet Heroes
                     </h6>
                     <p>

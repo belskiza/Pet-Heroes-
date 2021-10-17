@@ -97,7 +97,7 @@ require_once 'additional/swipe.inc.php';?>
     </script>
 </head>
 
-<body style="background-color: ghostwhite">
+<body style="background-color: ghostwhite; font-family: Maku;">
 
 <div class="animation" style="margin-top: -5%">
 <?php $pet = $result[0];
@@ -236,7 +236,7 @@ $owner = fetchUserFromId($conn, $pet['user_id'])->fetch_assoc();?>
             <hr class="my-4">
             <h4> Wow! It looks like you have swiped your way through all of the pets. Check back later to see if there are any new listings. In the meantime you can check out
             all pets below</h4>
-            <a href="all_pets.php" class="btn btn-success">All Pets</a>
+            <a href="all_pets.php" class="btn btn-success" style="font-size: 1.3vw;">All Pets</a>
 
     </div>
 

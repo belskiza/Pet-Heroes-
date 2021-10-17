@@ -34,6 +34,8 @@
         .navbar-item{
             color: whitesmoke;
             text-decoration: none;
+            font-family:Maku;
+
         }
         .navbar-item:hover {
             text-decoration: none;
@@ -78,22 +80,22 @@
                 </div>
                 <div class="col-sm"></div>
                 <div class="col-sm" id="navbar-text">
-                    <a class='navbar-item' href='all_pets.php' style='font-size: 1.7vw'>
+                    <a class='navbar-item' href='all_pets.php' style='font-size: 2vw'>
                         <img src="files/Paw nav.png" style="width: 50px; height: 50px">
                         Pets</a>
                 </div>
                 <div class="col-sm" id="navbar-text">
-                    <a class='navbar-item' href='chat.php' style='font-size: 1.7vw'>
+                    <a class='navbar-item' href='chat.php' style='font-size: 2vw'>
                         <img src="files/chat.png" style="width: 65px; height: 50px">
                         Chat</a>
                 </div>
                 <div class="col-sm" id="navbar-text">
-                    <a class='navbar-item' href='swipe.php'style='font-size: 1.7vw' >
+                    <a class='navbar-item' href='swipe.php'style='font-size: 2vw' >
                         <img src="files/Swipe.png" style="width: 53px; height: 50px">
                         Swipe</a>
                 </div>
                 <div class="col-sm" id="navbar-text">
-                    <a class='navbar-item' href='account.php' style='font-size: 1.7vw'>
+                    <a class='navbar-item' href='account.php' style='font-size: 2vw'>
                         <img  src="uploads/<?php if(isset($pfp['destination'])){
                             echo $pfp['destination'];
                         } else {
@@ -115,22 +117,22 @@
                 </div>
                 <div class="col-sm"></div>
                 <div class="col-sm" id="navbar-text">
-                    <a class='navbar-item' href='all_pets.php' style='font-size: 1.7vw'>
+                    <a class='navbar-item' href='all_pets.php' style='font-size: 2vw'>
                         <img src="files/Paw nav.png" style="width: 50px; height: 50px">
                         Pets</a>
                 </div>
                 <div class="col-sm" id="navbar-text">
-                    <a class='navbar-item' href='chat.php' style='font-size: 1.7vw'>
+                    <a class='navbar-item' href='chat.php' style='font-size: 2vw'>
                         <img src="files/chat.png" style="width: 65px; height: 50px">
                         Chat</a>
                 </div>
                 <div class="col-sm" id="navbar-text">
-                    <a class='navbar-item' href='list.php' style='font-size: 1.7vw'>
+                    <a class='navbar-item' href='list.php' style='font-size: 2vw'>
                         <img src="files/list.png" style="width: 50px; height: 50px">
                         List</a>
                 </div>
                 <div class="col-sm" id="navbar-text">
-                    <a class='navbar-item' href='account.php' style='font-size: 1.7vw'>
+                    <a class='navbar-item' href='account.php' style='font-size: 2vw'>
                         <img  src="uploads/<?php if(isset($pfp['destination'])){
                             echo $pfp['destination'];
                         } else {
