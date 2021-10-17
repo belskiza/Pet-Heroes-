@@ -66,7 +66,7 @@
                         <i class="fas fa-gem me-3"></i>Pet Heroes
                     </h6>
                     <p>
-                        More than pets
+                        "More than pets"
                     </p>
                 </div>
                 <!-- Grid column -->
