@@ -28,7 +28,7 @@
             color: antiquewhite;
         }
         #navbar-text{
-            padding-top: 7pt;
+            padding-top: 1%;
 
         }
         .navbar-item{
