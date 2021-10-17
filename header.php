@@ -134,7 +134,6 @@
                         }?>" style="width: 47px; height:47px; border-radius: 50%;object-fit: cover;">
 
                         <?php echo $_SESSION['username']; ?></a>
-                        <?php echo $_SESSION['username']; ?></a>
                 </div>
                 <div class="col-sm">
                 </div>
