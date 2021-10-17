@@ -4,7 +4,7 @@
     <title>Chat</title>
 </head>
 
-<body>
+<body style="background-color: ghostwhite">
 <div class="container">
     <h1 class="card-title">Chat</h1><hr/>
     <?php if ($_SESSION['acc_type'] == 0){ ?>

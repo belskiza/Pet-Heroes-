@@ -7,7 +7,7 @@
 
 </head>
 
-<body>
+<body style="background-color: ghostwhite">
 <?php
 if (isset($_GET["message"])) {
     echo "<div class='container-fluid' style=\"width:90%; margin-top: 1%\">";
@@ -24,7 +24,7 @@ if (isset($_GET["message"])) {
     echo "</div>";
 }
 ?>
-<div class="container-fluid" style="width:70%; margin-top: 1%">
+<div class="container-fluid" style="width:70%; margin-top: 1%; background-color: white">
 
     <form class="form-inline" action="all_pets.php" method="get">
         <?php if(isset($searchResult)){ ?>

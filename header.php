@@ -6,6 +6,7 @@
     include_once 'additional/dbh.inc.php';
     session_start();
     ?>
+    <?php require_once 'additional/profile_pic.inc.php'?>
     <link rel="stylesheet" href="css/style.css">
     <style>
 
@@ -27,7 +28,7 @@
             color: antiquewhite;
         }
         #navbar-text{
-            padding-top: 10pt;
+            padding-top: 5pt;
         }
         .navbar-item{
             color: whitesmoke;
@@ -71,22 +72,33 @@
     if ($_SESSION['acc_type'] == 0) { ?>
         <div class='container-fluid' id='navbar'>
             <div class="row text-center">
-                <div class="col-sm">
-                </div>
-                <div class="col-sm">
-                    <a class="navbar-item" href='index.php' ><img src='files/logo.png' style='width: 70px;'></a>
+                <div class="col-sm-2" style="background-color: #306844;">
+                    <a class="navbar-item" href='index.php' ><img src='files/Logo.PNG' style='width: 70px;margin-right: 50%;'></a>
                 </div>
                 <div class="col-sm" id="navbar-text">
-                    <a class='navbar-item' href='all_pets.php' style='font-size: 20pt'>pets</a>
+                    <a class='navbar-item' href='all_pets.php' style='font-size: 20pt'>
+                        <img src="files/Paw nav.png" style="width: 43px;">
+                        pets</a>
                 </div>
                 <div class="col-sm" id="navbar-text">
-                    <a class='navbar-item' href='chat.php' style='font-size: 20pt'>chat</a>
+                    <a class='navbar-item' href='chat.php' style='font-size: 20pt'>
+                        <img src="files/chat.png" style="width: 63px">
+                        chat</a>
                 </div>
                 <div class="col-sm" id="navbar-text">
-                    <a class='navbar-item' href='swipe.php'style='font-size: 20pt' >swipe</a>
+                    <a class='navbar-item' href='swipe.php'style='font-size: 20pt' >
+                        <img src="files/Swipe.png" style="width: 50px">
+                        swipe</a>
                 </div>
                 <div class="col-sm" id="navbar-text">
-                    <a class='navbar-item' href='account.php' style='font-size: 20pt'><?php echo $_SESSION['username']; ?></a>
+                    <a class='navbar-item' href='account.php' style='font-size: 20pt'>
+                        <img  src="uploads/<?php if(isset($pfp['destination'])){
+                            echo $pfp['destination'];
+                        } else {
+                            echo 'profile.png';
+                        }?>" style="width: 47px; height:47px; border-radius: 50%;object-fit: cover;">
+
+                        <?php echo $_SESSION['username']; ?></a>
                 </div>
                 <div class="col-sm">
                 </div>

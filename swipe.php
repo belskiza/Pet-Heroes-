@@ -1,6 +1,7 @@
 <?php require_once 'header.php';
 require_once 'additional/swipe.inc.php';?>
 
+
 <head>
     <link rel="stylesheet" href="css/flickity.css" media="screen">
     <script src="css/flickity.pkgd.min.js"></script>
@@ -48,10 +49,8 @@ require_once 'additional/swipe.inc.php';?>
         .content_img div{
             position: absolute;
             right: 0;
-            margin-right: 13%;
             margin-top: 5%;
             z-index: 99999;
-            background: #306844;
             color: white;
             margin-bottom: 5px;
             font-family: sans-serif;
@@ -79,6 +78,13 @@ require_once 'additional/swipe.inc.php';?>
         .buttons:hover{
             opacity: 1;
         }
+        .button {
+            background-color: #306844;
+            color: white;
+        }
+        .button:hover {
+            background-color: darkgreen;
+        }
     </style>
     <title>Swipe</title>
     <script>
@@ -91,7 +97,7 @@ require_once 'additional/swipe.inc.php';?>
     </script>
 </head>
 
-<body>
+<body style="background-color: ghostwhite">
 
 <div class="animation" style="margin-top: -5%">
 <?php $pet = $result[0];
@@ -103,21 +109,21 @@ $owner = fetchUserFromId($conn, $pet['user_id'])->fetch_assoc();?>
         <?php if($pet['vaccinated'] == 1){
             echo 'width: 3%';
         } else { echo 'width: 0%';}?>"/>
-            <div> Vaccinated </div>
+            <div style="margin-right: 17.5%; background: #0038FF;"> Vaccinated </div>
         </div>
         <div class="content_img">
         <img src="files/Group%206.png" style="margin-left: 68%; margin-top: 1%; z-index: 99999; width: 3%; position: absolute;
         <?php if($pet['microchip'] == 1){
             echo 'width: 3%';
         } else { echo 'width: 0%';}?>"/>
-            <div> Microchipped </div>
+            <div style="margin-right: 14%; background: #1BAD29;"> Microchipped </div>
         </div>
         <div class="content_img">
         <img src="files/Group%207.png" style="margin-left: 72%; margin-top: 1%; z-index: 99999; width: 3%; position: absolute;
         <?php if($pet['desexed'] == 1){
             echo 'width: 3%';
         } else { echo 'width: 0%';}?>"/>
-            <div> Desexed </div>
+            <div style="margin-right: 10%; background: #ED7200;"> Desexed </div>
         </div>
 
         <div class="carousel"
@@ -156,7 +162,7 @@ $owner = fetchUserFromId($conn, $pet['user_id'])->fetch_assoc();?>
                     </div> <?php
                 } else {?>
                     <div class="col">
-                        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal" style="width: 100%; background-color: #306844; font-size: 1.5vw">
+                        <button type="button" class="btn button" data-toggle="modal" data-target="#exampleModal" style="width: 100%; font-size: 1.5vw;" >
                             Contact Owner
                         </button>
                     </div>
@@ -203,7 +209,7 @@ $owner = fetchUserFromId($conn, $pet['user_id'])->fetch_assoc();?>
                 <a href="additional/swipe.inc.php?swipe=left&id=<?php echo $pet['pet_id']?>"><img class="buttons" src="files/cross.png" style="width: 25%"> </a>
             </div>
             <div class="col-sm text-left" style="background-color: transparent">
-                <a href="additional/swipe.inc.php?swipe=right&id=<?php echo $pet['pet_id']?>"><img class="buttons"src="files/Tick.png" style="width: 25%">
+                <a href="additional/swipe.inc.php?swipe=right&id=<?php echo $pet['pet_id']?>"><img class="buttons"src="files/Tick.png" style="width: 25%"></a>
             </div>
         </div>
 
@@ -226,3 +232,5 @@ $owner = fetchUserFromId($conn, $pet['user_id'])->fetch_assoc();?>
 
 
 <?php } ?>
+
+<?php include_once 'footer.php'?>
