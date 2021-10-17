@@ -113,6 +113,7 @@
                 <div class="col-sm">
                     <a class="navbar-item" href='index.php' ><img src='files/Logo.PNG' style='width: 70px;margin-right: 50%;'></a>
                 </div>
+                <div class="col-sm"></div>
                 <div class="col-sm" id="navbar-text">
                     <a class='navbar-item' href='all_pets.php' style='font-size: 20pt'>
                         <img src="files/Paw nav.png" style="width: 50px; height: 50px">
@@ -140,6 +141,7 @@
                 </div>
                 <div class="col-sm">
                 </div>
+                <div class="col-sm"></div>
             </div>
         </div>
     <?php }?>
