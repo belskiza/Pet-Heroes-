@@ -243,7 +243,7 @@ if (isset($_GET["message"])) {
 }
 ?>
     <?php if ($_SESSION['acc_type'] == 1){?>
-        <div class="container-fluid">
+        <div class="container-fluid" style="width: 65%">
             <h1>My Pets</h1> <br/>
             <table class="table table-striped table-hover">
                 <thead style="background-color: #182c25; color: white">

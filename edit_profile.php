@@ -5,7 +5,6 @@
     require_once 'additional/editprofile.inc.php';
     require_once 'additional/about_me.inc.php' ?>
 
-    ?>
 
     <script>
         window.onload = function() {
