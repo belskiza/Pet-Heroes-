@@ -8,6 +8,8 @@
     ?>
     <link rel="stylesheet" href="css/style.css">
     <style>
+        .col-md-3 {
+        }
         .col-md-3 a{
             color: grey;
         }
@@ -23,15 +25,22 @@
         .links a:hover {
             opacity: 100%;
         }
+<<<<<<<<< Temporary merge branch 1
+    </style>
+=========
+        h6 {
+            font-size: 1.5vw;
+        }
         </style>
+>>>>>>>>> Temporary merge branch 2
 </head>
 
 <!-- Footer -->
-<footer class="text-center text-lg-start  text-muted" style="background-color: ghostwhite;">
+<footer class="text-center text-lg-start  text-muted" style="background-color: ghostwhite; font-size: 1.5vw">
     <!-- Section: Social media -->
     <section
             class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"
-    style="background-color: ghostwhite">
+            style="background-color: ghostwhite">
         <!-- Left -->
         <div class="me-5 d-none d-lg-block">
             <span>Get connected with us on social networks:</span>
@@ -40,13 +49,13 @@
 
         <!-- Right -->
         <div class="links">
-            <a href="" class="me-4 text-reset">
+            <a href="https://www.facebook.com/profile.php?id=100073803489883" class="me-4 text-reset">
                 <img style="width: 35px" src="files/facebook.png">
             </a>
-            <a href="" class="me-4 text-reset">
+            <a href="https://www.instagram.com/" class="me-4 text-reset">
                 <img style="width: 35px" src="files/instagram.jpg">
             </a>
-            <a href="" class="me-4 text-reset">
+            <a href="https://mobile.twitter.com/_Pet_Heroes?fbclid=IwAR2KOvZupi76Nn27RdgeJ8KToXpVDg6qyKQXigu_dnxLtXcdCuWYFaiNRLM" class="me-4 text-reset">
                 <img style="width: 35px" src="files/twitter.png">
             </a>
         </div>
@@ -62,11 +71,11 @@
                 <!-- Grid column -->
                 <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                     <!-- Content -->
-                    <h6 class="text-uppercase fw-bold mb-4">
+                    <h6 class="text-uppercase fw-bold mb-4"">
                         <i class="fas fa-gem me-3"></i>Pet Heroes
                     </h6>
                     <p>
-                        More than pets
+                        "More than pets"
                     </p>
                 </div>
                 <!-- Grid column -->
@@ -100,9 +109,9 @@
                     <p><i class="fas fa-home me-3"></i> Brisbane, AU</p>
                     <p>
                         <i class="fas fa-envelope me-3"></i>
-                        petheroes@petheroes.com
+                        pet.heroes@outlook.com
                     </p>
-                    <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
+                    <p><i class="fas fa-phone me-3"></i> + 0417 699 292</p>
                 </div>
                 <!-- Grid column -->
             </div>
