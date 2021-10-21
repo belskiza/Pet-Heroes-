@@ -5,9 +5,27 @@
     require_once 'additional/search.inc.php';
     ?>
 
+
+    <style>
+        tr td {
+            font-size: 1.4vw
+        }
+
+        .button {
+            background-color: #306844;
+            border-color: #306844;
+            color: white;
+        }
+        .button:hover {
+            background-color: green;
+            border-color: green;
+            color: white;
+        }
+
+    </style>
 </head>
 
-<body>
+<body style="background-color: ghostwhite;font-family: Maku;">
 <?php
 if (isset($_GET["message"])) {
     echo "<div class='container-fluid' style=\"width:90%; margin-top: 1%\">";
@@ -24,16 +42,16 @@ if (isset($_GET["message"])) {
     echo "</div>";
 }
 ?>
-<div class="container-fluid" style="width:70%; margin-top: 1%">
+<div class="container-fluid" style="width:70%; margin-top:-2%; background-color: white;">
 
-    <form class="form-inline" action="all_pets.php" method="get">
+    <form class="form-inline" action="all_pets.php" method="get" style="padding-top: 1%; ">
         <?php if(isset($searchResult)){ ?>
             <div>
-                <h1> Search: </h1>
+                <h1 > Search: </h1>
             </div>
         <?php } ?>
-        <input class="form-control mr-sm-2" type="search" name="search" placeholder="Search" aria-label="Search" style="width: 90%" value="<?php if(isset($_GET['search'])) echo $_GET['search'];?>">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        <input class="form-control mr-sm-2" type="search" name="search" placeholder="Search" aria-label="Search" style="width: 90%; font-size: 1.4vw" value="<?php if(isset($_GET['search'])) echo $_GET['search'];?>">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="font-size: 1.4vw">Search</button>
     </form>
     <?php if(isset($searchResult)){ ?>
         <div>
@@ -41,7 +59,7 @@ if (isset($_GET["message"])) {
         </div>
     <?php } ?>
     <table class="table table-striped table-hover">
-        <thead style="background-color: #343a40; color: white">
+        <thead style="background-color: #306844; color: white; font-size: 1.4vw">
         <tr>
             <th>Image</th>
             <th>Name </th>
@@ -61,7 +79,7 @@ if (isset($_GET["message"])) {
                     <td><?php echo $row['age']?></td>
                     <td><?php echo $row['location']?></td>
                     <td>
-                        <a href="pet.php?pet=<?php echo $row['pet_id'];?>" class="btn btn-secondary">View</a>
+                        <a href="pet.php?pet=<?php echo $row['pet_id'];?>" class="btn button">View</a>
                         <?php if ($row['user_id'] == $_SESSION['user_id']){
                             ?>
                             <a href="list.php?edit=<?php echo $row['pet_id'];?>" class="btn btn-warning">Edit</a>
@@ -82,7 +100,7 @@ if (isset($_GET["message"])) {
                     <td><?php echo $row['age']?></td>
                     <td><?php echo $row['location']?></td>
                     <td>
-                        <a href="pet.php?pet=<?php echo $row['pet_id'];?>" class="btn btn-secondary">View</a>
+                        <a href="pet.php?pet=<?php echo $row['pet_id'];?>" class="btn button">View</a>
                         <?php if ($row['user_id'] == $_SESSION['user_id']){
                             ?>
                             <a href="list.php?edit=<?php echo $row['pet_id'];?>" class="btn btn-warning">Edit</a>
