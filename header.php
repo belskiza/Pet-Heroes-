@@ -155,7 +155,7 @@
             <div class="col-sm" id="navbar-text">
             </div>
             <div class="col-sm">
-                <a class="navbar-item" href='index.php' ><img src='Files/logo.png' style='width: 70px;'></a>
+                <a class="navbar-item" href='index.php' ><img src='files/logo.png' style='width: 70px;'></a>
             </div>
             <div class="col-sm" id="navbar-text">
                 <a class='navbar-item' href='sign_up.php' style='font-size: 20pt'>sign up</a>
