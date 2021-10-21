@@ -759,7 +759,7 @@ False otherwise
 */
 function quizAnswered($conn, $user_id) {
 
-    $sql = "SELECT user_id FROM personality_quiz";
+    $sql = "SELECT * FROM personality_quiz WHERE user_id = $user_id";
 
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
@@ -771,4 +771,5 @@ function quizAnswered($conn, $user_id) {
     $result = mysqli_stmt_get_result($stmt);
     
     return !(mysqli_num_rows($result) == 0);
+
 }    
