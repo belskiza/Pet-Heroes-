@@ -2,6 +2,8 @@
 <?php require_once 'additional/chat.inc.php'?>
 <head>
     <title>Chat</title>
+    <meta http-equiv="refresh" content="5">
+
 </head>
 
 <body style="background-color: ghostwhite; font-family: Maku;"">
