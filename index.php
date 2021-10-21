@@ -41,6 +41,10 @@
             width: 30rem;
             height: 40rem;
         }
+        .parallax-window {
+            width: 1450px;
+            margin-left: -2%;
+        }
 
     </style>
 </head>
@@ -48,7 +52,7 @@
 <body style="background-color: ghostwhite">
 <?php include_once 'header.php'?>
 <?php include_once 'additional/allpets.inc.php'?>
-<div class="container-fluid">
+<div class="container-fluid" style="margin-top: -5%;">
 
     <div class="parallax-window" data-parallax="scroll" data-image-src="files/landing_image_1.jpeg" data-z-index="1" data-position="0 -70">
         <img class="header" id="box" src="files/logo_black.png"/>

@@ -11,6 +11,17 @@
             font-size: 1.4vw
         }
 
+        .button {
+            background-color: #306844;
+            border-color: #306844;
+            color: white;
+        }
+        .button:hover {
+            background-color: green;
+            border-color: green;
+            color: white;
+        }
+
     </style>
 </head>
 
@@ -48,7 +59,7 @@ if (isset($_GET["message"])) {
         </div>
     <?php } ?>
     <table class="table table-striped table-hover">
-        <thead style="background-color: #343a40; color: white; font-size: 1.4vw">
+        <thead style="background-color: #306844; color: white; font-size: 1.4vw">
         <tr>
             <th>Image</th>
             <th>Name </th>
@@ -68,7 +79,7 @@ if (isset($_GET["message"])) {
                     <td><?php echo $row['age']?></td>
                     <td><?php echo $row['location']?></td>
                     <td>
-                        <a href="pet.php?pet=<?php echo $row['pet_id'];?>" class="btn btn-secondary">View</a>
+                        <a href="pet.php?pet=<?php echo $row['pet_id'];?>" class="btn button">View</a>
                         <?php if ($row['user_id'] == $_SESSION['user_id']){
                             ?>
                             <a href="list.php?edit=<?php echo $row['pet_id'];?>" class="btn btn-warning">Edit</a>
@@ -89,7 +100,7 @@ if (isset($_GET["message"])) {
                     <td><?php echo $row['age']?></td>
                     <td><?php echo $row['location']?></td>
                     <td>
-                        <a href="pet.php?pet=<?php echo $row['pet_id'];?>" class="btn btn-secondary">View</a>
+                        <a href="pet.php?pet=<?php echo $row['pet_id'];?>" class="btn button">View</a>
                         <?php if ($row['user_id'] == $_SESSION['user_id']){
                             ?>
                             <a href="list.php?edit=<?php echo $row['pet_id'];?>" class="btn btn-warning">Edit</a>

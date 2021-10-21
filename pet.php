@@ -76,7 +76,7 @@ require_once 'additional/pet.inc.php';
         </head>
 
 <body>
-<div class="animation" style="margin-top: -5%">
+<div class="animation" style="margin-top: -5%; background-color: ghostwhite">
 
 <script>
     var myModal = document.getElementById('myModal')
@@ -203,3 +203,4 @@ require_once 'additional/pet.inc.php';
 </div>
 
 </body>
+<?php include_once 'footer.php'?>

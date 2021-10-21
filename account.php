@@ -96,7 +96,7 @@
     ?>
     <div class="row">
         <div class="col-sm-6">
-            <h1 style="font-size: 3.8vw;">Welcome back <?php echo $_SESSION['first_name']?></h1>
+            <h1 style="font-size: 3.8vw;">Welcome back, <?php echo ucfirst($_SESSION['first_name']); ?></h1>
         </div>
         <div class="col-sm-6">
             <div class="row" style="margin-top: 1%">

@@ -231,7 +231,7 @@ $owner = fetchUserFromId($conn, $pet['user_id'])->fetch_assoc();?>
 
 <?php } else { ?>
 
-    <div class="alert alert-secondary col-md-4" style="margin:auto; margin-top: 2%; padding: 3%; background-color: whitesmoke; min-width: 400pt">
+    <div class="alert alert-secondary col-md-4" style="margin: 5% auto 13%; padding: 3%; background-color: whitesmoke; min-width: 400pt">
             <h1 class="display-6"> No New Pets </h1>
             <hr class="my-4">
             <h4> Wow! It looks like you have swiped your way through all of the pets. Check back later to see if there are any new listings. In the meantime you can check out
