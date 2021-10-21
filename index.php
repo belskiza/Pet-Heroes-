@@ -22,6 +22,8 @@
         .parallax-window {
             background: transparent;
             height: 100em;
+            width: 103.2%;
+            margin-left: -2%;
         }
 
         .text {
@@ -41,10 +43,10 @@
             width: 30rem;
             height: 40rem;
         }
-        .parallax-window {
-            width: 1450px;
-            margin-left: -2%;
-        }
+        /*.parallax-window {*/
+        /*    width: 1450px;*/
+        /*    margin-left: -2%;*/
+        /*}*/
 
         .button {
             background-color: #306844;
