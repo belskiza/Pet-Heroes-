@@ -17,7 +17,7 @@
 
             // If values are not blank, restore them to the fields
             var first_name = sessionStorage.getItem('first_name');
-            if (first_name !== null) $('#first_name').val(first_name);
+            if (first_name != null) $('#first_name').val(first_name);
 
             var last_name = sessionStorage.getItem('last_name');
             if (last_name !== null) $('#last_name').val(last_name);
