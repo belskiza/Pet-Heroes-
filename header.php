@@ -2,6 +2,9 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="css/bootstrap.css">
+
+    <title> Pet Heroes </title>
+    <link rel="shortcut icon" type="image/jpg" href="files/big_black_logo.png"/>
     <?php
     include_once 'additional/dbh.inc.php';
     session_start();
