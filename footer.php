@@ -40,13 +40,13 @@
 
         <!-- Right -->
         <div class="links">
-            <a href="" class="me-4 text-reset">
+            <a href="https://www.facebook.com/profile.php?id=100073803489883" class="me-4 text-reset">
                 <img style="width: 35px" src="files/facebook.png">
             </a>
-            <a href="" class="me-4 text-reset">
+            <a href="https://www.instagram.com/_pet_heroes/" class="me-4 text-reset">
                 <img style="width: 35px" src="files/instagram.jpg">
             </a>
-            <a href="" class="me-4 text-reset">
+            <a href="https://mobile.twitter.com/_Pet_Heroes?fbclid=IwAR2KOvZupi76Nn27RdgeJ8KToXpVDg6qyKQXigu_dnxLtXcdCuWYFaiNRLM" class="me-4 text-reset">
                 <img style="width: 35px" src="files/twitter.png">
             </a>
         </div>
