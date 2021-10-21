@@ -25,14 +25,7 @@
         .links a:hover {
             opacity: 100%;
         }
-<<<<<<<<< Temporary merge branch 1
     </style>
-=========
-        h6 {
-            font-size: 1.5vw;
-        }
-        </style>
->>>>>>>>> Temporary merge branch 2
 </head>
 
 <!-- Footer -->

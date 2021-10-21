@@ -4,8 +4,8 @@
     <title>Chat</title>
 </head>
 
-<body style="background-color: ghostwhite">
-<div class="container" style="font-family: Maku;">
+<body style="background-color: ghostwhite; font-family: Maku;"">
+<div class="container">
     <h1 class="card-title" style="font-size: 3.2vw">Chat</h1><hr/>
     <?php if ($_SESSION['acc_type'] == 0){ ?>
         <div class="alert alert-warning" style="font-size: 1.4vw">

@@ -46,10 +46,18 @@
             margin-left: -2%;
         }
 
+        .button {
+            background-color: #306844;
+            color: white;
+        }
+        .button:hover {
+            background-color: darkgreen;
+            color: white;
+        }
     </style>
 </head>
 
-<body style="background-color: ghostwhite">
+<body style="background-color: ghostwhite; font-family: Maku;">
 <?php include_once 'header.php'?>
 <?php include_once 'additional/allpets.inc.php'?>
 <div class="container-fluid" style="margin-top: -5%;">
@@ -105,7 +113,7 @@
                         <div class="card-body text-center">
                             <h1 class="card-title"><?php echo $row['pet_name']?></h1>
                             <div class="container-fluid">
-                                <a href="pet.php?pet=<?php echo $row['pet_id'];?>" class="btn btn-lg  btn-secondary" style="width: 100%; background-color: #306844">View</a>
+                                <a href="pet.php?pet=<?php echo $row['pet_id'];?>" class="btn btn-lg  button" style="width: 100%; font-size: 1vw">View</a>
                             </div>
                         </div>
                     </div>
@@ -120,5 +128,5 @@
 
 
 </div>
-</body>
 <?php include_once 'footer.php'?>
+</body>
