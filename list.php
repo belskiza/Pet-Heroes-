@@ -222,5 +222,80 @@
     </script>
 
 </body>
+<?php include_once 'footer.php'?>
 
+
+<html>
+
+<?php include_once 'header.php'?>
+
+<style>
+    .down-three {
+        margin-bottom: 3cm;
+    }
+</style>
+
+<head>
+    <title>Profile Picture</title>
+</head>
+<body>
+
+<script src="./dropzone.js"></script>
+<link rel="stylesheet" href="./css/dropzone.css">
+
+
+</p>
+<form action="additional/update_profile_pic.inc.php" method="POST" enctype="multipart/form-data">
+
+</form>
+<div class="alert alert-secondary" style="margin:auto; padding: 3%; background-color: whitesmoke; width: 65%; height: 85%;">
+    <form action="additional/list.inc.php" method="POST" enctype="multipart/form-data">
+        <h1 class="display-6" style="font-size: 3vw">Edit Profile Picture</h1>
+        <hr class="my-4">
+        <div class="container" >
+            <div class="card" style="height: 60%;">
+                <div style="width: 100%; height: 100%; margin-left: 10%; margin-top: 5%">
+                    <img src="uploads/<?php if(isset($pfp['destination'])){
+                        echo $pfp['destination'];
+                    } else {
+                        echo 'profile_picture.png';
+                    }?>" alt="Card image cap" style="width: 80%; height: 80%; object-fit: cover; "/>
+                </div>
+                <?php
+                if (isset($_GET["error"])) {
+                    echo "<div class='mb-3'>";
+                    if ($_GET["error"] == "invalid_file_type") {
+                        echo "<div class=\"alert alert-danger\" role=\"alert\">That file type is invalid</div>";
+                    }
+                    else if ($_GET["error"] == "uploading_file") {
+                        echo "<div class=\"alert alert-danger\" role=\"alert\">Unexpected error uploading file. Please try again</div>";
+                    }
+                    else if ($_GET["error"] == "file_too_big") {
+                        echo "<div class=\"alert alert-danger\" role=\"alert\">That file is too big. Please upload a smaller file</div>";
+                    }
+                    echo "</div>";
+                }
+                ?>
+
+            </div>
+            <div class="row mb-3" style="margin-top: 5%">
+                <div class="input-group col">
+                    <span class="input-group-text">Profile Photo</span>
+                    <input type="file" name="picture" class="form-control" id="profilePicture" placeholder="Upload Picture...">
+                </div>
+            </div>
+            <div class = "row">
+                <div class = "col">
+                    <a class="btn btn-danger" href="<?php echo 'account.php'?>" style="width: 100%" >Go Back </a>
+                </div>
+                <div class = "col">
+                    <a class="btn btn-secondary" href="<?php echo 'account.php'?>" style="width: 100%" >Submit </a>
+                </div>
+            </div>
+
+    </form>
+</div>
+</body>
+
+<html>
 
