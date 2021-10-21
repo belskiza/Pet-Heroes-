@@ -26,15 +26,15 @@ if (isset($_POST["submit"])) {
                 $fileDestination = '../uploads/'.$fileNameNew;
                 move_uploaded_file($fileTmpName, $fileDestination);
             } else {
-                header("location: ../list.php?error=file_too_big");
+                header("location: ../edit_profile_picture.php?error=file_too_big");
                 exit();
             }
         } else {
-            header("location: ../list.php?error=uploading_file");
+            header("location: ../edit_profile_picture.php?error=uploading_file");
             exit();
         }
     } else {
-        header("location: ../list.php?error=invalid_file_type");
+        header("location: ../edit_profile_picture.php?error=invalid_file_type");
         exit();
     }
 

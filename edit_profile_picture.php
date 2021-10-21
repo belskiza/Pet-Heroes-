@@ -26,6 +26,21 @@
         <h1>
             Edit Profile Picture
         </h1>
+        <?php
+                if (isset($_GET["error"])) {
+                    echo "<div class='mb-3'>";
+                    if ($_GET["error"] == "invalid_file_type") {
+                        echo "<div class=\"alert alert-danger\" role=\"alert\">That file type is invalid</div>";
+                    }
+                    else if ($_GET["error"] == "uploading_file") {
+                        echo "<div class=\"alert alert-danger\" role=\"alert\">Unexpected error uploading file. Please try again</div>";
+                    }
+                    else if ($_GET["error"] == "file_too_big") {
+                        echo "<div class=\"alert alert-danger\" role=\"alert\">That file is too big. Please upload a smaller file</div>";
+                    }
+                    echo "</div>";
+                }
+        ?>
         <div class="row mb-3">
             <div class="input-group col">
                 <span class="input-group-text">Profile Photo</span>
