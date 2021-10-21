@@ -39,7 +39,6 @@
                             }?>
                             <option <?php if ($pet_type == 1){echo 'selected="selected"';} ?> value="1">Cat</option>
                             <option <?php if ($pet_type == 2){echo 'selected="selected"';} ?> value="2">Dog</option>
-                            <option <?php if ($pet_type == 1){echo 'selected="selected"';} ?> value="3">Bird</option>
                         </select>
                     </div>
                 </div> <br/>
