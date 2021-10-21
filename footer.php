@@ -29,7 +29,7 @@
 </head>
 
 <!-- Footer -->
-<footer class="text-center text-lg-start  text-muted" style="background-color: ghostwhite; font-size: 1.5vw">
+<footer class="text-center text-lg-start  text-muted" style="background-color: ghostwhite; font-size: 1.5vw; width: 65%; margin-left: 17.5%; font-family: Maku;">
     <!-- Section: Social media -->
     <section
             class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"

@@ -31,14 +31,6 @@
             }
         }
 
-
-
-        .images{
-            position: fixed;
-            margin-left: 75%;
-            margin-top: 1%;
-        }
-
         .boxhead a {
             color: black;
             text-decoration: none;
@@ -73,6 +65,11 @@
             border-color: #234d32;
             color: white;
         }
+        .input-group span{
+            background-color: #306844;
+            border-color: #306844;
+            color: white;
+        }
     </style>
     <script>
         sessionStorage.clear();
@@ -82,7 +79,7 @@
 <body style="background-color: ghostwhite; font-family: Maku;">
 <div class="animation">
 
-<div class="container" >
+<div class="container" style="width: 65%">
     <?php
     if (isset($_GET["message"])) {
         if ($_GET["message"] == "list_success") {
@@ -99,7 +96,7 @@
             <h1 style="font-size: 3.8vw;">Welcome back, <?php echo ucfirst($_SESSION['first_name']); ?></h1>
         </div>
         <div class="col-sm-6">
-            <div class="row" style="margin-top: 1%">
+            <div class="row" style="margin-top: 3%">
                 <div class="col">
                     <a class="btn button" href="edit_profile.php?edit=<?php echo $_SESSION['user_id']?>" style="width: 100%; font-size: 1.5vw">Edit Profile</a>
                 </div>
@@ -117,7 +114,7 @@
     <hr/>
 </div>
 
-<div class="container">
+<div class="container" style="width: 65%">
     <div class="row">
         <div class="col-sm-6">
             <?php if (!quizAnswered($conn, $_SESSION['user_id'])) {?>
@@ -145,16 +142,72 @@
                         </div>
                     </div>
                 </div> <br/>
-           <?php } ?>
+            <?php } else {?>
+            <form action="additional/list.inc.php" method="POST" enctype="multipart/form-data" >
+                    <div class="row mb-3">
+                    <div class="input-group col-sm-8" >
+                        <span class="input-group-text" style="width: 20%; font-size: 1.5vw;">Age</span>
+                        <input type="text" name="pet_name" class="form-control" value="<?php echo $age;?>" placeholder="Your age..."
+                               aria-label="First name" style="font-size: 1.3vw;">
+                    </div>
+                    </div>
+                <div class="row mb-3">
+                    <div class="input-group col-sm-8">
+                        <span class="input-group-text" style="width: 20%; font-size: 1.5vw;"">Sex</span>
+                        <input type="text" name="pet_name" class="form-control" value="<?php echo $sex;?>" placeholder="Your sex..."
+                               aria-label="First name" style="font-size: 1.3vw;">
+                    </div>
+                    <div class="input-group col-sm-2">
+                    </div>
+                </div>
+                <div class="row mb-3">
+
+                    <div class="input-group col-sm-8">
+                        <span class="input-group-text" style="width: 40%; font-size: 1.5vw">Occupation</span>
+                        <input type="text" name="pet_name" class="form-control" value="<?php echo $occupation;?>" placeholder="Your occupation..."
+                               aria-label="First name" style="font-size: 1.3vw;">
+                    </div>
+                    <div class="input-group col-sm-4">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="input-group col-sm-12">
+                    <div class="card" style="width: 100%">
+                        <div class="card-header" style="background-color: #306844; color: white; font-size: 1.5vw; height: 40%; margin-top: 0;">
+                            Description
+                        </div>
+                        <div class="card-body" style="font-size: 1.3vw">
+                            <?php echo $description;?>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="input-group col-sm-12">
+                        <div class="card" style="width: 100%">
+                            <div class="card-header" style="background-color: #306844; color: white; font-size: 1.5vw; height: 40%; margin-top: 0;">
+                                Quiz Answers
+                            </div>
+                            <div class="card-body" style="font-size: 1.3vw">
+                                <?php echo $description;?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+
+
+        <?php } ?>
         </div>
         <div class="col-sm-6">
-            <div class="card" style="width: 100%">
-                <div style="width: 400pt; height: 400pt;">
+            <div class="card" style="width: 100%; height: 90%;">
+                <div style="width: 100%; height: 100%; margin-left: 10%; margin-top: 10%">
                     <img src="uploads/<?php if(isset($pfp['destination'])){
                         echo $pfp['destination'];
                     } else {
                         echo 'profile_picture.png';
-                    }?>" alt="Card image cap" style="width: 400pt; height: 400pt; object-fit: cover; "/>
+                    }?>" alt="Card image cap" style="width: 80%; height: 80%; object-fit: cover; "/>
                 </div>
                 <div class="card-body text-center">
                     <div class="row">
@@ -169,8 +222,10 @@
                 </div>
             </div>
         </div>
-    </div> <hr/>
+    </div>
 
+
+</div>
 <?php
 if (isset($_GET["message"])) {
     echo "<div class='container-fluid' style=\"width:90%; margin-top: 1%\">";
