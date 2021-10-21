@@ -26,13 +26,37 @@
         <h1>
             Edit Profile Picture
         </h1>
+        <?php
+                if (isset($_GET["error"])) {
+                    echo "<div class='mb-3'>";
+                    if ($_GET["error"] == "invalid_file_type") {
+                        echo "<div class=\"alert alert-danger\" role=\"alert\">That file type is invalid</div>";
+                    }
+                    else if ($_GET["error"] == "uploading_file") {
+                        echo "<div class=\"alert alert-danger\" role=\"alert\">Unexpected error uploading file. Please try again</div>";
+                    }
+                    else if ($_GET["error"] == "file_too_big") {
+                        echo "<div class=\"alert alert-danger\" role=\"alert\">That file is too big. Please upload a smaller file</div>";
+                    }
+                    echo "</div>";
+                }
+        ?>
         <div class="row mb-3">
             <div class="input-group col">
                 <span class="input-group-text">Profile Photo</span>
                 <input type="file" name="picture" class="form-control" id="profilePicture" placeholder="Upload Picture...">
             </div>
         </div>
-        <button class="btn btn-secondary" type="submit" style="width: 100%; background-color: #306844" name="submit">Submit</button>
+        <div class = "row">
+            <div class = "col">
+                <a class="btn btn-outline-danger" href="<?php echo 'account.php'?>" style="width: 100%" >Go Back </a>
+            </div>
+            <div class = "col">
+                <button class="btn btn-secondary" type="submit" style="width: 100%; background-color: #306844" name="submit">Submit</button>
+            </div>
+        </div>
+
+
     </div>
 </form>
 </body>

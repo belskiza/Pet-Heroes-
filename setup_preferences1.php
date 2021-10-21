@@ -95,7 +95,7 @@
 
 <body>
 
-<div class="container" style="height: 0">
+<div class="container" style="height: 0; margin-top: -7%;">
     <form action="additional/quiz.php" method="post" id="form1">
         <?php
             if (isset($_GET["message"]) || isset($_GET["error"])) {
@@ -106,46 +106,44 @@
                 echo "</div>";
             }
         ?>
-        <h1> Personality Quiz </h1> 
+        <h1> Compatability Quiz </h1> 
         <h6> Pick the most appropriate answer to the questions so we can give you the best matches</h6>
         <div class="questions">
-            <label for="exampleDataList" class="form-label"><h4>Are you an active person?</h4></label>
-            <select name="question1" id="question1" class="form-select" aria-label="Default select example" style="text-align: center;" required>
+            <label for="exampleDataList" class="form-label"><h4>Are you a cat person or a dog person?</h4></label>
+            <select name="question1" id="question1" class="form-select" aria-label="Default select example" style="text-align: center; width: 12%;" required>
                 <option value="0"">Select</option>
-                <option value="1">Yes</option>
-                <option value="2">No</option>
+                <option value="1">Cat Person!</option>
+                <option value="2">Dog Person!</option>
+                <option value="2">Both!</option>
             </select>
 
             <p class='down-one'>
             </p>
 
-            <label for="exampleDataList" class="form-label"><h4>What is your favourite colour?</h4></label>
-            <select name="question2" id="question2" class="form-select" aria-label="Default select example" style="text-align: center;" required>
+            <label for="exampleDataList" class="form-label"><h4>What is the size of your living arangement?</h4></label>
+            <select name="question2" id="question2" class="form-select" aria-label="Default select example" style="text-align: center; width: 12%;" required>
                 <option value="0">Select</option>
-                <option value="1">Red</option>
-                <option value="2">Blue</option>
-                <option value="3">Green</option>
-                <option value="4">Yellow</option>
-                <option value="5">Orange</option>
-                <option value="6">Purple</option>
-                <option value="7">Brown</option>
+                <option value="1">Small</option>
+                <option value="2">Medium</option>
+                <option value="3">Large</option>
             </select>
 
             <p class='down-one'>
             </p>
 
-            <label for="exampleDataList" class="form-label"><h4>Do you like to help others?</h4></label>
-            <select name="question3" id="question3" class="form-select" aria-label="Default select example" style="text-align: center;" required>
+            <label for="exampleDataList" class="form-label"><h4>How much time do you have to spend with your pet?</h4></label>
+            <select name="question3" id="question3" class="form-select" aria-label="Default select example" style="text-align: center; width: 12%;" required>
                 <option value="0">Select</option>
-                <option value="1">Yes</option>
-                <option value="2">No</option>
+                <option value="1">A lot of spare time to spend with my pet!</option>
+                <option value="2">A medium amount of time</option>
+                <option value="2">A small amount of time</option>
             </select>
 
             <p class='down-one'>
             </p>
 
-            <label for="exampleDataList" class="form-label"><h4>Are you affectionate?</h4></label>
-            <select name="question4" id="question4" class="form-select" aria-label="Default select example" style="text-align: center;" required>
+            <label for="exampleDataList" class="form-label"><h4>Are you an active person?</h4></label>
+            <select name="question4" id="question4" class="form-select" aria-label="Default select example" style="text-align: center; width: 12%;" required>
                 <option value="0">Select</option>
                 <option value="1">Yes</option>
                 <option value="2">No</option>
