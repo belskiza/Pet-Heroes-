@@ -2,11 +2,13 @@
 <?php require_once 'additional/chat.inc.php'?>
 <head>
     <title>Chat</title>
+    <meta http-equiv="refresh" content="5">
+
 </head>
 
 <body style="background-color: ghostwhite; font-family: Maku;"">
 <div class="container">
-    <h1 class="card-title" style="font-size: 3.2vw">Chat</h1><hr/>
+    <h1 class="card-title" style="font-size: 3.2vw; margin-top: -5%;">Chat</h1><hr/>
     <?php if ($_SESSION['acc_type'] == 0){ ?>
         <div class="alert alert-warning" style="font-size: 1.4vw">
             You will need to wait for owners to accept your swipe before you can message them
