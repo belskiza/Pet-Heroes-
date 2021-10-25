@@ -69,8 +69,8 @@
             color: white;
         }
         .button2:hover {
-            background-color:#234d32;
-            border-color: #234d32;
+            background-color:#42574f;
+            border-color: #42574f;
             color: white;
         }
         .input-group span{

@@ -1,9 +1,38 @@
 <?php include_once 'header.php'?>
-<body style="background-color: ghostwhite">
+<head>
+    <style>
+        .button {
+            background-color: #306844;
+            color: white;
+        }
+        .button:hover {
+            background-color: green;
+            border-color: green;
+            color: white;
+        }
+        .col label {
+            font-size: 2vw;
+        }
+        .input-group span {
+            background-color: #306844;
+            color: white;
+            font-size: 1.2vw;
+        }
+        .input-group input {
+            font-size: 1.2vw;
+        }
+        .col a {
+            font-size: 1.2vw;
+        }
+        .col button {
+            font-size: 1.2vw;
+        }
+    </style>
+</head>
+<body style="background-color: ghostwhite; font-family: Maku;">
     <?php require_once 'additional/list.inc.php'; ?>
-
-        <div class="alert alert-dark" style="margin:auto; background-color: whitesmoke; width: 65%">
-            <form action="additional/list.inc.php" method="POST" enctype="multipart/form-data" style="margin-left: 8%; margin-right: 8%; margin-top: 3%; margin-bottom: 3%">
+        <div class="alert alert-secondary" style="margin:auto; margin-top: 1%; padding: 3%; background-color: whitesmoke; width: 65%">
+            <form action="additional/list.inc.php" method="POST" enctype="multipart/form-data">
                 <input type="hidden" name="pet_id" value="<?php if (isset($_GET['edit'])){
                     echo $_GET['edit'];}?>">
                 <h1 class="display-6"> <?php if (isset($_GET['edit'])){
@@ -39,7 +68,6 @@
                             }?>
                             <option <?php if ($pet_type == 1){echo 'selected="selected"';} ?> value="1">Cat</option>
                             <option <?php if ($pet_type == 2){echo 'selected="selected"';} ?> value="2">Dog</option>
-                            <option <?php if ($pet_type == 1){echo 'selected="selected"';} ?> value="3">Bird</option>
                         </select>
                     </div>
                 </div> <br/>
@@ -128,7 +156,7 @@
                         </select>
                     </div>
                 </div><br/>
-                <div class="mb-3">
+                <div class="mb-3" style="font-size: 1.2vw">
                     <label class="form-label">Brief Description: Max 1000 characters</label>
                     <textarea name="description" class="form-control" id="form-control" value="" placeholder="Description..."><?php echo $description; ?></textarea>
                 </div><br/>
@@ -162,25 +190,25 @@
                     <input id="lat" type="hidden" value="" name="lat">
                     <input id="long" type="hidden" value="" name="lon">
 
-                    <br/>
+                    <br/><br/>
 
                     <?php
                 } else {?> <?php } ?>
                 <div class="mb-3">
                     <div class="row g-3">
-                        <div class="col">
-                            <button type="submit" style="width: 100%" name= "<?php if (isset($_GET['edit'])){
-                                ?>update<?php
-                            } else {?>submit<?php } ?>" class="btn btn-primary"><?php if (isset($_GET['edit'])){
-                                    ?> Update <?php
-                                } else {?>Confirm Listing <?php } ?></button>
-                        </div>
                         <div class="col" style="width: 100%">
                             <a class="btn btn-danger" style="width: 100%" href="<?php if (isset($_GET['edit'])){
                                 ?> all_pets.php <?php
                             } else {?>index.php <?php } ?>">Go Back </a>
                         </div>
-                    </div>
+                        <div class="col">
+                            <button type="submit" style="width: 100%" name= "<?php if (isset($_GET['edit'])){
+                                ?>update<?php
+                            } else {?>submit<?php } ?>" class="btn button"><?php if (isset($_GET['edit'])){
+                                    ?> Update <?php
+                                } else {?>Confirm Listing <?php } ?></button>
+                        </div>
+                    </div> <br/>
                 </div>
             </form>
         </div>
@@ -224,5 +252,3 @@
 
 </body>
 <?php include_once 'footer.php'?>
-
-

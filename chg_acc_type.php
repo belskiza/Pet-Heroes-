@@ -28,18 +28,29 @@
             sessionStorage.setItem("owner", $('#owner').val());
         }
     </script>
+    <style>
+        .col a {
+            font-size: 1.2vw;
+        }
+        .col button {
+            font-size: 1.2vw;
+        }
+    </style>
 </head>
-<body>
+<body style="font-family: Maku;">
+<img src="files/landing_image_4.jpeg" style="position: fixed; filter: blur(5px) ; width: 105%; margin: -5%; z-index: -1">
 <div class="alert alert-secondary col-md-4" style="margin:auto; margin-top: 1%; padding: 3%; background-color: whitesmoke; min-width: 400pt">
     <form action="additional/editprofile.inc.php" method="post">
         <h1 class="display-6"> Change Account Type </h1>
         <hr class="my-4">
-        <div class="alert alert-danger">
+        <div class="alert alert-danger" style="font-size: 1.2vw">
             Please be advised that changing from Adopter/Owner will delete all of your data including listings and swipes
         </div>
         <fieldset class="form-group">
-            <div class="row">
-                <legend class="col-form-label col-sm-3 pt-0">Account Type:</legend>
+            <div class="row" style="font-size: 1.4vw">
+                <div class="col-sm-10">
+                <legend class="col-form-label  pt-0">Account Type:</legend>
+                </div>
                 <div class="col-sm-10">
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="acc_type" id="adopter" value="adopter" <?php if($user['acc_type'] == 0) echo 'checked' ?>/>
@@ -59,7 +70,7 @@
         <div class="mb-3">
             <div class="row g-3">
                 <div class="col">
-                    <a class="btn btn-outline-danger" href="<?php echo 'account.php'?>" style="width: 100%">Go Back </a>
+                    <a class="btn btn-danger" href="<?php echo 'account.php'?>" style="width: 100%">Go Back </a>
                 </div>
                 <div class="col">
                     <button type="submit" name= "chg_acc_type" class="btn btn-primary" style="width: 100%">Submit</button>

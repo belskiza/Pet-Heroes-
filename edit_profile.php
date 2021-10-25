@@ -45,10 +45,37 @@
             sessionStorage.setItem("phone", $('#phone').val());
         }
     </script>
+    <style>
+        .button {
+            background-color: #306844;
+            color: white;
+        }
+        .button:hover {
+            background-color: green;
+            border-color: green;
+            color: white;
+        }
+        .col label {
+            font-size: 2vw;
+        }
+        .input-group span {
+            background-color: #306844;
+            color: white;
+            font-size: 1.2vw;
+        }
+        .input-group input {
+            font-size: 1.2vw;
+        }
+        .col a {
+            font-size: 1.2vw;
+        }
+        .col button {
+            font-size: 1.2vw;
+        }
+    </style>
 </head>
-<body>
-<img src="files/landing_image_5.jpeg" style="position: fixed; filter: blur(5px) ; width: 105%; margin: -5%; z-index: -1">
-<div class="alert alert-secondary col-md-4" style="margin:auto; margin-top: 1%; padding: 3%; background-color: whitesmoke; min-width: 400pt">
+<body style="background-color: ghostwhite; font-family: Maku;">
+<div class="alert alert-secondary" style="margin:auto;padding: 3%; background-color: whitesmoke; width: 65%">
     <form action="additional/editprofile.inc.php" method="post">
         <h1 class="display-6"> Edit Profile </h1>
         <hr class="my-4">
@@ -69,42 +96,42 @@
             echo "</div>";
         }
         ?>
-
-        <div class="mb-3">
-            <div class="row g-3">
-                <div class="col">
-                    <label for="exampleFormControlInput1" class="form-label" >First Name</label>
-                    <input type="text" id="first_name" name="first_name" class="form-control" placeholder="First name..."
-                           aria-label="First name" value="<?php echo $first_name;?>">
-                </div>
-                <div class="col">
-                    <label for="exampleFormControlInput1" class="form-label" ">Last Name</label>
-                    <input type="text" id="last_name" name ="last_name" class="form-control" placeholder="Last name..."
-                           aria-label="Last name" value="<?php echo $last_name;?>">
-                </div>
+        <div class="row mb-3">
+            <div class="input-group col">
+                <span class="input-group-text">First Name</span>
+                <input type="text" name="pet_name" class="form-control" value="<?php echo $first_name;?>" placeholder="First Name..."
+                       aria-label="First name">
             </div>
-        </div>
-        <div class="mb-3">
-            <div class="row g-3">
-                <div class="col">
-                    <label for="exampleFormControlInput1" class="form-label">Username</label>
-                    <input type="username" name="username" class="form-control" id="username" placeholder="Username..." value="<?php echo $username;?>">
-                </div>
-                <div class="col">
-                    <label for="exampleFormControlInput1" class="form-label">Phone</label>
-                    <input type="text" name="phone" class="form-control" id="phone" placeholder="Phonee..." value="<?php echo $phone;?>">
-                </div>
+            <div class="input-group col">
+                <span class="input-group-text">Last Name</span>
+                <input type="text" name="pet_name" class="form-control" value="<?php echo $last_name;?>" placeholder="Last Name..."
+                       aria-label="First name">
             </div>
-        </div>
-        <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label" ">Email address</label>
-            <input type="email" name="email" class="form-control" id="email" placeholder="name@example.com..." value="<?php echo $email;?>">
-        </div>
-        <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label" ">Current Password</label>
-            <input type="password" name="password" class="form-control" id="form-control" placeholder="Current Password...">
-        </div>
-        <br/>
+        </div> <br/>
+        <div class="row mb-3">
+            <div class="input-group col">
+                <span class="input-group-text">Username</span>
+                <input type="text" name="pet_name" class="form-control" value="<?php echo $username;?>" placeholder="Username..."
+                       aria-label="First name">
+            </div>
+            <div class="input-group col">
+                <span class="input-group-text">Phone</span>
+                <input type="text" name="pet_name" class="form-control" value="<?php echo $phone;?>" placeholder="Phone..."
+                       aria-label="First name">
+            </div>
+        </div> <br/>
+        <div class="row mb-3">
+            <div class="input-group col">
+                <span class="input-group-text">Email Address</span>
+                <input type="email" name="email" class="form-control" id="email" placeholder="name@example.com..." value="<?php echo $email;?>">
+            </div>
+        </div> <br/>
+        <div class="row mb-3">
+            <div class="input-group col">
+                <span class="input-group-text">Current Password</span>
+                <input type="password" name="password" class="form-control" id="form-control" placeholder="Current Password...">
+            </div>
+        </div> <br/>
         <div class="mb-3">
             <div class="row g-3">
                 <div class="col">
@@ -112,7 +139,7 @@
                 </div>
                 <?php if(isset($about_me)){ ?>
                     <div class="col">
-                        <a class="btn btn-success" href="about_me.php"  style="background-color: #306844; width: 100%">Edit About Me</a>
+                        <a class="btn button" href="about_me.php"  style=" width: 100%">Edit About Me</a>
                     </div>
 
                 <?php } ?>
@@ -122,7 +149,7 @@
         <div class="mb-3">
             <div class="row g-3">
                 <div class="col">
-                    <a class="btn btn-outline-danger" href="<?php echo 'account.php'?>" style="width: 100%">Go Back </a>
+                    <a class="btn btn-danger" href="<?php echo 'account.php'?>" style="width: 100%">Go Back </a>
                 </div>
                 <div class="col">
                     <button type="submit" name= "submit" class="btn btn-primary" style="width: 100%">Submit</button>
