@@ -20,18 +20,18 @@
         .navbar-item:hover {
             color: yellowgreen;
         }
-        @media only screen and (min-width: 960px) {
-            .navbar .navbar-nav .nav-link {
-                padding: 1em 0.7em;
-            }
-        }
+        /*@media only screen and (min-width: 960px) {*/
+        /*    .navbar .navbar-nav .nav-link {*/
+        /*        padding: 1em 0.7em;*/
+        /*    }*/
+        /*}*/
         .col-sm {
             position: relative;
             background-color: #306844;
             color: antiquewhite;
         }
         #navbar-text{
-            padding-top: 0.7%;
+            padding-top: .7%;
 
         }
         .navbar-item{
@@ -172,6 +172,5 @@
     </div>
     <?php
 }
-?>
-<br/><br/><br/><br/>
+?><br/>
 </body>

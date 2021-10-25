@@ -48,7 +48,7 @@
 </head>
 <body>
 <img src="files/landing_image_5.jpeg" style="position: fixed; filter: blur(5px) ; width: 105%; margin: -5%; z-index: -1">
-<div class="alert alert-secondary" style="margin: -4% auto auto;padding: 3%; background-color: whitesmoke; width: 65%">
+<div class="alert alert-secondary col-md-4" style="margin:auto; margin-top: 1%; padding: 3%; background-color: whitesmoke; min-width: 400pt">
     <form action="additional/editprofile.inc.php" method="post">
         <h1 class="display-6"> Edit Profile </h1>
         <hr class="my-4">

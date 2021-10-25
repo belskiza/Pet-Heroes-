@@ -31,6 +31,14 @@
             }
         }
 
+
+
+        .images{
+            position: fixed;
+            margin-left: 75%;
+            margin-top: 1%;
+        }
+
         .boxhead a {
             color: black;
             text-decoration: none;
@@ -77,6 +85,7 @@
 </head>
 
 <body style="background-color: ghostwhite; font-family: Maku;">
+
 <div class="animation">
 
 <div class="container" style="width: 65%">
@@ -93,7 +102,7 @@
     ?>
     <div class="row">
         <div class="col-sm-6">
-            <h1 style="font-size: 3.8vw;">Welcome back, <?php echo ucfirst($_SESSION['first_name']); ?></h1>
+            <h4 style="font-size: 3vw;">Welcome back, <?php echo $_SESSION['first_name']; ?></h4>
         </div>
         <div class="col-sm-6">
             <div class="row" style="margin-top: 3%">
@@ -117,19 +126,6 @@
 <div class="container" style="width: 65%">
     <div class="row">
         <div class="col-sm-6">
-            <?php if (!quizAnswered($conn, $_SESSION['user_id'])) {?>
-                <div class="row">
-                    <div class="card" style="width: 100%">
-                        <div class="card-header">
-                            Personality Profile
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Complete your personality quiz to find pets compatible with you!</h5>
-                            <a class="btn button" href="setup_preferences1.php" >Take Quiz</a>
-                        </div>
-                    </div>
-                </div> <br/>
-            <?php } ?>
             <?php if(!isset($about_me)){ ?>
                 <div class="row">
                     <div class="card" style="width: 100%">
@@ -143,16 +139,15 @@
                     </div>
                 </div> <br/>
             <?php } else {?>
-            <form action="additional/list.inc.php" method="POST" enctype="multipart/form-data" >
                     <div class="row mb-3">
-                    <div class="input-group col-sm-8" >
+                    <div class="input-group col-sm-12" >
                         <span class="input-group-text" style="width: 20%; font-size: 1.5vw;">Age</span>
                         <input type="text" name="pet_name" class="form-control" value="<?php echo $age;?>" placeholder="Your age..."
                                aria-label="First name" style="font-size: 1.3vw;">
                     </div>
                     </div>
                 <div class="row mb-3">
-                    <div class="input-group col-sm-8">
+                    <div class="input-group col-sm-12">
                         <span class="input-group-text" style="width: 20%; font-size: 1.5vw;"">Sex</span>
                         <input type="text" name="pet_name" class="form-control" value="<?php echo $sex;?>" placeholder="Your sex..."
                                aria-label="First name" style="font-size: 1.3vw;">
@@ -162,7 +157,7 @@
                 </div>
                 <div class="row mb-3">
 
-                    <div class="input-group col-sm-8">
+                    <div class="input-group col-sm-12">
                         <span class="input-group-text" style="width: 40%; font-size: 1.5vw">Occupation</span>
                         <input type="text" name="pet_name" class="form-control" value="<?php echo $occupation;?>" placeholder="Your occupation..."
                                aria-label="First name" style="font-size: 1.3vw;">
@@ -172,21 +167,9 @@
                 </div>
                 <div class="row mb-3">
                     <div class="input-group col-sm-12">
-                    <div class="card" style="width: 100%">
-                        <div class="card-header" style="background-color: #306844; color: white; font-size: 1.5vw; height: 40%; margin-top: 0;">
-                            Description
-                        </div>
-                        <div class="card-body" style="font-size: 1.3vw">
-                            <?php echo $description;?>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <div class="input-group col-sm-12">
                         <div class="card" style="width: 100%">
                             <div class="card-header" style="background-color: #306844; color: white; font-size: 1.5vw; height: 40%; margin-top: 0;">
-                                Quiz Answers
+                                Description
                             </div>
                             <div class="card-body" style="font-size: 1.3vw">
                                 <?php echo $description;?>
@@ -194,14 +177,80 @@
                         </div>
                     </div>
                 </div>
+        <?php } if (!isset($personality)){ ?>
+                    <div class="row">
+                        <div class="card" style="width: 100%">
+                            <div class="card-header">
+                                Personality Profile
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Complete your personality quiz to find pets compatible with you!</h5>
+                                <a class="btn button" href="setup_preferences1.php" >Take Quiz</a>
+                            </div>
+                        </div>
+                    </div> <br/>
+           <?php } else { ?>
+                <div class="row mb-3">
+                    <div class="input-group col-sm-12">
+                        <div class="card" style="width: 100%">
+                            <div class="card-header" style="background-color: #306844; color: white; font-size: 1.5vw; height: 40%; margin-top: 0;">
+                                Quiz Answers
+                            </div>
+                            <div class="card-body" style="font-size: 1.3vw">
+                                <h5><b>Cat or dog person</b></h5>
+                                <p><?php switch ($personality['question1']){
+                                    case 1:
+                                        echo "Cat Person";
+                                        break;
+                                    case 2:
+                                        echo "Dog Person";
+                                        break;
+                                    case 3:
+                                        echo "Both";
+                                        break;
+                                }?></p>
+                                <h5><b>Living arrangement size</b></h5>
+                                <p><?php switch ($personality['question2']){
+                                    case 1:
+                                        echo "Small";
+                                        break;
+                                    case 2:
+                                        echo "Medium";
+                                        break;
+                                    case 3:
+                                        echo "Large";
+                                        break;
+                                }?></p>
+                                    <h5><b>Free time</b></h5>
+                                <p><?php switch ($personality['question3']){
+                                        case 1:
+                                            echo "Lots";
+                                            break;
+                                        case 2:
+                                            echo "Some";
+                                            break;
+                                        case 3:
+                                            echo "Not Much";
+                                            break;
+                                    }?></p>
+                                    <h5><b>Active?</b></h5>
+                                <p><?php switch ($personality['question3']){
+                                        case 1:
+                                            echo "Yes";
+                                            break;
+                                        case 2:
+                                            echo "No";
+                                            break;
+                                    }?></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+           <?php }?>
 
-            </form>
-
-
-        <?php } ?>
         </div>
         <div class="col-sm-6">
-            <div class="card" style="width: 100%; height: 90%;">
+            <div class="card" style="width: 100%; height: 98%;">
                 <div style="width: 100%; height: 100%; margin-left: 10%; margin-top: 10%">
                     <img src="uploads/<?php if(isset($pfp['destination'])){
                         echo $pfp['destination'];
@@ -246,7 +295,7 @@ if (isset($_GET["message"])) {
         <div class="container-fluid" style="width: 65%">
             <h1>My Pets</h1> <br/>
             <table class="table table-striped table-hover">
-                <thead style="background-color: #182c25; color: white">
+                <thead style="background-color: #182c25; color: white; text-align: center">
                 <tr>
                     <th>Image</th>
                     <th>Name </th>
@@ -259,44 +308,51 @@ if (isset($_GET["message"])) {
                 </thead>
 
                 <?php while ($row = $result->fetch_assoc()){?>
-                    <tr>
+                    <tr style="text-align: center">
                         <td><img src="uploads/<?php echo $row['picture_destination']?>" style="max-width: 150px"/></td>
                         <td><b><?php echo $row['pet_name']?></b></td>
                         <td><?php echo $row['breed']?></td>
                         <td><?php echo $row['age']?></td>
                         <td><?php echo $row['location']?></td>
                         <td>
-                            <a href="pet.php?pet=<?php echo $row['pet_id'];?>" class="btn btn-secondary" style="background-color: #455b55">View</a>
-                            <?php if ($row['user_id'] == $_SESSION['user_id']){
-                                ?>
-                                <a href="list.php?edit=<?php echo $row['pet_id'];?>" class="btn btn-secondary" style="background-color: #306844">Edit</a>
-                                <a href="additional/list.inc.php?delete=<?php echo $row['pet_id']; ?>" class="btn btn-danger">Delist</a>
-                                <?php
-                            } else {
-                                echo null;
-                            } ?>
+                            <?php if ($row ['valid_listing'] == 1){ ?>
+                                <a href="pet.php?pet=<?php echo $row['pet_id'];?>" class="btn btn-secondary" style="background-color: #455b55">View</a>
+                                <?php if ($row['user_id'] == $_SESSION['user_id']){
+                                    ?>
+                                    <a href="list.php?edit=<?php echo $row['pet_id'];?>" class="btn btn-secondary" style="background-color: #306844">Edit</a>
+                                    <a href="additional/list.inc.php?delete=<?php echo $row['pet_id']; ?>" class="btn btn-danger">Delist</a>
+                                    <?php
+                                } else {
+                                    echo null;
+                                } ?>
+                            <?php } else { ?>
+                                <button type="button" class="btn btn-secondary" disabled>Adopted</button>
+                                <a href="additional/list.inc.php?delete=<?php echo $row['pet_id']; ?>" class="btn btn-danger">Delete</a>
+                           <?php  }?>
+
                         </td>
-                        <td>
-                            <?php $matches = swipesWithMyPets($conn, $user_id);
-                            while ($match = $matches->fetch_assoc()) {
-                                if($match['pet_id'] == $row['pet_id']){
-                                    $user = fetchUserFromId($conn,$match['user_id'])->fetch_assoc();
-                                    $pfp = fetchProfilePicById($conn,$user['user_id'])->fetch_assoc();
-                                    ?> <div class="row">
-                                        <a href="user.php?id=<?php echo $user['user_id'];?>&pet=<?php echo $row['pet_id'];?>" class="btn btn-outline-dark">
-                                            <div class="col">
-                                                <img src="uploads/<?php if(isset($pfp['destination'])){
-                                                    echo $pfp['destination'];
-                                                } else { echo 'profile_picture.png';}?>"  style="width: 40px; height: 40px; object-fit: cover; border-radius: 50%"/>
-                                            </div>
-                                            <?php echo $user['username'];?>
-                                        </a>
-                                    </div>
+                        <td><?php if ($row ['valid_listing'] == 1){ ?>
+                                <?php $matches = swipesWithMyPets($conn, $user_id);
+                                while ($match = $matches->fetch_assoc()) {
+                                    if($match['pet_id'] == $row['pet_id']){
+                                        $user = fetchUserFromId($conn,$match['user_id'])->fetch_assoc();
+                                        $pfp = fetchProfilePicById($conn,$user['user_id'])->fetch_assoc();
+                                        ?> <div class="row">
+                                            <a href="user.php?id=<?php echo $user['user_id'];?>&pet=<?php echo $row['pet_id'];?>" class="btn btn-outline-dark">
+                                                <div class="col">
+                                                    <img src="uploads/<?php if(isset($pfp['destination'])){
+                                                        echo $pfp['destination'];
+                                                    } else { echo 'profile_picture.png';}?>"  style="width: 40px; height: 40px; object-fit: cover; border-radius: 50%"/>
+                                                </div>
+                                                <?php echo $user['username'];?>
+                                            </a>
+                                        </div>
 
                                         <br/>
-                                    <?php
-                                }
-                            }?>
+                                        <?php
+                                    }
+                                }?>
+                           <?php }?>
                         </td>
                     </tr>
                     <?php

@@ -1,9 +1,9 @@
 <?php include_once 'header.php'?>
-<body>
+<body style="background-color: ghostwhite">
     <?php require_once 'additional/list.inc.php'; ?>
-    <img src="files/landing_image_2.jpeg" style="position: fixed; filter: blur(3px) ; width: 110%; margin-top: -10%; margin-left: -5%; z-index: -1">
-        <div class="alert alert-secondary" style="margin:auto; margin-top: 1%; padding: 3%; background-color: whitesmoke; width: 50%">
-            <form action="additional/list.inc.php" method="POST" enctype="multipart/form-data">
+
+        <div class="alert alert-dark" style="margin:auto; background-color: whitesmoke; width: 65%">
+            <form action="additional/list.inc.php" method="POST" enctype="multipart/form-data" style="margin-left: 8%; margin-right: 8%; margin-top: 3%; margin-bottom: 3%">
                 <input type="hidden" name="pet_id" value="<?php if (isset($_GET['edit'])){
                     echo $_GET['edit'];}?>">
                 <h1 class="display-6"> <?php if (isset($_GET['edit'])){
@@ -162,7 +162,7 @@
                     <input id="lat" type="hidden" value="" name="lat">
                     <input id="long" type="hidden" value="" name="lon">
 
-                    <br/><br/>
+                    <br/>
 
                     <?php
                 } else {?> <?php } ?>
@@ -180,7 +180,7 @@
                                 ?> all_pets.php <?php
                             } else {?>index.php <?php } ?>">Go Back </a>
                         </div>
-                    </div> <br/>
+                    </div>
                 </div>
             </form>
         </div>
@@ -223,5 +223,6 @@
     </script>
 
 </body>
+<?php include_once 'footer.php'?>
 
 
