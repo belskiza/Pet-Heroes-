@@ -42,7 +42,7 @@ if (isset($_GET["message"])) {
     echo "</div>";
 }
 ?>
-<div class="container-fluid" style="width:70%; margin-top:-2%; background-color: white;">
+<div class="container-fluid" style="width:65%;  background-color: white;">
 
     <form class="form-inline" action="all_pets.php" method="get" style="padding-top: 1%; ">
         <?php if(isset($searchResult)){ ?>
@@ -56,6 +56,7 @@ if (isset($_GET["message"])) {
     <?php if(isset($searchResult)){ ?>
         <div>
             <p> <i>Showing search results for: </i> <b><?php echo $_GET['search'] ?></b></p>
+                <a class="btn btn-danger" href="<?php echo 'all_pets.php'?>" style="width: 20%">Go Back </a>
         </div>
     <?php } ?>
     <table class="table table-striped table-hover">
@@ -69,7 +70,6 @@ if (isset($_GET["message"])) {
             <th>Action</th>
         </tr>
         </thead>
-
         <?php if (isset($searchResult)){
             while ($row = $searchResult->fetch_assoc()){?>
                 <tr>
