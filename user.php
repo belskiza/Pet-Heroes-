@@ -4,9 +4,16 @@
 
 <head>
     <title><?php echo $user['first_name']." ".$user['last_name'];?></title>
+    <style>
+        .input-group span{
+            background-color: #306844;
+            border-color: #306844;
+            color: white;
+        }
+    </style>
 </head>
-<body>
-<div class="container">
+<body style="background-color: ghostwhite; font-family: Maku;">
+<div class="container" style="width: 65%;">
 
     <div class="row" style="margin-top: 1%; background-color: " >
         <div class="col">
@@ -16,14 +23,14 @@
             <div class="col">
                 <div class="row">
                     <div class="col">
-
+                        <a class="btn btn-danger" href="account.php"style="width: 100%; font-size: 1.4vw">Go back</a>
                     </div>
                     <div class="col">
                         <?php if($_SESSION['acc_type'] == 1){
                             if (!matchExists($conn, $user['user_id'], $_SESSION['user_id'], $pet_id)){ ?>
-                                <a class="btn btn-primary" href="additional/match.inc.php?adopter=<?php echo $user['user_id'];?>&pet=<?php echo $pet_id?>" style="width: 100%;">Match</a>
+                                <a class="btn btn-primary" href="additional/match.inc.php?adopter=<?php echo $user['user_id'];?>&pet=<?php echo $pet_id?>" style="width: 100%; font-size: 1.4vw">Match</a>
                             <?php } else { ?>
-                                <button type="button" class="btn btn-primary" style="width: 100%;" disabled>Already Matched</button>
+                                <button type="button" class="btn btn-primary" style="width: 100%;font-size: 1.4vw" disabled>Already Matched</button>
                             <?php }?>
                        <?php } ?>
                     </div>
@@ -33,36 +40,13 @@
 
     <div class="row">
         <div class="col">
-            <img src="uploads/<?php if(isset($pfp['destination'])) { echo $pfp['destination'];} else { echo 'profile_picture.png';}?>" alt="Card image cap" style="width: 400pt; height: 400pt; object-fit: cover; "/>
+            <img src="uploads/<?php if(isset($pfp['destination'])) { echo $pfp['destination'];} else { echo 'profile_picture.png';}?>" alt="Card image cap" style="width: 100%; height100%: cover; "/>
         </div>
-        <div class="col">
-            <div class="row">
-                <?php if (isset($about_me)){ ?>
-                    <div class="row">
-                        Age: <?php echo $about_me['age']; ?>
-                    </div>
-                    <div class="row">
-                        Sex: <?php echo $about_me['sex']; ?>
-                    </div>
-                    <div class="row">
-                        Living Status: <?php echo $about_me['living_status']; ?>
-                    </div>
-                    <div class="row">
-                        Occupation: <?php echo $about_me['occupation']; ?>
-                    </div>
-                    <div class="row">
-                        Description: <?php echo $about_me['description']; ?>
-                    </div>
-                <?php } else {?>
-                    <h5 class="alert alert-danger">Unfortuantely this user has not completed their about me section yet</h5>
-                <?php } ?>
-            </div>
-            <div class="row">
-
+            <div class="col">
                 <?php if(isset($_GET['pet'])){ ?>
                     <?php $pet = fetchPetFromId($conn, $_GET['pet'])->fetch_assoc();?>
                     <div class="card" style="width: 100%">
-                        <div class="card-header">
+                        <div class="card-header" style="font-size: 1.3vw">
                             Enquiring to adopt:
                         </div>
                         <div class="card-body">
@@ -78,13 +62,62 @@
                             </div>
                         </div>
                     </div>
-               <?php } ?>
+                <?php } ?>
+            </div>
+    </div> <br/>
+        <div class="row">
+            <div class="col-sm-8">
+                <form action="additional/list.inc.php" method="POST" enctype="multipart/form-data" >
+                    <div class="row mb-3">
+                        <div class="input-group col-sm-8" >
+                            <span class="input-group-text" style="width: 20%; font-size: 1.5vw;">Age</span>
+                            <input type="text" name="pet_name" class="form-control" value="<?php echo $about_me['age']; ?>" placeholder="Your age..."
+                                   aria-label="First name" style="font-size: 1.3vw;">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="input-group col-sm-8">
+                            <span class="input-group-text" style="width: 20%; font-size: 1.5vw;"">Sex</span>
+                            <input type="text" name="pet_name" class="form-control" value="<?php echo $about_me['sex']; ?>" placeholder="Your sex..."
+                                   aria-label="First name" style="font-size: 1.3vw;">
+                        </div>
+                        <div class="input-group col-sm-2">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+
+                        <div class="input-group col-sm-8">
+                            <span class="input-group-text" style="width: 40%; font-size: 1.5vw">Occupation</span>
+                            <input type="text" name="pet_name" class="form-control" value="<?php echo $about_me['occupation']; ?>" placeholder="Your occupation..."
+                                   aria-label="First name" style="font-size: 1.3vw;">
+                        </div>
+                        <div class="input-group col-sm-4">
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+            <div class="col-sm-4">
 
             </div>
-
         </div>
-    </div> <br/>
-    <a class="btn btn-danger" href="account.php">Go back</a>
+        <div class="row">
+            <div class="col">
+                    <div class="input-group">
+                        <div class="card" style="width: 100%">
+                            <div class="card-header" style="background-color: #306844; color: white; font-size: 1.5vw; height: 40%; margin-top: 0;">
+                                Description
+                            </div>
+                            <div class="card-body" style="font-size: 1.3vw">
+                                <?php echo $about_me['description']; ?>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+
+
+    <br/>
 </div>
 </body>
 <?php require_once 'footer.php'?>

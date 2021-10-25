@@ -99,31 +99,31 @@ require_once 'additional/swipe.inc.php';?>
 
 <body style="background-color: ghostwhite; font-family: Maku;">
 
-<div class="animation" style="margin-top: -5%">
+<div class="animation" style="width: 65%;margin:auto;">
 <?php $pet = $result[0];
 if (count($pet) > 0){
 $owner = fetchUserFromId($conn, $pet['user_id'])->fetch_assoc();?>
-    <div class="container" style=" width: 80%;">
+    <div class="container">
         <div class="content_img">
-        <img src="files/Group%205.png" style="margin-left: 64%; margin-top: 1%; z-index: 99999; width: 3%; position: absolute;
+        <img src="files/Group%205.png" style="margin-left: 50%; margin-top: 1%; z-index: 99999; width: 3%; position: absolute;
         <?php if($pet['vaccinated'] == 1){
             echo 'width: 3%';
         } else { echo 'width: 0%';}?>"/>
-            <div style="margin-right: 17.5%; background: #0038FF;"> Vaccinated </div>
+            <div style="margin-right: 25%; background: #0038FF;"> Vaccinated </div>
         </div>
         <div class="content_img">
-        <img src="files/Group%206.png" style="margin-left: 68%; margin-top: 1%; z-index: 99999; width: 3%; position: absolute;
+        <img src="files/Group%206.png" style="margin-left: 54%; margin-top: 1%; z-index: 99999; width: 3%; position: absolute;
         <?php if($pet['microchip'] == 1){
             echo 'width: 3%';
         } else { echo 'width: 0%';}?>"/>
-            <div style="margin-right: 14%; background: #1BAD29;"> Microchipped </div>
+            <div style="margin-right: 21%; background: #1BAD29;"> Microchipped </div>
         </div>
         <div class="content_img">
-        <img src="files/Group%207.png" style="margin-left: 72%; margin-top: 1%; z-index: 99999; width: 3%; position: absolute;
+        <img src="files/Group%207.png" style="margin-left: 58%; margin-top: 1%; z-index: 99999; width: 3%; position: absolute;
         <?php if($pet['desexed'] == 1){
             echo 'width: 3%';
         } else { echo 'width: 0%';}?>"/>
-            <div style="margin-right: 10%; background: #ED7200;"> Desexed </div>
+            <div style="margin-right: 16%; background: #ED7200;"> Desexed </div>
         </div>
 
         <div class="carousel"
