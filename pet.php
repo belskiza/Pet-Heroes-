@@ -130,7 +130,7 @@ require_once 'additional/pet.inc.php';
         <div class="row">
             <div class="col-sm-6">
                 <h1 style="font-size: 3.5vw"><?php echo $pet['pet_name']?>, <?php echo $pet['age']?></h1>
-                <h5>Sex: <?php if($pet['gender'] == 1){
+                <h5>Sex: <?php if($pet['gender'] == 2){
                         echo "Female"; } else {
                         echo "Male";
                     }?></h5>
