@@ -1,7 +1,7 @@
 <?php include_once 'header.php'?>
 <body>
+
 <?php require_once 'additional/about_me.inc.php'; ?>
-<img src="files/landing_image_2.jpeg" style="position: fixed; filter: blur(3px) ; width: 110%; margin-top: -10%; margin-left: -5%; z-index: -1">
 <div class="alert alert-secondary" style="margin:auto; margin-top: 1%; padding: 3%; background-color: whitesmoke; width: 50%">
     <form action="additional/about_me.inc.php" method="POST">
         <h1 class="display-6"> About Me </h1>

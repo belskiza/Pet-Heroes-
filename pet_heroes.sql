@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Oct 14, 2021 at 04:06 AM
+-- Generation Time: Oct 25, 2021 at 10:22 AM
 -- Server version: 5.7.32
 -- PHP Version: 7.4.16
 
@@ -42,7 +42,27 @@ CREATE TABLE `about_me` (
 --
 
 INSERT INTO `about_me` (`about_id`, `user_id`, `age`, `sex`, `occupation`, `living_status`, `description`) VALUES
-(8, 3, 21, 'male', 'student', 'renting', 'ufuyguyifit7ftukgyf');
+(9, 3, 21, 'Male', 'Student', 'Renting', 'This is a test description');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `adopted_pets`
+--
+
+CREATE TABLE `adopted_pets` (
+  `adoption_id` int(11) NOT NULL,
+  `pet_id` int(11) NOT NULL,
+  `owner_id` int(11) NOT NULL,
+  `adopter_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `adopted_pets`
+--
+
+INSERT INTO `adopted_pets` (`adoption_id`, `pet_id`, `owner_id`, `adopter_id`) VALUES
+(5, 15, 3, 6);
 
 -- --------------------------------------------------------
 
@@ -63,7 +83,8 @@ CREATE TABLE `matches` (
 
 INSERT INTO `matches` (`match_id`, `pet_id`, `owner_id`, `adopter_id`) VALUES
 (4, 15, 3, 6),
-(5, 23, 3, 6);
+(5, 23, 3, 6),
+(6, 16, 3, 6);
 
 -- --------------------------------------------------------
 
@@ -92,7 +113,19 @@ INSERT INTO `messages` (`message_id`, `sender_id`, `receiver_id`, `contents`, `p
 (6, 3, 6, 'Hi', 15),
 (7, 3, 6, 'hi\r\n', 15),
 (8, 6, 3, 'hi', 15),
-(9, 3, 6, 'Deez', 15);
+(9, 3, 6, 'Deez', 15),
+(10, 3, 6, '', 15),
+(11, 3, 6, 'asd', 15),
+(12, 3, 6, 'no', 15),
+(13, 3, 6, 'asd', 15),
+(14, 3, 6, '', 15),
+(15, 3, 6, '', 15),
+(16, 3, 6, '', 15),
+(17, 3, 6, '', 15),
+(18, 3, 6, '', 15),
+(19, 3, 6, '', 15),
+(20, 3, 6, 'asd', 15),
+(21, 3, 6, 'Hi', 16);
 
 -- --------------------------------------------------------
 
@@ -101,12 +134,20 @@ INSERT INTO `messages` (`message_id`, `sender_id`, `receiver_id`, `contents`, `p
 --
 
 CREATE TABLE `personality_quiz` (
+  `response_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `question1` int(11) NOT NULL,
   `question2` int(11) NOT NULL,
   `question3` int(11) NOT NULL,
   `question4` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `personality_quiz`
+--
+
+INSERT INTO `personality_quiz` (`response_id`, `user_id`, `question1`, `question2`, `question3`, `question4`) VALUES
+(2, 3, 1, 2, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -134,19 +175,22 @@ CREATE TABLE `pets` (
   `gender` int(1) NOT NULL,
   `colour` int(2) NOT NULL,
   `lat` varchar(50) NOT NULL,
-  `lon` varchar(50) NOT NULL
+  `lon` varchar(50) NOT NULL,
+  `valid_listing` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `pets`
 --
 
-INSERT INTO `pets` (`pet_id`, `pet_name`, `location`, `user_id`, `breed`, `age`, `picture_destination`, `description`, `pet_type`, `pet_size`, `vaccinated`, `desexed`, `microchip`, `picture_destination2`, `picture_destination3`, `picture_destination4`, `gender`, `colour`, `lat`, `lon`) VALUES
-(15, 'Tom', 'Tom', '3', 'Tom', '22', '614292ad2f3825.14747559.jpeg', 'Test descriptions', 0, 0, 0, 0, 0, '', '', '', 0, 0, '', ''),
-(16, 'Snoop', 'Brisbane', '3', 'Labrador', '7', '6142d42eb85ff2.81193403.jpeg', 'This is a test ', 2, 3, 1, 1, 1, '', '', '', 0, 0, '', ''),
-(18, 'Snoop', 'Brisbane', '5', 'Labrador', '1', '6142e034ad17b9.84222340.png', 'He is a chocolate Lab', 2, 1, 1, 1, 1, '6142e034ad4793.51293728.jpeg', '6142e034ad5141.25405990.jpeg', '6142e034ad59e7.53884552.jpeg', 0, 0, '', ''),
-(23, 'Pebble', 'Ascot', '3', 'Black Cat', '6', '61524460c04508.35034403.jpeg', 'Pebble is a very friendly cat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vulputate nisl nec eleifend pulvinar. Maecenas tristique lorem velit. Cras vitae dui ac nisl tempus eleifend. Mauris porttitor turpis vel nulla ornare condimentum. In eu risus quam. Cras molestie fringilla urna a scelerisque. Pellentesque faucibus augue non justo luctus, sit amet tincidunt enim volutpat. Quisque rutrum vitae nulla iaculis sagittis. Vivamus id tempus urna. Nunc porta urna consectetur mauris auctor, vel porta mauris tristique. Aenean varius nunc et enim fermentum, ac commodo odio feugiat. Cras viverra elit arcu, at posuere leo congue sit amet. Pellentesque pellentesque magna a dignissim interdum.', 1, 2, 1, 1, 1, '61524460c0c364.48311008.jpeg', '61524460c0e599.25295639.jpeg', '61524460c0f1e6.42236113.jpeg', 1, 2, '', ''),
-(24, 'Daisy', 'Toowong', '4', 'Siamese', '4', '6154e38fa018c1.34755040.jpeg', 'Test description', 1, 2, 1, 1, 1, '6154e38fa036a6.85850019.jpeg', '6154e38fa04f48.16828861.jpeg', '6154e38fa05f11.29932040.jpeg', 2, 2, '', '');
+INSERT INTO `pets` (`pet_id`, `pet_name`, `location`, `user_id`, `breed`, `age`, `picture_destination`, `description`, `pet_type`, `pet_size`, `vaccinated`, `desexed`, `microchip`, `picture_destination2`, `picture_destination3`, `picture_destination4`, `gender`, `colour`, `lat`, `lon`, `valid_listing`) VALUES
+(15, 'Tom', 'Tom', '3', 'Tom', '22', '614292ad2f3825.14747559.jpeg', 'Test descriptions', 0, 0, 0, 0, 0, '', '', '', 0, 0, '', '', 0),
+(16, 'Snoop', 'Brisbane', '3', 'Labrador', '7', '6142d42eb85ff2.81193403.jpeg', 'This is a test ', 2, 3, 1, 1, 1, '', '', '', 0, 0, '', '', 1),
+(18, 'Snoop', 'Brisbane', '5', 'Labrador', '1', '6142e034ad17b9.84222340.png', 'He is a chocolate Lab', 2, 1, 1, 1, 1, '6142e034ad4793.51293728.jpeg', '6142e034ad5141.25405990.jpeg', '6142e034ad59e7.53884552.jpeg', 0, 0, '', '', 1),
+(23, 'Pebble', 'Ascot', '3', 'Black Cat', '6', '61524460c04508.35034403.jpeg', 'Pebble is a very friendly cat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vulputate nisl nec eleifend pulvinar. Maecenas tristique lorem velit. Cras vitae dui ac nisl tempus eleifend. Mauris porttitor turpis vel nulla ornare condimentum. In eu risus quam. Cras molestie fringilla urna a scelerisque. Pellentesque faucibus augue non justo luctus, sit amet tincidunt enim volutpat. Quisque rutrum vitae nulla iaculis sagittis. Vivamus id tempus urna. Nunc porta urna consectetur mauris auctor, vel porta mauris tristique. Aenean varius nunc et enim fermentum, ac commodo odio feugiat. Cras viverra elit arcu, at posuere leo congue sit amet. Pellentesque pellentesque magna a dignissim interdum.', 1, 2, 1, 1, 1, '61524460c0c364.48311008.jpeg', '61524460c0e599.25295639.jpeg', '61524460c0f1e6.42236113.jpeg', 1, 2, '', '', 1),
+(24, 'Daisy', 'Toowong', '4', 'Siamese', '4', '6154e38fa018c1.34755040.jpeg', 'Test description', 1, 2, 1, 1, 1, '6154e38fa036a6.85850019.jpeg', '6154e38fa04f48.16828861.jpeg', '6154e38fa05f11.29932040.jpeg', 2, 2, '', '', 1),
+(25, 'Spot', 'Toowong', '3', 'Dalmatian', '2', '6167b4aba8c8d5.34267740.jpeg', 'This is a test description', 2, 3, 1, 1, 1, '6167b4aba913b6.61998968.jpeg', '6167b4aba93103.73832720.jpeg', '6167b4aba93b11.96857976.jpeg', 1, 1, '-27.49884', '152.9840152', 1),
+(26, 'Pet', 'Brisbane', '3', 'Chihuahau', '21', '61767934417660.55683620.jpeg', 'asdadasdasdad', 1, 2, 1, 1, 1, '61767934419728.22067147.jpeg', '6176793441a028.92246458.jpeg', '6176793441a942.55523952.jpeg', 1, 1, '-27.4988052', '152.9839606', 0);
 
 -- --------------------------------------------------------
 
@@ -223,16 +267,17 @@ INSERT INTO `users` (`user_id`, `username`, `password`, `first_name`, `last_name
 -- Indexes for dumped tables
 --
 
-
-ALTER TABLE `personality_quiz`
-  ADD PRIMARY KEY (`user_id`);
-
-
 --
 -- Indexes for table `about_me`
 --
 ALTER TABLE `about_me`
   ADD PRIMARY KEY (`about_id`);
+
+--
+-- Indexes for table `adopted_pets`
+--
+ALTER TABLE `adopted_pets`
+  ADD PRIMARY KEY (`adoption_id`);
 
 --
 -- Indexes for table `matches`
@@ -245,6 +290,12 @@ ALTER TABLE `matches`
 --
 ALTER TABLE `messages`
   ADD PRIMARY KEY (`message_id`);
+
+--
+-- Indexes for table `personality_quiz`
+--
+ALTER TABLE `personality_quiz`
+  ADD PRIMARY KEY (`response_id`);
 
 --
 -- Indexes for table `pets`
@@ -278,25 +329,37 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `about_me`
 --
 ALTER TABLE `about_me`
-  MODIFY `about_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `about_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `adopted_pets`
+--
+ALTER TABLE `adopted_pets`
+  MODIFY `adoption_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `matches`
 --
 ALTER TABLE `matches`
-  MODIFY `match_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `match_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `message_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `message_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
+--
+-- AUTO_INCREMENT for table `personality_quiz`
+--
+ALTER TABLE `personality_quiz`
+  MODIFY `response_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `pets`
 --
 ALTER TABLE `pets`
-  MODIFY `pet_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `pet_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `profile_pic`

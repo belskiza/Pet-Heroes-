@@ -319,7 +319,6 @@ function loginUser($conn, $username, $password) {
 }
 //
 /**
- * Creates a Pet in the pets table
  * @param $conn
  * @param $name
  * @param $location
@@ -336,26 +335,18 @@ function loginUser($conn, $username, $password) {
  * @param $picture_destination2
  * @param $picture_destination3
  * @param $picture_destination4
+ * @param $gender
+ * @param $colour
+ * @param $lat
+ * @param $lon
  */
 function listPet($conn, $name, $location, $breed, $age ,$user_id, $picture_destination, $description,
                  $pet_type, $size, $vaccinated, $desexed, $microchip, $picture_destination2, $picture_destination3, $picture_destination4
     , $gender, $colour, $lat, $lon){
     $conn->query("INSERT INTO pets (pet_name, location, user_id, breed, age, picture_destination, description,
-pet_type, pet_size, vaccinated, desexed, microchip, picture_destination2, picture_destination3, picture_destination4, gender, colour, lat, lon) VALUES 
+pet_type, pet_size, vaccinated, desexed, microchip, picture_destination2, picture_destination3, picture_destination4, gender, colour, lat, lon, valid_listing) VALUES 
 ('$name', '$location', '$user_id', '$breed', '$age', '$picture_destination', '$description', '$pet_type', '$size', 
-'$vaccinated','$desexed','$microchip', '$picture_destination2', '$picture_destination3', '$picture_destination4', '$gender', '$colour', '$lat', '$lon')") or die ($conn->error);
-    /*
-    $sql =
-
-    $stmt = mysqli_stmt_init($conn);
-    if (!mysqli_stmt_prepare($stmt, $sql)) {
-        header("location: ../sign_up.php?error=stmt_failed");
-        exit();
-    }
-
-    mysqli_stmt_execute($stmt);
-    mysqli_stmt_close($stmt);
-    */
+'$vaccinated','$desexed','$microchip', '$picture_destination2', '$picture_destination3', '$picture_destination4', '$gender', '$colour', '$lat', '$lon', '1')") or die ($conn->error);
     header("location: ../account.php?message=list_success");
     exit();
 }
@@ -421,7 +412,7 @@ function matchExists($conn, $their_id, $your_id, $pet_id){
 }
 
 function fetchPets($conn){
-        $sql = "SELECT * FROM pets;";
+        $sql = "SELECT * FROM pets WHERE valid_listing = '1';";
         // Using a prepared statement to stop the user from being able to write code into the input boxes which could
         // damage the database
         $stmt = mysqli_stmt_init($conn);
@@ -440,7 +431,7 @@ function fetchPets($conn){
 }
 
 function fetchSomePets($conn, $int){
-    $sql = "SELECT * FROM pets ORDER BY pet_id DESC LIMIT 4;";
+    $sql = "SELECT * FROM pets WHERE valid_listing = '1'  ORDER BY pet_id DESC LIMIT 4;";
     // Using a prepared statement to stop the user from being able to write code into the input boxes which could
     // damage the database
     $stmt = mysqli_stmt_init($conn);
@@ -753,23 +744,74 @@ function inputQuizAnswers($conn, $user_id, $question1, $question2, $question3, $
 
 }
 
-/*
-True if quiz has been answered
-False otherwise
-*/
-function quizAnswered($conn, $user_id) {
-
+/**
+ * @param $conn
+ * @param $user_id
+ * @return false|mysqli_result
+ */
+function getQuiAnswersById($conn, $user_id) {
     $sql = "SELECT * FROM personality_quiz WHERE user_id = $user_id";
 
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../account.php?error=stmt_failed");
         exit();
     }
 
     mysqli_stmt_execute($stmt);
 
-    $result = mysqli_stmt_get_result($stmt);
-    
-    return !(mysqli_num_rows($result) == 0);
+    $resultData = mysqli_stmt_get_result($stmt);
+    mysqli_stmt_close($stmt);
 
-}    
+    return $resultData;
+}
+
+function confirmAdoption($conn, $pet_id, $adopter_id, $owner_id){
+    $conn->query("INSERT INTO adopted_pets (pet_id, owner_id, adopter_id) VALUES ('$pet_id', '$owner_id', '$adopter_id')") or die ($conn->error);
+    $sql = "UPDATE pets SET valid_listing = '0' WHERE pet_id = '$pet_id'";
+
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../account.php?error=unexpected_error");
+        exit();
+    }
+
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+
+    $sql = "SELECT * FROM adopted_pets WHERE pet_id = $pet_id;";
+    // Using a prepared statement to stop the user from being able to write code into the input boxes which could
+    // damage the database
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../account.php?error=unexpected_error");
+        exit();
+    }
+
+    mysqli_stmt_execute($stmt);
+
+    $resultData = mysqli_stmt_get_result($stmt);
+    mysqli_stmt_close($stmt);
+
+    $adoption_id = $resultData->fetch_assoc()['adoption_id'];
+
+    header("location: ../adoption.php?adoption=$adoption_id");
+    exit();
+}
+
+function fetchAdoptionById($conn, $adoption_id){
+    $sql = "SELECT * FROM adopted_pets WHERE adoption_id = $adoption_id";
+
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../account.php?error=stmt_failed");
+        exit();
+    }
+
+    mysqli_stmt_execute($stmt);
+
+    $resultData = mysqli_stmt_get_result($stmt);
+    mysqli_stmt_close($stmt);
+
+    return $resultData;
+}
