@@ -154,7 +154,7 @@ require_once 'additional/pet.inc.php';
                     </div>
                     <?php if ($pet['user_id'] == $_SESSION['user_id']){ ?>
                         <div class="col">
-                            <a class="btn btn-secondary" href="list.php?edit=<?php echo $pet['pet_id'];?>" style="width: 100%; background-color: #306844">Edit Listing</a>
+                            <a class="btn btn-lg btn-info" href="list.php?edit=<?php echo $pet['pet_id'];?>" style="width: 100%; background-color: #306844">Edit Listing</a>
                         </div> <?php
                     } else {?>
                         <div class="col">

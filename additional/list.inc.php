@@ -57,7 +57,7 @@ if (isset($_POST['submit'])){
 
     if (in_array($fileActualExt, $allowed)) {
         if ($fileError === 0){
-            if ($fileSize < 10000000) {
+            if ($fileSize < 100000000000) {
                 $fileNameNew = uniqid('', true).".".$fileActualExt;
                 $fileDestination = '../uploads/'.$fileNameNew;
                 move_uploaded_file($fileTmpName, $fileDestination);
@@ -88,7 +88,7 @@ if (isset($_POST['submit'])){
 
         if (in_array($fileActualExt2, $allowed)) {
             if ($fileError2 === 0){
-                if ($fileSize2 < 10000000) {
+                if ($fileSize2 < 100000000000) {
                     $fileNameNew2 = uniqid('', true).".".$fileActualExt2;
                     $fileDestination2 = '../uploads/'.$fileNameNew2;
                     move_uploaded_file($fileTmpName2, $fileDestination2);
@@ -119,7 +119,7 @@ if (isset($_POST['submit'])){
 
         if (in_array($fileActualExt3, $allowed)) {
             if ($fileError3 === 0){
-                if ($fileSize3 < 10000000) {
+                if ($fileSize3 < 100000000000) {
                     $fileNameNew3 = uniqid('', true).".".$fileActualExt3;
                     $fileDestination3 = '../uploads/'.$fileNameNew3;
                     move_uploaded_file($fileTmpName3, $fileDestination3);
@@ -151,7 +151,7 @@ if (isset($_POST['submit'])){
 
         if (in_array($fileActualExt4, $allowed)) {
             if ($fileError4 === 0){
-                if ($fileSize < 10000000) {
+                if ($fileSize < 100000000000) {
                     $fileNameNew4 = uniqid('', true).".".$fileActualExt4;
                     $fileDestination4 = '../uploads/'.$fileNameNew4;
                     move_uploaded_file($fileTmpName4, $fileDestination4);
