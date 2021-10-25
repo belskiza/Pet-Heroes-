@@ -4,11 +4,22 @@ require_once 'additional/message.inc.php'?>
     <title>Chat</title>
 </head>
 
-<body>
-<div class="container">
-    <h1 class="card-title">Conversation with <?php echo $user['first_name'].' '.$user['last_name'];?></h1>
-    <h5 class="card-text">They want to adopt: <?php echo fetchPetFromId($conn, $_GET['pet'])->fetch_assoc()['pet_name'];?></h5>
-    <div class="alert alert-secondary" style="height: 80%">
+<body style="background-color: ghostwhite">
+<div style="width: 65%; margin: auto; ">
+    <h1 class="card-title">Conversation with <a href="user.php?id=<?php echo $user['user_id'];?>&pet=<?php echo $_GET['pet']; ?>">
+            <?php echo $user['first_name'].' '.$user['last_name'];?></a></h1>
+    <div class="row mb-3">
+        <div class="col">
+            <h5 class="card-text">They want to adopt: <?php echo fetchPetFromId($conn, $_GET['pet'])->fetch_assoc()['pet_name'];?></h5>
+        </div>
+        <div class="col" style="text-align: center">
+            <a class="btn btn-success" href="additional/confirm_adoption.inc.php?pet=<?php echo $_GET['pet'];?>&user=<?php echo $user['user_id'];?>" style="width: 80%">Confirm Adoption </a>
+        </div>
+    </div>
+
+</div>
+<div style="width: 65%; margin: auto;max-height: 70%; overflow-y: auto">
+    <div class="alert alert-secondary" style="">
         <?php while ($row = $messages->fetch_assoc()){
             if ($row['sender_id'] == $_SESSION['user_id']){
                 $pfp = fetchProfilePicById($conn,$_SESSION['user_id'])->fetch_assoc();?>
@@ -49,18 +60,26 @@ require_once 'additional/message.inc.php'?>
 
             <?php }?>
        <?php } ?>
-        <form action="additional/message.inc.php"method="post">
-            <input type="hidden" value="<?php echo $their_id ?>" name="receiver_id">
-            <input type="hidden" value="<?php echo $_GET['pet'] ?>" name="pet_id">
-            <div class="mb-3">
-                <label class="form-label">Message:</label>
-                <textarea name="message" class="form-control" id="form-control" value="" placeholder="Message..."></textarea>
-            </div><br/>
-            <div class="row col">
+
+    </div>
+</div>
+<div style="width: 65%; margin:auto;">
+    <form action="additional/message.inc.php"method="post">
+        <input type="hidden" value="<?php echo $their_id ?>" name="receiver_id">
+        <input type="hidden" value="<?php echo $_GET['pet'] ?>" name="pet_id">
+        <div class="mb-3">
+            <label class="form-label">Message:</label>
+            <textarea name="message" class="form-control" id="form-control" value="" placeholder="Message..."></textarea>
+        </div><br/>
+        <div class="row">
+            <div class="col">
+                <a class="btn btn-danger" href="chat.php" style="width: 100%">Go Back </a>
+            </div>
+            <div class="col">
                 <button type="submit" name= "submit" class="btn btn-primary" style="width: 100%">Send</button>
             </div>
-        </form>
-    </div>
+        </div>
+    </form>
 </div>
 
 </body>

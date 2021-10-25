@@ -21,7 +21,7 @@
         }
     </script>
 </head>
-<body >
+<body style="font-family:  Maku;">
 <img src="files/landing_image_1.jpeg" style="position: fixed; filter: blur(3px) ; width: 105%; margin: -5%">
 <?php include_once 'header.php'?>
 <!-- Container for sign up form -->
@@ -44,29 +44,29 @@
         }
         ?>
         <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label" ">Username / Email</label>
+            <label for="exampleFormControlInput1" class="form-label" style="font-size: 1.4vw">Username / Email</label>
             <input type="text" name="username" class="form-control" id="username" placeholder="Username / Email..."
                    value="">
         </div>
         <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label" ">Password</label>
+            <label for="exampleFormControlInput1" class="form-label"  style="font-size: 1.4vw">Password</label>
             <input type="password" name="password" class="form-control" id="password" placeholder="Password...">
         </div>
         <div class ="mb-3">
             <input type="checkbox" name="remember" checked/>
-            <label for="remember_me">Remember me</label>
+            <label for="remember_me"  style="font-size: 1.4vw">Remember me</label>
         </div>
         <div class="row">
             <div class="col">
-                <a class="btn btn-outline-danger" href="<?php echo 'index.php'?>" style="width: 100%">Go Back </a>
+                <a class="btn btn-outline-danger" href="<?php echo 'index.php'?>" style="width: 100% ; font-size: 1.4vw">Go Back </a>
             </div>
             <div class="col">
-                <button type="submit" name= "submit" class="btn btn-primary" style="width: 100%">Log In</button>
+                <button type="submit" name= "submit" class="btn btn-primary" style="width: 100%; font-size: 1.4vw">Log In</button>
             </div>
         </div> <br/>
         <div class="row">
             <div class="col">
-                <a class="btn btn-success" href="<?php echo 'sign_up.php'?>" style="width: 100%">Don't have an account? Sign Up </a>
+                <a class="btn btn-success" href="<?php echo 'sign_up.php'?>" style="width: 100%;font-size: 1.4vw">Don't have an account? Sign Up </a>
             </div>
         </div>
     </form>

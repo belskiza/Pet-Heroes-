@@ -8,6 +8,8 @@ session_start();
 
 $about_me = fetchAboutMeFromId($conn, $_SESSION['user_id'])->fetch_assoc();
 
+$personality = getQuiAnswersById($conn, $_SESSION['user_id'])->fetch_assoc();
+
 if(isset($about_me)){
     $age = $about_me['age'];
     $sex = $about_me['sex'];
@@ -42,3 +44,4 @@ if(isset($_POST['edit'])){
 
     editAboutMe($conn, $_SESSION['user_id'], $age, $sex, $occupation, $living_status, $description);
 }
+
