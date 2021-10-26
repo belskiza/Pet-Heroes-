@@ -58,7 +58,6 @@
         }
     </style>
 </head>
-
 <body style="background-color: ghostwhite; font-family: Maku;">
 <?php include_once 'header.php'?>
 <?php include_once 'additional/allpets.inc.php'?>

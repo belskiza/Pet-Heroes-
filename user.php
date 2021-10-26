@@ -46,7 +46,7 @@
                 <?php if(isset($_GET['pet'])){ ?>
                     <?php $pet = fetchPetFromId($conn, $_GET['pet'])->fetch_assoc();?>
                     <div class="card" style="width: 100%">
-                        <div class="card-header" style="font-size: 1.3vw">
+                        <div class="card-header" style="background-color: #306844; color: white; font-size: 1.5vw;font-size: 1.3vw">
                             Enquiring to adopt:
                         </div>
                         <div class="card-body">
@@ -66,20 +66,26 @@
             </div>
     </div> <br/>
         <div class="row">
-            <div class="col-sm-8">
+            <div class="col-sm" style="background-color: ghostwhite">
                 <form action="additional/list.inc.php" method="POST" enctype="multipart/form-data" >
                     <div class="row mb-3">
-                        <div class="input-group col-sm-8" >
-                            <span class="input-group-text" style="width: 20%; font-size: 1.5vw;">Age</span>
-                            <input type="text" name="pet_name" class="form-control" value="<?php echo $about_me['age']; ?>" placeholder="Your age..."
-                                   aria-label="First name" style="font-size: 1.3vw;">
+                        <div class="input-group col-sm-10" >
+                            <span class="input-group-text" style="width: 10%; font-size: 1.5vw;">Age</span>
+                            <span class="input-group-text" style="width: 50%; font-size: 1.5vw; background-color: white; color: black"> <?php if(isset($about_me)) {
+                                echo $about_me['age']; }
+                              else {
+                                  echo "This user has not set their about information";
+                            } ?></span>
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <div class="input-group col-sm-8">
-                            <span class="input-group-text" style="width: 20%; font-size: 1.5vw;"">Sex</span>
-                            <input type="text" name="pet_name" class="form-control" value="<?php echo $about_me['sex']; ?>" placeholder="Your sex..."
-                                   aria-label="First name" style="font-size: 1.3vw;">
+                        <div class="input-group col-sm-10">
+                            <span class="input-group-text" style="width: 10%; font-size: 1.5vw;"">Sex</span>
+                            <span class="input-group-text span1" style="width: 50%; font-size: 1.5vw; background-color: white; color: black"> <?php if(isset($about_me)) {
+                                    echo $about_me['sex']; }
+                                else {
+                                    echo "This user has not set their about information";
+                                } ?></span>
                         </div>
                         <div class="input-group col-sm-2">
                         </div>
@@ -87,9 +93,12 @@
                     <div class="row mb-3">
 
                         <div class="input-group col-sm-8">
-                            <span class="input-group-text" style="width: 40%; font-size: 1.5vw">Occupation</span>
-                            <input type="text" name="pet_name" class="form-control" value="<?php echo $about_me['occupation']; ?>" placeholder="Your occupation..."
-                                   aria-label="First name" style="font-size: 1.3vw;">
+                            <span class="input-group-text" style="width: 20%; font-size: 1.5vw">Occupation</span>
+                            <span class="input-group-text span1" style="width: 65%; font-size: 1.5vw; background-color: white; color: black"> <?php if(isset($about_me)) {
+                                    echo $about_me['occupation']; }
+                                else {
+                                    echo "This user has not set their about information";
+                                } ?></span>
                         </div>
                         <div class="input-group col-sm-4">
                         </div>
@@ -97,15 +106,12 @@
 
                 </form>
             </div>
-            <div class="col-sm-4">
-
-            </div>
         </div>
         <div class="row">
             <div class="col">
                     <div class="input-group">
                         <div class="card" style="width: 100%">
-                            <div class="card-header" style="background-color: #306844; color: white; font-size: 1.5vw; height: 40%; margin-top: 0;">
+                            <div class="card-header" style="background-color: #306844; color: white; font-size: 1.5vw; height: 50%; margin-top: 0;">
                                 Description
                             </div>
                             <div class="card-body" style="font-size: 1.3vw">

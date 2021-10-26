@@ -78,6 +78,9 @@
             border-color: #306844;
             color: white;
         }
+        .span1 {
+            background-color: white;
+        }
     </style>
     <script>
         sessionStorage.clear();
@@ -129,7 +132,7 @@
             <?php if(!isset($about_me)){ ?>
                 <div class="row">
                     <div class="card" style="width: 100%">
-                        <div class="card-header">
+                        <div class="card-header" style="background-color: #306844; color: white">
                             About me
                         </div>
                         <div class="card-body">
@@ -142,15 +145,14 @@
                     <div class="row mb-3">
                     <div class="input-group col-sm-12" >
                         <span class="input-group-text" style="width: 20%; font-size: 1.5vw;">Age</span>
-                        <input type="text" name="pet_name" class="form-control" value="<?php echo $age;?>" placeholder="Your age..."
-                               aria-label="First name" style="font-size: 1.3vw;">
+                        <span class="input-group-text span1" style="width: 20%; font-size: 1.5vw; background-color: white; color: black"> <?php echo $age;?></span>
+
                     </div>
                     </div>
                 <div class="row mb-3">
                     <div class="input-group col-sm-12">
                         <span class="input-group-text" style="width: 20%; font-size: 1.5vw;"">Sex</span>
-                        <input type="text" name="pet_name" class="form-control" value="<?php echo $sex;?>" placeholder="Your sex..."
-                               aria-label="First name" style="font-size: 1.3vw;">
+                        <span class="input-group-text span1" style="width: 20%; font-size: 1.5vw; background-color: white; color: black"> <?php echo $sex;?></span>
                     </div>
                     <div class="input-group col-sm-2">
                     </div>
@@ -158,9 +160,8 @@
                 <div class="row mb-3">
 
                     <div class="input-group col-sm-12">
-                        <span class="input-group-text" style="width: 40%; font-size: 1.5vw">Occupation</span>
-                        <input type="text" name="pet_name" class="form-control" value="<?php echo $occupation;?>" placeholder="Your occupation..."
-                               aria-label="First name" style="font-size: 1.3vw;">
+                        <span class="input-group-text" style="width: 30%; font-size: 1.5vw">Occupation</span>
+                        <span class="input-group-text span1" style="width: 20%; font-size: 1.5vw; background-color: white; color: black"> <?php echo $occupation;?></span>
                     </div>
                     <div class="input-group col-sm-4">
                     </div>
@@ -180,7 +181,7 @@
         <?php } if (!isset($personality)){ ?>
                     <div class="row">
                         <div class="card" style="width: 100%">
-                            <div class="card-header">
+                            <div class="card-header" style="background-color: #306844; color: white">
                                 Personality Profile
                             </div>
                             <div class="card-body">
@@ -262,7 +263,7 @@
                     <div class="row">
                         <div class="col">
                             <?php if ($pfp['destination'] == null) { ?>
-                                <a class="btn btn-secondary text-right" href="setup_profile_picture.php" style="background-color: #306844">Upload Profile Picture</a>
+                                <a class="btn button text-right" href="setup_profile_picture.php">Upload Profile Picture</a>
                            <?php  } else { ?>
                                 <a class="btn button text-right" href="edit_profile_picture.php">Edit Profile Picture</a>
                            <?php } ?>
