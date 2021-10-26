@@ -39,15 +39,15 @@
 
         <div class="mb-3">
             <div class="row g-3">
+                <div class="col" style="width: 100%">
+                    <a class="btn btn-danger" style="width: 100%" href="account.php">Go Back </a>
+                </div>
                 <div class="col">
                     <button type="<?php if(isset($about_me)){
                         ?>edit<?php } else { ?>submit<?php
                     } ?>" style="width: 100%" name= "<?php if(isset($about_me)){
                         ?>edit<?php } else { ?>submit<?php
                     } ?>" class="btn btn-primary">Confirm</button>
-                </div>
-                <div class="col" style="width: 100%">
-                    <a class="btn btn-danger" style="width: 100%" href="account.php">Go Back </a>
                 </div>
             </div> <br/>
         </div>
