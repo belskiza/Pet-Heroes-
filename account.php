@@ -194,7 +194,7 @@
                     <div class="input-group col-sm-12">
                         <div class="card" style="width: 100%">
                             <div class="card-header" style="background-color: #306844; color: white; font-size: 1.5vw; height: 40%; margin-top: 0;">
-                                Quiz Answers
+                                Quiz Answers:     
                             </div>
                             <div class="card-body" style="font-size: 1.3vw">
                                 <h5><b>Cat or dog person</b></h5>
@@ -242,6 +242,7 @@
                                             echo "No";
                                             break;
                                     }?></p>
+                            <a class="btn button" href="retake_quiz.php" style="margin-left: 5;">Retake Quiz</a>
                             </div>
                         </div>
                     </div>

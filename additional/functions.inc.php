@@ -745,6 +745,31 @@ function inputQuizAnswers($conn, $user_id, $question1, $question2, $question3, $
 }
 
 /**
+ * Update the quiz answers
+ */
+function changeQuizAnswers($conn, $user_id, $question1, $question2, $question3, $question4) {
+    $sql = "UPDATE personality_quiz SET question1 = $question1, question2 = $question2, 
+        question3 = $question3, question4 = $question4 where user_id = '$user_id'"; 
+
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        exit();
+    }
+
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+
+    header("location: ../setup_preferences_done.php");
+    exit();
+}
+
+
+
+
+
+
+
+/**
  * @param $conn
  * @param $user_id
  * @return false|mysqli_result
