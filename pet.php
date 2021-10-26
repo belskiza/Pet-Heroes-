@@ -75,7 +75,7 @@ require_once 'additional/pet.inc.php';
 
         </head>
 
-<body style="font-family: Maku;">
+<body style="font-family: Maku; background-color: ghostwhite">
 <div class="animation" style="margin-top: -5%; background-color: ghostwhite;">
 
 <script>
@@ -136,6 +136,11 @@ require_once 'additional/pet.inc.php';
                     }?></h5>
                 <h5>Size: <?php echo $pet['pet_size']?></h5>
                 <h5>Breed: <?php echo $pet['breed']?></h5>
+                <h5>Active: <?php if ($pet['active'] == 1){
+                        echo "Yes";
+                    } else {
+                    echo "No";
+                    }?></h5>
             </div>
             <div class="col-sm-6">
                 <div class="row">

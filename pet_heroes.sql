@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Oct 25, 2021 at 10:22 AM
+-- Generation Time: Oct 26, 2021 at 12:30 PM
 -- Server version: 5.7.32
 -- PHP Version: 7.4.16
 
@@ -176,21 +176,22 @@ CREATE TABLE `pets` (
   `colour` int(2) NOT NULL,
   `lat` varchar(50) NOT NULL,
   `lon` varchar(50) NOT NULL,
-  `valid_listing` int(1) NOT NULL
+  `valid_listing` int(1) NOT NULL,
+  `active` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `pets`
 --
 
-INSERT INTO `pets` (`pet_id`, `pet_name`, `location`, `user_id`, `breed`, `age`, `picture_destination`, `description`, `pet_type`, `pet_size`, `vaccinated`, `desexed`, `microchip`, `picture_destination2`, `picture_destination3`, `picture_destination4`, `gender`, `colour`, `lat`, `lon`, `valid_listing`) VALUES
-(15, 'Tom', 'Tom', '3', 'Tom', '22', '614292ad2f3825.14747559.jpeg', 'Test descriptions', 0, 0, 0, 0, 0, '', '', '', 0, 0, '', '', 0),
-(16, 'Snoop', 'Brisbane', '3', 'Labrador', '7', '6142d42eb85ff2.81193403.jpeg', 'This is a test ', 2, 3, 1, 1, 1, '', '', '', 0, 0, '', '', 1),
-(18, 'Snoop', 'Brisbane', '5', 'Labrador', '1', '6142e034ad17b9.84222340.png', 'He is a chocolate Lab', 2, 1, 1, 1, 1, '6142e034ad4793.51293728.jpeg', '6142e034ad5141.25405990.jpeg', '6142e034ad59e7.53884552.jpeg', 0, 0, '', '', 1),
-(23, 'Pebble', 'Ascot', '3', 'Black Cat', '6', '61524460c04508.35034403.jpeg', 'Pebble is a very friendly cat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vulputate nisl nec eleifend pulvinar. Maecenas tristique lorem velit. Cras vitae dui ac nisl tempus eleifend. Mauris porttitor turpis vel nulla ornare condimentum. In eu risus quam. Cras molestie fringilla urna a scelerisque. Pellentesque faucibus augue non justo luctus, sit amet tincidunt enim volutpat. Quisque rutrum vitae nulla iaculis sagittis. Vivamus id tempus urna. Nunc porta urna consectetur mauris auctor, vel porta mauris tristique. Aenean varius nunc et enim fermentum, ac commodo odio feugiat. Cras viverra elit arcu, at posuere leo congue sit amet. Pellentesque pellentesque magna a dignissim interdum.', 1, 2, 1, 1, 1, '61524460c0c364.48311008.jpeg', '61524460c0e599.25295639.jpeg', '61524460c0f1e6.42236113.jpeg', 1, 2, '', '', 1),
-(24, 'Daisy', 'Toowong', '4', 'Siamese', '4', '6154e38fa018c1.34755040.jpeg', 'Test description', 1, 2, 1, 1, 1, '6154e38fa036a6.85850019.jpeg', '6154e38fa04f48.16828861.jpeg', '6154e38fa05f11.29932040.jpeg', 2, 2, '', '', 1),
-(25, 'Spot', 'Toowong', '3', 'Dalmatian', '2', '6167b4aba8c8d5.34267740.jpeg', 'This is a test description', 2, 3, 1, 1, 1, '6167b4aba913b6.61998968.jpeg', '6167b4aba93103.73832720.jpeg', '6167b4aba93b11.96857976.jpeg', 1, 1, '-27.49884', '152.9840152', 1),
-(26, 'Pet', 'Brisbane', '3', 'Chihuahau', '21', '61767934417660.55683620.jpeg', 'asdadasdasdad', 1, 2, 1, 1, 1, '61767934419728.22067147.jpeg', '6176793441a028.92246458.jpeg', '6176793441a942.55523952.jpeg', 1, 1, '-27.4988052', '152.9839606', 0);
+INSERT INTO `pets` (`pet_id`, `pet_name`, `location`, `user_id`, `breed`, `age`, `picture_destination`, `description`, `pet_type`, `pet_size`, `vaccinated`, `desexed`, `microchip`, `picture_destination2`, `picture_destination3`, `picture_destination4`, `gender`, `colour`, `lat`, `lon`, `valid_listing`, `active`) VALUES
+(15, 'Tom', 'Tom', '3', 'Tom', '22', '614292ad2f3825.14747559.jpeg', 'Test descriptions', 0, 0, 0, 0, 0, '', '', '', 0, 0, '', '', 0, 0),
+(16, 'Snoop', 'Brisbane', '3', 'Labrador', '7', '6142d42eb85ff2.81193403.jpeg', 'This is a test ', 2, 3, 1, 1, 1, '', '', '', 0, 0, '', '', 1, 0),
+(18, 'Snoop', 'Brisbane', '5', 'Labrador', '1', '6142e034ad17b9.84222340.png', 'He is a chocolate Lab', 2, 1, 1, 1, 1, '6142e034ad4793.51293728.jpeg', '6142e034ad5141.25405990.jpeg', '6142e034ad59e7.53884552.jpeg', 0, 0, '', '', 1, 0),
+(23, 'Pebble', 'Ascot', '3', 'Black Cat', '6', '61524460c04508.35034403.jpeg', 'Pebble is a very friendly cat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vulputate nisl nec eleifend pulvinar. Maecenas tristique lorem velit. Cras vitae dui ac nisl tempus eleifend. Mauris porttitor turpis vel nulla ornare condimentum. In eu risus quam. Cras molestie fringilla urna a scelerisque. Pellentesque faucibus augue non justo luctus, sit amet tincidunt enim volutpat. Quisque rutrum vitae nulla iaculis sagittis. Vivamus id tempus urna. Nunc porta urna consectetur mauris auctor, vel porta mauris tristique. Aenean varius nunc et enim fermentum, ac commodo odio feugiat. Cras viverra elit arcu, at posuere leo congue sit amet. Pellentesque pellentesque magna a dignissim interdum.', 1, 2, 1, 1, 1, '61524460c0c364.48311008.jpeg', '61524460c0e599.25295639.jpeg', '61524460c0f1e6.42236113.jpeg', 1, 2, '', '', 1, 0),
+(24, 'Daisy', 'Toowong', '4', 'Siamese', '4', '6154e38fa018c1.34755040.jpeg', 'Test description', 1, 2, 1, 1, 1, '6154e38fa036a6.85850019.jpeg', '6154e38fa04f48.16828861.jpeg', '6154e38fa05f11.29932040.jpeg', 2, 2, '', '', 1, 0),
+(25, 'Spot', 'Toowong', '3', 'Dalmatian', '2', '6167b4aba8c8d5.34267740.jpeg', 'This is a test description', 2, 3, 1, 1, 1, '6167b4aba913b6.61998968.jpeg', '6167b4aba93103.73832720.jpeg', '6167b4aba93b11.96857976.jpeg', 1, 1, '-27.49884', '152.9840152', 1, 0),
+(26, 'Pet', 'Brisbane', '3', 'Chihuahau', '21', '61767934417660.55683620.jpeg', 'asdadasdasdad', 1, 2, 1, 1, 1, '61767934419728.22067147.jpeg', '6176793441a028.92246458.jpeg', '6176793441a942.55523952.jpeg', 1, 1, '-27.4988052', '152.9839606', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -244,7 +245,7 @@ INSERT INTO `swipes` (`match_id`, `user_id`, `pet_id`, `ticked`, `owner_id`) VAL
 
 CREATE TABLE `users` (
   `user_id` int(11) NOT NULL,
-  `username` varchar(128) NOT NULL,
+  `username` varchar(10) NOT NULL,
   `password` varchar(128) NOT NULL,
   `first_name` varchar(128) NOT NULL,
   `last_name` varchar(128) NOT NULL,
@@ -258,7 +259,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `username`, `password`, `first_name`, `last_name`, `email`, `acc_type`, `phone`) VALUES
-(3, 'dberg99', '$2y$10$Ir7VIUOD.ZO.9cHIqFkg6.68av86pbmOn3nvY/iZRSLUkIPzppnai', 'Dustin', 'Bergman', 'dustinbergman82@gmail.com', 1, '0435110423'),
+(3, 'dberg99', '$2y$10$Ir7VIUOD.ZO.9cHIqFkg6.68av86pbmOn3nvY/iZRSLUkIPzppnai', 'Dustin', 'Bergman', 'dustinbergman82@gmail.com', 0, '0435110423'),
 (4, 'TomTreby', 'user1234', 'Tom', 'Trebilcock', 'TommyT@gmail.com', 0, '0'),
 (5, 'deeznuts', '$2y$10$mYa3XxEEsiacqJnmu/Jx9OQAKmNi8HZJnSj4Lne2ndajRhvdbsFnK', 'Deez', 'Nuts', 'deeznuts@gmail.com', 0, '0'),
 (6, 'admin', '$2y$10$LHLMlojpvADl/sgv7vTB1eDy2zxCSGQbl1nZIAE4qlJ9A6Xd2TaWO', 'admin', 'admin', 'admin@admin.com', 0, '0420420420');
@@ -371,7 +372,7 @@ ALTER TABLE `profile_pic`
 -- AUTO_INCREMENT for table `swipes`
 --
 ALTER TABLE `swipes`
-  MODIFY `match_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `match_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- AUTO_INCREMENT for table `users`

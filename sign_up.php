@@ -83,6 +83,10 @@
                 echo "<div class=\"alert alert-danger\" role=\"alert\">Please select an account type.
                     </div>";
             }
+            else if ($_GET["error"] == "username_too_long") {
+                echo "<div class=\"alert alert-danger\" role=\"alert\">Please enter a username that is 10 characters or less
+                    </div>";
+            }
             echo "</div>";
         }
         ?>

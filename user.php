@@ -13,7 +13,7 @@
     </style>
 </head>
 <body style="background-color: ghostwhite; font-family: Maku;">
-<div class="container" style="width: 65%;">
+<div class="container" style="width: 65%; height: 70%">
 
     <div class="row" style="margin-top: 1%; background-color: " >
         <div class="col">
@@ -40,14 +40,18 @@
 
     <div class="row">
         <div class="col">
-            <img src="uploads/<?php if(isset($pfp['destination'])) { echo $pfp['destination'];} else { echo 'profile_picture.png';}?>" alt="Card image cap" style="width: 100%; height100%: cover; "/>
+            <img src="uploads/<?php if(isset($profile_pic['destination'])) { echo $profile_pic['destination'];} else { echo 'profile_picture.png';}?>" alt="Card image cap" style="width: 100%; height100%: cover; "/>
         </div>
             <div class="col">
                 <?php if(isset($_GET['pet'])){ ?>
                     <?php $pet = fetchPetFromId($conn, $_GET['pet'])->fetch_assoc();?>
                     <div class="card" style="width: 100%">
                         <div class="card-header" style="background-color: #306844; color: white; font-size: 1.5vw;font-size: 1.3vw">
-                            Enquiring to adopt:
+                            <?php if($_SESSION['acc_type'] == 0){
+                                echo "You are Enquiring to adopt:";
+                            } else {
+                                echo "They are trying to adopt:";
+                            } ?>
                         </div>
                         <div class="card-body">
                             <div class="row">

@@ -5,6 +5,9 @@ require_once 'additional/swipe.inc.php';?>
 <head>
     <link rel="stylesheet" href="css/flickity.css" media="screen">
     <script src="css/flickity.pkgd.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 
     <style>
 
@@ -87,6 +90,13 @@ require_once 'additional/swipe.inc.php';?>
         }
     </style>
     <title>Swipe</title>
+
+</head>
+
+<body style="background-color: ghostwhite; font-family: Maku;">
+
+
+<div class="animation" style="width: 65%;margin:auto;">
     <script>
         var myModal = document.getElementById('myModal')
         var myInput = document.getElementById('myInput')
@@ -95,11 +105,6 @@ require_once 'additional/swipe.inc.php';?>
             myInput.focus()
         })
     </script>
-</head>
-
-<body style="background-color: ghostwhite; font-family: Maku;">
-
-<div class="animation" style="width: 65%;margin:auto;">
 <?php $pet = $result[0];
 if (count($pet) > 0){
 $owner = fetchUserFromId($conn, $pet['user_id'])->fetch_assoc();?>
@@ -159,6 +164,11 @@ $owner = fetchUserFromId($conn, $pet['user_id'])->fetch_assoc();?>
                     }?></h5>
                 <h5>Size: <?php echo $pet['pet_size']?></h5>
             <h5>Breed: <?php echo $pet['breed']?></h5>
+            <h5>Active: <?php if ($pet['active'] == 1){
+                    echo "Yes";
+                } else {
+                    echo "No";
+                }?></h5>
         </div>
         <div class="col-sm-6">
             <div class="row">
@@ -178,11 +188,10 @@ $owner = fetchUserFromId($conn, $pet['user_id'])->fetch_assoc();?>
             </div>
             <div class="row" style="margin-top: 1%">
                 <div class="col">
-
                 </div>
                 <?php if ($pet['user_id'] == $_SESSION['user_id']){ ?>
                     <div class="col">
-                        <a class="btn btn-secondary" href="list.php?edit=<?php echo $pet['pet_id'];?>" style="width: 100%; background-color: #306844">Edit Listing</a>
+                        <a class="btn btn-lg btn-info" href="list.php?edit=<?php echo $pet['pet_id'];?>" style="width: 100%; background-color: #306844">Edit Listing</a>
                     </div> <?php
                 } else {?>
                     <div class="col">
@@ -217,7 +226,7 @@ $owner = fetchUserFromId($conn, $pet['user_id'])->fetch_assoc();?>
 
                 </div>
                 <div class="col">
-                <a class="btn btn-lg btn-info" style="width: 100%" href=" http://maps.google.com/?q=<?php echo $pet['lat']?>,<?php echo $pet['lon']?>">Find Location</a>
+                    <a class="btn btn-lg btn-info" style="width: 100%" href=" http://maps.google.com/?q=<?php echo $pet['lat']?>,<?php echo $pet['lon']?>">Find Location</a>
                 </div>
             </div>
         </div>

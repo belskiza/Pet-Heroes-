@@ -33,9 +33,19 @@ function emptyInputEdit($first_name, $last_name, $email, $username) {
 }
 
 function emptyInputList($name, $location, $breed, $age, $user_id, $description, $pet_type,
-                        $size, $vaccinated, $desexed, $microchip, $gender, $colour){
+                        $size, $vaccinated, $desexed, $microchip, $gender, $colour, $active){
     if(empty($name) || empty($location) || empty($breed) || empty($age) || empty($user_id) || empty($description) || empty($pet_type) ||
-    empty($size) || empty($vaccinated) || empty($desexed) || empty($microchip) || empty($gender) || empty($colour)){
+    empty($size) || empty($vaccinated) || empty($desexed) || empty($microchip) || empty($gender) || empty($colour)|| empty($active)){
+        $result = true;
+    } else {
+        $result = false;
+    }
+    return $result;
+
+}
+
+function emptyLatLon($lat, $lon){
+    if(empty($lat) || empty($lon)){
         $result = true;
     } else {
         $result = false;
@@ -342,11 +352,11 @@ function loginUser($conn, $username, $password) {
  */
 function listPet($conn, $name, $location, $breed, $age ,$user_id, $picture_destination, $description,
                  $pet_type, $size, $vaccinated, $desexed, $microchip, $picture_destination2, $picture_destination3, $picture_destination4
-    , $gender, $colour, $lat, $lon){
+    , $gender, $colour, $lat, $lon, $active){
     $conn->query("INSERT INTO pets (pet_name, location, user_id, breed, age, picture_destination, description,
-pet_type, pet_size, vaccinated, desexed, microchip, picture_destination2, picture_destination3, picture_destination4, gender, colour, lat, lon, valid_listing) VALUES 
+pet_type, pet_size, vaccinated, desexed, microchip, picture_destination2, picture_destination3, picture_destination4, gender, colour, lat, lon, valid_listing, active) VALUES 
 ('$name', '$location', '$user_id', '$breed', '$age', '$picture_destination', '$description', '$pet_type', '$size', 
-'$vaccinated','$desexed','$microchip', '$picture_destination2', '$picture_destination3', '$picture_destination4', '$gender', '$colour', '$lat', '$lon', '1')") or die ($conn->error);
+'$vaccinated','$desexed','$microchip', '$picture_destination2', '$picture_destination3', '$picture_destination4', '$gender', '$colour', '$lat', '$lon', '1', '$active')") or die ($conn->error);
     header("location: ../account.php?message=list_success");
     exit();
 }
@@ -616,9 +626,9 @@ function fetchAboutMeFromId($conn, $id){
  * @param $desexed
  * @param $microchip
  */
-function updatePet($conn, $pet_id, $name, $location, $breed, $age, $description, $pet_type, $pet_size, $vaccinated, $desexed, $microchip){
+function updatePet($conn, $pet_id, $name, $location, $breed, $age, $description, $pet_type, $pet_size, $vaccinated, $desexed, $microchip, $active){
     $sql = "UPDATE pets SET pet_name='$name', location='$location', breed='$breed', age='$age', description='$description',
- pet_type='$pet_type', pet_size='$pet_size', vaccinated='$vaccinated', desexed='$desexed', microchip='$microchip' WHERE pet_id='$pet_id';";
+ pet_type='$pet_type', pet_size='$pet_size', vaccinated='$vaccinated', desexed='$desexed', microchip='$microchip', active = '$active' WHERE pet_id='$pet_id';";
     // Using a prepared statement to stop the user from being able to write code into the input boxes which could
     // damage the database
     $stmt = mysqli_stmt_init($conn);
