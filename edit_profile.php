@@ -72,7 +72,7 @@
         .col button {
             font-size: 1.2vw;ß
         }
-    </style>ß
+    </style>
 </head>
 <body style="background-color: ghostwhite; font-family: Maku;">
 <div class="alert alert-secondary" style="margin:auto;padding: 3%; background-color: whitesmoke; width: 65%">
