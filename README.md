@@ -7,7 +7,9 @@
 ## Links
 
 
-- [Deployed on the University of Queensland server](https://pet.uqcloud.net/index.php "Live View")
+- [Deployed on the University of Queensland server](https://pet.uqcloud.net/index.php)
+
+- [Live Demo of Pet Heroes](https://www.youtube.com/watch?v=FhaCKBDGekk&ab_channel=DustinBergman)
 
 
 ## Screenshots
