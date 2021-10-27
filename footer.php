@@ -1,3 +1,7 @@
+<!--
+This page is the footer page. It has information such as the pet name, links to social media and important links to
+certain pages of the website. It is added to every other page and appears at the bottom.
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>

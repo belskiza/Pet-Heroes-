@@ -1,4 +1,7 @@
-
+<!--
+This page is the change account type page. This page allows a user to complete a form which will change the users
+account type from either a adopter to a owner or vice versa.
+-->
 <head>
     <?php
     require_once 'header.php';

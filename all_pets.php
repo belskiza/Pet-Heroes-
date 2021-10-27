@@ -1,3 +1,7 @@
+<!--
+This page is the all pets page. It shows a table of all the pets currently listed. It contains information such as the
+pets main image, name, age, breed, location and contains a view button so the user can view more.
+-->
 <head>
     <?php
     require_once 'header.php';

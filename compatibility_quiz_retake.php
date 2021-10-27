@@ -1,3 +1,6 @@
+<!--
+This page is the compatibility quiz retake page. It allows for the user to retake the quiz.
+-->
 <html>
 <head>
 <?php include_once 'header.php'?>
