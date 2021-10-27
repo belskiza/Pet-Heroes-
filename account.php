@@ -161,7 +161,7 @@
 
                     <div class="input-group col-sm-12">
                         <span class="input-group-text" style="width: 30%; font-size: 1.5vw">Occupation</span>
-                        <span class="input-group-text span1" style="width: 20%; font-size: 1.5vw; background-color: white; color: black"> <?php echo $occupation;?></span>
+                        <span class="input-group-text span1" style="width: 40%; font-size: 1.5vw; background-color: white; color: black"> <?php echo $occupation;?></span>
                     </div>
                     <div class="input-group col-sm-4">
                     </div>
