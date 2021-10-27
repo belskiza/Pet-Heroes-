@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://ibb.co/vP5Pvcx"><img src="blacklogo.png" alt="Pet-Logo-Rounded" width="200" height="200"></a>
+  <a href="https://ibb.co/vP5Pvcx"><img src="blacklogo.png" alt="Pet-Logo-Rounded"></a>
 </p>
 <h1 align="center">Pet Heroes</h1>
 
