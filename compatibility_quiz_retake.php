@@ -96,7 +96,7 @@
 <body>
 
 <div class="container" style="height: 0; margin-top: -1%;">
-    <form action="additional/quiz.php" method="post" id="form1">
+    <form action="additional/quiz_update.php" method="post" id="form1">
         <?php
             if (isset($_GET["message"]) || isset($_GET["error"])) {
                 echo "<div class='row' style='margin-top: 0; height=5%'>";
