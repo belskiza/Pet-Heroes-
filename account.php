@@ -1,3 +1,8 @@
+<!--
+This page is the account page. It displays their account account information and profile picture. If they haven't
+completed their account information, questionnaire or uploaded a profile picture, these options are displayed. If the
+user is an owner, an extra section is down the bottom that shows the pets they listed.
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,14 +34,6 @@
             100% {
                 transform: translateX(0);
             }
-        }
-
-
-
-        .images{
-            position: fixed;
-            margin-left: 75%;
-            margin-top: 1%;
         }
 
         .boxhead a {

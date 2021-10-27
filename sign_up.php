@@ -43,7 +43,7 @@
     }
 </script>
 
-<body >
+<body style="font-family: Maku;">
 <?php include_once 'header.php'?>
 <img src="files/background.jpeg" style="position: fixed; filter: blur(20px) ; width: 105%; margin: -5%; z-index: -1">
 <!-- Container for sign up form -->

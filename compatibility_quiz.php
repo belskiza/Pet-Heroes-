@@ -1,3 +1,7 @@
+<!--
+This page is the compatibility quiz page. It shows a form with the quiz questions that a adopter or owner can answer to
+allow for the matching system to show the user the best fit pets.
+-->
 <html>
 <head>
 <?php include_once 'header.php'?>
@@ -16,10 +20,6 @@
     .header img{
         margin-left: 55%;
         margin-top: 3%;
-    }
-
-    .left_container {
-        margin-top: 3.5%;
     }
 
     .container {
@@ -55,9 +55,7 @@
         margin-top: 1%;
         font-weight: 500;
     }
-    .col-sm-6 {
-        margin-top: 1%;
-    }
+
     .col-sm-6 h1 {
         font-size: 2.5vw;
         color: black;
@@ -74,11 +72,6 @@
         font-size: 2vw;
         color: black;
         font-family: "Chelsea Market";
-    }
-    .images{
-        position: fixed;
-        margin-left: 75%;
-        margin-top: 9%;
     }
 
     .btn{

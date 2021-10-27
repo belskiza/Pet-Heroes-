@@ -1,4 +1,7 @@
-
+<!--
+This page is the edit profile page. It allows a user to change their profile information with a form similar to the
+about me page.
+-->
 <head>
     <?php
     require_once 'header.php';

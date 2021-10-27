@@ -1,3 +1,6 @@
+<!--
+This page is the edit profile picture page. It allows the user to change their profile picture with the one they desire.
+-->
 <html>
 
 <?php include_once 'header.php'?>

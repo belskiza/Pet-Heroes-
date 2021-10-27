@@ -1,5 +1,11 @@
+<!--
+This page is the about me page. It consists of a form that the user fills out if they haven't already completed their
+profile information. It updates their user information in the database and takes them to the account pages once they
+submit.
+-->
+
 <?php include_once 'header.php'?>
-<body>
+<body style="font-family: Maku;">
 
 <?php require_once 'additional/about_me.inc.php'; ?>
 <div class="alert alert-secondary" style="margin:auto; margin-top: 1%; padding: 3%; background-color: whitesmoke; width: 50%">

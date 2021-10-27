@@ -1,3 +1,7 @@
+<!--
+This page appears after the owner has clicked the confirm adoption button. It shows a image of the pet and the
+information of the adopter.
+-->
 <?php include_once "header.php";?>
 <?php include_once "additional/adoption.inc.php";?>
 <head>
