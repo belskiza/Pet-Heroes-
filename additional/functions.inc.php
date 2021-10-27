@@ -953,9 +953,9 @@ function inputQuizAnswers($conn, $user_id, $question1, $question2, $question3, $
  * @param $question4 - question 4 answer
  * @param $question5 - question 5 answer
  */
-function changeQuizAnswers($conn, $user_id, $question1, $question2, $question3, $question4) {
+function changeQuizAnswers($conn, $user_id, $question1, $question2, $question3, $question4, $question5) {
     $sql = "UPDATE personality_quiz SET question1 = $question1, question2 = $question2, 
-        question3 = $question3, question4 = $question4 where user_id = '$user_id'"; 
+        question3 = $question3, question4 = $question4 , question5 = $question5 where user_id = '$user_id'";
 
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
