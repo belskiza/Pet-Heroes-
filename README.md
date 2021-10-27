@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://ibb.co/vP5Pvcx"><img src="blacklogo.png" alt="Pet-Logo-Rounded"></a>
+  <a href="https://ibb.co/vP5Pvcx"><img src="blacklogo.png" alt="Pet-Logo-Rounded" width="40%" height="40%"></a>
 </p>
 <h1 align="center">Pet Heroes</h1>
 
@@ -13,14 +13,6 @@
 
 - [Live Demo of Pet Heroes](https://www.youtube.com/watch?v=FhaCKBDGekk&ab_channel=DustinBergman)
 
-
-## Screenshots
-
-![Home Page](/screenshots/1.png "Home Page")
-
-![](/screenshots/2.png)
-
-![](/screenshots/3.png)
 
 ## How to use Pet Heroes 
 
