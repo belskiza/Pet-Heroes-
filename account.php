@@ -182,11 +182,11 @@
                     <div class="row mb-3">
                         <div class="card" style="width: 100%">
                             <div class="card-header" style="background-color: #306844; color: white">
-                                Personality Profile
+                                Compatibility Quiz
                             </div>
                             <div class="card-body">
-                                <h5 class="card-title">Complete your personality quiz to find pets compatible with you!</h5>
-                                <a class="btn button" href="setup_preferences1.php" >Take Quiz</a>
+                                <h5 class="card-title">Complete your compatibility quiz to get recommended pets that suit your lifestyle!</h5>
+                                <a class="btn button" href="compatibility_quiz.php" >Take Quiz</a>
                             </div>
                         </div>
                     </div> <br/>

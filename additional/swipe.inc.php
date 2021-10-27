@@ -48,10 +48,11 @@ if(!isset($personality)){
             if($pet["pet_size"] <= $living_size){
                 $score += 20;
             }
-            // If the pet is active and the person is active OR if the person is not active and the pet is small or old OR if the person is
-            // active and the pet is big or young
-            if($pet["active"] == $active || $pet["active"] == 0 || $pet["active"] == 1 && ($pet['pet_size'] >= 2 || $pet['age'] <= 6)
-                || $pet["active"] == 2 && ($pet['pet_size'] <= 2 || $pet['age'] >= 6)){
+            // If the pet is active and the person is active
+            // OR if the person is not active and the pet is small or old or a cat
+            // OR if the person is active and the pet is big or young dog
+            if($pet["active"] == $active || $pet["active"] == 0 || $pet["active"] == 1 && ($pet['pet_size'] >= 2 || ($pet['age'] <= 6 && $pet['pet_type'] == 2))
+                || $pet["active"] == 2 && ($pet['pet_size'] <= 2 || $pet['age'] >= 6 || $pet['pet_type'] == 1)){
                 $score += 20;
             }
             // If the person has enough time for a dog or not much time for a cat
