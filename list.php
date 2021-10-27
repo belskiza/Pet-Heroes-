@@ -306,7 +306,7 @@
             function green(position) {
                 var latitude  = position.coords.latitude;
                 var longitude = position.coords.longitude;
-                document.getElementById('lat').value = latitude;
+                document.getElementById('lat').value = latitude;]
                 document.getElementById('long').value = longitude;
                 rightnow.textContent = '';
                 Lmap.href = `https://google.com/maps?q=${latitude},${longitude}`;
