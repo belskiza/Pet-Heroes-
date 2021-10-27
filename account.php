@@ -195,7 +195,7 @@
                     <div class="input-group col-sm-12">
                         <div class="card" style="width: 100%">
                             <div class="card-header" style="background-color: #306844; color: white; font-size: 1.5vw; height: 40%; margin-top: 0;">
-                                Quiz Answers
+                                Quiz Answers:     
                             </div>
                             <div class="card-body" style="font-size: 1.3vw">
                                 <h5><b>Cat or dog person</b></h5>
@@ -266,7 +266,7 @@
                         echo $pfp['destination'];
                     } else {
                         echo 'profile_picture.png';
-                    }?>" alt="Card image cap" style="width: 80%; height: 80%; object-fit: cover; "/>
+                    }?>" alt="Card image caps" style="width: 80%; height: 80%; object-fit: cover; "/>
                 </div>
                 <div class="card-body text-center">
                     <div class="row">

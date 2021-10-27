@@ -26,7 +26,8 @@ if (isset($_POST['submit'])){
     $breed = $_POST['breed'];
     $age = $_POST['age'];
     $user_id = $_SESSION['user_id'];
-    $description = $_POST['description'];
+    $description_text = $_POST['description'];
+    $description = str_replace("'", "''", "$description_text");
     $pet_type = $_POST['pet_type'];
     $size = $_POST['size'];
     $vaccinated = $_POST['vaccinated'];
@@ -212,7 +213,8 @@ if (isset($_POST['update'])){
     $location = $_POST['location'];
     $breed = $_POST['breed'];
     $age = $_POST['age'];
-    $description = $_POST['description'];
+    $description_text = $_POST['description'];
+    $description = str_replace("'", "''", "$description_text");
     $pet_type = $_POST['pet_type'];
     $size = $_POST['size'];
     $vaccinated = $_POST['vaccinated'];

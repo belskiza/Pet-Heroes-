@@ -298,40 +298,31 @@
         </div>
 
     <script>
-        function geoFindMe() {
-
-            const status = document.querySelector('#status');
-            const mapLink = document.querySelector('#map-link');
-
-            mapLink.href = '';
-            mapLink.textContent = '';
-
-            function success(position) {
+        function LocationFinder() {
+            const rightnow = document.querySelector('#status');
+            const Lmap = document.querySelector('#map-link');
+            Lmap.href = '';
+            Lmap.textContent = '';
+            function green(position) {
                 var latitude  = position.coords.latitude;
                 var longitude = position.coords.longitude;
                 document.getElementById('lat').value = latitude;
                 document.getElementById('long').value = longitude;
-
-                status.textContent = '';
-                mapLink.href = `https://google.com/maps?q=${latitude},${longitude}`;
-                mapLink.textContent = '';
-
+                rightnow.textContent = '';
+                Lmap.href = `https://google.com/maps?q=${latitude},${longitude}`;
+                Lmap.textContent = '';
             }
-
-            function error() {
-                status.textContent = 'Unable to retrieve your location';
+            function red() {
+                rightnow.textContent = 'Failed to find your location';
             }
-
             if(!navigator.geolocation) {
-                status.textContent = 'Geolocation is not supported by your browser';
+                rightnow.textContent = 'No support provided for this browser';
             } else {
-                status.textContent = 'Locating…';
-                navigator.geolocation.getCurrentPosition(success, error);
+                rightnow.textContent = 'Trying to locate...';
+                navigator.geolocation.getCurrentPosition(green, red);
             }
-
         }
-
-        document.querySelector('#test').addEventListener('click', geoFindMe);
+        document.querySelector('#test').addEventListener('click', LocationFinder);
     </script>
 
 </body>
