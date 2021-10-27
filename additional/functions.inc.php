@@ -769,7 +769,7 @@ function changeQuizAnswers($conn, $user_id, $question1, $question2, $question3, 
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
 
-    header("location: ../setup_preferences_done.php");
+    header("location: ../quiz_finished.php");
     exit();
 }
 

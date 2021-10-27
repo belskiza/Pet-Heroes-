@@ -75,8 +75,8 @@ require_once 'additional/pet.inc.php';
 
         </head>
 
-<body style="font-family: Maku; background-color: ghostwhite">
-<div class="animation" style="margin-top: -5%; background-color: ghostwhite;">
+<body style="font-family: Maku; background-color: ghostwhite;">
+<div class="animation" style="width:65%; background-color: ghostwhite; margin:auto;">
 
 <script>
     var myModal = document.getElementById('myModal')
@@ -88,27 +88,36 @@ require_once 'additional/pet.inc.php';
 </script>
 <?php $pet = $result;?>
 
-<div class="container" style="margin:auto; width: 80%">
+<div class="container" style="margin:auto; width: 100%">
     <div class="content_img">
-        <img src="files/Group%205.png" style="margin-left: 64%; margin-top: 1%; z-index: 99999; width: 3%; position: absolute;
-        <?php if($pet['vaccinated'] == 1){
-            echo 'width: 3%';
-        } else { echo 'width: 0%';}?>"/>
-        <div style="margin-right: 17.5%; background: #0038FF;"> Vaccinated </div>
+        <img src="files/<?php if($pet['vaccinated'] == 1){
+            echo 'Group%205.png';
+        } else { echo 'grey.png';}?>" style="margin-left: 50%; margin-top: 1%; z-index: 99999; width: 3%; position: absolute; width: 3%"/>
+        <div style="margin-right: 25%; background: <?php if($pet['vaccinated'] == 1){
+            echo ' #0038FF';
+        } else { echo 'grey';}?>;"> <?php if($pet['vaccinated'] == 1){
+                echo ' Vaccinated';
+            } else { echo 'Not Vaccinated';}?> </div>
     </div>
     <div class="content_img">
-        <img src="files/Group%206.png" style="margin-left: 68%; margin-top: 1%; z-index: 99999; width: 3%; position: absolute;
-        <?php if($pet['microchip'] == 1){
-            echo 'width: 3%';
-        } else { echo 'width: 0%';}?>"/>
-        <div style="margin-right: 14%; background: #1BAD29;"> Microchipped </div>
+        <img src="files/<?php if($pet['microchip'] == 1){
+            echo 'Group%206.png';
+        } else { echo 'grey.png';}?>" style="margin-left: 54%; margin-top: 1%; z-index: 99999; width: 3%; position: absolute;width: 3%"/>
+        <div style="margin-right: 21%; background: <?php if($pet['microchip'] == 1){
+            echo ' #1BAD29';
+        } else { echo 'grey';}?>;"> <?php if($pet['microchip'] == 1){
+                echo ' Microchipped';
+            } else { echo 'Not Microchipped';}?> </div>
     </div>
     <div class="content_img">
-        <img src="files/Group%207.png" style="margin-left: 72%; margin-top: 1%; z-index: 99999; width: 3%; position: absolute;
-        <?php if($pet['desexed'] == 1){
-            echo 'width: 3%';
-        } else { echo 'width: 0%';}?>"/>
-        <div style="margin-right: 10%; background: #ED7200;"> Desexed </div>
+        <img src="files/<?php if($pet['desexed'] == 1){
+            echo 'Group%207.png';
+        } else { echo 'grey.png';}?>" style="margin-left: 58%; margin-top: 1%; z-index: 99999; width: 3%; position: absolute;width: 3%"/>
+        <div style="margin-right: 16%; background: <?php if($pet['desexed'] == 1){
+            echo ' #ED7200';
+        } else { echo '#B5B5B5';}?>;"> <?php if($pet['desexed'] == 1){
+                echo ' Desexed';
+            } else { echo 'Not Desexed';}?></div>
     </div>
     <div class="carousel"
          data-flickity='{ "freeScroll": true, "wrapAround": true, "autoPlay": true , "imagesLoaded": true }'>
@@ -151,12 +160,16 @@ require_once 'additional/pet.inc.php';
             <div class="col-sm-6">
                 <div class="row">
                     <div class="col"></div>
-                    <div class="col"></div>
-                        <div class="col-1">
+                    <div class="col-4">
+
                         <img src="uploads/<?php if (isset($pfp['destination'])) echo $pfp['destination']; else echo 'profile_picture.png'?>"
                              style="width: 45px; height: 45px; object-fit: cover; border-radius: 50%"/>
-                        </div>
-                    <div class="col-5 text-center">
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="col"></div>
+                    <div class="col-6 text-center">
                         <h5 style="margin-top: 10px">  <?php echo $owner['first_name']." ".$owner['last_name'];?> </h5>
                     </div>
                 </div>
