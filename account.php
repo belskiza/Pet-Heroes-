@@ -252,7 +252,7 @@
                                             echo "Dark";
                                             break;
                                     }?></p>
-                                <a class="btn button" href="compatability_quiz_retake.php" style="margin-left: 5;">Retake Quiz</a>
+                                <a class="btn button" href="compatibility_quiz_retake.php" style="margin-left: 5;">Retake Quiz</a>
                             </div>
                             
                         </div>
