@@ -13,10 +13,11 @@ require_once 'additional/message.inc.php'?>
             <h5 class="card-text" style="font-size: 2.1vw">They want to adopt: <?php echo fetchPetFromId($conn, $_GET['pet'])->fetch_assoc()['pet_name'];?></h5>
         </div>
         <div class="col" style="text-align: center">
-            <a class="btn btn-success" href="additional/confirm_adoption.inc.php?pet=<?php echo $_GET['pet'];?>&user=<?php echo $user['user_id'];?>" style="width: 80%;font-size: 1.3vw">Confirm Adoption </a>
+            <?php if($_SESSION['acc_type'] == 1){ ?>
+                <a class="btn btn-success" href="additional/confirm_adoption.inc.php?pet=<?php echo $_GET['pet'];?>&user=<?php echo $user['user_id'];?>" style="width: 80%;font-size: 1.3vw">Confirm Adoption </a>
+           <?php }?>
         </div>
     </div>
-
 </div>
 <div style="width: 65%; margin: auto;max-height: 70%; overflow-y: auto">
     <div class="alert alert-secondary" style="background-color: #cacaca">

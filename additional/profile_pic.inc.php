@@ -40,5 +40,5 @@ if (isset($_POST["submit"])) {
 
 uploadProfilePic($conn, $fileNameNew, $_SESSION['user_id']);
 }
-$pfp = fetchProfilePicById($conn, $_SESSION['user_id'])->fetch_assoc();
+$profile_pic = fetchProfilePicById($conn, $_SESSION['user_id'])->fetch_assoc();
 

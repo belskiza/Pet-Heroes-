@@ -73,7 +73,7 @@ if (isset($_GET["message"])) {
         <?php if (isset($searchResult)){
             while ($row = $searchResult->fetch_assoc()){?>
                 <tr>
-                    <td><img src="uploads/<?php echo $row['picture_destination']?>" style="max-width: 150px"/></td>
+                    <td> <a href="pet.php?pet=<?php echo $row['pet_id'];?>"><img src="uploads/<?php echo $row['picture_destination']?>" style="max-width: 150px"/></a></td>
                     <td><b><?php echo $row['pet_name']?></b></td>
                     <td><?php echo $row['breed']?></td>
                     <td><?php echo $row['age']?></td>
@@ -94,7 +94,7 @@ if (isset($_GET["message"])) {
         } else {
             while ($row = $result->fetch_assoc()){?>
                 <tr>
-                    <td><img src="uploads/<?php echo $row['picture_destination']?>" style="max-width: 150px"/></td>
+                    <td> <a href="pet.php?pet=<?php echo $row['pet_id'];?>"><img src="uploads/<?php echo $row['picture_destination']?>" style="max-width: 150px"/</a></td>
                     <td><b><?php echo $row['pet_name']?></b></td>
                     <td><?php echo $row['breed']?></td>
                     <td><?php echo $row['age']?></td>

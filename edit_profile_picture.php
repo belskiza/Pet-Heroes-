@@ -26,8 +26,8 @@
         </h1>
             <div class="card" style="width: 100%; height: 90%;">
                 <div style="width: 100%; height: 100%; margin-left: 10%; margin-top: 10%">
-                    <img src="uploads/<?php if(isset($pfp['destination'])){
-                        echo $pfp['destination'];
+                    <img src="uploads/<?php if(isset($profile_pic['destination'])){
+                        echo $profile_pic['destination'];
                     } else {
                         echo 'profile_picture.png';
                     }?>" alt="Card image cap" style="width: 80%; height: 80%; object-fit: cover; "/>
