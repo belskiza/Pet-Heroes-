@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Oct 26, 2021 at 12:30 PM
+-- Generation Time: Oct 27, 2021 at 02:12 AM
 -- Server version: 5.7.32
 -- PHP Version: 7.4.16
 
@@ -139,15 +139,17 @@ CREATE TABLE `personality_quiz` (
   `question1` int(11) NOT NULL,
   `question2` int(11) NOT NULL,
   `question3` int(11) NOT NULL,
-  `question4` int(11) NOT NULL
+  `question4` int(11) NOT NULL,
+  `question5` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `personality_quiz`
 --
 
-INSERT INTO `personality_quiz` (`response_id`, `user_id`, `question1`, `question2`, `question3`, `question4`) VALUES
-(2, 3, 1, 2, 1, 2);
+INSERT INTO `personality_quiz` (`response_id`, `user_id`, `question1`, `question2`, `question3`, `question4`, `question5`) VALUES
+(3, 3, 3, 3, 2, 2, 2),
+(6, 6, 2, 3, 2, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -185,8 +187,8 @@ CREATE TABLE `pets` (
 --
 
 INSERT INTO `pets` (`pet_id`, `pet_name`, `location`, `user_id`, `breed`, `age`, `picture_destination`, `description`, `pet_type`, `pet_size`, `vaccinated`, `desexed`, `microchip`, `picture_destination2`, `picture_destination3`, `picture_destination4`, `gender`, `colour`, `lat`, `lon`, `valid_listing`, `active`) VALUES
-(15, 'Tom', 'Tom', '3', 'Tom', '22', '614292ad2f3825.14747559.jpeg', 'Test descriptions', 0, 0, 0, 0, 0, '', '', '', 0, 0, '', '', 0, 0),
-(16, 'Snoop', 'Brisbane', '3', 'Labrador', '7', '6142d42eb85ff2.81193403.jpeg', 'This is a test ', 2, 3, 1, 1, 1, '', '', '', 0, 0, '', '', 1, 0),
+(15, 'Tom', 'Tom', '3', 'Tom', '22', '614292ad2f3825.14747559.jpeg', 'Test descriptions', 0, 0, 0, 0, 0, '', '', '', 0, 0, '', '', 0, 1),
+(16, 'Snoop', 'Brisbane', '3', 'Labrador', '7', '6142d42eb85ff2.81193403.jpeg', 'This is a test ', 2, 3, 1, 1, 1, '', '', '', 0, 0, '', '', 1, 1),
 (18, 'Snoop', 'Brisbane', '5', 'Labrador', '1', '6142e034ad17b9.84222340.png', 'He is a chocolate Lab', 2, 1, 1, 1, 1, '6142e034ad4793.51293728.jpeg', '6142e034ad5141.25405990.jpeg', '6142e034ad59e7.53884552.jpeg', 0, 0, '', '', 1, 0),
 (23, 'Pebble', 'Ascot', '3', 'Black Cat', '6', '61524460c04508.35034403.jpeg', 'Pebble is a very friendly cat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vulputate nisl nec eleifend pulvinar. Maecenas tristique lorem velit. Cras vitae dui ac nisl tempus eleifend. Mauris porttitor turpis vel nulla ornare condimentum. In eu risus quam. Cras molestie fringilla urna a scelerisque. Pellentesque faucibus augue non justo luctus, sit amet tincidunt enim volutpat. Quisque rutrum vitae nulla iaculis sagittis. Vivamus id tempus urna. Nunc porta urna consectetur mauris auctor, vel porta mauris tristique. Aenean varius nunc et enim fermentum, ac commodo odio feugiat. Cras viverra elit arcu, at posuere leo congue sit amet. Pellentesque pellentesque magna a dignissim interdum.', 1, 2, 1, 1, 1, '61524460c0c364.48311008.jpeg', '61524460c0e599.25295639.jpeg', '61524460c0f1e6.42236113.jpeg', 1, 2, '', '', 1, 0),
 (24, 'Daisy', 'Toowong', '4', 'Siamese', '4', '6154e38fa018c1.34755040.jpeg', 'Test description', 1, 2, 1, 1, 1, '6154e38fa036a6.85850019.jpeg', '6154e38fa04f48.16828861.jpeg', '6154e38fa05f11.29932040.jpeg', 2, 2, '', '', 1, 0),
@@ -231,11 +233,12 @@ CREATE TABLE `swipes` (
 --
 
 INSERT INTO `swipes` (`match_id`, `user_id`, `pet_id`, `ticked`, `owner_id`) VALUES
-(50, 6, 15, 1, 3),
-(51, 6, 16, 1, 3),
-(52, 6, 18, 1, 5),
-(53, 6, 23, 1, 3),
-(55, 6, 24, 1, 4);
+(63, 6, 18, 1, 5),
+(64, 6, 23, 1, 3),
+(65, 6, 24, 1, 4),
+(66, 6, 16, 1, 3),
+(67, 6, 25, 1, 3),
+(68, 6, 26, 1, 3);
 
 -- --------------------------------------------------------
 
@@ -354,7 +357,7 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT for table `personality_quiz`
 --
 ALTER TABLE `personality_quiz`
-  MODIFY `response_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `response_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `pets`
@@ -372,7 +375,7 @@ ALTER TABLE `profile_pic`
 -- AUTO_INCREMENT for table `swipes`
 --
 ALTER TABLE `swipes`
-  MODIFY `match_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `match_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 
 --
 -- AUTO_INCREMENT for table `users`
