@@ -1,4 +1,6 @@
-
+<p align="center">
+  <a href="https://ibb.co/vP5Pvcx"><img src="blacklogo.png" alt="Pet-Logo-Rounded" width="200" height="200"></a>
+</p>
 <h1 align="center">Pet Heroes</h1>
 
 <p align="center">We are Pet Heroes! Started by a group of university friends, Pet Heroes wants to help stray pets, abandoned pets, and any pet seeking a home find a home. A forever home. So we aim to match ‘Re-homers’ with prospective adopters so that we can reduce, and hopefully one day, eradicate the issue of un-homed pets. We also hope to relieve the stress of both adopters making sure that their pet has an ideal and safe home, and the stress of adoptees making sure they have found the right fit for their family.
