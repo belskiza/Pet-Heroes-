@@ -266,7 +266,7 @@
                         echo $pfp['destination'];
                     } else {
                         echo 'profile_picture.png';
-                    }?>" alt="Card image cap" style="width: 80%; height: 80%; object-fit: cover; "/>
+                    }?>" alt="Card image caps" style="width: 80%; height: 80%; object-fit: cover; "/>
                 </div>
                 <div class="card-body text-center">
                     <div class="row">
