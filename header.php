@@ -136,7 +136,7 @@
                         <img  src="uploads/<?php if(isset($pfp['destination'])){
                             echo $pfp['destination'];
                         } else {
-                            echo 'profile.png';
+                            echo 'profile_picture.png';
                         }?>" style="width: 50px; height:50px; border-radius: 50%;object-fit: cover;">
 
                         <?php echo ucfirst($_SESSION['username']); ?></a>
