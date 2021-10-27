@@ -164,10 +164,8 @@
                             <?php if ($colour == ''){
                                 ?><option selected>Select Colour</option><?php
                             }?>
-                            <option <?php if ($colour == 1){echo 'selected="selected"';} ?> value="1">White</option>
-                            <option <?php if ($colour == 2){echo 'selected="selected"';} ?> value="2">Black</option>
-                            <option <?php if ($colour == 3){echo 'selected="selected"';} ?> value="3">Brown</option>
-                            <option <?php if ($colour == 3){echo 'selected="selected"';} ?> value="3">Cream</option>
+                            <option <?php if ($colour == 1){echo 'selected="selected"';} ?> value="1">Light</option>
+                            <option <?php if ($colour == 2){echo 'selected="selected"';} ?> value="2">Dark</option>
                         </select>
                     </div>
                 </div> <br/>

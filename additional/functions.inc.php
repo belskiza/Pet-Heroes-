@@ -734,10 +734,10 @@ function search($conn, $query){
 /**
  * Input the answers to the quiz into table
 */
-function inputQuizAnswers($conn, $user_id, $question1, $question2, $question3, $question4) {
+function inputQuizAnswers($conn, $user_id, $question1, $question2, $question3, $question4, $question5) {
 
-    $sql = "INSERT INTO personality_quiz(user_id, question1, question2, question3, question4) 
-    VALUES (?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO personality_quiz(user_id, question1, question2, question3, question4, question5) 
+    VALUES (?, ?, ?, ?, ?, ?)";
     
 
     $stmt = mysqli_stmt_init($conn);
@@ -745,7 +745,7 @@ function inputQuizAnswers($conn, $user_id, $question1, $question2, $question3, $
         exit();
     }
    
-    mysqli_stmt_bind_param($stmt, "sdddd", $user_id, $question1, $question2, $question3, $question4);
+    mysqli_stmt_bind_param($stmt, "sddddd", $user_id, $question1, $question2, $question3, $question4, $question5);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
 

@@ -179,7 +179,7 @@
                     </div>
                 </div>
         <?php } if (!isset($personality)){ ?>
-                    <div class="row">
+                    <div class="row mb-3">
                         <div class="card" style="width: 100%">
                             <div class="card-header" style="background-color: #306844; color: white">
                                 Personality Profile
@@ -235,12 +235,21 @@
                                             break;
                                     }?></p>
                                     <h5><b>Active?</b></h5>
-                                <p><?php switch ($personality['question3']){
+                                <p><?php switch ($personality['question4']){
                                         case 1:
                                             echo "Yes";
                                             break;
                                         case 2:
                                             echo "No";
+                                            break;
+                                    }?></p>
+                                <h5><b>Animal Colour Preference</b></h5>
+                                <p><?php switch ($personality['question5']){
+                                        case 1:
+                                            echo "Light";
+                                            break;
+                                        case 2:
+                                            echo "Dark";
                                             break;
                                     }?></p>
                             </div>
