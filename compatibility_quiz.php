@@ -114,7 +114,7 @@
                 <option value="0"">Select</option>
                 <option value="1">Cat Person!</option>
                 <option value="2">Dog Person!</option>
-                <option value="2">Both!</option>
+                <option value="3">Both!</option>
             </select>
 
             <p class='down-one'>
@@ -147,6 +147,17 @@
                 <option value="0">Select</option>
                 <option value="1">Yes</option>
                 <option value="2">No</option>
+            </select>
+
+            <p class='down-one'>
+            </p>
+
+            <label for="exampleDataList" class="form-label"><h4>Do you prefer lighter or darker animals</h4></label>
+            <select name="question5" id="question5" class="form-select" aria-label="Default select example" style="text-align: center; width: 12%;" required>
+                <option value="0">Select</option>
+                <option value="1">Lighter</option>
+                <option value="2">Darker</option>
+                <option value="2">Don't Mind</option>
             </select>
 
             <p class='down-one'>

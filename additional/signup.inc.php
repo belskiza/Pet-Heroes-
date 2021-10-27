@@ -26,6 +26,11 @@ if (isset($_POST["submit"])) {
     require_once'dbh.inc.php';
     require_once'functions.inc.php';
 
+    if(strlen($username) > 10){
+        header("location: ../sign_up.php?error=username_too_long");
+        exit();
+    }
+
 
     if(emptyInputSignup($first_name, $last_name, $email, $username, $password, $password_confirm) !== false) {
         header("location: ../sign_up.php?error=empty_input");

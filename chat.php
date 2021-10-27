@@ -3,7 +3,18 @@
 <head>
     <title>Chat</title>
     <meta http-equiv="refresh" content="5">
-
+    <style>
+        .button {
+            background-color: #306844;
+            border-color: #306844;
+            color: white;
+        }
+        .button:hover {
+            background-color: green;
+            border-color: green;
+            color: white;
+        }
+    </style>
 </head>
 
 <body style="background-color: ghostwhite; font-family: Maku;"">
@@ -26,13 +37,13 @@
                         } else { echo 'profile_picture.png';}?>"  style="width: 45px; height: 45px; object-fit: cover; border-radius: 50%"/>
                     </div>
                     <div class="col">
-                        <h2><a href="user.php?id=<?php echo $user['user_id'];?>&pet=<?php echo $user_pet[1]?>"> <?php echo $user['first_name'].' '.$user['last_name'];?></a></h2>
+                        <h2><a style="color: green" href="user.php?id=<?php echo $user['user_id'];?>&pet=<?php echo $user_pet[1]?>"> <?php echo $user['first_name'].' '.$user['last_name'];?></a></h2>
                     </div>
                     <div class="col">
                         <h5> Enquiring about: <?php echo fetchPetFromId($conn, $user_pet[1])->fetch_assoc()['pet_name'];?></h5>
                     </div>
                     <div class="align-content-end">
-                        <a href="message.php?id=<?php echo $user['user_id']?>&pet=<?php echo $user_pet[1]?>" class="btn btn-lg btn-primary">Chat </a>
+                        <a class="btn button" href="message.php?id=<?php echo $user['user_id']?>&pet=<?php echo $user_pet[1]?>" class="btn btn-lg btn-primary">Chat </a>
                     </div>
                 </div>
             </div>

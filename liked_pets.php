@@ -12,7 +12,6 @@
     <?php include_once 'header.php'?>
     <?php require_once 'additional/mypets.inc.php'?>
     <?php require_once 'additional/profile_pic.inc.php'?>
-    <?php include_once 'sidebar.php'?>
 
     <style>
 
