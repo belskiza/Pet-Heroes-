@@ -81,7 +81,6 @@
                 <div class="col-sm" style="background-color: #306844;">
                     <a  href='index.php' ><img src='files/Logo.PNG' style='width: 70px;margin-right: 50%;'></a>
                 </div>
-                <div class="col-sm"></div>
                 <div class="col-sm" id="navbar-text">
                     <a class='navbar-item' href='all_pets.php' style='font-size: 2vw'>
                         <img src="files/Paw nav.png" style="width: 50px; height: 50px">
@@ -107,9 +106,8 @@
 
                         <?php echo ucfirst($_SESSION['username']); ?></a>
                 </div>
-                <div class="col-sm">
-                </div>
-                <div class="col-sm"></div>
+
+                <div class="col-sm-2" style="background-color: #306844;"></div>
             </div>
         </div>
     <?php } else { ?>
@@ -118,7 +116,6 @@
                 <div class="col-sm">
                     <a href='index.php' ><img src='files/Logo.PNG' style='width: 70px;margin-right: 50%;'></a>
                 </div>
-                <div class="col-sm"></div>
                 <div class="col-sm" id="navbar-text">
                     <a class='navbar-item' href='all_pets.php' style='font-size: 2vw'>
                         <img src="files/Paw nav.png" style="width: 50px; height: 50px">
@@ -144,9 +141,7 @@
 
                         <?php echo ucfirst($_SESSION['username']); ?></a>
                 </div>
-                <div class="col-sm">
-                </div>
-                <div class="col-sm"></div>
+                <div class="col-sm-2" style="background-color: #306844;"></div>
             </div>
         </div>
     <?php }?>
@@ -173,5 +168,6 @@
     <?php
 }
 ?>
+
 <br/>
 </body>

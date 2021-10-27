@@ -49,7 +49,7 @@
         </div>
         <div class = "row">
             <div class = "col">
-                <a class="btn btn-outline-danger" href="<?php echo 'account.php'?>" style="width: 100%" >Go Back </a>
+                <a class="btn btn-danger" href="<?php echo 'account.php'?>" style="width: 100%" >Go Back </a>
             </div>
             <div class = "col">
                 <button class="btn btn-secondary" type="submit" style="width: 100%; background-color: #306844" name="submit">Submit</button>

@@ -58,7 +58,7 @@
         </div>
         <div class="row">
             <div class="col">
-                <a class="btn btn-outline-danger" href="<?php echo 'index.php'?>" style="width: 100% ; font-size: 1.4vw">Go Back </a>
+                <a class="btn btn-danger" href="<?php echo 'index.php'?>" style="width: 100% ; font-size: 1.4vw">Go Back </a>
             </div>
             <div class="col">
                 <button type="submit" name= "submit" class="btn btn-primary" style="width: 100%; font-size: 1.4vw">Log In</button>

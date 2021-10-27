@@ -5,6 +5,9 @@ require_once 'additional/swipe.inc.php';?>
 <head>
     <link rel="stylesheet" href="css/flickity.css" media="screen">
     <script src="css/flickity.pkgd.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 
     <style>
 
@@ -87,6 +90,13 @@ require_once 'additional/swipe.inc.php';?>
         }
     </style>
     <title>Swipe</title>
+
+</head>
+
+<body style="background-color: ghostwhite; font-family: Maku;">
+
+
+<div class="animation" style="width: 65%;margin:auto;">
     <script>
         var myModal = document.getElementById('myModal')
         var myInput = document.getElementById('myInput')
@@ -95,35 +105,39 @@ require_once 'additional/swipe.inc.php';?>
             myInput.focus()
         })
     </script>
-</head>
-
-<body style="background-color: ghostwhite; font-family: Maku;">
-
-<div class="animation" style="width: 65%;margin:auto;">
 <?php $pet = $result[0];
 if (count($pet) > 0){
 $owner = fetchUserFromId($conn, $pet['user_id'])->fetch_assoc();?>
     <div class="container">
         <div class="content_img">
-        <img src="files/Group%205.png" style="margin-left: 50%; margin-top: 1%; z-index: 99999; width: 3%; position: absolute;
-        <?php if($pet['vaccinated'] == 1){
-            echo 'width: 3%';
-        } else { echo 'width: 0%';}?>"/>
-            <div style="margin-right: 25%; background: #0038FF;"> Vaccinated </div>
+        <img src="files/<?php if($pet['vaccinated'] == 1){
+            echo 'Group%205.png';
+        } else { echo 'grey.png';}?>" style="margin-left: 50%; margin-top: 1%; z-index: 99999; width: 3%; position: absolute; width: 3%"/>
+            <div style="margin-right: 25%; background: <?php if($pet['vaccinated'] == 1){
+                echo ' #0038FF';
+            } else { echo 'grey';}?>;"> <?php if($pet['vaccinated'] == 1){
+                    echo ' Vaccinated';
+                } else { echo 'Not Vaccinated';}?> </div>
         </div>
         <div class="content_img">
-        <img src="files/Group%206.png" style="margin-left: 54%; margin-top: 1%; z-index: 99999; width: 3%; position: absolute;
-        <?php if($pet['microchip'] == 1){
-            echo 'width: 3%';
-        } else { echo 'width: 0%';}?>"/>
-            <div style="margin-right: 21%; background: #1BAD29;"> Microchipped </div>
+        <img src="files/<?php if($pet['microchip'] == 1){
+            echo 'Group%206.png';
+        } else { echo 'grey.png';}?>" style="margin-left: 54%; margin-top: 1%; z-index: 99999; width: 3%; position: absolute;width: 3%"/>
+            <div style="margin-right: 21%; background: <?php if($pet['microchip'] == 1){
+                echo ' #1BAD29';
+            } else { echo 'grey';}?>;"> <?php if($pet['microchip'] == 1){
+                    echo ' Microchipped';
+                } else { echo 'Not Microchipped';}?> </div>
         </div>
         <div class="content_img">
-        <img src="files/Group%207.png" style="margin-left: 58%; margin-top: 1%; z-index: 99999; width: 3%; position: absolute;
-        <?php if($pet['desexed'] == 1){
-            echo 'width: 3%';
-        } else { echo 'width: 0%';}?>"/>
-            <div style="margin-right: 16%; background: #ED7200;"> Desexed </div>
+        <img src="files/<?php if($pet['desexed'] == 1){
+            echo 'Group%207.png';
+        } else { echo 'grey.png';}?>" style="margin-left: 58%; margin-top: 1%; z-index: 99999; width: 3%; position: absolute;width: 3%"/>
+            <div style="margin-right: 16%; background: <?php if($pet['desexed'] == 1){
+                echo ' #ED7200';
+            } else { echo '#B5B5B5';}?>;"> <?php if($pet['desexed'] == 1){
+                    echo ' Desexed';
+                } else { echo 'Not Desexed';}?></div>
         </div>
 
         <div class="carousel"
@@ -148,28 +162,42 @@ $owner = fetchUserFromId($conn, $pet['user_id'])->fetch_assoc();?>
                         echo "Female"; } else {
                         echo "Male";
                     }?></h5>
-                <h5>Size: <?php echo $pet['pet_size']?></h5>
+                <h5>Size: <?php if($pet['pet_size'] == 1){
+                    echo "Small";
+                    } else if($pet['pet_size'] == 2){
+                    echo "Medium";
+                    } else if ($pet['pet_size'] == 3){
+                    echo "Large";
+                    }?></h5>
             <h5>Breed: <?php echo $pet['breed']?></h5>
+            <h5>Active: <?php if ($pet['active'] == 1){
+                    echo "Yes";
+                } else {
+                    echo "No";
+                }?></h5>
         </div>
         <div class="col-sm-6">
             <div class="row">
                 <div class="col"></div>
-                <div class="col"></div>
-                <div class="col-1">
+                <div class="col-4">
+
                     <img src="uploads/<?php if (isset($pfp['destination'])) echo $pfp['destination']; else echo 'profile_picture.png'?>"
                          style="width: 45px; height: 45px; object-fit: cover; border-radius: 50%"/>
                 </div>
-                <div class="col-5 text-center">
+            </div>
+            <div class="row">
+
+                <div class="col"></div>
+                <div class="col-6 text-center">
                     <h5 style="margin-top: 10px">  <?php echo $owner['first_name']." ".$owner['last_name'];?> </h5>
                 </div>
             </div>
             <div class="row" style="margin-top: 1%">
                 <div class="col">
-
                 </div>
                 <?php if ($pet['user_id'] == $_SESSION['user_id']){ ?>
                     <div class="col">
-                        <a class="btn btn-secondary" href="list.php?edit=<?php echo $pet['pet_id'];?>" style="width: 100%; background-color: #306844">Edit Listing</a>
+                        <a class="btn btn-lg btn-info" href="list.php?edit=<?php echo $pet['pet_id'];?>" style="width: 100%; background-color: #306844">Edit Listing</a>
                     </div> <?php
                 } else {?>
                     <div class="col">
@@ -204,7 +232,7 @@ $owner = fetchUserFromId($conn, $pet['user_id'])->fetch_assoc();?>
 
                 </div>
                 <div class="col">
-                <a class="btn btn-lg btn-info" style="width: 100%" href=" http://maps.google.com/?q=<?php echo $pet['lat']?>,<?php echo $pet['lon']?>">Find Location</a>
+                    <a class="btn btn-lg btn-info" style="width: 100%" href=" http://maps.google.com/?q=<?php echo $pet['lat']?>,<?php echo $pet['lon']?>">Find Location</a>
                 </div>
             </div>
         </div>

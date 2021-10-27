@@ -83,6 +83,10 @@
                 echo "<div class=\"alert alert-danger\" role=\"alert\">Please select an account type.
                     </div>";
             }
+            else if ($_GET["error"] == "username_too_long") {
+                echo "<div class=\"alert alert-danger\" role=\"alert\">Please enter a username that is 10 characters or less
+                    </div>";
+            }
             echo "</div>";
         }
         ?>
@@ -146,7 +150,7 @@
         <br/>
         <div class="row">
             <div class="col">
-                <a class="btn btn-outline-danger" href="<?php echo 'index.php'?>" style="width: 100%">Go Back </a>
+                <a class="btn btn-danger" href="<?php echo 'index.php'?>" style="width: 100%">Go Back </a>
             </div>
             <div class="col">
                 <button type="submit" name= "submit" class="btn btn-primary text-center" style="width: 100%">Sign Up</button>

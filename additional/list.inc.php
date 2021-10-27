@@ -17,6 +17,7 @@ $desexed = '';
 $microchip = '';
 $gender = '';
 $colour = '';
+$active = '';
 
 
 if (isset($_POST['submit'])){
@@ -35,10 +36,16 @@ if (isset($_POST['submit'])){
     $colour = $_POST['colour'];
     $lat = $_POST["lat"];
     $lon = $_POST["lon"];
+    $active = $_POST["active"];
 
     if(emptyInputList($name, $location, $breed, $age, $user_id, $description, $pet_type,
-            $size, $vaccinated, $desexed, $microchip, $gender, $colour) !== false) {
+            $size, $vaccinated, $desexed, $microchip, $gender, $colour, $active) !== false) {
         header("location: ../list.php?error=empty_input");
+        exit();
+    }
+
+    if(emptyLatLon($lat, $lon) != false) {
+        header("location: ../list.php?error=no_lat_lon");
         exit();
     }
 
@@ -170,7 +177,8 @@ if (isset($_POST['submit'])){
     }
 
     listPet($conn, $name, $location, $breed, $age, $user_id, $fileNameNew, $description,
-    $pet_type, $size, $vaccinated, $desexed, $microchip, $fileNameNew2, $fileNameNew3, $fileNameNew4, $gender, $colour, $lat, $lon);
+    $pet_type, $size, $vaccinated, $desexed, $microchip, $fileNameNew2, $fileNameNew3, $fileNameNew4, $gender,
+        $colour, $lat, $lon, $active);
 }
 
 if (isset($_GET['delete'])){
@@ -194,6 +202,7 @@ if(isset($_GET['edit'])){
         $vaccinated = $row['vaccinated'];
         $desexed = $row['desexed'];
         $microchip = $row['microchip'];
+        $active = $row['active'];
     }
 }
 
@@ -209,14 +218,15 @@ if (isset($_POST['update'])){
     $vaccinated = $_POST['vaccinated'];
     $desexed = $_POST['desexed'];
     $microchip = $_POST['microchip'];
+    $active = $_POST['active'];
 
     if(emptyInputList($name, $location, $breed, $age, $user_id, $description, $pet_type,
-            $size, $vaccinated, $desexed, $microchip, $gender, $colour) !== false) {
+            $size, $vaccinated, $desexed, $microchip, $gender, $colour, $active) !== false) {
         header("location: ../list.php?error=empty_input");
         exit();
     }
 
-    updatePet($conn, $pet_id, $name, $location, $breed, $age, $description, $pet_type, $size, $vaccinated, $desexed, $microchip);
+    updatePet($conn, $pet_id, $name, $location, $breed, $age, $description, $pet_type, $size, $vaccinated, $desexed, $microchip, $active);
 }
 
 

@@ -70,7 +70,7 @@
             font-size: 1.2vw;
         }
         .col button {
-            font-size: 1.2vw;
+            font-size: 1.2vw;ß
         }
     </style>
 </head>
