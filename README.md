@@ -1,6 +1,6 @@
 # Pet-Heroes-
 
-<h1 align="center"><project-name></h1>
+<h1 align="center">PET HEROES</h1>
 
 <p align="center"><project-description></p>
 
