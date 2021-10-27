@@ -13,7 +13,7 @@
     </style>
 </head>
 <body style="background-color: ghostwhite; font-family: Maku;">
-<div class="container" style="width: 65%; height: 70%">
+<div class="container" style="width: 65%">
 
     <div class="row" style="margin-top: 1%; background-color: " >
         <div class="col">
