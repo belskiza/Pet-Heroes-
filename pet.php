@@ -153,7 +153,7 @@ require_once 'additional/pet.inc.php';
                     <div class="col"></div>
                     <div class="col"></div>
                         <div class="col-1">
-                        <img src="uploads/<?php if (isset($pfp['destination'])) echo $pfp['destination']; else echo 'profile_picture.png'?>"
+                        <img src="uploads/<?php if (isset($profile_pic['destination'])) echo $profile_pic['destination']; else echo 'profile_picture.png'?>"
                              style="width: 45px; height: 45px; object-fit: cover; border-radius: 50%"/>
                         </div>
                     <div class="col-5 text-center">
@@ -179,7 +179,7 @@ require_once 'additional/pet.inc.php';
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="exampleModalLabel">Contact Owner</h5>
-                                        <img src="uploads/<?php if (isset($pfp['destination'])) echo $pfp['destination']; else echo 'profile_picture.png'?>"
+                                        <img src="uploads/<?php if (isset($profile_pic['destination'])) echo $profile_pic['destination']; else echo 'profile_picture.png'?>"
                                              style="width: 50px; height: 50px; object-fit: cover; border-radius: 50%"/>
 
                                     </div>

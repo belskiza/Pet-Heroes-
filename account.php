@@ -262,8 +262,8 @@
         <div class="col-sm-6">
             <div class="card" style="width: 100%; height: 98%;">
                 <div style="width: 100%; height: 100%; margin-left: 10%; margin-top: 10%">
-                    <img src="uploads/<?php if(isset($pfp['destination'])){
-                        echo $pfp['destination'];
+                    <img src="uploads/<?php if(isset($profile_pic['destination'])){
+                        echo $profile_pic['destination'];
                     } else {
                         echo 'profile_picture.png';
                     }?>" alt="Card image caps" style="width: 80%; height: 80%; object-fit: cover; "/>
@@ -271,7 +271,7 @@
                 <div class="card-body text-center">
                     <div class="row">
                         <div class="col">
-                            <?php if ($pfp['destination'] == null) { ?>
+                            <?php if ($profile_pic['destination'] == null) { ?>
                                 <a class="btn button text-right" href="setup_profile_picture.php">Upload Profile Picture</a>
                            <?php  } else { ?>
                                 <a class="btn button text-right" href="edit_profile_picture.php">Edit Profile Picture</a>
@@ -319,7 +319,14 @@ if (isset($_GET["message"])) {
 
                 <?php while ($row = $result->fetch_assoc()){?>
                     <tr style="text-align: center">
-                        <td><img src="uploads/<?php echo $row['picture_destination']?>" style="max-width: 150px"/></td>
+                        <td> <?php if($row['valid_listing'] == 1) { ?>
+                            <a href="pet.php?pet=<?php echo $row['pet_id'];?>" >
+                           <?php }?>
+                                <img src="uploads/<?php echo $row['picture_destination']?>" style="max-width: 150px"/>
+                            <?php if($row['valid_listing'] == 1){ ?>
+                                </a>
+                           <?php } ?>
+                        </td>
                         <td><b><?php echo $row['pet_name']?></b></td>
                         <td><?php echo $row['breed']?></td>
                         <td><?php echo $row['age']?></td>

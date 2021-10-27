@@ -107,7 +107,8 @@ require_once 'additional/swipe.inc.php';?>
     </script>
 <?php $pet = $result[0];
 if (count($pet) > 0){
-$owner = fetchUserFromId($conn, $pet['user_id'])->fetch_assoc();?>
+$owner = fetchUserFromId($conn, $pet['user_id'])->fetch_assoc();
+$profile_pic = fetchProfilePicById($conn, $pet['user_id'])->fetch_assoc();?>
     <div class="container">
         <div class="content_img">
         <img src="files/<?php if($pet['vaccinated'] == 1){
@@ -181,7 +182,7 @@ $owner = fetchUserFromId($conn, $pet['user_id'])->fetch_assoc();?>
                 <div class="col"></div>
                 <div class="col-4">
 
-                    <img src="uploads/<?php if (isset($pfp['destination'])) echo $pfp['destination']; else echo 'profile_picture.png'?>"
+                    <img src="uploads/<?php if (isset($profile_pic['destination'])) echo $profile_pic['destination']; else echo 'profile_picture.png'?>"
                          style="width: 45px; height: 45px; object-fit: cover; border-radius: 50%"/>
                 </div>
             </div>
@@ -211,7 +212,7 @@ $owner = fetchUserFromId($conn, $pet['user_id'])->fetch_assoc();?>
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="exampleModalLabel">Contact Owner</h5>
-                                    <img src="uploads/<?php if (isset($pfp['destination'])) echo $pfp['destination']; else echo 'profile_picture.png'?>"
+                                    <img src="uploads/<?php if (isset($profile_pic['destination'])) echo $profile_pic['destination']; else echo 'profile_picture.png'?>"
                                          style="width: 50px; height: 50px; object-fit: cover; border-radius: 50%"/>
 
                                 </div>

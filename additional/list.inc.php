@@ -204,15 +204,17 @@ if(isset($_GET['edit'])){
         $desexed = $row['desexed'];
         $microchip = $row['microchip'];
         $active = $row['active'];
+        $gender = $row['gender'];
+        $colour = $row['colour'];
     }
 }
 
 if (isset($_POST['update'])){
-    $pet_id = $_POST ['pet_id'];
     $name = $_POST['pet_name'];
     $location = $_POST['location'];
     $breed = $_POST['breed'];
     $age = $_POST['age'];
+    $user_id = $_SESSION['user_id'];
     $description_text = $_POST['description'];
     $description = str_replace("'", "''", "$description_text");
     $pet_type = $_POST['pet_type'];
@@ -220,11 +222,13 @@ if (isset($_POST['update'])){
     $vaccinated = $_POST['vaccinated'];
     $desexed = $_POST['desexed'];
     $microchip = $_POST['microchip'];
-    $active = $_POST['active'];
+    $gender = $_POST['gender'];
+    $colour = $_POST['colour'];
+    $active = $_POST["active"];
 
     if(emptyInputList($name, $location, $breed, $age, $user_id, $description, $pet_type,
             $size, $vaccinated, $desexed, $microchip, $gender, $colour, $active) !== false) {
-        header("location: ../list.php?error=empty_input");
+        header("location: ../list.php?edit=$pet_id&error=empty_input");
         exit();
     }
 

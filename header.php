@@ -98,8 +98,8 @@
                 </div>
                 <div class="col-sm" id="navbar-text">
                     <a class='navbar-item' href='account.php' style='font-size: 2vw'>
-                        <img  src="uploads/<?php if(isset($pfp['destination'])){
-                            echo $pfp['destination'];
+                        <img  src="uploads/<?php if(isset($profile_pic['destination'])){
+                            echo $profile_pic['destination'];
                         } else {
                             echo 'profile_picture.png';
                         }?>" style="width: 50px; height:50px; border-radius: 50%;object-fit: cover;">
@@ -133,8 +133,8 @@
                 </div>
                 <div class="col-sm" id="navbar-text">
                     <a class='navbar-item' href='account.php' style='font-size: 2vw'>
-                        <img  src="uploads/<?php if(isset($pfp['destination'])){
-                            echo $pfp['destination'];
+                        <img  src="uploads/<?php if(isset($profile_pic['destination'])){
+                            echo $profile_pic['destination'];
                         } else {
                             echo 'profile_picture.png';
                         }?>" style="width: 50px; height:50px; border-radius: 50%;object-fit: cover;">
