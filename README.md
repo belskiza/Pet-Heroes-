@@ -6,13 +6,9 @@
 
 ## Links
 
-- [Hosted on UQ server] (https://github.com/Rohit19060/<project-name> "<project-name> Repo")
 
-- [Live](<Homepage url> "Live View")
+- [Deployed on the University of Queensland server](https://pet.uqcloud.net/index.php "Live View")
 
-- [Bugs](https://github.com/Rohit19060/<project-name>/issues "Issues Page")
-
-- [API](<API Link> "API")
 
 ## Screenshots
 
