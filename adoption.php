@@ -8,7 +8,7 @@ information of the adopter.
     <title>Congratulations</title>
 </head>
 
-<body style="background-color: ghostwhite">
+<body style="background-color: ghostwhite; height: 100%">
 <div class="container">
     <h1 class="card-title">Adoption Confirmed!</h1>
     <div class="row">
