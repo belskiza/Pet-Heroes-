@@ -102,24 +102,24 @@ about me page.
         <div class="row mb-3">
             <div class="input-group col">
                 <span class="input-group-text">First Name</span>
-                <input type="text" name="pet_name" class="form-control" value="<?php echo $first_name;?>" placeholder="First Name..."
+                <input type="text" name="first_name" class="form-control" value="<?php echo $first_name;?>" placeholder="First Name..."
                        aria-label="First name">
             </div>
             <div class="input-group col">
                 <span class="input-group-text">Last Name</span>
-                <input type="text" name="pet_name" class="form-control" value="<?php echo $last_name;?>" placeholder="Last Name..."
+                <input type="text" name="last_name" class="form-control" value="<?php echo $last_name;?>" placeholder="Last Name..."
                        aria-label="First name">
             </div>
         </div> <br/>
         <div class="row mb-3">
             <div class="input-group col">
                 <span class="input-group-text">Username</span>
-                <input type="text" name="pet_name" class="form-control" value="<?php echo $username;?>" placeholder="Username..."
+                <input type="text" name="username" class="form-control" value="<?php echo $username;?>" placeholder="Username..."
                        aria-label="First name">
             </div>
             <div class="input-group col">
                 <span class="input-group-text">Phone</span>
-                <input type="text" name="pet_name" class="form-control" value="<?php echo $phone;?>" placeholder="Phone..."
+                <input type="text" name="phone" class="form-control" value="<?php echo $phone;?>" placeholder="Phone..."
                        aria-label="First name">
             </div>
         </div> <br/>

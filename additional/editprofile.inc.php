@@ -29,6 +29,8 @@ if (isset($_POST["submit"])) {
     $password_confirm = $_POST["password_confirm"]; */
 
     if (emptyInputEdit($first_name, $last_name, $email, $username) !== false) {
+        var_dump($first_name, $last_name, $email, $username);
+        exit();
         header("location: ../edit_profile.php?error=empty_input");
         exit();
     }
