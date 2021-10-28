@@ -1,3 +1,8 @@
+<!--
+This page is regarding the liked pets of the platform.
+It shows and lists the liked pets within the platform.
+It uses php to retreive the pets from the database.
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>

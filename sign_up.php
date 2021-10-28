@@ -1,3 +1,8 @@
+<!--
+This page is for signing up the users to the platform.
+It allows for users to enter their details which will be added to the database
+which then is used throughout the platform.
+-->
 <html>
 <head>
     <title>Pet Heroes</title>

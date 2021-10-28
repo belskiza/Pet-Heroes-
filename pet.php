@@ -1,3 +1,8 @@
+<!--
+This page is about the pet within the platform.
+It shows key details about the pet fetched from the database after the re-homer has listed it/inserted it into the database.
+These key details include the characteristics of the pet, details about it, location of it's listing and owner details.
+-->
 <?php
 
 require_once 'header.php';
