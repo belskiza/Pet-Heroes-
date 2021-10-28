@@ -210,6 +210,7 @@ if(isset($_GET['edit'])){
 }
 
 if (isset($_POST['update'])){
+    $pet_id = $_POST['pet_id'];
     $name = $_POST['pet_name'];
     $location = $_POST['location'];
     $breed = $_POST['breed'];

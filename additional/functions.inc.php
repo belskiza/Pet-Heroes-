@@ -769,19 +769,9 @@ function fetchAboutMeFromId($conn, $id){
  */
 function updatePet($conn, $pet_id, $name, $location, $breed, $age, $description, $pet_type, $pet_size, $vaccinated,
                    $desexed, $microchip, $active){
-    $sql = "UPDATE pets SET pet_name='$name', location='$location', breed='$breed', age='$age', description='$description',
+    $conn->query("UPDATE pets SET pet_name='$name', location='$location', breed='$breed', age='$age', description='$description',
  pet_type='$pet_type', pet_size='$pet_size', vaccinated='$vaccinated', desexed='$desexed', microchip='$microchip', 
- active = '$active' WHERE pet_id='$pet_id';";
-    // Using a prepared statement to stop the user from being able to write code into the input boxes which could
-    // damage the database
-    $stmt = mysqli_stmt_init($conn);
-    if (!mysqli_stmt_prepare($stmt, $sql)) {
-        header("location: ../account.php?error=stmt_failed");
-        exit();
-    }
-
-    mysqli_stmt_execute($stmt);
-    mysqli_stmt_close($stmt);
+ active = '$active' WHERE pet_id='$pet_id';") or die ($conn->error);
 
     header("location: ../account.php?message=update_success");
     exit();
