@@ -1,3 +1,7 @@
+<!--
+This page is for conducting the quiz for the user and its end result.
+Its main functionality is showing that the quiz is finished and then showing a count down timer.
+-->
 <html>
 
 <?php include_once 'header.php'?>

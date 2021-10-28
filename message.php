@@ -1,3 +1,7 @@
+<!--
+This page is the messaging page of Pet Heroes. This page
+allows users to message each other who matched with each other.
+-->
 <?php require_once 'header.php';
 require_once 'additional/message.inc.php'?>
 <head>

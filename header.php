@@ -1,3 +1,8 @@
+<!--
+This page is the header page. It contains the navigation bar which has a logo, a pets link, a chat link, and an account
+link. For adopters it has a swipe link and for owners it has a list link. Each link has a icon attached to it. This
+nav bar appears at the top of the screen.
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>

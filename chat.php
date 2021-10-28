@@ -1,3 +1,7 @@
+<!--
+This page is the chat page. It contains the current open chats between adopters and owners. It will show information
+about the user and the pet they are either adopting or giving away.
+-->
 <?php require_once 'header.php'?>
 <?php require_once 'additional/chat.inc.php'?>
 <head>

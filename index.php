@@ -1,3 +1,7 @@
+<!--
+This page is the index page. It is the landing page of our website. It consists of a parallax window which has our
+what are we and our goals. It also has the most recent pets listed at the bottom.
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>

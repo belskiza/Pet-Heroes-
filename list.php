@@ -1,3 +1,9 @@
+<!--
+This page is the the listing of a pet. This is used for a re-homer account type to list their pets
+for adoption.
+It consits of fields to enter data into, including a location API and image upload,
+which then links to the database which stores the listed pets data.
+-->
 <?php include_once 'header.php'?>
 <head>
     <style>
@@ -306,7 +312,7 @@
             function green(position) {
                 var latitude  = position.coords.latitude;
                 var longitude = position.coords.longitude;
-                document.getElementById('lat').value = latitude;
+                document.getElementById('lat').value = latitude;]
                 document.getElementById('long').value = longitude;
                 rightnow.textContent = '';
                 Lmap.href = `https://google.com/maps?q=${latitude},${longitude}`;
