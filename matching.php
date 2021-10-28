@@ -1,6 +1,8 @@
+<!--
+This page is the matching page. It consists of the matching functionality and uses functions
+to fetch and update the pets.
+-->
 <!DOCTYPE html>
-
-
 <html lang="en">
 <head>
 

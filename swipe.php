@@ -1,3 +1,8 @@
+<!--
+This page is for the swipe functionality of the adopter.
+It simulates that of a tinder-experience.
+It allows for matching to happen within the platform.
+-->
 <?php require_once 'header.php';
 require_once 'additional/swipe.inc.php';?>
 

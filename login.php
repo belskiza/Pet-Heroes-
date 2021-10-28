@@ -1,3 +1,7 @@
+<!--
+This page is the login page. This gives the website login functionality which allows for
+users of the platform to login.
+-->
 <html>
 <head>
     <title>Pet Heroes</title>

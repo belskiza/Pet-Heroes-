@@ -1,3 +1,6 @@
+<!--
+This page is for setting up the profile picture for the user.
+-->
 <html>
 
 <?php include_once 'header.php'?>

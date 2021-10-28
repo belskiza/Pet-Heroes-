@@ -1,3 +1,8 @@
+<!--
+This page is for the user details.
+This page displays all details regarding the user.
+Simalir to that of a landing page for an account, which shows all details regarding that user.
+-->
 <?php require_once 'additional/user.inc.php'?>
 <?php require_once 'header.php'?>
 <?php $pet_id = $_GET['pet']; ?>
